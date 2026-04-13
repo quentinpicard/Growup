@@ -1,0 +1,246 @@
+// =============================================================================
+// Button.module.scss
+// Jamais de valeur hardcodée — toujours var(--token-*)
+// =============================================================================
+
+// — Base
+.btn {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             var(--spacing-button-gap);
+  padding:         var(--spacing-button-py) var(--spacing-button-px);
+  border-radius:   var(--Radius-Button-btn, 128px);
+  border:          none;
+  cursor:          pointer;
+  font-family:     var(--Font-family-btn);
+  font-weight:     var(--font-weight-400);
+  font-size:       1rem;
+  line-height:     1.5;
+  white-space:     nowrap;
+  width:           fit-content;
+  text-decoration: none;
+  position:        relative;
+
+  // Transitions globales
+  transition:
+    filter        0.2s ease,
+    transform     0.15s ease,
+    box-shadow    0.2s ease,
+    background    0.2s ease,
+    border-color  0.2s ease,
+    color         0.2s ease;
+
+  // ─ États communs ─────────────────────────────────────────────────────────
+
+  &:focus-visible {
+    outline:        3px solid var(--Colors-Focus-Focus);
+    outline-offset: 3px;
+  }
+
+  &:active:not(:disabled):not(.btn--disabled):not(.btn--ghost):not(.btn--text):not(.btn--link) {
+    transform: scale(0.97);
+    filter:    brightness(0.88);
+  }
+}
+
+// — Icône droite
+.btn__icon {
+  display:     inline-flex;
+  align-items: center;
+  width:        24px;
+  height:       24px;
+  flex-shrink:  0;
+
+  svg {
+    width:  100%;
+    height: 100%;
+  }
+}
+
+// — Label
+.btn__label {
+  position: relative;
+}
+
+
+// =============================================================================
+// VARIANTE : Contained (aucune bordure)
+// Effet 3D inset appliqué directement sur le bouton
+// =============================================================================
+
+.btn--contained {
+  border: none;
+  box-shadow:
+    -4px -4px 4px 0 rgba(37, 35, 35, 0.20) inset,
+     4px  4px 4px 0 rgba(248, 247, 247, 0.20) inset;
+
+  &:hover:not(:disabled):not(.btn--disabled) {
+    filter: brightness(1.5);
+    box-shadow:
+      -4px -4px 6px 0 rgba(37, 35, 35, 0.28) inset,
+       4px  4px 6px 0 rgba(248, 247, 247, 0.28) inset;
+  }
+}
+
+// — Primary / Contained
+.btn--primary.btn--contained {
+  background: var(--Colors-Primary-Main, #2F4C33);
+  color:      var(--Colors-Primary-ContrastText, #F8F7F7);
+}
+
+// — Secondary / Contained
+.btn--secondary.btn--contained {
+  background: var(--Colors-Secondary-Main, #5A4C39);
+  color:      var(--Colors-Secondary-ContrastText, #F8F7F7);
+}
+
+// — Tertiary / Contained
+.btn--tertiary.btn--contained {
+  background: var(--Colors-Tertiary-Main, #9B6E0D);
+  color:      var(--Colors-Tertiary-ContrastText, #F8F7F7);
+}
+
+
+// =============================================================================
+// VARIANTE : Outlined (bordure, fond transparent)
+// =============================================================================
+
+.btn--outlined {
+  background: transparent;
+
+  &:hover:not(:disabled):not(.btn--disabled) {
+    filter: brightness(1.1);
+  }
+}
+
+// — Primary / Outlined
+.btn--primary.btn--outlined {
+  border: 1.5px solid var(--Colors-Primary-State-Outline, #375E3D);
+  color:  var(--Colors-Primary-Main, #2F4C33);
+
+  &:hover:not(:disabled):not(.btn--disabled) {
+    background: var(--primitive-primary-200, #E6F2E7);
+  }
+}
+
+// — Secondary / Outlined
+.btn--secondary.btn--outlined {
+  border: 1.5px solid var(--Colors-Secondary-State-Outline, #82754C);
+  color:  var(--Colors-Secondary-Main, #5A4C39);
+
+  &:hover:not(:disabled):not(.btn--disabled) {
+    background: var(--Colors-Secondary-Light, #E9E8D8);
+  }
+}
+
+// — Tertiary / Outlined
+.btn--tertiary.btn--outlined {
+  border: 1.5px solid var(--Colors-Tertiary-State-Outline, #C3980B);
+  color:  var(--Colors-Tertiary-Main, #9B6E0D);
+
+  &:hover:not(:disabled):not(.btn--disabled) {
+    background: var(--Colors-Tertiary-Light, #FCFCC5);
+  }
+}
+
+
+// =============================================================================
+// VARIANTE : Ghost & Text (sans fond ni bordure)
+// =============================================================================
+
+.btn--ghost,
+.btn--text {
+  background:  transparent;
+  border:      none;
+  box-shadow:  none;
+  padding-inline: var(--spacing-2);
+}
+
+.btn--ghost {
+  color: var(--Colors-Primary-Main, #2F4C33);
+
+  &:hover:not(:disabled):not(.btn--disabled) {
+    filter:     none;
+    transform:  none;
+    background: none;
+    box-shadow:  none;
+
+    .btn__label {
+      text-decoration:       underline;
+      text-underline-offset: 3px;
+    }
+  }
+
+  &:active:not(:disabled):not(.btn--disabled) {
+    transform: none;
+    filter:    none;
+  }
+}
+
+.btn--text {
+  color: var(--Colors-Primary-Main, #2F4C33);
+
+  &:hover:not(:disabled):not(.btn--disabled) {
+    filter:     none;
+    transform:  none;
+    background: transparent;
+    box-shadow:  none;
+
+    .btn__label {
+      text-decoration:       underline;
+      text-underline-offset: 3px;
+    }
+  }
+
+  &:active:not(:disabled):not(.btn--disabled) {
+    transform: none;
+    filter:    none;
+  }
+}
+
+
+// =============================================================================
+// MODIFICATEURS
+// =============================================================================
+
+// — Full width
+.btn--full {
+  width: 100%;
+  justify-content: center;
+}
+
+// — Mode lien : aucun effet de hover sauf le soulignement du label
+.btn--link {
+  &:hover:not(:disabled):not(.btn--disabled) {
+    filter:     none;
+    transform:  none;
+    box-shadow:
+      -4px -4px 4px 0 rgba(37, 35, 35, 0.20) inset,
+       4px  4px 4px 0 rgba(248, 247, 247, 0.20) inset;
+    background: inherit;
+
+    .btn__label {
+      text-decoration:       underline;
+      text-underline-offset: 3px;
+    }
+  }
+
+  &:active:not(:disabled):not(.btn--disabled) {
+    transform: none;
+    filter:    none;
+  }
+}
+
+// — Disabled
+.btn--disabled,
+.btn:disabled {
+  background:     var(--Colors-Disabled-Bg, #7F7879) !important;
+  color:          var(--Colors-Disabled-ContrastText, #BFBABA) !important;
+  border-color:   transparent !important;
+  box-shadow:     none !important;
+  cursor:         not-allowed;
+  pointer-events: none;
+  opacity:        1;
+  transition:     none;
+}

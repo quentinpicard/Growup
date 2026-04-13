@@ -1,0 +1,201 @@
+// =============================================================================
+// DesignSystemPage.module.scss
+// =============================================================================
+
+// ── Page wrapper ─────────────────────────────────────────────────────────────
+.page {
+  min-height:       100dvh;
+  background-color: var(--primitive-gray-050);
+  color:            var(--color-text-dark);
+}
+
+// ── Header ───────────────────────────────────────────────────────────────────
+.header {
+  position:         sticky;
+  top:              0;
+  z-index:          100;
+  padding:          var(--spacing-4) var(--spacing-6);
+  background-color: var(--Colors-Primary-Main);
+  display:          flex;
+  align-items:      baseline;
+  gap:              var(--spacing-4);
+  box-shadow:       0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.headerTitle {
+  font-family: var(--Font-family-Title);
+  font-size:   1.5rem;
+  color:       var(--Colors-Primary-ContrastText);
+  font-weight: var(--font-weight-700);
+}
+
+.headerSubtitle {
+  font-family: var(--Font-family-Text);
+  font-size:   0.875rem;
+  color:       var(--Colors-Primary-Light);
+  font-weight: var(--font-weight-400);
+}
+
+// ── Main ─────────────────────────────────────────────────────────────────────
+.main {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--spacing-8);
+  padding:        var(--spacing-8) var(--spacing-6);
+  max-width:      900px;
+  margin-inline:  auto;
+}
+
+// ── Section ──────────────────────────────────────────────────────────────────
+.section {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--spacing-4);
+}
+
+.sectionTitle {
+  font-family:   var(--Font-family-Title);
+  font-size:     1.125rem;
+  font-weight:   var(--font-weight-600);
+  color:         var(--Colors-Primary-Main);
+  padding-bottom: var(--spacing-2);
+  border-bottom: 2px solid var(--Colors-Primary-Light);
+}
+
+.sectionGrid {
+  display:               grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap:                   var(--spacing-3);
+}
+
+// ── Card composant ───────────────────────────────────────────────────────────
+.card {
+  display:          flex;
+  flex-direction:   column;
+  gap:              var(--spacing-2);
+  padding:          var(--spacing-4);
+  background-color: var(--color-light);
+  border-radius:    var(--Radius-Card-M);
+  border:           1px solid var(--primitive-gray-200);
+}
+
+.cardPreview {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  min-height:      64px;
+  padding:         var(--spacing-2);
+}
+
+.cardLabel {
+  font-family: var(--Font-family-Text);
+  font-size:   0.75rem;
+  color:       var(--primitive-gray-600);
+  text-align:  center;
+  font-weight: var(--font-weight-500);
+}
+
+// ── Color swatch ─────────────────────────────────────────────────────────────
+.swatch {
+  display:          flex;
+  flex-direction:   column;
+  gap:              var(--spacing-1);
+  padding:          var(--spacing-3);
+  background-color: var(--color-light);
+  border-radius:    var(--Radius-Card-S);
+  border:           1px solid var(--primitive-gray-200);
+}
+
+.swatchColor {
+  height:        48px;
+  border-radius: var(--Radius-Card-xS);
+  border:        1px solid rgba(0, 0, 0, 0.08);
+}
+
+.swatchLabel {
+  font-family: var(--Font-family-Text);
+  font-size:   0.8rem;
+  font-weight: var(--font-weight-500);
+  color:       var(--color-text-dark);
+}
+
+.swatchVar {
+  font-size:   0.65rem;
+  color:       var(--primitive-gray-500);
+  word-break:  break-all;
+  font-family: 'Courier New', monospace;
+}
+
+// ── Typographie ──────────────────────────────────────────────────────────────
+.typoBlock {
+  grid-column:      1 / -1;
+  display:          flex;
+  flex-direction:   column;
+  gap:              var(--spacing-2);
+  padding:          var(--spacing-4);
+  background-color: var(--color-light);
+  border-radius:    var(--Radius-Card-M);
+  border:           1px solid var(--primitive-gray-200);
+}
+
+.typoRow {
+  display:       flex;
+  flex-direction: column;
+  gap:           var(--spacing-1);
+  padding-block: var(--spacing-2);
+  border-bottom: 1px solid var(--primitive-gray-100);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.typoText {
+  font-size:   1.25rem;
+  color:       var(--color-text-dark);
+}
+
+// ── Spacing ───────────────────────────────────────────────────────────────────
+.spacingBlock {
+  grid-column:      1 / -1;
+  display:          flex;
+  flex-direction:   column;
+  gap:              var(--spacing-2);
+  padding:          var(--spacing-4);
+  background-color: var(--color-light);
+  border-radius:    var(--Radius-Card-M);
+  border:           1px solid var(--primitive-gray-200);
+}
+
+.spacingRow {
+  display:     flex;
+  align-items: center;
+  gap:         var(--spacing-3);
+}
+
+.spacingBar {
+  height:           20px;
+  background-color: var(--Colors-Primary-State-Selected);
+  border-radius:    var(--radius-1);
+  flex-shrink:      0;
+}
+
+// ── Radius ───────────────────────────────────────────────────────────────────
+.radiusSample {
+  width:            64px;
+  height:           64px;
+  background-color: var(--Colors-Primary-Main);
+  border:           2px solid var(--Colors-Primary-State-Outline);
+}
+
+// ── Full width row ────────────────────────────────────────────────────────────
+.fullWidthRow {
+  grid-column:    1 / -1;
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--spacing-3);
+  padding:        var(--spacing-4);
+  background-color: var(--color-light);
+  border-radius:  var(--Radius-Card-M);
+  border:         1px solid var(--primitive-gray-200);
+}

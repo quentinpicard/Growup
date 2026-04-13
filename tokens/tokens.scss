@@ -1,0 +1,284 @@
+// =============================================================================
+// tokens.scss — CSS Custom Properties
+// Source : Light.tokens.json (sémantique) + Mode 1.tokens.json (primitives)
+// Figma  : Design-system PFE — Composant — Variable
+// Règle  : jamais de valeur brute en dehors de ce fichier.
+//          Toujours var(--token-*) dans les composants.
+// =============================================================================
+
+:root {
+
+  // ---------------------------------------------------------------------------
+  // PRIMITIVES — Palette brute (Mode 1.tokens.json)
+  // Préfixe : --primitive-{palette}-{shade}
+  // Usage   : aliasés par les tokens sémantiques ci-dessous.
+  //           Ne pas utiliser directement dans les composants.
+  // ---------------------------------------------------------------------------
+
+  // — Primary (vert)
+  --primitive-primary-050: #F2F8F1;
+  --primitive-primary-100: #E6F2E7;
+  --primitive-primary-200: #CEE4D1;
+  --primitive-primary-300: #A8CDAD;
+  --primitive-primary-400: #79AF81;
+  --primitive-primary-500: #56915F;
+  --primitive-primary-600: #427449;
+  --primitive-primary-700: #375E3D;
+  --primitive-primary-800: #2F4C33;
+  --primitive-primary-900: #283F2C;
+  --primitive-primary-950: #1F3524;
+
+  // — Secondary (brun-olive)
+  --primitive-secondary-050: #F8F5EE;
+  --primitive-secondary-100: #E9E8D8;
+  --primitive-secondary-200: #D4D2B4;
+  --primitive-secondary-300: #BBB689;
+  --primitive-secondary-400: #A79E68;
+  --primitive-secondary-500: #988D5A;
+  --primitive-secondary-600: #82754C;
+  --primitive-secondary-700: #695B3F;
+  --primitive-secondary-800: #5A4C39;
+  --primitive-secondary-900: #4F4334;
+  --primitive-secondary-950: #3B3025;
+
+  // — Tertiary (jaune-doré)
+  --primitive-tertiary-050: #FDFDE9;
+  --primitive-tertiary-100: #FCFCC5;
+  --primitive-tertiary-200: #FAF78E;
+  --primitive-tertiary-300: #F7EC59;
+  --primitive-tertiary-400: #F2DA1D;
+  --primitive-tertiary-500: #E2C210;
+  --primitive-tertiary-600: #C3980B;
+  --primitive-tertiary-700: #9B6E0D;
+  --primitive-tertiary-800: #815712;
+  --primitive-tertiary-900: #6E4715;
+  --primitive-tertiary-950: #402508;
+
+  // — Error (rouge)
+  --primitive-error-050: #FEF2F2;
+  --primitive-error-100: #FEE2E2;
+  --primitive-error-200: #FECACA;
+  --primitive-error-300: #FCA5A5;
+  --primitive-error-400: #F75959;
+  --primitive-error-500: #EF4444;
+  --primitive-error-600: #DC2626;
+  --primitive-error-700: #B91C1C;
+  --primitive-error-800: #991B1B;
+  --primitive-error-900: #7F1D1D;
+  --primitive-error-950: #450A0A;
+
+  // — Warning (orange)
+  --primitive-warning-050: #FFF7ED;
+  --primitive-warning-100: #FEEDD6;
+  --primitive-warning-200: #FCD7AC;
+  --primitive-warning-300: #F9BA78;
+  --primitive-warning-400: #F7A059;
+  --primitive-warning-500: #F3741C;
+  --primitive-warning-600: #E45A12;
+  --primitive-warning-700: #BD4311;
+  --primitive-warning-800: #963616;
+  --primitive-warning-900: #792E15;
+  --primitive-warning-950: #411509;
+
+  // — Success (bleu-indigo, nom Figma)
+  --primitive-success-050: #EDF4FF;
+  --primitive-success-100: #DFEAFF;
+  --primitive-success-200: #C5D8FF;
+  --primitive-success-300: #A1BEFF;
+  --primitive-success-400: #7C98FD;
+  --primitive-success-500: #5970F7;
+  --primitive-success-600: #3F4BEC;
+  --primitive-success-700: #323AD0;
+  --primitive-success-800: #2B33A8;
+  --primitive-success-900: #2A3185;
+  --primitive-success-950: #191C4D;
+
+  // — Gray
+  --primitive-gray-050: #F8F7F7;
+  --primitive-gray-100: #F0EEEE;
+  --primitive-gray-200: #DDDADA;
+  --primitive-gray-300: #BFBABA;
+  --primitive-gray-400: #9B9595;
+  --primitive-gray-500: #7F7879;
+  --primitive-gray-600: #686162;
+  --primitive-gray-700: #554F4F;
+  --primitive-gray-800: #484445;
+  --primitive-gray-900: #3F3B3B;
+  --primitive-gray-950: #252323;
+
+
+  // ---------------------------------------------------------------------------
+  // COULEURS SÉMANTIQUES — Light mode (Light.tokens.json)
+  // Préfixe : --color-{role}-{variant}
+  // ---------------------------------------------------------------------------
+
+  // — Surfaces globales
+  --color-light:   #FFFFFF;
+  --color-dark:    var(--primitive-gray-950);   // #252323
+
+  // — Texte
+  --color-text-dark:  var(--primitive-gray-950);  // #252323
+  --color-text-light: var(--primitive-gray-050);  // #F8F7F7
+
+  // — Focus (global)
+  --color-focus: #FF00E5;
+
+  // — Primary
+  --color-primary-main:           var(--primitive-primary-800);   // #2F4C33
+  --color-primary-dark:           var(--primitive-primary-950);   // #1F3524
+  --color-primary-light:          var(--primitive-primary-100);   // #E6F2E7
+  --color-primary-contrast-text:  var(--primitive-gray-050);      // #F8F7F7
+  --color-primary-state-hover:    rgba(86, 145, 95, 0.75);        // primary-500 @ 75%
+  --color-primary-state-selected: var(--primitive-primary-500);   // #56915F
+  --color-primary-state-focused:  var(--color-focus);             // #FF00E5
+  --color-primary-state-outline:  var(--primitive-primary-700);   // #375E3D
+
+  // — Secondary
+  --color-secondary-main:           var(--primitive-secondary-800); // #5A4C39
+  --color-secondary-dark:           var(--primitive-secondary-950); // #3B3025
+  --color-secondary-light:          var(--primitive-secondary-100); // #E9E8D8
+  --color-secondary-contrast-text:  var(--primitive-gray-050);      // #F8F7F7
+  --color-secondary-state-hover:    rgba(152, 141, 90, 0.5);        // secondary-500 @ 50%
+  --color-secondary-state-selected: var(--primitive-secondary-400); // #A79E68
+  --color-secondary-state-focused:  var(--color-focus);             // #FF00E5
+  --color-secondary-state-outline:  var(--primitive-secondary-600); // #82754C
+
+  // — Tertiary
+  --color-tertiary-main:           var(--primitive-tertiary-700);  // #9B6E0D
+  --color-tertiary-dark:           var(--primitive-tertiary-950);  // #402508
+  --color-tertiary-light:          var(--primitive-tertiary-100);  // #FCFCC5
+  --color-tertiary-contrast-text:  var(--primitive-gray-050);      // #F8F7F7
+  --color-tertiary-state-hover:    rgba(226, 194, 16, 0.5);        // tertiary-500 @ 50%
+  --color-tertiary-state-selected: var(--primitive-tertiary-500);  // #E2C210
+  --color-tertiary-state-focused:  var(--color-focus);             // #FF00E5
+  --color-tertiary-state-outline:  var(--primitive-tertiary-600);  // #C3980B
+
+  // — Success
+  --color-success-main:           var(--primitive-success-400);  // #7C98FD
+  --color-success-dark:           var(--primitive-success-950);  // #191C4D
+  --color-success-light:          var(--primitive-success-100);  // #DFEAFF
+  --color-success-contrast-text:  var(--primitive-gray-050);     // #F8F7F7
+  --color-success-state-hover:    rgba(42, 49, 133, 0.5);        // success-900 @ 50%
+  --color-success-state-selected: var(--primitive-success-900);  // #2A3185
+  --color-success-state-focused:  var(--color-focus);            // #FF00E5
+  --color-success-state-outline:  var(--primitive-success-600);  // #3F4BEC
+
+  // — Warning
+  --color-warning-main:           var(--primitive-warning-400);  // #F7A059
+  --color-warning-dark:           var(--primitive-warning-900);  // #792E15
+  --color-warning-light:          var(--primitive-warning-100);  // #FEEDD6
+  --color-warning-contrast-text:  var(--primitive-gray-050);     // #F8F7F7
+  --color-warning-state-hover:    rgba(121, 46, 21, 0.5);        // warning-900 @ 50%
+  --color-warning-state-selected: var(--primitive-warning-900);  // #792E15
+  --color-warning-state-focused:  var(--color-focus);            // #FF00E5
+  --color-warning-state-outline:  var(--primitive-warning-500);  // #F3741C
+
+  // — Error
+  --color-error-main:           var(--primitive-error-400);   // #F75959
+  --color-error-dark:           var(--primitive-error-900);   // #7F1D1D
+  --color-error-light:          var(--primitive-error-100);   // #FEE2E2
+  --color-error-contrast-text:  var(--primitive-gray-050);    // #F8F7F7
+  --color-error-state-hover:    rgba(127, 29, 29, 0.5);       // error-900 @ 50%
+  --color-error-state-selected: var(--primitive-error-900);   // #7F1D1D
+  --color-error-state-focused:  var(--color-focus);           // #FF00E5
+  --color-error-state-outline:  var(--primitive-error-600);   // #DC2626
+
+  // — Gray
+  --color-gray-main:            var(--primitive-gray-500);  // #7F7879
+  --color-gray-dark:            var(--primitive-gray-950);  // #252323
+  --color-gray-light:           var(--primitive-gray-100);  // #F0EEEE
+  --color-gray-contrast-text:   var(--primitive-gray-050);  // #F8F7F7
+  --color-gray-state-hover:     rgba(30, 41, 57, 0.5);      // slate @ 50%
+  --color-gray-state-active:    var(--primitive-gray-900);  // #3F3B3B
+  --color-gray-state-focused:   var(--color-focus);         // #FF00E5
+  --color-gray-state-outline:   var(--primitive-gray-500);  // #7F7879
+
+  // — Disabled
+  --color-disabled-bg:            var(--primitive-gray-500);  // #7F7879
+  --color-disabled-contrast-text: var(--primitive-gray-300);  // #BFBABA
+
+
+  // ---------------------------------------------------------------------------
+  // SPACING — Échelle 4px (références aliasées dans les tokens Figma)
+  // Préfixe : --spacing-{n}
+  // ---------------------------------------------------------------------------
+
+  --spacing-0:    0px;
+  --spacing-1:    4px;
+  --spacing-1-5:  6px;
+  --spacing-2:    8px;
+  --spacing-2-5:  10px;
+  --spacing-3:    12px;
+  --spacing-3-5:  14px;
+  --spacing-4:    16px;
+  --spacing-5:    20px;
+  --spacing-6:    24px;
+  --spacing-7:    28px;
+  --spacing-8:    32px;
+  --spacing-9:    36px;
+  --spacing-10:   40px;
+  --spacing-11:   44px;
+  --spacing-12:   48px;
+  --spacing-14:   56px;
+  --spacing-16:   64px;
+  --spacing-20:   80px;
+  --spacing-24:   96px;
+  --spacing-32:   128px;
+
+  // — Composant : Button (valeurs Figma confirmées)
+  --spacing-button-px:  var(--spacing-6);   // 24px — padding horizontal
+  --spacing-button-py:  var(--spacing-2);   // 8px  — padding vertical
+  --spacing-button-gap: var(--spacing-2);   // 8px  — gap icône / texte
+
+
+  // ---------------------------------------------------------------------------
+  // BORDER RADIUS (Light.tokens.json → Radius.*)
+  // Préfixe : --radius-{contexte}
+  // ---------------------------------------------------------------------------
+
+  // Primitives radius
+  --radius-0:    0px;
+  --radius-1:    4px;
+  --radius-1-5:  6px;
+  --radius-2:    8px;
+  --radius-3:    12px;
+  --radius-3-5:  14px;
+  --radius-4:    16px;
+  --radius-5:    20px;
+  --radius-6:    24px;
+  --radius-8:    32px;
+  --radius-10:   40px;
+  --radius-16:   64px;
+  --radius-24:   96px;
+  --radius-32:   128px;
+
+  // Sémantique composants
+  --radius-button-btn:  var(--radius-32);   // 128px — pill
+  --radius-card-xs:     var(--radius-1);    // 4px
+  --radius-card-s:      var(--radius-3);    // 12px
+  --radius-card-m:      var(--radius-4);    // 16px
+  --radius-card-l:      var(--radius-6);    // 24px
+  --radius-card-xl:     var(--radius-16);   // 64px
+  --radius-input:       var(--radius-2);    // 8px
+  --radius-tag:         var(--radius-1-5);  // 6px
+
+
+  // ---------------------------------------------------------------------------
+  // TYPOGRAPHIE
+  // Préfixe : --font-family-* / --font-weight-*
+  // ---------------------------------------------------------------------------
+
+  --font-family-title:       'Gabarito', sans-serif;
+  --font-family-subtitle:    'Playpen Sans', cursive;
+  --font-family-text:        'Poppins', sans-serif;
+  --font-family-btn:         'Gabarito', sans-serif;
+  --font-family-tag:         'Playpen Sans', cursive;
+  --font-family-cards-title: 'Playpen Sans', cursive;
+
+  --font-weight-300: 300;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+
+}

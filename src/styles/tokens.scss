@@ -1,0 +1,310 @@
+// =============================================================================
+// src/styles/tokens.scss — CSS Custom Properties
+// Copie de tokens/tokens.scss, placée dans src/ pour l'injection Vite.
+// Source : Light.tokens.json (sémantique) + Mode 1.tokens.json (primitives)
+// =============================================================================
+
+:root {
+
+  // — Primitives couleur
+  --primitive-primary-050: #F2F8F1;
+  --primitive-primary-100: #E6F2E7;
+  --primitive-primary-200: #CEE4D1;
+  --primitive-primary-300: #A8CDAD;
+  --primitive-primary-400: #79AF81;
+  --primitive-primary-500: #56915F;
+  --primitive-primary-600: #427449;
+  --primitive-primary-700: #375E3D;
+  --primitive-primary-800: #2F4C33;
+  --primitive-primary-900: #283F2C;
+  --primitive-primary-950: #1F3524;
+
+  --primitive-secondary-050: #F8F5EE;
+  --primitive-secondary-100: #E9E8D8;
+  --primitive-secondary-200: #D4D2B4;
+  --primitive-secondary-300: #BBB689;
+  --primitive-secondary-400: #A79E68;
+  --primitive-secondary-500: #988D5A;
+  --primitive-secondary-600: #82754C;
+  --primitive-secondary-700: #695B3F;
+  --primitive-secondary-800: #5A4C39;
+  --primitive-secondary-900: #4F4334;
+  --primitive-secondary-950: #3B3025;
+
+  --primitive-tertiary-050: #FDFDE9;
+  --primitive-tertiary-100: #FCFCC5;
+  --primitive-tertiary-200: #FAF78E;
+  --primitive-tertiary-300: #F7EC59;
+  --primitive-tertiary-400: #F2DA1D;
+  --primitive-tertiary-500: #E2C210;
+  --primitive-tertiary-600: #C3980B;
+  --primitive-tertiary-700: #9B6E0D;
+  --primitive-tertiary-800: #815712;
+  --primitive-tertiary-900: #6E4715;
+  --primitive-tertiary-950: #402508;
+
+  --primitive-error-050: #FEF2F2;
+  --primitive-error-100: #FEE2E2;
+  --primitive-error-200: #FECACA;
+  --primitive-error-300: #FCA5A5;
+  --primitive-error-400: #F75959;
+  --primitive-error-500: #EF4444;
+  --primitive-error-600: #DC2626;
+  --primitive-error-700: #B91C1C;
+  --primitive-error-800: #991B1B;
+  --primitive-error-900: #7F1D1D;
+  --primitive-error-950: #450A0A;
+
+  --primitive-warning-050: #FFF7ED;
+  --primitive-warning-100: #FEEDD6;
+  --primitive-warning-200: #FCD7AC;
+  --primitive-warning-300: #F9BA78;
+  --primitive-warning-400: #F7A059;
+  --primitive-warning-500: #F3741C;
+  --primitive-warning-600: #E45A12;
+  --primitive-warning-700: #BD4311;
+  --primitive-warning-800: #963616;
+  --primitive-warning-900: #792E15;
+  --primitive-warning-950: #411509;
+
+  --primitive-success-050: #EDF4FF;
+  --primitive-success-100: #DFEAFF;
+  --primitive-success-200: #C5D8FF;
+  --primitive-success-300: #A1BEFF;
+  --primitive-success-400: #7C98FD;
+  --primitive-success-500: #5970F7;
+  --primitive-success-600: #3F4BEC;
+  --primitive-success-700: #323AD0;
+  --primitive-success-800: #2B33A8;
+  --primitive-success-900: #2A3185;
+  --primitive-success-950: #191C4D;
+
+  --primitive-gray-050: #F8F7F7;
+  --primitive-gray-100: #F0EEEE;
+  --primitive-gray-200: #DDDADA;
+  --primitive-gray-300: #BFBABA;
+  --primitive-gray-400: #9B9595;
+  --primitive-gray-500: #7F7879;
+  --primitive-gray-600: #686162;
+  --primitive-gray-700: #554F4F;
+  --primitive-gray-800: #484445;
+  --primitive-gray-900: #3F3B3B;
+  --primitive-gray-950: #252323;
+
+  // — Surfaces globales
+  --color-light: #FFFFFF;
+  --color-dark:  var(--primitive-gray-950);
+  --color-text-dark:  var(--primitive-gray-950);
+  --color-text-light: var(--primitive-gray-050);
+  --color-focus: #FF00E5;
+
+  // — Primary
+  --color-primary-main:           var(--primitive-primary-800);
+  --color-primary-dark:           var(--primitive-primary-950);
+  --color-primary-light:          var(--primitive-primary-100);
+  --color-primary-contrast-text:  var(--primitive-gray-050);
+  --color-primary-state-hover:    rgba(86, 145, 95, 0.75);
+  --color-primary-state-selected: var(--primitive-primary-500);
+  --color-primary-state-focused:  var(--color-focus);
+  --color-primary-state-outline:  var(--primitive-primary-700);
+
+  // — Secondary
+  --color-secondary-main:           var(--primitive-secondary-800);
+  --color-secondary-dark:           var(--primitive-secondary-950);
+  --color-secondary-light:          var(--primitive-secondary-100);
+  --color-secondary-contrast-text:  var(--primitive-gray-050);
+  --color-secondary-state-hover:    rgba(152, 141, 90, 0.5);
+  --color-secondary-state-selected: var(--primitive-secondary-400);
+  --color-secondary-state-focused:  var(--color-focus);
+  --color-secondary-state-outline:  var(--primitive-secondary-600);
+
+  // — Tertiary
+  --color-tertiary-main:           var(--primitive-tertiary-700);
+  --color-tertiary-dark:           var(--primitive-tertiary-950);
+  --color-tertiary-light:          var(--primitive-tertiary-100);
+  --color-tertiary-contrast-text:  var(--primitive-gray-050);
+  --color-tertiary-state-hover:    rgba(226, 194, 16, 0.5);
+  --color-tertiary-state-selected: var(--primitive-tertiary-500);
+  --color-tertiary-state-focused:  var(--color-focus);
+  --color-tertiary-state-outline:  var(--primitive-tertiary-600);
+
+  // — Success
+  --color-success-main:           var(--primitive-success-400);
+  --color-success-dark:           var(--primitive-success-950);
+  --color-success-light:          var(--primitive-success-100);
+  --color-success-contrast-text:  var(--primitive-gray-050);
+  --color-success-state-hover:    rgba(42, 49, 133, 0.5);
+  --color-success-state-selected: var(--primitive-success-900);
+  --color-success-state-focused:  var(--color-focus);
+  --color-success-state-outline:  var(--primitive-success-600);
+
+  // — Warning
+  --color-warning-main:           var(--primitive-warning-400);
+  --color-warning-dark:           var(--primitive-warning-900);
+  --color-warning-light:          var(--primitive-warning-100);
+  --color-warning-contrast-text:  var(--primitive-gray-050);
+  --color-warning-state-hover:    rgba(121, 46, 21, 0.5);
+  --color-warning-state-selected: var(--primitive-warning-900);
+  --color-warning-state-focused:  var(--color-focus);
+  --color-warning-state-outline:  var(--primitive-warning-500);
+
+  // — Error
+  --color-error-main:           var(--primitive-error-400);
+  --color-error-dark:           var(--primitive-error-900);
+  --color-error-light:          var(--primitive-error-100);
+  --color-error-contrast-text:  var(--primitive-gray-050);
+  --color-error-state-hover:    rgba(127, 29, 29, 0.5);
+  --color-error-state-selected: var(--primitive-error-900);
+  --color-error-state-focused:  var(--color-focus);
+  --color-error-state-outline:  var(--primitive-error-600);
+
+  // — Gray
+  --color-gray-main:            var(--primitive-gray-500);
+  --color-gray-dark:            var(--primitive-gray-950);
+  --color-gray-light:           var(--primitive-gray-100);
+  --color-gray-contrast-text:   var(--primitive-gray-050);
+  --color-gray-state-hover:     rgba(30, 41, 57, 0.5);
+  --color-gray-state-active:    var(--primitive-gray-900);
+  --color-gray-state-focused:   var(--color-focus);
+  --color-gray-state-outline:   var(--primitive-gray-500);
+
+  // — Disabled
+  --color-disabled-bg:            var(--primitive-gray-500);
+  --color-disabled-contrast-text: var(--primitive-gray-300);
+
+  // — Spacing
+  --spacing-0:   0px;
+  --spacing-1:   4px;
+  --spacing-1-5: 6px;
+  --spacing-2:   8px;
+  --spacing-2-5: 10px;
+  --spacing-3:   12px;
+  --spacing-3-5: 14px;
+  --spacing-4:   16px;
+  --spacing-5:   20px;
+  --spacing-6:   24px;
+  --spacing-7:   28px;
+  --spacing-8:   32px;
+  --spacing-9:   36px;
+  --spacing-10:  40px;
+  --spacing-11:  44px;
+  --spacing-12:  48px;
+  --spacing-14:  56px;
+  --spacing-16:  64px;
+  --spacing-20:  80px;
+  --spacing-24:  96px;
+  --spacing-32:  128px;
+
+  --spacing-button-px:  var(--spacing-6);
+  --spacing-button-py:  var(--spacing-2);
+  --spacing-button-gap: var(--spacing-2);
+
+  // — Border radius
+  --radius-0:   0px;
+  --radius-1:   4px;
+  --radius-1-5: 6px;
+  --radius-2:   8px;
+  --radius-3:   12px;
+  --radius-3-5: 14px;
+  --radius-4:   16px;
+  --radius-5:   20px;
+  --radius-6:   24px;
+  --radius-8:   32px;
+  --radius-10:  40px;
+  --radius-16:  64px;
+  --radius-24:  96px;
+  --radius-32:  128px;
+
+  --radius-button-btn: var(--radius-32);
+  --radius-card-xs:    var(--radius-1);
+  --radius-card-s:     var(--radius-3);
+  --radius-card-m:     var(--radius-4);
+  --radius-card-l:     var(--radius-6);
+  --radius-card-xl:    var(--radius-16);
+  --radius-input:      var(--radius-2);
+  --radius-tag:        var(--radius-1-5);
+
+  // — Typographie
+  --font-family-title:       'Gabarito', sans-serif;
+  --font-family-subtitle:    'Playpen Sans', cursive;
+  --font-family-text:        'Poppins', sans-serif;
+  --font-family-btn:         'Gabarito', sans-serif;
+  --font-family-tag:         'Playpen Sans', cursive;
+  --font-family-cards-title: 'Playpen Sans', cursive;
+
+  --font-weight-300: 300;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+
+
+  // ---------------------------------------------------------------------------
+  // ALIAS FORMAT FIGMA — PascalCase (nommage export Figma → CSS)
+  // Ces variables pointent vers les tokens sémantiques ci-dessus.
+  // Utiliser ces noms dans les composants pour rester aligné avec Figma.
+  // ---------------------------------------------------------------------------
+
+  // — Couleurs Primary
+  --Colors-Primary-Main:          var(--color-primary-main);
+  --Colors-Primary-Dark:          var(--color-primary-dark);
+  --Colors-Primary-Light:         var(--color-primary-light);
+  --Colors-Primary-ContrastText:  var(--color-primary-contrast-text);
+  --Colors-Primary-State-Hover:   var(--color-primary-state-hover);
+  --Colors-Primary-State-Selected:var(--color-primary-state-selected);
+  --Colors-Primary-State-Focused: var(--color-primary-state-focused);
+  --Colors-Primary-State-Outline: var(--color-primary-state-outline);
+
+  // — Couleurs Secondary
+  --Colors-Secondary-Main:          var(--color-secondary-main);
+  --Colors-Secondary-Dark:          var(--color-secondary-dark);
+  --Colors-Secondary-Light:         var(--color-secondary-light);
+  --Colors-Secondary-ContrastText:  var(--color-secondary-contrast-text);
+  --Colors-Secondary-State-Hover:   var(--color-secondary-state-hover);
+  --Colors-Secondary-State-Selected:var(--color-secondary-state-selected);
+  --Colors-Secondary-State-Focused: var(--color-secondary-state-focused);
+  --Colors-Secondary-State-Outline: var(--color-secondary-state-outline);
+
+  // — Couleurs Tertiary
+  --Colors-Tertiary-Main:          var(--color-tertiary-main);
+  --Colors-Tertiary-Dark:          var(--color-tertiary-dark);
+  --Colors-Tertiary-Light:         var(--color-tertiary-light);
+  --Colors-Tertiary-ContrastText:  var(--color-tertiary-contrast-text);
+  --Colors-Tertiary-State-Hover:   var(--color-tertiary-state-hover);
+  --Colors-Tertiary-State-Selected:var(--color-tertiary-state-selected);
+  --Colors-Tertiary-State-Focused: var(--color-tertiary-state-focused);
+  --Colors-Tertiary-State-Outline: var(--color-tertiary-state-outline);
+
+  // — Couleurs Success / Warning / Error
+  --Colors-Success-Main:         var(--color-success-main);
+  --Colors-Success-ContrastText: var(--color-success-contrast-text);
+  --Colors-Warning-Main:         var(--color-warning-main);
+  --Colors-Warning-ContrastText: var(--color-warning-contrast-text);
+  --Colors-Error-Main:           var(--color-error-main);
+  --Colors-Error-ContrastText:   var(--color-error-contrast-text);
+
+  // — Couleurs Gray / Disabled / Focus
+  --Colors-Gray-Main:              var(--color-gray-main);
+  --Colors-Gray-ContrastText:      var(--color-gray-contrast-text);
+  --Colors-Disabled-Bg:            var(--color-disabled-bg);
+  --Colors-Disabled-ContrastText:  var(--color-disabled-contrast-text);
+  --Colors-Focus-Focus:            var(--color-focus);
+
+  // — Radius (format Figma)
+  --Radius-Button-btn: var(--radius-button-btn);
+  --Radius-Card-xS:    var(--radius-card-xs);
+  --Radius-Card-S:     var(--radius-card-s);
+  --Radius-Card-M:     var(--radius-card-m);
+  --Radius-Card-L:     var(--radius-card-l);
+  --Radius-Card-xL:    var(--radius-card-xl);
+  --Radius-Input:      var(--radius-input);
+  --Radius-Tag:        var(--radius-tag);
+
+  // — Typographie (format Figma)
+  --Font-family-Title:       var(--font-family-title);
+  --Font-family-Subtitle:    var(--font-family-subtitle);
+  --Font-family-Text:        var(--font-family-text);
+  --Font-family-btn:         var(--font-family-btn);
+  --Font-family-Tag:         var(--font-family-tag);
+  --Font-family-Cards-Title: var(--font-family-cards-title);
+}

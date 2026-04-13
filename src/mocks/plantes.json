@@ -1,0 +1,35 @@
+[
+  {
+    "id": "1",
+    "nom": "Basilic",
+    "espece": "Ocimum basilicum",
+    "categorie": "herbe",
+    "espaceMini": 15,
+    "ensoleillement": "plein-soleil",
+    "arrosage": "régulier",
+    "description": "Herbe aromatique méditerranéenne facile à cultiver en pot.",
+    "image": null
+  },
+  {
+    "id": "2",
+    "nom": "Tomate cerise",
+    "espece": "Solanum lycopersicum",
+    "categorie": "légume",
+    "espaceMini": 40,
+    "ensoleillement": "plein-soleil",
+    "arrosage": "abondant",
+    "description": "Variété compacte idéale pour balcon ou terrasse.",
+    "image": null
+  },
+  {
+    "id": "3",
+    "nom": "Menthe",
+    "espece": "Mentha spicata",
+    "categorie": "herbe",
+    "espaceMini": 20,
+    "ensoleillement": "mi-ombre",
+    "arrosage": "régulier",
+    "description": "Pousse vigoureuse, à isoler des autres plantes.",
+    "image": null
+  }
+]
