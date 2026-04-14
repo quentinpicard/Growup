@@ -1,0 +1,308 @@
+// =============================================================================
+// Input.module.scss — partagé entre Input, InputPassword, Textarea, InputSearch
+// Jamais de valeur hardcodée — toujours var(--token-*)
+// =============================================================================
+
+// ── Wrapper global ────────────────────────────────────────────────────────────
+.field {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--spacing-1);
+  width:          100%;
+}
+
+// ── Label ─────────────────────────────────────────────────────────────────────
+.field__label {
+  display:     flex;
+  align-items: center;
+  gap:         var(--spacing-1);
+}
+
+.field__label_text {
+  font-family: var(--Font-family-Text);
+  font-size:   0.875rem;
+  font-weight: var(--font-weight-400);
+  line-height: 1.5;
+  color:       var(--color-text-dark);
+}
+
+.field__required {
+  color:       var(--Colors-Error-Main);
+  font-size:   0.75rem;
+  line-height: 1;
+  font-weight: var(--font-weight-600);
+}
+
+.field__info {
+  display:     inline-flex;
+  align-items: center;
+  width:       16px;
+  height:      16px;
+  color:       var(--Colors-Secondary-Main);
+  cursor:      help;
+  flex-shrink: 0;
+
+  svg { width: 100%; height: 100%; }
+}
+
+// ── Wrapper visuel (la boîte) ─────────────────────────────────────────────────
+.field__wrap {
+  display:     flex;
+  align-items: center;
+  gap:         var(--spacing-2);
+  padding:     var(--spacing-2) var(--spacing-3);
+  border-radius: var(--Radius-Input);
+  transition:
+    border-color  0.2s ease,
+    background    0.2s ease,
+    box-shadow    0.2s ease,
+    color         0.2s ease;
+}
+
+// ── Input natif (fond transparent — tout est sur .field__wrap) ────────────────
+.field__input {
+  flex:        1;
+  min-width:   0;
+  font-family: var(--Font-family-Text);
+  font-size:   0.875rem;
+  line-height: 1.5;
+  color:       inherit;
+  background:  transparent;
+  border:      none;
+  outline:     none;
+  padding:     0;
+
+  &::placeholder { color: inherit; opacity: 0.65; }
+  &:-webkit-autofill { -webkit-box-shadow: 0 0 0 100px transparent inset; }
+}
+
+// ── Icônes / adornements ──────────────────────────────────────────────────────
+.field__adornment {
+  display:     inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color:       inherit;
+  // Pour les icônes SVG 16×16 : width auto pour les textes (prefix/suffix)
+  svg { width: 16px; height: 16px; }
+}
+
+.field__affixText {
+  font-family:  var(--Font-family-Text);
+  font-size:    0.875rem;
+  white-space:  nowrap;
+  color:        inherit;
+}
+
+// ── Séparateur vertical ───────────────────────────────────────────────────────
+.field__sep {
+  display:     block;
+  width:       1px;
+  height:      14px;
+  background:  currentColor;
+  opacity:     0.3;
+  flex-shrink: 0;
+}
+
+// ── Bouton toggle (password) ──────────────────────────────────────────────────
+.field__toggle {
+  display:     inline-flex;
+  align-items: center;
+  background:  none;
+  border:      none;
+  padding:     0;
+  cursor:      pointer;
+  color:       inherit;
+  line-height: 0;
+  transition:  opacity 0.15s ease;
+
+  &:hover     { opacity: 0.7; }
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+    border-radius:  var(--radius-1);
+  }
+
+  svg { width: 16px; height: 16px; }
+}
+
+// ── Helper text ───────────────────────────────────────────────────────────────
+.field__helper {
+  font-family: var(--Font-family-Text);
+  font-size:   0.75rem;
+  line-height: 1.5;
+  color:       var(--color-gray-main);
+}
+
+// ── Textarea native ───────────────────────────────────────────────────────────
+.field__textarea {
+  flex:        1;
+  min-width:   0;
+  width:       100%;
+  font-family: var(--Font-family-Text);
+  font-size:   0.875rem;
+  line-height: 1.5;
+  color:       inherit;
+  background:  transparent;
+  border:      none;
+  outline:     none;
+  padding:     0;
+  resize:      none;
+  min-height:  80px;
+  field-sizing: content; // s'adapte au contenu si supporté
+
+  &::placeholder { color: inherit; opacity: 0.65; }
+}
+
+// ── Icône resize (coin bas-droite textarea) ───────────────────────────────────
+.field__resize {
+  display:     inline-flex;
+  align-items: flex-end;
+  flex-shrink: 0;
+  color:       inherit;
+  opacity:     0.4;
+  align-self:  flex-end;
+  svg { width: 12px; height: 12px; }
+}
+
+
+// =============================================================================
+// VARIANTES
+// =============================================================================
+
+// ── Outline ───────────────────────────────────────────────────────────────────
+.field--outline .field__wrap {
+  border: 1px solid var(--Colors-Secondary-Main);
+  color:  var(--Colors-Secondary-Main);
+  background: transparent;
+}
+
+.field--outline .field__wrap:focus-within {
+  border-color: var(--Colors-Secondary-Dark);
+  box-shadow:   0 0 0 3px var(--color-primary-state-hover);
+}
+
+// ── Filled ────────────────────────────────────────────────────────────────────
+.field--filled .field__wrap {
+  border:     none;
+  background: var(--Colors-Secondary-State-Hover);
+  color:      var(--Colors-Secondary-Dark);
+}
+
+.field--filled .field__wrap:focus-within {
+  box-shadow: 0 0 0 2px var(--Colors-Secondary-Dark);
+}
+
+.field--filled .field__helper { color: var(--color-gray-main); }
+
+// ── Borderless ────────────────────────────────────────────────────────────────
+.field--borderless .field__wrap {
+  border:         none;
+  background:     transparent;
+  color:          var(--Colors-Secondary-Main);
+  border-radius:  var(--Radius-Input);
+  padding-inline: 0;
+}
+
+.field--borderless .field__wrap:focus-within {
+  background: var(--Colors-Secondary-Light);
+  padding-inline: var(--spacing-3);
+}
+
+// ── Underline ─────────────────────────────────────────────────────────────────
+.field--underline .field__wrap {
+  border:          none;
+  border-bottom:   1px solid var(--Colors-Secondary-Main);
+  border-radius:   0;
+  background:      transparent;
+  color:           var(--Colors-Secondary-Main);
+  padding-inline:  0;
+}
+
+.field--underline .field__wrap:focus-within {
+  border-bottom-width: 2px;
+  border-bottom-color: var(--Colors-Secondary-Dark);
+}
+
+
+// =============================================================================
+// ÉTATS
+// =============================================================================
+
+// ── Success ───────────────────────────────────────────────────────────────────
+.field--success {
+  .field__wrap {
+    border-color: var(--Colors-Success-Main) !important;
+    color:        var(--Colors-Success-Main);
+  }
+
+  .field__helper { color: var(--Colors-Success-State-Outline); }
+}
+
+.field--filled.field--success .field__wrap {
+  background:   var(--Colors-Success-Light);
+  border:       none;
+  box-shadow:   none;
+}
+
+.field--underline.field--success .field__wrap {
+  border-color: var(--Colors-Success-Main);
+}
+
+// ── Error ─────────────────────────────────────────────────────────────────────
+.field--error {
+  .field__wrap {
+    border-color: var(--Colors-Error-Main) !important;
+    color:        var(--Colors-Error-Main);
+  }
+
+  .field__helper { color: var(--Colors-Error-State-Outline); }
+}
+
+.field--filled.field--error .field__wrap {
+  background: var(--Colors-Warning-Light); // Figma: warning/light pour filled+error
+  border:     none;
+  box-shadow: none;
+}
+
+.field--underline.field--error .field__wrap {
+  border-color: var(--Colors-Error-Main);
+}
+
+// ── Disabled ──────────────────────────────────────────────────────────────────
+.field--disabled {
+  opacity:        0.45;
+  pointer-events: none;
+
+  .field__wrap {
+    border-color: var(--primitive-gray-300) !important;
+    color:        var(--Colors-Secondary-Dark);
+  }
+
+  .field__helper { color: var(--color-disabled-contrast-text); }
+}
+
+
+// =============================================================================
+// SEARCH VARIANT (couleurs Primary au lieu de Secondary)
+// =============================================================================
+
+.field--search-filled .field__wrap {
+  border:     none;
+  background: var(--Colors-Primary-State-Hover);
+  color:      var(--Colors-Primary-Dark);
+}
+
+.field--search-filled .field__wrap:focus-within {
+  box-shadow: 0 0 0 2px var(--Colors-Primary-Main);
+}
+
+.field--search-outline .field__wrap {
+  border: 1px solid var(--Colors-Primary-Main);
+  color:  var(--Colors-Primary-Main);
+  background: transparent;
+}
+
+.field--search-outline .field__wrap:focus-within {
+  border-color: var(--Colors-Primary-Dark);
+  box-shadow:   0 0 0 3px var(--color-primary-state-hover);
+}

@@ -1,4 +1,4 @@
-import { Button } from '../../components'
+import { Button, Input, InputPassword, InputSearch, Textarea } from '../../components'
 import styles from './DesignSystemPage.module.scss'
 
 // — Icône SVG locale (remplace l'asset Figma)
@@ -266,6 +266,150 @@ export default function DesignSystemPage() {
           </ComponentCard>
           <ComponentCard label="--Radius-Card-xS · 4px">
             <div className={styles.radiusSample} style={{ borderRadius: 'var(--Radius-Card-xS)' }} />
+          </ComponentCard>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            INPUTS — VARIANTES
+        ══════════════════════════════════════════ */}
+        <Section title="Input — Variantes">
+          <ComponentCard label="Outline / Default">
+            <Input variant="outline" placeholder="Placeholder" />
+          </ComponentCard>
+          <ComponentCard label="Outline / Success">
+            <Input variant="outline" state="success" placeholder="Placeholder" helperText="Champ valide" />
+          </ComponentCard>
+          <ComponentCard label="Outline / Error">
+            <Input variant="outline" state="error" placeholder="Placeholder" helperText="Champ invalide" />
+          </ComponentCard>
+          <ComponentCard label="Outline / Disabled">
+            <Input variant="outline" disabled placeholder="Placeholder" helperText="Non disponible" />
+          </ComponentCard>
+          <ComponentCard label="Filled / Default">
+            <Input variant="filled" placeholder="Placeholder" />
+          </ComponentCard>
+          <ComponentCard label="Filled / Success">
+            <Input variant="filled" state="success" placeholder="Placeholder" />
+          </ComponentCard>
+          <ComponentCard label="Filled / Error">
+            <Input variant="filled" state="error" placeholder="Placeholder" />
+          </ComponentCard>
+          <ComponentCard label="Filled / Disabled">
+            <Input variant="filled" disabled placeholder="Placeholder" />
+          </ComponentCard>
+          <ComponentCard label="Borderless / Default">
+            <Input variant="borderless" placeholder="Placeholder" />
+          </ComponentCard>
+          <ComponentCard label="Borderless / Success">
+            <Input variant="borderless" state="success" placeholder="Placeholder" />
+          </ComponentCard>
+          <ComponentCard label="Borderless / Error">
+            <Input variant="borderless" state="error" placeholder="Placeholder" />
+          </ComponentCard>
+          <ComponentCard label="Underline / Default">
+            <Input variant="underline" placeholder="Placeholder" />
+          </ComponentCard>
+          <ComponentCard label="Underline / Success">
+            <Input variant="underline" state="success" placeholder="Placeholder" />
+          </ComponentCard>
+          <ComponentCard label="Underline / Error">
+            <Input variant="underline" state="error" placeholder="Placeholder" />
+          </ComponentCard>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            INPUTS — TYPES (layout)
+        ══════════════════════════════════════════ */}
+        <Section title="Input — Types">
+          <ComponentCard label="Default (sans icône)">
+            <Input label="Titre" placeholder="Placeholder" />
+          </ComponentCard>
+          <ComponentCard label="Avec label + requis">
+            <Input label="Nom de la plante" required placeholder="Ex: Basilic" />
+          </ComponentCard>
+          <ComponentCard label="Avec label + info">
+            <Input label="Surface (m²)" info placeholder="Ex: 2.5" />
+          </ComponentCard>
+          <ComponentCard label="Icône gauche">
+            <Input
+              label="Jardin"
+              placeholder="Rechercher…"
+              leftIcon={
+                <svg viewBox="0 0 16 16" fill="none" style={{width:16,height:16}}>
+                  <circle cx="7" cy="7" r="4.5" stroke="currentColor" strokeWidth="1.5" />
+                  <path d="M10.5 10.5L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              }
+            />
+          </ComponentCard>
+          <ComponentCard label="Icône droite">
+            <Input
+              label="Plante"
+              placeholder="Placeholder"
+              rightIcon={
+                <svg viewBox="0 0 16 16" fill="none" style={{width:16,height:16}}>
+                  <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              }
+            />
+          </ComponentCard>
+          <ComponentCard label="Suffix · km">
+            <Input label="Distance" placeholder="0" suffix="km" />
+          </ComponentCard>
+          <ComponentCard label="Prefix · €">
+            <Input label="Prix" placeholder="0.00" prefix="€" />
+          </ComponentCard>
+          <ComponentCard label="Avec helper text">
+            <Input label="Email" placeholder="vous@email.fr" helperText="Nous ne partageons jamais votre email." />
+          </ComponentCard>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            INPUTS SPÉCIAUX
+        ══════════════════════════════════════════ */}
+        <Section title="Input — Spéciaux">
+          <ComponentCard label="Password / Default">
+            <InputPassword label="Mot de passe" />
+          </ComponentCard>
+          <ComponentCard label="Password / Success">
+            <InputPassword label="Mot de passe" state="success" helperText="Mot de passe fort" />
+          </ComponentCard>
+          <ComponentCard label="Password / Error">
+            <InputPassword label="Mot de passe" state="error" helperText="Trop court (min. 8 car.)" />
+          </ComponentCard>
+          <ComponentCard label="Password / Disabled">
+            <InputPassword label="Mot de passe" disabled />
+          </ComponentCard>
+          <ComponentCard label="Email">
+            <Input
+              type="email"
+              label="Adresse email"
+              placeholder="vous@email.fr"
+              leftIcon={
+                <svg viewBox="0 0 16 16" fill="none" style={{width:16,height:16}}>
+                  <rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M1.5 5.5l6.5 4 6.5-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+              }
+            />
+          </ComponentCard>
+          <ComponentCard label="Textarea">
+            <Textarea label="Message" placeholder="Décrivez votre jardin…" rows={3} />
+          </ComponentCard>
+          <ComponentCard label="Textarea / Disabled">
+            <Textarea label="Message" disabled placeholder="Non disponible" rows={3} />
+          </ComponentCard>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            BARRE DE RECHERCHE
+        ══════════════════════════════════════════ */}
+        <Section title="Search Bar">
+          <ComponentCard label="Search / Filled">
+            <InputSearch variant="filled" placeholder="Rechercher une plante…" />
+          </ComponentCard>
+          <ComponentCard label="Search / Outline">
+            <InputSearch variant="outline" placeholder="Rechercher une plante…" />
           </ComponentCard>
         </Section>
 
