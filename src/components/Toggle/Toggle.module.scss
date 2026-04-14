@@ -1,0 +1,207 @@
+// =============================================================================
+// Toggle.module.scss
+// =============================================================================
+
+// — Dimensions (fidèles au Figma)
+$track-w:   56px;
+$track-h:   28px;
+$thumb-size: 24px;
+$pad-x:      4px;
+$pad-y:      2px;
+// Travel = track-w - pad-x×2 - thumb-size = 56 - 8 - 24 = 24px
+$travel: calc(#{$track-w} - #{$pad-x} * 2 - #{$thumb-size});
+
+// =============================================================================
+// WRAPPER
+// =============================================================================
+.toggle {
+  display:        inline-flex;
+  flex-direction: column;
+  gap:            var(--spacing-1);
+
+  &--disabled {
+    opacity:        0.45;
+    pointer-events: none;
+  }
+}
+
+// — Layout: label à gauche (défaut)
+.toggle--left .toggle__inner {
+  flex-direction: row;
+  align-items:    center;
+  gap:            var(--spacing-2);
+}
+
+// — Layout: label en haut
+.toggle--top .toggle__inner {
+  flex-direction: column;
+  align-items:    flex-start;
+  gap:            var(--spacing-1);
+}
+
+// =============================================================================
+// INNER (label cliquable)
+// =============================================================================
+.toggle__inner {
+  display:    inline-flex;
+  cursor:     pointer;
+  user-select: none;
+}
+
+// =============================================================================
+// LABEL
+// =============================================================================
+.toggle__labelWrap {
+  display:     inline-flex;
+  align-items: center;
+  gap:         var(--spacing-1);
+}
+
+.toggle__label {
+  font-family: var(--Font-family-Text);
+  font-size:   16px;
+  font-weight: var(--font-weight-400);
+  line-height: 1.5;
+  color:       var(--color-text-dark);
+}
+
+.toggle__required {
+  color:       var(--Colors-Error-Main);
+  font-size:   14px;
+  line-height: 1;
+}
+
+.toggle__info {
+  display:     flex;
+  align-items: center;
+  color:       var(--Colors-Gray-Main);
+  width:  16px;
+  height: 16px;
+
+  svg {
+    width:  100%;
+    height: 100%;
+  }
+}
+
+.toggle__helper {
+  font-family: var(--Font-family-Text);
+  font-size:   12px;
+  font-weight: var(--font-weight-400);
+  line-height: 1.5;
+  color:       var(--color-text-dark);
+  margin:      0;
+  padding-left: calc(#{$track-w} + var(--spacing-2)); // aligne sous le toggle
+}
+
+// =============================================================================
+// INPUT CACHÉ
+// =============================================================================
+.toggle__input {
+  position:   absolute;
+  width:  1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow:   hidden;
+  clip:       rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border:     0;
+
+  // Focus visible sur le track
+  &:focus-visible + .toggle__track {
+    outline:        3px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+}
+
+// =============================================================================
+// TRACK
+// =============================================================================
+.toggle__track {
+  position:      relative;
+  display:       inline-flex;
+  align-items:   center;
+  flex-shrink:   0;
+  width:         $track-w;
+  height:        $track-h;
+  padding:       $pad-y $pad-x;
+  border-radius: var(--Radius-Card-M); // 16px
+  overflow:      hidden;
+  background:    var(--primitive-gray-200);
+  transition:    background 0.2s ease;
+
+  // Hover (état OFF)
+  .toggle__inner:hover & {
+    filter: brightness(0.95);
+  }
+}
+
+// =============================================================================
+// THUMB
+// =============================================================================
+.toggle__thumb {
+  position:      relative;
+  flex-shrink:   0;
+  width:         $thumb-size;
+  height:        $thumb-size;
+  border-radius: var(--Radius-Card-xL); // 64px → cercle parfait
+  background:    var(--primitive-gray-800);
+  transform:     translateX(0);
+  transition:    transform 0.2s ease, background 0.2s ease;
+}
+
+// =============================================================================
+// ÉTAT CHECKED (ON)
+// =============================================================================
+.toggle__input:checked {
+  // Thumb → droite
+  & + .toggle__track .toggle__thumb {
+    transform: translateX($travel);
+  }
+
+  // Hover (état ON)
+  .toggle__inner:hover & + .toggle__track {
+    filter: brightness(1.05);
+  }
+}
+
+// =============================================================================
+// COULEURS — track et thumb quand ON (checked)
+// =============================================================================
+
+// Primary
+.toggle__input:checked + .toggle__track--primary {
+  background: var(--primitive-primary-300);
+  .toggle__thumb { background: var(--Colors-Primary-Main); }
+}
+
+// Secondary
+.toggle__input:checked + .toggle__track--secondary {
+  background: var(--primitive-secondary-300);
+  .toggle__thumb { background: var(--Colors-Secondary-Main); }
+}
+
+// Tertiary
+.toggle__input:checked + .toggle__track--tertiary {
+  background: var(--primitive-tertiary-300);
+  .toggle__thumb { background: var(--Colors-Tertiary-Main); }
+}
+
+// Success
+.toggle__input:checked + .toggle__track--success {
+  background: var(--primitive-success-300);
+  .toggle__thumb { background: var(--Colors-Success-Main); }
+}
+
+// Warning
+.toggle__input:checked + .toggle__track--warning {
+  background: var(--primitive-warning-300);
+  .toggle__thumb { background: var(--Colors-Warning-Main); }
+}
+
+// Error
+.toggle__input:checked + .toggle__track--error {
+  background: var(--primitive-error-300);
+  .toggle__thumb { background: var(--Colors-Error-Main); }
+}

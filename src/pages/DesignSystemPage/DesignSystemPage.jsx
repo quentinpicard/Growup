@@ -1,4 +1,5 @@
-import { Button, Input, InputPassword, InputSearch, Textarea, Tag } from '../../components'
+import { useState } from 'react'
+import { Button, Input, InputPassword, InputSearch, Textarea, Tag, Toggle } from '../../components'
 import styles from './DesignSystemPage.module.scss'
 
 // — Icône SVG locale (remplace l'asset Figma)
@@ -58,6 +59,12 @@ function ColorSwatch({ cssVar, label, dark = false }) {
       <code className={styles.swatchVar}>{cssVar}</code>
     </div>
   )
+}
+
+// — Toggle avec état local (pour la démo)
+function ToggleDemo({ defaultChecked = false, ...props }) {
+  const [checked, setChecked] = useState(defaultChecked)
+  return <Toggle {...props} checked={checked} onChange={() => setChecked(v => !v)} />
 }
 
 // — Token typographie
@@ -490,6 +497,66 @@ export default function DesignSystemPage() {
           </ComponentCard>
           <ComponentCard label="Outline + supprimable">
             <Tag color="secondary" variant="outline" onRemove={() => {}}>Retirer</Tag>
+          </ComponentCard>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            TOGGLE — COULEURS (ON)
+        ══════════════════════════════════════════ */}
+        <Section title="Toggle — Couleurs (ON)">
+          <ComponentCard label="Primary">
+            <ToggleDemo defaultChecked color="primary" label="Activé" />
+          </ComponentCard>
+          <ComponentCard label="Secondary">
+            <ToggleDemo defaultChecked color="secondary" label="Activé" />
+          </ComponentCard>
+          <ComponentCard label="Tertiary">
+            <ToggleDemo defaultChecked color="tertiary" label="Activé" />
+          </ComponentCard>
+          <ComponentCard label="Success">
+            <ToggleDemo defaultChecked color="success" label="Activé" />
+          </ComponentCard>
+          <ComponentCard label="Warning">
+            <ToggleDemo defaultChecked color="warning" label="Activé" />
+          </ComponentCard>
+          <ComponentCard label="Error">
+            <ToggleDemo defaultChecked color="error" label="Activé" />
+          </ComponentCard>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            TOGGLE — ÉTATS
+        ══════════════════════════════════════════ */}
+        <Section title="Toggle — États">
+          <ComponentCard label="OFF / Default">
+            <ToggleDemo color="primary" label="Désactivé" />
+          </ComponentCard>
+          <ComponentCard label="ON / Default">
+            <ToggleDemo defaultChecked color="primary" label="Activé" />
+          </ComponentCard>
+          <ComponentCard label="Disabled OFF">
+            <ToggleDemo color="primary" label="Inactif" disabled />
+          </ComponentCard>
+          <ComponentCard label="Disabled ON">
+            <ToggleDemo defaultChecked color="primary" label="Inactif" disabled />
+          </ComponentCard>
+          <ComponentCard label="Avec helper">
+            <ToggleDemo defaultChecked color="primary" label="Notifications" helperText="Recevoir les rappels d'arrosage" />
+          </ComponentCard>
+          <ComponentCard label="Requis + info">
+            <ToggleDemo color="primary" label="Conditions" required info />
+          </ComponentCard>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            TOGGLE — LABEL EN HAUT
+        ══════════════════════════════════════════ */}
+        <Section title="Toggle — Label en haut">
+          <ComponentCard label="Top / ON">
+            <ToggleDemo defaultChecked color="primary" label="Mode sombre" labelPosition="top" />
+          </ComponentCard>
+          <ComponentCard label="Top / OFF">
+            <ToggleDemo color="secondary" label="Rappels" labelPosition="top" />
           </ComponentCard>
         </Section>
 
