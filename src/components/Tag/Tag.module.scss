@@ -1,0 +1,139 @@
+// =============================================================================
+// Tag.module.scss
+// =============================================================================
+
+.tag {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             var(--spacing-1);       // 4px
+  padding:         var(--spacing-1) var(--spacing-2); // 4px 8px
+  border-radius:   var(--Radius-Tag);      // 6px
+  border:          2px solid transparent;
+  font-family:     var(--Font-family-Tag); // Playpen Sans
+  font-size:       12px;
+  font-weight:     var(--font-weight-400);
+  line-height:     1.5;
+  white-space:     nowrap;
+  transition:      opacity 0.15s ease;
+  cursor:          default;
+}
+
+// — Icônes
+.tag__icon {
+  display:    flex;
+  align-items: center;
+  width:  12px;
+  height: 12px;
+  flex-shrink: 0;
+
+  svg {
+    width:  100%;
+    height: 100%;
+  }
+}
+
+// — Label
+.tag__label {
+  line-height: 1.5;
+}
+
+// — Bouton suppression
+.tag__remove {
+  display:        flex;
+  align-items:    center;
+  justify-content: center;
+  width:  14px;
+  height: 14px;
+  padding: 0;
+  border:  none;
+  background: transparent;
+  color:       inherit;
+  cursor:      pointer;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease;
+
+  svg {
+    width:  10px;
+    height: 10px;
+  }
+
+  &:hover   { opacity: 0.7; }
+  &:focus-visible {
+    outline: 2px solid var(--Colors-Focus-Focus);
+    outline-offset: 1px;
+  }
+}
+
+// =============================================================================
+// VARIANT — Filled
+// =============================================================================
+.tag--filled {
+  color: var(--color-text-dark);
+
+  &.tag--primary   { background: var(--primitive-primary-400); }
+  &.tag--secondary { background: var(--primitive-secondary-400); }
+  &.tag--tertiary  { background: var(--primitive-tertiary-400); }
+  &.tag--success   {
+    background: var(--primitive-success-400);
+    color: var(--color-text-light);
+  }
+  &.tag--warning   { background: var(--primitive-warning-400); }
+  &.tag--error     {
+    background: var(--primitive-error-400);
+    color: var(--color-text-light);
+  }
+  &.tag--neutral   {
+    background: var(--primitive-gray-300);
+    color: var(--color-text-dark);
+  }
+}
+
+// =============================================================================
+// VARIANT — Outline
+// =============================================================================
+.tag--outline {
+  background: transparent;
+
+  &.tag--primary {
+    background:   var(--Colors-Primary-Light);
+    border-color: var(--primitive-primary-300);
+    color:        var(--Colors-Primary-State-Outline);
+  }
+
+  &.tag--secondary {
+    background:   var(--Colors-Secondary-Light);
+    border-color: var(--primitive-secondary-300);
+    color:        var(--Colors-Secondary-State-Outline);
+  }
+
+  &.tag--tertiary {
+    background:   var(--Colors-Tertiary-Light);
+    border-color: var(--primitive-tertiary-300);
+    color:        var(--Colors-Tertiary-State-Outline);
+  }
+
+  &.tag--success {
+    background:   var(--color-success-light);
+    border-color: var(--primitive-success-300);
+    color:        var(--Colors-Success-Main);
+  }
+
+  &.tag--warning {
+    background:   var(--color-warning-light);
+    border-color: var(--primitive-warning-300);
+    color:        var(--color-warning-dark);
+  }
+
+  &.tag--error {
+    background:   var(--color-error-light);
+    border-color: var(--primitive-error-300);
+    color:        var(--color-error-dark);
+  }
+
+  &.tag--neutral {
+    background:   var(--color-gray-light);
+    border-color: var(--primitive-gray-300);
+    color:        var(--color-gray-main);
+  }
+}

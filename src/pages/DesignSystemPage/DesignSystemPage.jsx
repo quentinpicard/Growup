@@ -1,4 +1,4 @@
-import { Button, Input, InputPassword, InputSearch, Textarea } from '../../components'
+import { Button, Input, InputPassword, InputSearch, Textarea, Tag } from '../../components'
 import styles from './DesignSystemPage.module.scss'
 
 // — Icône SVG locale (remplace l'asset Figma)
@@ -410,6 +410,86 @@ export default function DesignSystemPage() {
           </ComponentCard>
           <ComponentCard label="Search / Outline">
             <InputSearch variant="outline" placeholder="Rechercher une plante…" />
+          </ComponentCard>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            TAGS — FILLED
+        ══════════════════════════════════════════ */}
+        <Section title="Tag — Filled">
+          <ComponentCard label="Primary">
+            <Tag color="primary" variant="filled">Plante</Tag>
+          </ComponentCard>
+          <ComponentCard label="Secondary">
+            <Tag color="secondary" variant="filled">Catégorie</Tag>
+          </ComponentCard>
+          <ComponentCard label="Tertiary">
+            <Tag color="tertiary" variant="filled">Nouveau</Tag>
+          </ComponentCard>
+          <ComponentCard label="Success">
+            <Tag color="success" variant="filled">Sain</Tag>
+          </ComponentCard>
+          <ComponentCard label="Warning">
+            <Tag color="warning" variant="filled">À arroser</Tag>
+          </ComponentCard>
+          <ComponentCard label="Error">
+            <Tag color="error" variant="filled">Malade</Tag>
+          </ComponentCard>
+          <ComponentCard label="Neutral">
+            <Tag color="neutral" variant="filled">Inactif</Tag>
+          </ComponentCard>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            TAGS — OUTLINE
+        ══════════════════════════════════════════ */}
+        <Section title="Tag — Outline">
+          <ComponentCard label="Primary">
+            <Tag color="primary" variant="outline">Plante</Tag>
+          </ComponentCard>
+          <ComponentCard label="Secondary">
+            <Tag color="secondary" variant="outline">Catégorie</Tag>
+          </ComponentCard>
+          <ComponentCard label="Tertiary">
+            <Tag color="tertiary" variant="outline">Nouveau</Tag>
+          </ComponentCard>
+          <ComponentCard label="Success">
+            <Tag color="success" variant="outline">Sain</Tag>
+          </ComponentCard>
+          <ComponentCard label="Warning">
+            <Tag color="warning" variant="outline">À arroser</Tag>
+          </ComponentCard>
+          <ComponentCard label="Error">
+            <Tag color="error" variant="outline">Malade</Tag>
+          </ComponentCard>
+          <ComponentCard label="Neutral">
+            <Tag color="neutral" variant="outline">Inactif</Tag>
+          </ComponentCard>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            TAGS — AVEC ICÔNE / SUPPRESSION
+        ══════════════════════════════════════════ */}
+        <Section title="Tag — Avec icône & suppression">
+          <ComponentCard label="Icône gauche">
+            <Tag
+              color="primary"
+              variant="filled"
+              leftIcon={
+                <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <circle cx="6" cy="6" r="4.5" stroke="currentColor" strokeWidth="1.2" />
+                  <path d="M6 4V6.5L7.5 8" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                </svg>
+              }
+            >
+              En cours
+            </Tag>
+          </ComponentCard>
+          <ComponentCard label="Supprimable">
+            <Tag color="error" variant="filled" onRemove={() => {}}>Supprimer</Tag>
+          </ComponentCard>
+          <ComponentCard label="Outline + supprimable">
+            <Tag color="secondary" variant="outline" onRemove={() => {}}>Retirer</Tag>
           </ComponentCard>
         </Section>
 
