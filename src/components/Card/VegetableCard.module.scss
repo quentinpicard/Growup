@@ -1,0 +1,216 @@
+// =============================================================================
+// VegetableCard.module.scss
+// =============================================================================
+
+.card {
+  display:        flex;
+  background:     var(--color-light);
+  border-radius:  var(--radius-2);   // 8px — fidèle au Figma
+  overflow:       hidden;
+  box-shadow:     0 2px 8px rgba(47, 76, 51, 0.10);
+  transition:     box-shadow 0.2s ease, transform 0.15s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(47, 76, 51, 0.16);
+    transform:  translateY(-1px);
+  }
+}
+
+// — Horizontal (défaut) : image à gauche, contenu à droite
+.card--horizontal {
+  flex-direction: row;
+  align-items:    stretch;
+
+  .card__image {
+    flex:     0 0 115px;
+    width:    115px;
+  }
+
+  .card__content {
+    flex: 1 1 0;
+    padding: var(--spacing-2);
+    gap:     var(--spacing-1-5);
+  }
+}
+
+// — Vertical : image en haut, contenu en bas
+.card--vertical {
+  flex-direction: column;
+
+  .card__image {
+    height: 93px;
+    width:  100%;
+  }
+
+  .card__content {
+    flex-direction: row;
+    align-items:    flex-start;
+    padding: var(--spacing-2);
+    gap:     var(--spacing-1-5);
+
+    .card__info {
+      flex: 1 1 0;
+    }
+  }
+}
+
+// =============================================================================
+// IMAGE
+// =============================================================================
+.card__image {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__img {
+  width:       100%;
+  height:      100%;
+  object-fit:  cover;
+  display:     block;
+}
+
+.card__imgPlaceholder {
+  width:      100%;
+  height:     100%;
+  background: var(--Colors-Primary-State-Hover);
+}
+
+.card__badges {
+  position:   absolute;
+  top:        6px;
+  left:       8px;
+  display:    flex;
+  align-items: center;
+  gap:        var(--spacing-1);
+}
+
+// =============================================================================
+// INDICATEUR DE STATUT (dot)
+// =============================================================================
+.statusDot {
+  display:       block;
+  width:         16px;
+  height:        16px;
+  border-radius: 50%;
+  border:        2px solid var(--color-light);
+  flex-shrink:   0;
+
+  &--good    { background: var(--color-primary-state-selected); }
+  &--warning { background: var(--Colors-Warning-Main); }
+  &--danger  { background: var(--Colors-Error-Main); }
+}
+
+// =============================================================================
+// TAG STADE DE CROISSANCE
+// =============================================================================
+.growthTag {
+  display:       inline-flex;
+  align-items:   center;
+  padding:       var(--spacing-1-5) var(--spacing-2);
+  background:    var(--primitive-primary-200);
+  color:         var(--Colors-Primary-Main);
+  font-family:   var(--Font-family-Tag);
+  font-size:     12px;
+  line-height:   1.5;
+  border-radius: var(--Radius-Tag);
+  white-space:   nowrap;
+}
+
+// =============================================================================
+// CONTENU
+// =============================================================================
+.card__content {
+  display:        flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card__tags {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       var(--spacing-1);
+}
+
+// Tag récolte (tertiary-300 = jaune)
+.harvestTag {
+  display:       inline-flex;
+  align-items:   center;
+  padding:       var(--spacing-1-5) var(--spacing-2);
+  background:    var(--primitive-tertiary-300);
+  color:         var(--primitive-gray-900);
+  font-family:   var(--Font-family-Tag);
+  font-size:     12px;
+  line-height:   1.5;
+  border-radius: var(--Radius-Tag);
+  white-space:   nowrap;
+}
+
+// Tag alerte (error)
+.alertTag {
+  display:       inline-flex;
+  align-items:   center;
+  padding:       var(--spacing-1-5) var(--spacing-2);
+  background:    var(--Colors-Error-Main);
+  color:         var(--color-text-light);
+  font-family:   var(--Font-family-Tag);
+  font-size:     12px;
+  line-height:   1.5;
+  border-radius: var(--Radius-Tag);
+  white-space:   nowrap;
+}
+
+.card__info {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--spacing-1-5);
+}
+
+.card__name {
+  font-family: var(--Font-family-Subtitle);
+  font-size:   18px;
+  font-weight: var(--font-weight-700);
+  line-height: 1.25;
+  color:       var(--Colors-Primary-Main);
+  margin:      0;
+}
+
+.card__zone {
+  font-family: var(--Font-family-Text);
+  font-size:   14px;
+  font-weight: var(--font-weight-400);
+  line-height: 1;
+  color:       var(--color-primary-state-selected);
+  margin:      0;
+}
+
+// =============================================================================
+// BOUTON ACTION
+// =============================================================================
+.card__action {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:  40px;
+  height: 40px;
+  flex-shrink: 0;
+  padding:  0;
+  border:   none;
+  background: transparent;
+  cursor:   pointer;
+  border-radius: var(--radius-2);
+  transition: background 0.15s ease;
+
+  svg {
+    width:  100%;
+    height: 100%;
+  }
+
+  &:hover {
+    background: var(--Colors-Primary-State-Hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+}

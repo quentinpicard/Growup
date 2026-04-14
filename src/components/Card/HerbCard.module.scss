@@ -1,0 +1,54 @@
+// =============================================================================
+// HerbCard.module.scss
+// =============================================================================
+
+.card {
+  display:         flex;
+  align-items:     center;
+  gap:             var(--spacing-2);
+  padding:         var(--spacing-2-5) var(--spacing-3); // 10px 12px
+  background:      var(--primitive-secondary-200);       // #d4d2b4
+  border-radius:   var(--radius-2);                      // 8px
+  border:          none;
+  cursor:          default;
+  transition:      transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card--clickable {
+  cursor: pointer;
+
+  &:hover {
+    transform:  translateY(-1px);
+    box-shadow: 0 4px 12px rgba(90, 76, 57, 0.15);
+  }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+}
+
+.card__name {
+  flex:        1 1 0;
+  font-family: var(--Font-family-Subtitle);
+  font-size:   18px;
+  font-weight: var(--font-weight-700);
+  line-height: 1.25;
+  color:       var(--Colors-Primary-Dark);
+  margin:      0;
+}
+
+.card__icon {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:  32px;
+  height: 32px;
+
+  svg, img {
+    width:  100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}

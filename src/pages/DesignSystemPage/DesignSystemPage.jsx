@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Input, InputPassword, InputSearch, Textarea, Tag, Toggle } from '../../components'
+import { Button, Input, InputPassword, InputSearch, Textarea, Tag, Toggle, VegetableCard, HarvestCard, HerbCard, TaskCard } from '../../components'
 import styles from './DesignSystemPage.module.scss'
 
 // — Icône SVG locale (remplace l'asset Figma)
@@ -41,6 +41,16 @@ function ComponentCard({ label, children }) {
     <div className={styles.card}>
       <div className={styles.cardPreview}>{children}</div>
       <span className={styles.cardLabel}>{label}</span>
+    </div>
+  )
+}
+
+// — Présentation d'un composant Card (pleine largeur, sans centrage)
+function CardDemo({ label, children }) {
+  return (
+    <div className={styles.cardRowItem}>
+      {children}
+      <span className={styles.cardRowLabel}>{label}</span>
     </div>
   )
 }
@@ -558,6 +568,109 @@ export default function DesignSystemPage() {
           <ComponentCard label="Top / OFF">
             <ToggleDemo color="secondary" label="Rappels" labelPosition="top" />
           </ComponentCard>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            VEGETABLE CARD
+        ══════════════════════════════════════════ */}
+        <Section title="Vegetable Card — Horizontal">
+          <div className={styles.cardRow}>
+            <CardDemo label="Défaut">
+              <VegetableCard name="Tomate cerise" zone="Balcon Sud" growthStage="Croissance" status="good" />
+            </CardDemo>
+            <CardDemo label="Avec tags">
+              <VegetableCard name="Basilic" zone="Fenêtre Est" growthStage="Floraison" harvestType="Récolte étalée" status="warning" />
+            </CardDemo>
+            <CardDemo label="Alerte">
+              <VegetableCard name="Menthe" zone="Pot intérieur" growthStage="Semis" statusAlert="À surveiller" status="danger" />
+            </CardDemo>
+          </div>
+        </Section>
+
+        <Section title="Vegetable Card — Vertical">
+          <div className={styles.cardRow}>
+            <CardDemo label="Défaut">
+              <VegetableCard layout="vertical" name="Tomate cerise" zone="Balcon Sud" growthStage="Récolte" status="good" />
+            </CardDemo>
+            <CardDemo label="Avec tag récolte">
+              <VegetableCard layout="vertical" name="Courgette" zone="Jardinière" growthStage="Floraison" harvestType="Récolte groupée" status="good" />
+            </CardDemo>
+            <CardDemo label="Placeholder" />
+          </div>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            HARVEST CARD
+        ══════════════════════════════════════════ */}
+        <Section title="Harvest Card">
+          <div className={styles.cardRow}>
+            <CardDemo label="Récolte étalée">
+              <HarvestCard
+                name="Tomate cerise" harvestType="Récolte étalée" harvestDate="27 Fév." datePrefix="Jusqu'au :"
+                icon={<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="20" r="10" fill="var(--Colors-Error-Main)" opacity="0.85" /><path d="M24 10C24 10 26 6 30 6" stroke="var(--Colors-Primary-Main)" strokeWidth="1.5" strokeLinecap="round" /></svg>}
+              />
+            </CardDemo>
+            <CardDemo label="Récolte groupée">
+              <HarvestCard
+                name="Basilic" harvestType="Récolte groupée" harvestDate="15 Mars" datePrefix="Prévu :"
+                icon={<svg viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="28" rx="10" ry="8" fill="var(--Colors-Primary-Main)" opacity="0.8" /><path d="M24 20C24 16 28 12 32 14C28 14 26 18 24 20Z" fill="var(--Colors-Primary-State-Selected)" /></svg>}
+              />
+            </CardDemo>
+            <CardDemo label="Sans icône">
+              <HarvestCard name="Menthe" harvestType="Récolte de fin de culture" harvestDate="30 Avr." datePrefix="Avant le :" />
+            </CardDemo>
+          </div>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            HERB CARD
+        ══════════════════════════════════════════ */}
+        <Section title="Herb Card">
+          <div className={styles.cardRow}>
+            <CardDemo label="Menthe">
+              <HerbCard name="Menthe" icon={<svg viewBox="0 0 32 32" fill="none"><path d="M16 28C16 20 8 12 8 12C8 12 14 10 16 14C18 10 24 12 24 12C24 12 16 20 16 28Z" fill="var(--Colors-Primary-Main)" /></svg>} />
+            </CardDemo>
+            <CardDemo label="Persil">
+              <HerbCard name="Persil" icon={<svg viewBox="0 0 32 32" fill="none"><path d="M16 26C12 20 8 16 10 10C12 8 14 10 16 14C18 10 20 8 22 10C24 16 20 20 16 26Z" fill="var(--Colors-Primary-State-Selected)" /></svg>} />
+            </CardDemo>
+            <CardDemo label="Sans icône">
+              <HerbCard name="Basilic" />
+            </CardDemo>
+          </div>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            TASK CARD
+        ══════════════════════════════════════════ */}
+        <Section title="Task Card">
+          <div className={styles.cardRow}>
+            <CardDemo label="Non réalisée">
+              <TaskCard
+                title="Arroser les plants" frequency="Quotidien" duration="~2 min"
+                icon={<svg viewBox="0 0 40 40" fill="none"><rect x="8" y="24" width="24" height="8" rx="2" fill="var(--primitive-secondary-400)" /><rect x="14" y="12" width="4" height="12" rx="2" fill="var(--Colors-Primary-Main)" /><rect x="20" y="8" width="4" height="16" rx="2" fill="var(--Colors-Primary-State-Selected)" /></svg>}
+              />
+            </CardDemo>
+            <CardDemo label="Réalisée">
+              <TaskCard
+                title="Arroser les plants" frequency="Quotidien" duration="~2 min" checked
+                icon={<svg viewBox="0 0 40 40" fill="none"><rect x="8" y="24" width="24" height="8" rx="2" fill="var(--primitive-secondary-400)" /><rect x="14" y="12" width="4" height="12" rx="2" fill="var(--Colors-Primary-Main)" /><rect x="20" y="8" width="4" height="16" rx="2" fill="var(--Colors-Primary-State-Selected)" /></svg>}
+              />
+            </CardDemo>
+            <CardDemo label="Avec conseil + tip">
+              <TaskCard
+                title="Tailler le basilic" frequency="Demain" duration="~5 min"
+                conseil="Couper au-dessus d'une paire de feuilles"
+                tip="Pincer les fleurs pour prolonger la production !"
+                icon={<svg viewBox="0 0 40 40" fill="none"><path d="M20 32C16 24 10 18 12 12C14 9 17 11 20 16C23 11 26 9 28 12C30 18 24 24 20 32Z" fill="var(--Colors-Primary-Main)" /></svg>}
+              />
+            </CardDemo>
+            <CardDemo label="Dans 2 jours">
+              <TaskCard
+                title="Vérifier l'humidité" frequency="Dans 2 jours" conseil="Sol trop sec détecté"
+                icon={<svg viewBox="0 0 40 40" fill="none"><path d="M20 8C20 8 12 18 12 24C12 28.4 15.6 32 20 32C24.4 32 28 28.4 28 24C28 18 20 8 20 8Z" fill="var(--Colors-Primary-State-Selected)" /></svg>}
+              />
+            </CardDemo>
+          </div>
         </Section>
 
       </main>

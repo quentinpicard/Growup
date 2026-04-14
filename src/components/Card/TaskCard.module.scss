@@ -1,0 +1,198 @@
+// =============================================================================
+// TaskCard.module.scss
+// =============================================================================
+
+.card {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--spacing-2);
+  padding:        var(--spacing-3) var(--spacing-4);  // 12px 16px
+  background:     var(--color-light);
+  border-radius:  var(--radius-2);                    // 8px
+  box-shadow:     0 2px 8px rgba(47, 76, 51, 0.08);
+  transition:     background 0.2s ease, opacity 0.2s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    box-shadow: 0 4px 14px rgba(47, 76, 51, 0.12);
+  }
+}
+
+// — État coché : fond vert clair + légère opacité
+.card--checked {
+  background: var(--Colors-Primary-Light);
+  opacity:    0.85;
+
+  .card__title {
+    text-decoration: line-through;
+    opacity:         0.7;
+  }
+}
+
+// =============================================================================
+// LIGNE PRINCIPALE
+// =============================================================================
+.card__row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--spacing-1-5);
+}
+
+// — Icône plante
+.card__plantIcon {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:  40px;
+  height: 40px;
+
+  svg, img {
+    width:  100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// — Corps texte
+.card__body {
+  flex:    1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap:     var(--spacing-1);
+  min-width: 0;
+}
+
+// — Méta : tag fréquence + durée
+.card__meta {
+  display:     flex;
+  align-items: center;
+  gap:         var(--spacing-1-5);
+}
+
+// Tag fréquence (primary-400)
+.freqTag {
+  display:       inline-flex;
+  align-items:   center;
+  padding:       var(--spacing-1-5) var(--spacing-2);
+  background:    var(--primitive-primary-400);
+  color:         var(--color-light);
+  font-family:   var(--Font-family-Tag);
+  font-size:     12px;
+  line-height:   1.5;
+  border-radius: var(--Radius-Tag);
+  white-space:   nowrap;
+}
+
+.card__duration {
+  font-family: var(--Font-family-Text);
+  font-size:   12px;
+  font-weight: var(--font-weight-500);
+  line-height: 1.4;
+  color:       var(--Colors-Primary-Main);
+  white-space: nowrap;
+}
+
+// Titre de la tâche
+.card__title {
+  font-family: var(--Font-family-Text);
+  font-size:   18px;
+  font-weight: var(--font-weight-600);
+  line-height: 1.25;
+  color:       var(--color-text-dark);
+  margin:      0;
+  transition:  opacity 0.2s ease, text-decoration 0.2s ease;
+}
+
+// Conseil (texte tronqué)
+.card__conseil {
+  font-family:   var(--Font-family-Text);
+  font-size:     12px;
+  font-weight:   var(--font-weight-400);
+  line-height:   1.25;
+  color:         var(--color-text-dark);
+  margin:        0;
+  overflow:      hidden;
+  text-overflow: ellipsis;
+  white-space:   nowrap;
+}
+
+// =============================================================================
+// CHECKBOX
+// =============================================================================
+.card__checkbox {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:  24px;
+  height: 24px;
+  padding:   0;
+  border:    none;
+  background: transparent;
+  cursor:    pointer;
+  border-radius: var(--radius-1);
+  transition: transform 0.1s ease;
+
+  svg {
+    width:  16px;
+    height: 16px;
+  }
+
+  &:active { transform: scale(0.9); }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+}
+
+// =============================================================================
+// MESSAGE MASCOTTE
+// =============================================================================
+.tip {
+  display:     flex;
+  align-items: flex-end;
+  gap:         var(--spacing-2);
+}
+
+.tip__avatar {
+  display:     flex;
+  align-items: center;
+  flex-shrink: 0;
+  width:  24px;
+  height: 24px;
+
+  svg {
+    width:  100%;
+    height: 100%;
+  }
+}
+
+.tip__bubble {
+  position:      relative;
+  flex:          1 1 0;
+  background:    var(--primitive-secondary-200);
+  border-radius: var(--Radius-Tag) var(--radius-2) var(--radius-2) var(--radius-2);
+  padding:       var(--spacing-2) var(--spacing-3);
+
+  // Petite queue de la bulle (bas-gauche)
+  &::before {
+    content:      '';
+    position:     absolute;
+    bottom:       0;
+    left:         -6px;
+    width:        12px;
+    height:       8px;
+    background:   var(--primitive-secondary-200);
+    clip-path:    polygon(100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.tip__text {
+  font-family: var(--Font-family-Subtitle);
+  font-size:   12px;
+  font-weight: var(--font-weight-300);
+  line-height: 1.15;
+  color:       var(--Colors-Secondary-Main);
+  margin:      0;
+}

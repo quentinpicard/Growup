@@ -1,0 +1,95 @@
+// =============================================================================
+// HarvestCard.module.scss
+// =============================================================================
+
+.card {
+  display:       flex;
+  flex-direction: column;
+  background:    var(--primitive-primary-200);  // #cee4d1 — vert très clair
+  border-radius: var(--radius-2);               // 8px
+  overflow:      hidden;
+  transition:    transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform:  translateY(-1px);
+    box-shadow: 0 4px 12px rgba(47, 76, 51, 0.14);
+  }
+}
+
+.card__body {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--spacing-1-5);
+  padding:        var(--spacing-2-5) var(--spacing-3); // 10px 12px
+}
+
+// — Tag type de récolte (tertiary-300 = jaune #f7ec59)
+.harvestTag {
+  display:       inline-flex;
+  align-items:   center;
+  align-self:    flex-start;
+  padding:       var(--spacing-1-5) var(--spacing-2);
+  background:    var(--primitive-tertiary-300);
+  color:         var(--primitive-gray-900);
+  font-family:   var(--Font-family-Tag);
+  font-size:     12px;
+  line-height:   1.5;
+  border-radius: var(--Radius-Tag);
+  white-space:   nowrap;
+}
+
+// — Ligne nom + icône
+.card__nameRow {
+  display:     flex;
+  align-items: center;
+  gap:         var(--spacing-2);
+}
+
+.card__name {
+  flex:        1 1 0;
+  font-family: var(--Font-family-Subtitle);
+  font-size:   18px;
+  font-weight: var(--font-weight-700);
+  line-height: 1;
+  color:       var(--Colors-Primary-Dark);
+  margin:      0;
+}
+
+.card__icon {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:  48px;
+  height: 48px;
+
+  svg, img {
+    width:  100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// — Ligne date
+.card__date {
+  display:     flex;
+  align-items: baseline;
+  gap:         var(--spacing-1);
+  white-space: nowrap;
+}
+
+.card__datePrefix {
+  font-family: var(--Font-family-Text);
+  font-size:   12px;
+  font-weight: var(--font-weight-300);
+  line-height: 1.25;
+  color:       var(--color-text-dark);
+}
+
+.card__dateValue {
+  font-family: var(--Font-family-Text);
+  font-size:   14px;
+  font-weight: var(--font-weight-700);
+  line-height: 1.25;
+  color:       var(--Colors-Primary-State-Outline);
+}
