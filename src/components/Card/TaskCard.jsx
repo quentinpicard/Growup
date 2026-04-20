@@ -62,7 +62,6 @@ export default function TaskCard({
           role="checkbox"
           aria-checked={isChecked}
           className={styles.card__checkbox}
-          onClick={(e) => e.stopPropagation()}
         >
           {isChecked ? <IconChecked /> : <IconUnchecked />}
         </span>
