@@ -32,7 +32,6 @@
 
 // Appliqué directement via classe sur le <p> pour garantir le rendu
 .card__title--checked {
-  // text-decoration:       line-through;
   text-decoration-color: var(--Colors-Primary-Main);
   opacity:               0.7;
 }
