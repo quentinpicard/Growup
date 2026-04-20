@@ -6,14 +6,21 @@
   display:        flex;
   flex-direction: column;
   gap:            var(--spacing-2);
-  padding:        var(--spacing-3) var(--spacing-4);  // 12px 16px
+  padding:        var(--spacing-3) var(--spacing-4);
   background:     var(--color-light);
-  border-radius:  var(--radius-2);                    // 8px
+  border-radius:  var(--radius-2);
   box-shadow:     0 2px 8px rgba(47, 76, 51, 0.08);
+  cursor:         pointer;
   transition:     background 0.2s ease, opacity 0.2s ease, box-shadow 0.15s ease;
+  user-select:    none;
 
   &:hover {
     box-shadow: 0 4px 14px rgba(47, 76, 51, 0.12);
+  }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
   }
 }
 
@@ -21,11 +28,13 @@
 .card--checked {
   background: var(--Colors-Primary-Light);
   opacity:    0.85;
+}
 
-  .card__title {
-    text-decoration: line-through;
-    opacity:         0.7;
-  }
+// Appliqué directement via classe sur le <p> pour garantir le rendu
+.card__title--checked {
+  // text-decoration:       line-through;
+  text-decoration-color: var(--Colors-Primary-Main);
+  opacity:               0.7;
 }
 
 // =============================================================================

@@ -1,36 +1,39 @@
+import { useState } from 'react'
 import styles from './TaskCard.module.scss'
 
-/**
- * TaskCard — carte de tâche de soin
- *
- * @param {string}  title
- * @param {string}  frequency    — label du tag fréquence : 'Quotidien' | 'Demain' | 'Dans 2 jours'
- * @param {string}  duration     — ex: '~2 min'
- * @param {React.ReactNode} icon — icône de la plante
- * @param {boolean} checked      — tâche accomplie
- * @param {function} onChange
- * @param {string}  conseil      — texte de conseil court (optionnel)
- * @param {string}  tip          — message de la mascotte (optionnel)
- */
 export default function TaskCard({
   title = 'Tâche',
   frequency = 'Quotidien',
   duration,
   icon,
-  checked = false,
+  checked: checkedProp = false,
   onChange,
   conseil,
   tip,
   className,
 }) {
+  const [isChecked, setIsChecked] = useState(checkedProp)
+
+  const handleToggle = () => {
+    const next = !isChecked
+    setIsChecked(next)
+    onChange?.(next)
+  }
+
   const cls = [
     styles.card,
-    checked && styles['card--checked'],
+    isChecked && styles['card--checked'],
     className,
   ].filter(Boolean).join(' ')
 
   return (
-    <article className={cls}>
+    <article
+      className={cls}
+      onClick={handleToggle}
+      tabIndex={0}
+      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleToggle()}
+      aria-label={isChecked ? 'Marquer comme non réalisée' : 'Marquer comme réalisée'}
+    >
       {/* Ligne principale */}
       <div className={styles.card__row}>
         {/* Icône plante */}
@@ -48,23 +51,21 @@ export default function TaskCard({
               <span className={styles.card__duration}>{duration}</span>
             )}
           </div>
-          <p className={styles.card__title}>{title}</p>
+          <p className={`${styles.card__title} ${isChecked ? styles['card__title--checked'] : ''}`}>{title}</p>
           {conseil && (
             <p className={styles.card__conseil}>{conseil}</p>
           )}
         </div>
 
         {/* Checkbox */}
-        <button
-          type="button"
+        <span
           role="checkbox"
-          aria-checked={checked}
-          aria-label={checked ? 'Marquer comme non réalisée' : 'Marquer comme réalisée'}
+          aria-checked={isChecked}
           className={styles.card__checkbox}
-          onClick={onChange}
+          onClick={(e) => e.stopPropagation()}
         >
-          {checked ? <IconChecked /> : <IconUnchecked />}
-        </button>
+          {isChecked ? <IconChecked /> : <IconUnchecked />}
+        </span>
       </div>
 
       {/* Message mascotte */}
