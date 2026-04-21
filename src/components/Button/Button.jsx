@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Button.module.scss'
 
@@ -29,6 +30,9 @@ export default function Button({
   className,
   onClick,
 }) {
+  const uid = useId()
+  const filterId = `btn-rough-${uid.replace(/:/g, '')}`
+
   const classNames = [
     styles.btn,
     styles[`btn--${variant}`],
@@ -40,6 +44,17 @@ export default function Button({
   ]
     .filter(Boolean)
     .join(' ')
+
+  const filter = (
+    <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
+      <defs>
+        <filter id={filterId}>
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+    </svg>
+  )
 
   const inner = (
     <>
@@ -54,25 +69,33 @@ export default function Button({
 
   if (asLink && href) {
     return (
-      <Link
-        to={href}
-        className={classNames}
-        aria-disabled={disabled}
-        tabIndex={disabled ? -1 : undefined}
-      >
-        {inner}
-      </Link>
+      <>
+        {filter}
+        <Link
+          to={href}
+          className={classNames}
+          style={{ filter: `url(#${filterId})` }}
+          aria-disabled={disabled}
+          tabIndex={disabled ? -1 : undefined}
+        >
+          {inner}
+        </Link>
+      </>
     )
   }
 
   return (
-    <button
-      type={type}
-      className={classNames}
-      disabled={disabled}
-      onClick={onClick}
-    >
-      {inner}
-    </button>
+    <>
+      {filter}
+      <button
+        type={type}
+        className={classNames}
+        style={{ filter: `url(#${filterId})` }}
+        disabled={disabled}
+        onClick={onClick}
+      >
+        {inner}
+      </button>
+    </>
   )
 }
