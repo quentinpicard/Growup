@@ -13,6 +13,9 @@
 .content {
   flex: 1;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding-bottom: var(--spacing-4);
   scrollbar-width: none;
 
@@ -149,15 +152,9 @@
 
 // ─── Modificateurs bouton ────────────────────────────────────────────────────
 
-// CTA principal sur fond sombre : fond vert moyen visible
+// CTA principal : on remplace uniquement le fond
 .btnCta {
   background: var(--primitive-primary-600) !important;
-  color: var(--primitive-primary-950) !important;
-  box-shadow: none !important;
-
-  &:hover:not(:disabled) {
-    filter: brightness(1.1);
-  }
 }
 
 // Bouton secondaire transparent sur fond sombre
