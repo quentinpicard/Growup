@@ -1,0 +1,26 @@
+.bubble {
+  position: relative;
+  display: inline-block;
+  max-width: 290px;
+  padding: var(--spacing-3) var(--spacing-4);
+  background: var(--color-light);
+  border-radius: var(--radius-card-m);
+  box-shadow: 0 var(--spacing-1) var(--spacing-2) rgba(0, 0, 0, 0.12);
+  font-family: var(--font-family-text);
+  font-size: 14px;
+  font-weight: var(--font-weight-400);
+  color: var(--color-text-dark);
+  line-height: 1.5;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: calc(-1 * var(--spacing-3));
+    left: var(--spacing-4);
+    width: 0;
+    height: 0;
+    border-left: var(--spacing-3) solid transparent;
+    border-right: 0px solid transparent;
+    border-top: var(--spacing-3) solid var(--color-light);
+  }
+}

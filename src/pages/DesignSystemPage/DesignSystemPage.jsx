@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Input, InputPassword, InputSearch, Textarea, Tag, Toggle, VegetableCard, HarvestCard, HerbCard, TaskCard } from '../../components'
+import { Button, Input, InputPassword, InputSearch, Textarea, Tag, Toggle, VegetableCard, HarvestCard, HerbCard, TaskCard, ChoiceBtn, SpeechBubble } from '../../components'
 import styles from './DesignSystemPage.module.scss'
 
 // — Icône SVG locale (remplace l'asset Figma)
@@ -68,6 +68,20 @@ function ColorSwatch({ cssVar, label, dark = false }) {
       </span>
       <code className={styles.swatchVar}>{cssVar}</code>
     </div>
+  )
+}
+
+// — ChoiceBtn avec toggle local (pour la démo)
+function ChoiceBtnDemo({ label }) {
+  const [selected, setSelected] = useState(false)
+  return (
+    <ComponentCard label={selected ? 'Select' : 'Default'}>
+      <ChoiceBtn
+        label={label}
+        property1={selected ? 'select' : 'default'}
+        onClick={() => setSelected(v => !v)}
+      />
+    </ComponentCard>
   )
 }
 
@@ -671,6 +685,32 @@ export default function DesignSystemPage() {
               />
             </CardDemo>
           </div>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            CHOICE BTN
+        ══════════════════════════════════════════ */}
+        <Section title="ChoiceBtn">
+          <ChoiceBtnDemo label="Tomate cerise" />
+          <ChoiceBtnDemo label="Basilic" />
+          <ComponentCard label="Disable">
+            <ChoiceBtn label="Menthe" property1="disable" onClick={() => {}} />
+          </ComponentCard>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            SPEECH BUBBLE
+        ══════════════════════════════════════════ */}
+        <Section title="SpeechBubble">
+          <ComponentCard label="Courte">
+            <SpeechBubble>Bonjour, je suis Bruno !</SpeechBubble>
+          </ComponentCard>
+          <ComponentCard label="Longue">
+            <SpeechBubble>Dis-moi, quelles plantes souhaites-tu cultiver cette saison ?</SpeechBubble>
+          </ComponentCard>
+          <ComponentCard label="Avec emphase">
+            <SpeechBubble>Super choix ! 🌱 Tu vas adorer cultiver ces légumes.</SpeechBubble>
+          </ComponentCard>
         </Section>
 
       </main>
