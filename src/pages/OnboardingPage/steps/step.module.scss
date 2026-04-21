@@ -7,6 +7,7 @@
   flex: 1;
   padding: 0 var(--spacing-4);
   min-height: 0;
+  position: relative;
 }
 
 .content {
@@ -20,39 +21,52 @@
   }
 }
 
-// ─── Section Bruno (mascotte + bulle) ────────────────────────────────────────
-.brunoSection {
+// ─── Steps 1, 2 : layout colonne centré ──────────────────────────────────────
+.brunoCenteredSection {
   display: flex;
-  align-items: flex-end;
-  gap: var(--spacing-3);
-  padding-top: var(--spacing-6);
-  margin-bottom: var(--spacing-6);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: var(--spacing-5);
 }
 
-.mascotte {
-  width: 120px;
+.mascotteCentered {
+  width: 176px;
   height: auto;
   flex-shrink: 0;
   object-fit: contain;
 }
 
+// ─── Steps 3-7 : section bulle seule (mascotte en absolute) ──────────────────
+.bubbleSection {
+  padding-top: 48px;
+  margin-bottom: var(--spacing-6);
+}
+
+.bubbleSectionHigh {
+  padding-top: 112px;
+  margin-bottom: var(--spacing-6);
+}
+
+// ─── Bulle Bruno ─────────────────────────────────────────────────────────────
 .bubble {
   background: var(--color-light);
   border-radius: var(--radius-card-m);
   padding: var(--spacing-3) var(--spacing-4);
   position: relative;
-  flex: 1;
+  width: 100%;
 
   &::before {
     content: '';
     position: absolute;
-    bottom: var(--spacing-4);
-    left: calc(-1 * var(--spacing-2));
+    bottom: calc(-1 * var(--spacing-2));
+    left: 54px;
     width: 0;
     height: 0;
-    border-top: var(--spacing-2) solid transparent;
-    border-bottom: 0 solid transparent;
-    border-right: var(--spacing-2) solid var(--color-light);
+    border-left: 6px solid transparent;
+    border-right: 2px solid transparent;
+    border-top: var(--spacing-2) solid var(--color-light);
   }
 
   p {
@@ -63,6 +77,57 @@
     color: var(--color-text-dark);
     font-weight: var(--font-weight-400);
   }
+}
+
+.bubbleArrowRight {
+  &::before {
+    left: auto;
+    right: 54px;
+    border-left: 2px solid transparent;
+    border-right: 6px solid transparent;
+  }
+}
+
+// ─── Mascotte absolue (steps avec choix) ─────────────────────────────────────
+.mascotteAbs {
+  position: absolute;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.mascotteExperience {
+  width: 112px;
+  left: -65px;
+  top: 51px;
+  transform: rotate(37deg);
+}
+
+.mascotteLocation {
+  width: 112px;
+  left: 282px;
+  top: 45px;
+  transform: rotate(-37deg);
+}
+
+.mascotteLight {
+  width: 100px;
+  left: 142px;
+  top: 89px;
+  transform: rotate(180deg);
+}
+
+.mascotteObjectives {
+  width: 112px;
+  left: -65px;
+  top: -57px;
+  transform: rotate(120deg);
+}
+
+.mascotteCity {
+  width: 75px;
+  left: 283px;
+  top: 0;
+  transform: scaleX(-1);
 }
 
 // ─── Liste de choix ──────────────────────────────────────────────────────────
@@ -86,7 +151,7 @@
 
 // CTA principal sur fond sombre : fond vert moyen visible
 .btnCta {
-  background: var(--primitive-primary-400) !important;
+  background: var(--primitive-primary-600) !important;
   color: var(--primitive-primary-950) !important;
   box-shadow: none !important;
 

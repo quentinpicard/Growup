@@ -6,8 +6,8 @@ export const STEP_TEXTS = {
     ctaSecondary: "J'ai déjà un compte",
   },
   brunoHello: {
-    bubble: "Salut, moi c'est Bruno le broco",
-    cta: 'Enchanté, Bruno !',
+    bubble: "Salut, moi, c'est Bruno le broco",
+    cta: 'Hello bruno !',
   },
   brunoMission: {
     bubble:
@@ -20,14 +20,14 @@ export const STEP_TEXTS = {
     cta: "Voilà, c'est moi",
   },
   location: {
-    cta: "C'est ici",
+    cta: "C'est là que je jardine",
   },
   light: {
     cta: "Voilà l'ambiance",
   },
   objectives: {
-    bubble: "C'est quoi un peu tes objectifs ?",
-    cta: 'Lancé',
+    bubble: "C'est quoi un peu tes objectifs ? ",
+    cta: "C'est ce que je veux",
   },
   city: {
     bubble:
@@ -47,43 +47,43 @@ export const SKIP_MODAL = {
   warning: "Sans l'intro, Bruno aura moins d'infos pour t'aider.",
   info: 'Pas de souci, tu pourras compléter ton profil plus tard.',
   ctaContinue: "Je fais l'intro",
-  ctaSkip: 'Je passe pour l\'instant',
+  ctaSkip: "Je passe pour l'instant",
 }
 
 export const EXPERIENCE_OPTIONS = [
-  { value: 'jamais',    label: 'Non, jamais, zéro plante' },
-  { value: 'un_peu',   label: 'Oui, quelques-unes… et elles sont mortes' },
-  { value: 'oui_deja', label: "Oui, j'en ai encore chez moi" },
+  { value: 'jamais',    label: 'Nan, je commence de zéro' },
+  { value: 'un_peu',   label: "J'ai essayer d'en avoir" },
+  { value: 'oui_deja', label: "Oui j'en ai déjà" },
 ]
 
 export const LOCATION_QUESTION = {
-  debutant: "OK, on va faire avec ce qu'on a. Où est-ce que tu veux jardiner chez toi ?",
+  debutant: "OK, on va faire avec ce qu'on a. Ou est-ce que tu veux jardines où chez toi ?",
   avance:   "Ah, déjà des plantes. Bien, elles sont où ?",
 }
 
 export const LOCATION_OPTIONS = [
-  { value: 'balcon',    label: 'Un balcon ou une terrasse' },
-  { value: 'fenetre',   label: "Le rebord d'une fenêtre" },
-  { value: 'interieur', label: "À l'intérieur, près d'une fenêtre" },
-  { value: 'jardin',    label: 'Un petit coin de jardin' },
-  { value: 'autre',     label: 'Je sais pas encore' },
+  { value: 'fenetre',   label: 'Rebord extérieur de fenêtre' },
+  { value: 'balcon',    label: 'Balcon ou terrasse' },
+  { value: 'interieur', label: "Intérieur près d'une fenêtre" },
+  { value: 'jardin',    label: 'Petit coin de jardin' },
+  { value: 'autre',     label: 'Autre' },
 ]
 
 export const LIGHT_QUESTIONS = {
-  balcon: {
-    question: 'Ton balcon/Terrasse, il prend le soleil plutôt combien de temps dans la journée ?',
-    options: [
-      { value: 'moins_2h', label: 'Moins de 2h' },
-      { value: '2_4h',     label: 'Entre 2h et 4h' },
-      { value: 'plus_4h',  label: 'Plus de 4h, plein soleil' },
-    ],
-  },
   fenetre: {
     question: 'Et la lumière, sur le rebord de ta fenêtre, elle est plutôt comment ?',
     options: [
       { value: 'direct',   label: 'Plein soleil direct' },
       { value: 'indirect', label: 'Lumière indirecte / tamisée' },
       { value: 'ombre',    label: 'Assez sombre' },
+    ],
+  },
+  balcon: {
+    question: 'Ton balcon/Terrasse, il prend le soleil plutôt combien de temps dans la journée ?',
+    options: [
+      { value: 'moins_2h', label: 'Moins de 2h' },
+      { value: '2_4h',     label: 'Entre 2h et 4h' },
+      { value: 'plus_4h',  label: 'Plus de 4h, plein soleil' },
     ],
   },
   interieur: {
@@ -114,9 +114,9 @@ export const LIGHT_QUESTIONS = {
 }
 
 export const OBJECTIVES_OPTIONS = [
-  { value: 'manger',    label: 'Manger ce que je fais pousser' },
-  { value: 'zen',       label: 'Me détendre, avoir un truc à choyer' },
-  { value: 'apprendre', label: 'Apprendre à jardiner' },
-  { value: 'deco',      label: 'Décorer mon espace' },
-  { value: 'ecolo',     label: 'Être plus écolo au quotidien' },
+  { value: 'aromatiques', label: 'Cuisiner avec des aromatiques' },
+  { value: 'legumes',     label: 'Avoir 2 ou 3 légumes faciles' },
+  { value: 'fleuri',      label: 'Faire un balcon joli et fleuri' },
+  { value: 'biodiversite', label: 'Aider les insectes et la biodiversité' },
+  { value: 'sais_pas',    label: 'Je ne sais pas encore' },
 ]

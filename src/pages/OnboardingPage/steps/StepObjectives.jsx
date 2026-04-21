@@ -24,9 +24,10 @@ export default function StepObjectives({ onNext, setAnswer }) {
 
   return (
     <div className={styles.step}>
+      <img src={brunoImg} alt="Bruno le brocoli" className={`${styles.mascotteAbs} ${styles.mascotteObjectives}`} />
+
       <div className={styles.content}>
-        <div className={styles.brunoSection}>
-          <img src={brunoImg} alt="Bruno le brocoli" className={styles.mascotte} />
+        <div className={styles.bubbleSectionHigh}>
           <div className={styles.bubble}>
             <p>{t.bubble}</p>
           </div>

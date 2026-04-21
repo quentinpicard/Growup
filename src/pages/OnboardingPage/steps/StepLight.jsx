@@ -14,18 +14,20 @@ export default function StepLight({ onNext, answers, setAnswer }) {
   const { question, options } = LIGHT_QUESTIONS[locationKey] ?? LIGHT_QUESTIONS.autre
 
   const handleSelect = (value) => {
-    setSelected(value)
-    setAnswer('light', value)
+    const next = selected === value ? null : value
+    setSelected(next)
+    setAnswer('light', next)
   }
 
   const canProceed = selected !== null
 
   return (
     <div className={styles.step}>
+      <img src={brunoImg} alt="Bruno le brocoli" className={`${styles.mascotteAbs} ${styles.mascotteLight}`} />
+
       <div className={styles.content}>
-        <div className={styles.brunoSection}>
-          <img src={brunoImg} alt="Bruno le brocoli" className={styles.mascotte} />
-          <div className={styles.bubble}>
+        <div className={styles.bubbleSection}>
+          <div className={[styles.bubble, styles.bubbleArrowRight].join(' ')}>
             <p>{question}</p>
           </div>
         </div>

@@ -16,18 +16,20 @@ export default function StepLocation({ onNext, answers, setAnswer }) {
       : LOCATION_QUESTION.debutant
 
   const handleSelect = (value) => {
-    setSelected(value)
-    setAnswer('location', value)
+    const next = selected === value ? null : value
+    setSelected(next)
+    setAnswer('location', next)
   }
 
   const canProceed = selected !== null
 
   return (
     <div className={styles.step}>
+      <img src={brunoImg} alt="Bruno le brocoli" className={`${styles.mascotteAbs} ${styles.mascotteLocation}`} />
+
       <div className={styles.content}>
-        <div className={styles.brunoSection}>
-          <img src={brunoImg} alt="Bruno le brocoli" className={styles.mascotte} />
-          <div className={styles.bubble}>
+        <div className={styles.bubbleSection}>
+          <div className={[styles.bubble, styles.bubbleArrowRight].join(' ')}>
             <p>{question}</p>
           </div>
         </div>

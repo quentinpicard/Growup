@@ -11,17 +11,19 @@ export default function StepExperience({ onNext, setAnswer }) {
   const [selected, setSelected] = useState(null)
 
   const handleSelect = (value) => {
-    setSelected(value)
-    setAnswer('experience', value)
+    const next = selected === value ? null : value
+    setSelected(next)
+    setAnswer('experience', next)
   }
 
   const canProceed = selected !== null
 
   return (
     <div className={styles.step}>
+      <img src={brunoImg} alt="Bruno le brocoli" className={`${styles.mascotteAbs} ${styles.mascotteExperience}`} />
+
       <div className={styles.content}>
-        <div className={styles.brunoSection}>
-          <img src={brunoImg} alt="Bruno le brocoli" className={styles.mascotte} />
+        <div className={styles.bubbleSection}>
           <div className={styles.bubble}>
             <p>{t.bubble}</p>
           </div>

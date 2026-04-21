@@ -9,11 +9,11 @@ export default function StepBrunoMission({ onNext }) {
   return (
     <div className={styles.step}>
       <div className={styles.content}>
-        <div className={styles.brunoSection}>
-          <img src={brunoImg} alt="Bruno le brocoli" className={styles.mascotte} />
+        <div className={styles.brunoCenteredSection}>
           <div className={styles.bubble}>
             <p>{t.bubble}</p>
           </div>
+          <img src={brunoImg} alt="Bruno le brocoli" className={styles.mascotteCentered} />
         </div>
       </div>
 
