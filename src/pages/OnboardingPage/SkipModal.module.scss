@@ -1,0 +1,87 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, var(--color-dark) 65%, transparent);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 200;
+  padding: var(--spacing-4);
+}
+
+.modal {
+  background: var(--primitive-primary-800);
+  border-radius: var(--radius-card-l);
+  padding: var(--spacing-6);
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.closeBtn {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-primary-contrast-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  opacity: 0.8;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.warning {
+  font-family: var(--font-family-subtitle);
+  font-size: 16px;
+  font-weight: var(--font-weight-700);
+  color: var(--color-primary-contrast-text);
+  margin: 0;
+  padding-right: var(--spacing-10);
+  line-height: 1.4;
+}
+
+.info {
+  font-family: var(--font-family-text);
+  font-size: 14px;
+  color: var(--color-primary-contrast-text);
+  opacity: 0.75;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-2);
+}
+
+.btnCta {
+  background: var(--primitive-primary-400) !important;
+  color: var(--primitive-primary-950) !important;
+  box-shadow: none !important;
+}
+
+.btnOutlined {
+  background: transparent !important;
+  border: 1.5px solid color-mix(in srgb, var(--color-primary-contrast-text) 50%, transparent) !important;
+  color: var(--color-primary-contrast-text) !important;
+  box-shadow: none !important;
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-primary-contrast-text) 10%, transparent) !important;
+  }
+}

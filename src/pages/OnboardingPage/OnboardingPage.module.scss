@@ -1,7 +1,86 @@
 .page {
+  background: var(--primitive-primary-950);
+  min-height: 100dvh;
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
-  padding: var(--spacing-6);
-  background-color: var(--color-light);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: 0 var(--spacing-4);
+  height: 52px;
+  flex-shrink: 0;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-primary-contrast-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  padding: 0;
+  border-radius: var(--radius-card-s);
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-primary-contrast-text) 12%, transparent);
+  }
+}
+
+.progressTrack {
+  flex: 1;
+  height: 6px;
+  background: color-mix(in srgb, var(--color-primary-contrast-text) 20%, transparent);
+  border-radius: var(--radius-3);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--primitive-primary-400);
+  border-radius: var(--radius-3);
+  transition: width 0.35s ease;
+}
+
+.skipBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-primary-contrast-text);
+  font-family: var(--font-family-text);
+  font-size: 14px;
+  font-weight: var(--font-weight-400);
+  opacity: 0.7;
+  white-space: nowrap;
+  padding: 0;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
+
+.stepperSide {
+  width: 36px;
+  flex-shrink: 0;
+}
+
+.stepContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }

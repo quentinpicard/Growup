@@ -1,0 +1,227 @@
+// Layout partagé — importé par tous les step components
+
+// ─── Shell commun ────────────────────────────────────────────────────────────
+.step {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 var(--spacing-4);
+  min-height: 0;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: var(--spacing-4);
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// ─── Section Bruno (mascotte + bulle) ────────────────────────────────────────
+.brunoSection {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-3);
+  padding-top: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+}
+
+.mascotte {
+  width: 120px;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.bubble {
+  background: var(--color-light);
+  border-radius: var(--radius-card-m);
+  padding: var(--spacing-3) var(--spacing-4);
+  position: relative;
+  flex: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: var(--spacing-4);
+    left: calc(-1 * var(--spacing-2));
+    width: 0;
+    height: 0;
+    border-top: var(--spacing-2) solid transparent;
+    border-bottom: 0 solid transparent;
+    border-right: var(--spacing-2) solid var(--color-light);
+  }
+
+  p {
+    margin: 0;
+    font-family: var(--font-family-text);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-text-dark);
+    font-weight: var(--font-weight-400);
+  }
+}
+
+// ─── Liste de choix ──────────────────────────────────────────────────────────
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+// ─── Footer (bouton CTA) ─────────────────────────────────────────────────────
+.footer {
+  padding: var(--spacing-4) 0 var(--spacing-6);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+// ─── Modificateurs bouton ────────────────────────────────────────────────────
+
+// CTA principal sur fond sombre : fond vert moyen visible
+.btnCta {
+  background: var(--primitive-primary-400) !important;
+  color: var(--primitive-primary-950) !important;
+  box-shadow: none !important;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.1);
+  }
+}
+
+// Bouton secondaire transparent sur fond sombre
+.btnOutlinedLight {
+  background: transparent !important;
+  border: 1.5px solid color-mix(in srgb, var(--color-primary-contrast-text) 50%, transparent) !important;
+  color: var(--color-primary-contrast-text) !important;
+  box-shadow: none !important;
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-primary-contrast-text) 10%, transparent) !important;
+  }
+}
+
+// CTA inactif (aucune sélection) : 50% opacité, non cliquable
+.btnFaded {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+// ─── Splash ──────────────────────────────────────────────────────────────────
+.splash {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--spacing-4);
+}
+
+.splashContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--spacing-5);
+}
+
+.splashMascotte {
+  width: 177px;
+  height: 226px;
+  object-fit: contain;
+}
+
+.splashTitle {
+  font-family: var(--font-family-title);
+  font-size: 48px;
+  font-weight: var(--font-weight-700);
+  color: var(--color-primary-contrast-text);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.splashSubtitle {
+  font-family: var(--font-family-text);
+  font-size: 16px;
+  color: var(--color-primary-contrast-text);
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.5;
+}
+
+// ─── Input ville ─────────────────────────────────────────────────────────────
+.cityInputWrapper {
+  margin-bottom: var(--spacing-4);
+}
+
+.cityInput {
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-4);
+  background: color-mix(in srgb, var(--color-primary-contrast-text) 10%, transparent);
+  border: 2px solid color-mix(in srgb, var(--color-primary-contrast-text) 30%, transparent);
+  border-radius: var(--radius-card-s);
+  color: var(--color-primary-contrast-text);
+  font-family: var(--font-family-text);
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: color-mix(in srgb, var(--color-primary-contrast-text) 40%, transparent);
+  }
+
+  &:focus {
+    border-color: var(--primitive-primary-400);
+  }
+}
+
+// ─── Écran Done ──────────────────────────────────────────────────────────────
+.doneContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--spacing-4);
+}
+
+.doneContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--spacing-5);
+}
+
+.doneMascotte {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+}
+
+.doneTitle {
+  font-family: var(--font-family-title);
+  font-size: 28px;
+  font-weight: var(--font-weight-700);
+  color: var(--color-primary-contrast-text);
+  margin: 0;
+}
+
+.doneText {
+  font-family: var(--font-family-text);
+  font-size: 15px;
+  color: var(--color-primary-contrast-text);
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 280px;
+}
