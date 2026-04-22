@@ -10,6 +10,7 @@ export default function TaskCard({
   onChange,
   conseil,
   tip,
+  variant,
   className,
 }) {
   const [isChecked, setIsChecked] = useState(checkedProp)
@@ -23,6 +24,7 @@ export default function TaskCard({
   const cls = [
     styles.card,
     isChecked && styles['card--checked'],
+    variant === 'surveiller' && styles['card--surveiller'],
     className,
   ].filter(Boolean).join(' ')
 

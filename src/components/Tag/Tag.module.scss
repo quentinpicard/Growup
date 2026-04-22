@@ -71,22 +71,19 @@
 .tag--filled {
   color: var(--color-text-dark);
 
-  &.tag--primary   { background: var(--primitive-primary-400); }
-  &.tag--secondary { background: var(--primitive-secondary-400); }
-  &.tag--tertiary  { background: var(--primitive-tertiary-400); }
+  &.tag--primary   { background: var(--primitive-primary-300); }
+  &.tag--secondary { background: var(--primitive-secondary-300); }
+  &.tag--tertiary  {
+    background: var(--primitive-tertiary-200);
+    color: var(--primitive-gray-900);
+  }
   &.tag--success   {
-    background: var(--primitive-success-400);
-    color: var(--color-text-light);
+    background: var(--primitive-success-200);
+    color: var(--color-success-state-selected);
   }
-  &.tag--warning   { background: var(--primitive-warning-400); }
-  &.tag--error     {
-    background: var(--primitive-error-400);
-    color: var(--color-text-light);
-  }
-  &.tag--neutral   {
-    background: var(--primitive-gray-300);
-    color: var(--color-text-dark);
-  }
+  &.tag--warning   { background: var(--primitive-warning-300); }
+  &.tag--error     { background: var(--primitive-error-300); }
+  &.tag--neutral   { background: var(--primitive-gray-200); }
 }
 
 // =============================================================================
@@ -104,19 +101,19 @@
   &.tag--secondary {
     background:   var(--Colors-Secondary-Light);
     border-color: var(--primitive-secondary-300);
-    color:        var(--Colors-Secondary-State-Outline);
+    color:        var(--Colors-Secondary-Dark);
   }
 
   &.tag--tertiary {
     background:   var(--Colors-Tertiary-Light);
     border-color: var(--primitive-tertiary-300);
-    color:        var(--Colors-Tertiary-State-Outline);
+    color:        var(--Colors-Tertiary-Dark);
   }
 
   &.tag--success {
     background:   var(--color-success-light);
     border-color: var(--primitive-success-300);
-    color:        var(--Colors-Success-Main);
+    color:        var(--color-success-dark);
   }
 
   &.tag--warning {
@@ -134,6 +131,6 @@
   &.tag--neutral {
     background:   var(--color-gray-light);
     border-color: var(--primitive-gray-300);
-    color:        var(--color-gray-main);
+    color:        var(--color-gray-state-active);
   }
 }

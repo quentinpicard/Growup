@@ -7,15 +7,16 @@
   flex-direction: column;
   gap:            var(--spacing-2);
   padding:        var(--spacing-3) var(--spacing-4);
-  background:     var(--color-light);
+  background:     var(--primitive-primary-050);
+  border:         1.5px solid var(--primitive-primary-200);
   border-radius:  var(--radius-2);
-  box-shadow:     0 2px 8px rgba(47, 76, 51, 0.08);
+  // box-shadow:     0 2px 8px rgba(47, 76, 51, 0.06);
   cursor:         pointer;
   transition:     background 0.2s ease, opacity 0.2s ease, box-shadow 0.15s ease;
   user-select:    none;
 
   &:hover {
-    box-shadow: 0 4px 14px rgba(47, 76, 51, 0.12);
+    box-shadow: 0 4px 14px rgba(47, 76, 51, 0.10);
   }
 
   &:focus-visible {
@@ -24,10 +25,29 @@
   }
 }
 
-// — État coché : fond vert clair + légère opacité
+// — État coché : légère opacité, fond inchangé
 .card--checked {
-  background: var(--Colors-Primary-Light);
-  opacity:    0.85;
+  opacity: 0.75;
+  border:         1.5px solid var(--primitive-primary-050);
+}
+
+// — Variant "À surveiller" (alerte rouge)
+.card--surveiller {
+  background:   var(--primitive-error-050);
+  border-color: var(--primitive-error-200);
+  --Colors-Primary-Main: var(--Colors-Error-Main);
+
+  .freqTag {
+    background: var(--Colors-Error-Main);
+    color:      var(--color-text-dark);
+  }
+
+  .tip__bubble {
+    background: var(--primitive-error-200);
+    &::before { background: var(--primitive-error-200); }
+  }
+
+  .tip__text { color: var(--color-error-dark); }
 }
 
 // Appliqué directement via classe sur le <p> pour garantir le rendu
@@ -149,7 +169,7 @@
   &:active { transform: scale(0.9); }
 
   &:focus-visible {
-    outline:        2px solid var(--Colors-Focus-Focus);
+    // outline:        2px solid var(--Colors-Focus-Focus);
     outline-offset: 2px;
   }
 }

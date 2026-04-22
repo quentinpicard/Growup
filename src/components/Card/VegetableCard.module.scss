@@ -4,14 +4,15 @@
 
 .card {
   display:        flex;
-  background:     var(--color-light);
+  background:     var(--primitive-secondary-050);
+  border:         1px solid var(--primitive-secondary-100);
   border-radius:  var(--radius-2);   // 8px — fidèle au Figma
   overflow:       hidden;
-  box-shadow:     0 2px 8px rgba(47, 76, 51, 0.10);
+  box-shadow:     0 2px 8px rgba(47, 76, 51, 0.06);
   transition:     box-shadow 0.2s ease, transform 0.15s ease;
 
   &:hover {
-    box-shadow: 0 4px 16px rgba(47, 76, 51, 0.16);
+    box-shadow: 0 4px 16px rgba(47, 76, 51, 0.10);
     transform:  translateY(-1px);
   }
 }
@@ -43,7 +44,7 @@
   }
 
   .card__content {
-    flex-direction: row;
+    flex-direction: column;
     align-items:    flex-start;
     padding: var(--spacing-2);
     gap:     var(--spacing-1-5);
@@ -170,7 +171,7 @@
   font-size:   18px;
   font-weight: var(--font-weight-700);
   line-height: 1.25;
-  color:       var(--Colors-Primary-Main);
+  color:       var(--Colors-Secondary-Dark);
   margin:      0;
 }
 
@@ -179,7 +180,7 @@
   font-size:   14px;
   font-weight: var(--font-weight-400);
   line-height: 1;
-  color:       var(--color-primary-state-selected);
+  color:       var(--Colors-Secondary-State-Outline);
   margin:      0;
 }
 
