@@ -1,0 +1,16 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_g_2004_841)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.3662 3.57992C11.7247 3.23922 12.2753 3.23922 12.6338 3.57992C14.3568 5.21754 18.9998 10.0506 19 14.5711C19 18.1215 15.866 20.9998 12 20.9998C8.13401 20.9998 5 18.1215 5 14.5711C5.0002 10.0506 9.64323 5.21754 11.3662 3.57992ZM8.46484 14.0282C8.19185 14.0694 8.00376 14.3245 8.04492 14.5975C8.17323 15.4466 8.57153 16.2324 9.18066 16.8377C9.7898 17.4429 10.5779 17.8359 11.4277 17.9588C11.7009 17.9982 11.9546 17.8082 11.9941 17.535C12.0333 17.2619 11.8434 17.0081 11.5703 16.9686C10.933 16.8764 10.3425 16.5816 9.88574 16.1278C9.4289 15.6738 9.12943 15.0849 9.0332 14.4481C8.99187 14.1753 8.7377 13.9871 8.46484 14.0282Z" fill="#2F4C33"/>
+</g>
+<defs>
+<filter id="filter0_g_2004_841" x="-0.75" y="-0.75" width="25.5" height="25.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.99900001287460327 0.99900001287460327" numOctaves="3" seed="3145" />
+<feDisplacementMap in="shape" scale="1.5" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
+<feMerge result="effect1_texture_2004_841">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+</defs>
+</svg>
