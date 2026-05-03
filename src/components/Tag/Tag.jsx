@@ -1,5 +1,5 @@
 import styles from './Tag.module.scss'
-import iconClose from '../../assets/icons/Close_round.svg'
+import IconCloseSvg from '../../assets/icons/Close_round.svg?react'
 
 /**
  * Tag — étiquette colorée compacte
@@ -42,7 +42,7 @@ export default function Tag({
           onClick={onRemove}
           aria-label="Supprimer"
         >
-          <img src={iconClose} alt="" aria-hidden="true" width="12" height="12" />
+          <IconCloseSvg aria-hidden="true" width="12" height="12" />
         </button>
       )}
     </span>

@@ -1,5 +1,5 @@
 import styles from './VegetableCard.module.scss'
-import iconRecolter from '../../assets/pictos/Récolter.svg'
+import IconRecolterSvg from '../../assets/pictos/Récolter.svg?react'
 
 /**
  * Indicateur de statut — petit cercle coloré en haut à gauche de l'image
@@ -104,5 +104,5 @@ export default function VegetableCard({
 }
 
 function DefaultHarvestIcon() {
-  return <img src={iconRecolter} alt="" aria-hidden="true" width="40" height="40" />
+  return <IconRecolterSvg aria-hidden="true" width="40" height="40" />
 }

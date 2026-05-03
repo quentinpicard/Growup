@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import Input from './Input'
 import styles from './Input.module.scss'
-import iconEyeOn  from '../../assets/icons/View_fill.svg'
-import iconEyeOff from '../../assets/icons/View_hide_fill.svg'
+import IconEyeOn  from '../../assets/icons/View_fill.svg?react'
+import IconEyeOff from '../../assets/icons/View_hide_fill.svg?react'
 
 // ─── Icônes SVG locales ───────────────────────────────────────────────────────
 
@@ -13,14 +13,6 @@ function IconLock() {
       <path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   )
-}
-
-function IconEyeOff() {
-  return <img src={iconEyeOff} alt="" aria-hidden="true" width="16" height="16" />
-}
-
-function IconEyeOn() {
-  return <img src={iconEyeOn} alt="" aria-hidden="true" width="16" height="16" />
 }
 
 // ─── Composant InputPassword ──────────────────────────────────────────────────
@@ -69,7 +61,10 @@ export default function InputPassword({
           aria-label={visible ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
           tabIndex={disabled ? -1 : 0}
         >
-          {visible ? <IconEyeOn /> : <IconEyeOff />}
+          {visible
+            ? <IconEyeOn  aria-hidden="true" width="16" height="16" />
+            : <IconEyeOff aria-hidden="true" width="16" height="16" />
+          }
         </button>
       }
       {...rest}

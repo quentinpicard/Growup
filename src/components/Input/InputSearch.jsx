@@ -1,10 +1,6 @@
 import { forwardRef } from 'react'
 import styles from './Input.module.scss'
-import iconSearch from '../../assets/icons/Search_alt_fill.svg'
-
-function IconSearch() {
-  return <img src={iconSearch} alt="" aria-hidden="true" width="16" height="16" />
-}
+import IconSearch from '../../assets/icons/Search_alt_fill.svg?react'
 
 /**
  * InputSearch — barre de recherche
@@ -54,7 +50,7 @@ const InputSearch = forwardRef(function InputSearch(
           {...rest}
         />
         <span className={styles.field__adornment}>
-          <IconSearch />
+          <IconSearch aria-hidden="true" width="16" height="16" />
         </span>
       </div>
     </div>

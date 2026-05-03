@@ -1,26 +1,26 @@
 import { useState } from 'react'
 import { Button, Input, InputPassword, InputSearch, Textarea, Tag, Toggle, VegetableCard, HarvestCard, HerbCard, TaskCard, ChoiceBtn, SpeechBubble } from '../../components'
 import styles from './DesignSystemPage.module.scss'
-import iconJardin       from '../../assets/icons/Jardin.svg'
-import iconArrowRight   from '../../assets/icons/Arrow_right_long.svg'
-import iconArrowDrop    from '../../assets/icons/Arrow_drop_right.svg'
-import iconSearch       from '../../assets/icons/Search_alt_fill.svg'
-import iconSend         from '../../assets/icons/Send_fill.svg'
-import iconDateRange    from '../../assets/icons/Date_range_fill.svg'
-import iconHumidity     from '../../assets/icons/humidity_fill.svg'
-import pictoTomate      from '../../assets/pictos/fruits_legumes/Tomate cerise.svg'
-import pictoBasilic     from '../../assets/pictos/aromatiques/Basilic.svg'
-import pictoMenthe      from '../../assets/pictos/aromatiques/Menthe.svg'
-import pictoPersil      from '../../assets/pictos/aromatiques/Persil.svg'
-import pictoArroser     from '../../assets/pictos/Arroser 1.svg'
-import pictoPincer      from '../../assets/pictos/pincer.svg'
+import IconJardin     from '../../assets/icons/Jardin.svg?react'
+import IconArrowRight from '../../assets/icons/Arrow_right_long.svg?react'
+import IconArrowDrop  from '../../assets/icons/Arrow_drop_right.svg?react'
+import IconSearch     from '../../assets/icons/Search_alt_fill.svg?react'
+import IconSend       from '../../assets/icons/Send_fill.svg?react'
+import IconDateRange  from '../../assets/icons/Date_range_fill.svg?react'
+import IconHumidity   from '../../assets/icons/humidity_fill.svg?react'
+import PictoTomate    from '../../assets/pictos/fruits_legumes/Tomate cerise.svg?react'
+import PictoBasilic   from '../../assets/pictos/aromatiques/Basilic.svg?react'
+import PictoMenthe    from '../../assets/pictos/aromatiques/Menthe.svg?react'
+import PictoPersil    from '../../assets/pictos/aromatiques/Persil.svg?react'
+import PictoArroser   from '../../assets/pictos/Arroser 1.svg?react'
+import PictoPincer    from '../../assets/pictos/pincer.svg?react'
 
 function IconLeaf() {
-  return <img src={iconJardin} alt="" aria-hidden="true" width="24" height="24" />
+  return <IconJardin aria-hidden="true" width="24" height="24" />
 }
 
 function IconArrow() {
-  return <img src={iconArrowRight} alt="" aria-hidden="true" width="24" height="24" />
+  return <IconArrowRight aria-hidden="true" width="24" height="24" />
 }
 
 // — Bloc de section avec titre et grille de démo
@@ -363,14 +363,14 @@ export default function DesignSystemPage() {
             <Input
               label="Jardin"
               placeholder="Rechercher…"
-              leftIcon={<img src={iconSearch} alt="" aria-hidden="true" width="16" height="16" />}
+              leftIcon={<IconSearch aria-hidden="true" width="16" height="16" />}
             />
           </ComponentCard>
           <ComponentCard label="Icône droite">
             <Input
               label="Plante"
               placeholder="Placeholder"
-              rightIcon={<img src={iconArrowDrop} alt="" aria-hidden="true" width="16" height="16" />}
+              rightIcon={<IconArrowDrop aria-hidden="true" width="16" height="16" />}
             />
           </ComponentCard>
           <ComponentCard label="Suffix · km">
@@ -405,7 +405,7 @@ export default function DesignSystemPage() {
               type="email"
               label="Adresse email"
               placeholder="vous@email.fr"
-              leftIcon={<img src={iconSend} alt="" aria-hidden="true" width="16" height="16" />}
+              leftIcon={<IconSend aria-hidden="true" width="16" height="16" />}
             />
           </ComponentCard>
           <ComponentCard label="Textarea">
@@ -490,7 +490,7 @@ export default function DesignSystemPage() {
             <Tag
               color="primary"
               variant="filled"
-              leftIcon={<img src={iconDateRange} alt="" aria-hidden="true" width="12" height="12" />}
+              leftIcon={<IconDateRange aria-hidden="true" width="12" height="12" />}
             >
               En cours
             </Tag>
@@ -600,13 +600,13 @@ export default function DesignSystemPage() {
             <CardDemo label="Récolte étalée">
               <HarvestCard
                 name="Tomate cerise" harvestType="Récolte étalée" harvestDate="27 Fév." datePrefix="Jusqu'au :"
-                icon={<img src={pictoTomate} alt="" aria-hidden="true" width="48" height="48" />}
+                icon={<PictoTomate aria-hidden="true" width="48" height="48" />}
               />
             </CardDemo>
             <CardDemo label="Récolte groupée">
               <HarvestCard
                 name="Basilic" harvestType="Récolte groupée" harvestDate="15 Mars" datePrefix="Prévu :"
-                icon={<img src={pictoBasilic} alt="" aria-hidden="true" width="48" height="48" />}
+                icon={<PictoBasilic aria-hidden="true" width="48" height="48" />}
               />
             </CardDemo>
             <CardDemo label="Sans icône">
@@ -621,10 +621,10 @@ export default function DesignSystemPage() {
         <Section title="Herb Card">
           <div className={styles.cardRow}>
             <CardDemo label="Menthe">
-              <HerbCard name="Menthe" icon={<img src={pictoMenthe} alt="" aria-hidden="true" width="32" height="32" />} />
+              <HerbCard name="Menthe" icon={<PictoMenthe aria-hidden="true" width="32" height="32" />} />
             </CardDemo>
             <CardDemo label="Persil">
-              <HerbCard name="Persil" icon={<img src={pictoPersil} alt="" aria-hidden="true" width="32" height="32" />} />
+              <HerbCard name="Persil" icon={<PictoPersil aria-hidden="true" width="32" height="32" />} />
             </CardDemo>
             <CardDemo label="Sans icône">
               <HerbCard name="Basilic" />
@@ -640,13 +640,13 @@ export default function DesignSystemPage() {
             <CardDemo label="Non réalisée">
               <TaskCard
                 title="Arroser les plants" frequency="Quotidien" duration="~2 min"
-                icon={<img src={pictoArroser} alt="" aria-hidden="true" width="40" height="40" />}
+                icon={<PictoArroser aria-hidden="true" width="40" height="40" />}
               />
             </CardDemo>
             <CardDemo label="Réalisée">
               <TaskCard
                 title="Arroser les plants" frequency="Quotidien" duration="~2 min" checked
-                icon={<img src={pictoArroser} alt="" aria-hidden="true" width="40" height="40" />}
+                icon={<PictoArroser aria-hidden="true" width="40" height="40" />}
               />
             </CardDemo>
             <CardDemo label="Avec conseil + tip">
@@ -654,13 +654,13 @@ export default function DesignSystemPage() {
                 title="Tailler le basilic" frequency="Demain" duration="~5 min"
                 conseil="Couper au-dessus d'une paire de feuilles"
                 tip="Pincer les fleurs pour prolonger la production !"
-                icon={<img src={pictoPincer} alt="" aria-hidden="true" width="40" height="40" />}
+                icon={<PictoPincer aria-hidden="true" width="40" height="40" />}
               />
             </CardDemo>
             <CardDemo label="Dans 2 jours">
               <TaskCard
                 title="Vérifier l'humidité" frequency="Dans 2 jours" conseil="Sol trop sec détecté"
-                icon={<img src={iconHumidity} alt="" aria-hidden="true" width="40" height="40" />}
+                icon={<IconHumidity aria-hidden="true" width="40" height="40" />}
               />
             </CardDemo>
           </div>
