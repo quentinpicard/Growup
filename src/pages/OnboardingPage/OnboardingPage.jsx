@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './OnboardingPage.module.scss'
+import iconArrowLeft from '../../assets/icons/Arrow_alt_left.svg'
 import StepSplash       from './steps/StepSplash'
 import StepBrunoHello   from './steps/StepBrunoHello'
 import StepBrunoMission from './steps/StepBrunoMission'
@@ -49,15 +50,7 @@ export default function OnboardingPage() {
         <header className={styles.stepper}>
           {showBack ? (
             <button className={styles.backBtn} onClick={goBack} aria-label="Retour">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M15 18L9 12L15 6"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <img src={iconArrowLeft} alt="" aria-hidden="true" width="24" height="24" />
             </button>
           ) : (
             <span className={styles.stepperSide} />

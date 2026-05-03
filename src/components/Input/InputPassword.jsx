@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Input from './Input'
 import styles from './Input.module.scss'
+import iconEyeOn  from '../../assets/icons/View_fill.svg'
+import iconEyeOff from '../../assets/icons/View_hide_fill.svg'
 
 // ─── Icônes SVG locales ───────────────────────────────────────────────────────
 
@@ -14,22 +16,11 @@ function IconLock() {
 }
 
 function IconEyeOff() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <path d="M2 2l12 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M6.5 6.62A2 2 0 0 0 9.4 9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M4.15 4.22C2.82 5.12 2 6.47 2 8c0 2.21 2.686 4 6 4a8.4 8.4 0 0 0 3.85-.94M12.6 10.6C13.56 9.74 14 8.9 14 8c0-2.21-2.686-4-6-4-.57 0-1.12.06-1.63.17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  )
+  return <img src={iconEyeOff} alt="" aria-hidden="true" width="16" height="16" />
 }
 
 function IconEyeOn() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <path d="M2 8c0-2.21 2.686-4 6-4s6 1.79 6 4-2.686 4-6 4-6-1.79-6-4Z" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="8" cy="8" r="1.5" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  )
+  return <img src={iconEyeOn} alt="" aria-hidden="true" width="16" height="16" />
 }
 
 // ─── Composant InputPassword ──────────────────────────────────────────────────

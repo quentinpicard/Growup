@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import styles from './TaskCard.module.scss'
+import iconChecked   from '../../assets/icons/Check_round_fill.svg'
+import iconUnchecked from '../../assets/icons/Uncheck.svg'
 
 export default function TaskCard({
   title = 'Tâche',
@@ -90,33 +92,9 @@ export default function TaskCard({
 }
 
 function IconUnchecked() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <rect
-        x="1.5" y="1.5" width="13" height="13"
-        rx="3"
-        stroke="var(--Colors-Primary-Main)"
-        strokeWidth="1.5"
-      />
-    </svg>
-  )
+  return <img src={iconUnchecked} alt="" aria-hidden="true" width="16" height="16" />
 }
 
 function IconChecked() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <rect
-        x="0.75" y="0.75" width="14.5" height="14.5"
-        rx="3.25"
-        fill="var(--Colors-Primary-Main)"
-      />
-      <path
-        d="M4.5 8L7 10.5L11.5 6"
-        stroke="var(--color-light)"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
+  return <img src={iconChecked} alt="" aria-hidden="true" width="16" height="16" />
 }

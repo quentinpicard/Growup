@@ -1,5 +1,5 @@
-
 import styles from './Tag.module.scss'
+import iconClose from '../../assets/icons/Close_round.svg'
 
 /**
  * Tag — étiquette colorée compacte
@@ -42,14 +42,7 @@ export default function Tag({
           onClick={onRemove}
           aria-label="Supprimer"
         >
-          <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
-            <path
-              d="M2 2L10 10M10 2L2 10"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
+          <img src={iconClose} alt="" aria-hidden="true" width="12" height="12" />
         </button>
       )}
     </span>

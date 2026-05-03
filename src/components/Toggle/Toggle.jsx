@@ -1,5 +1,6 @@
 import { useId } from 'react'
 import styles from './Toggle.module.scss'
+import iconInfo from '../../assets/icons/Info_alt_fill.svg'
 
 /**
  * Toggle — interrupteur binaire accessible
@@ -56,11 +57,7 @@ export default function Toggle({
             )}
             {info && (
               <span className={styles.toggle__info} aria-hidden="true">
-                <svg viewBox="0 0 16 16" fill="none">
-                  <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3" />
-                  <path d="M8 7V11" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-                  <circle cx="8" cy="5.5" r="0.7" fill="currentColor" />
-                </svg>
+                <img src={iconInfo} alt="" aria-hidden="true" width="16" height="16" />
               </span>
             )}
           </span>

@@ -1,15 +1,11 @@
 import { forwardRef } from 'react'
 import styles from './Input.module.scss'
+import iconInfo from '../../assets/icons/Info_alt_fill.svg'
 
 // ─── Icônes SVG locales ───────────────────────────────────────────────────────
 
 export function IconInfo() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M8 7v5M8 5.5v.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  )
+  return <img src={iconInfo} alt="" aria-hidden="true" width="16" height="16" />
 }
 
 // ─── Composant Input ──────────────────────────────────────────────────────────

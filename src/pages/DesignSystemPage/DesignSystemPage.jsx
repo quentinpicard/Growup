@@ -1,28 +1,26 @@
 import { useState } from 'react'
 import { Button, Input, InputPassword, InputSearch, Textarea, Tag, Toggle, VegetableCard, HarvestCard, HerbCard, TaskCard, ChoiceBtn, SpeechBubble } from '../../components'
 import styles from './DesignSystemPage.module.scss'
+import iconJardin       from '../../assets/icons/Jardin.svg'
+import iconArrowRight   from '../../assets/icons/Arrow_right_long.svg'
+import iconArrowDrop    from '../../assets/icons/Arrow_drop_right.svg'
+import iconSearch       from '../../assets/icons/Search_alt_fill.svg'
+import iconSend         from '../../assets/icons/Send_fill.svg'
+import iconDateRange    from '../../assets/icons/Date_range_fill.svg'
+import iconHumidity     from '../../assets/icons/humidity_fill.svg'
+import pictoTomate      from '../../assets/pictos/fruits_legumes/Tomate cerise.svg'
+import pictoBasilic     from '../../assets/pictos/aromatiques/Basilic.svg'
+import pictoMenthe      from '../../assets/pictos/aromatiques/Menthe.svg'
+import pictoPersil      from '../../assets/pictos/aromatiques/Persil.svg'
+import pictoArroser     from '../../assets/pictos/Arroser 1.svg'
+import pictoPincer      from '../../assets/pictos/pincer.svg'
 
-// — Icône SVG locale (remplace l'asset Figma)
 function IconLeaf() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path
-        d="M17 8C8 10 5.9 16.17 3.82 19.77M3.82 19.77C4.22 18.7 5.15 16.17 7 13M3.82 19.77C2.72 18 2 15.5 2 13C2 7 7.5 2 14 2C17 2 20 3.5 22 6C22 12 18.5 16.5 14 18.5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
+  return <img src={iconJardin} alt="" aria-hidden="true" width="24" height="24" />
 }
 
 function IconArrow() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
+  return <img src={iconArrowRight} alt="" aria-hidden="true" width="24" height="24" />
 }
 
 // — Bloc de section avec titre et grille de démo
@@ -365,23 +363,14 @@ export default function DesignSystemPage() {
             <Input
               label="Jardin"
               placeholder="Rechercher…"
-              leftIcon={
-                <svg viewBox="0 0 16 16" fill="none" style={{width:16,height:16}}>
-                  <circle cx="7" cy="7" r="4.5" stroke="currentColor" strokeWidth="1.5" />
-                  <path d="M10.5 10.5L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              }
+              leftIcon={<img src={iconSearch} alt="" aria-hidden="true" width="16" height="16" />}
             />
           </ComponentCard>
           <ComponentCard label="Icône droite">
             <Input
               label="Plante"
               placeholder="Placeholder"
-              rightIcon={
-                <svg viewBox="0 0 16 16" fill="none" style={{width:16,height:16}}>
-                  <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              }
+              rightIcon={<img src={iconArrowDrop} alt="" aria-hidden="true" width="16" height="16" />}
             />
           </ComponentCard>
           <ComponentCard label="Suffix · km">
@@ -416,12 +405,7 @@ export default function DesignSystemPage() {
               type="email"
               label="Adresse email"
               placeholder="vous@email.fr"
-              leftIcon={
-                <svg viewBox="0 0 16 16" fill="none" style={{width:16,height:16}}>
-                  <rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.5"/>
-                  <path d="M1.5 5.5l6.5 4 6.5-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                </svg>
-              }
+              leftIcon={<img src={iconSend} alt="" aria-hidden="true" width="16" height="16" />}
             />
           </ComponentCard>
           <ComponentCard label="Textarea">
@@ -506,12 +490,7 @@ export default function DesignSystemPage() {
             <Tag
               color="primary"
               variant="filled"
-              leftIcon={
-                <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <circle cx="6" cy="6" r="4.5" stroke="currentColor" strokeWidth="1.2" />
-                  <path d="M6 4V6.5L7.5 8" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-                </svg>
-              }
+              leftIcon={<img src={iconDateRange} alt="" aria-hidden="true" width="12" height="12" />}
             >
               En cours
             </Tag>
@@ -621,13 +600,13 @@ export default function DesignSystemPage() {
             <CardDemo label="Récolte étalée">
               <HarvestCard
                 name="Tomate cerise" harvestType="Récolte étalée" harvestDate="27 Fév." datePrefix="Jusqu'au :"
-                icon={<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="20" r="10" fill="var(--Colors-Error-Main)" opacity="0.85" /><path d="M24 10C24 10 26 6 30 6" stroke="var(--Colors-Primary-Main)" strokeWidth="1.5" strokeLinecap="round" /></svg>}
+                icon={<img src={pictoTomate} alt="" aria-hidden="true" width="48" height="48" />}
               />
             </CardDemo>
             <CardDemo label="Récolte groupée">
               <HarvestCard
                 name="Basilic" harvestType="Récolte groupée" harvestDate="15 Mars" datePrefix="Prévu :"
-                icon={<svg viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="28" rx="10" ry="8" fill="var(--Colors-Primary-Main)" opacity="0.8" /><path d="M24 20C24 16 28 12 32 14C28 14 26 18 24 20Z" fill="var(--Colors-Primary-State-Selected)" /></svg>}
+                icon={<img src={pictoBasilic} alt="" aria-hidden="true" width="48" height="48" />}
               />
             </CardDemo>
             <CardDemo label="Sans icône">
@@ -642,10 +621,10 @@ export default function DesignSystemPage() {
         <Section title="Herb Card">
           <div className={styles.cardRow}>
             <CardDemo label="Menthe">
-              <HerbCard name="Menthe" icon={<svg viewBox="0 0 32 32" fill="none"><path d="M16 28C16 20 8 12 8 12C8 12 14 10 16 14C18 10 24 12 24 12C24 12 16 20 16 28Z" fill="var(--Colors-Primary-Main)" /></svg>} />
+              <HerbCard name="Menthe" icon={<img src={pictoMenthe} alt="" aria-hidden="true" width="32" height="32" />} />
             </CardDemo>
             <CardDemo label="Persil">
-              <HerbCard name="Persil" icon={<svg viewBox="0 0 32 32" fill="none"><path d="M16 26C12 20 8 16 10 10C12 8 14 10 16 14C18 10 20 8 22 10C24 16 20 20 16 26Z" fill="var(--Colors-Primary-State-Selected)" /></svg>} />
+              <HerbCard name="Persil" icon={<img src={pictoPersil} alt="" aria-hidden="true" width="32" height="32" />} />
             </CardDemo>
             <CardDemo label="Sans icône">
               <HerbCard name="Basilic" />
@@ -661,13 +640,13 @@ export default function DesignSystemPage() {
             <CardDemo label="Non réalisée">
               <TaskCard
                 title="Arroser les plants" frequency="Quotidien" duration="~2 min"
-                icon={<svg viewBox="0 0 40 40" fill="none"><rect x="8" y="24" width="24" height="8" rx="2" fill="var(--primitive-secondary-400)" /><rect x="14" y="12" width="4" height="12" rx="2" fill="var(--Colors-Primary-Main)" /><rect x="20" y="8" width="4" height="16" rx="2" fill="var(--Colors-Primary-State-Selected)" /></svg>}
+                icon={<img src={pictoArroser} alt="" aria-hidden="true" width="40" height="40" />}
               />
             </CardDemo>
             <CardDemo label="Réalisée">
               <TaskCard
                 title="Arroser les plants" frequency="Quotidien" duration="~2 min" checked
-                icon={<svg viewBox="0 0 40 40" fill="none"><rect x="8" y="24" width="24" height="8" rx="2" fill="var(--primitive-secondary-400)" /><rect x="14" y="12" width="4" height="12" rx="2" fill="var(--Colors-Primary-Main)" /><rect x="20" y="8" width="4" height="16" rx="2" fill="var(--Colors-Primary-State-Selected)" /></svg>}
+                icon={<img src={pictoArroser} alt="" aria-hidden="true" width="40" height="40" />}
               />
             </CardDemo>
             <CardDemo label="Avec conseil + tip">
@@ -675,13 +654,13 @@ export default function DesignSystemPage() {
                 title="Tailler le basilic" frequency="Demain" duration="~5 min"
                 conseil="Couper au-dessus d'une paire de feuilles"
                 tip="Pincer les fleurs pour prolonger la production !"
-                icon={<svg viewBox="0 0 40 40" fill="none"><path d="M20 32C16 24 10 18 12 12C14 9 17 11 20 16C23 11 26 9 28 12C30 18 24 24 20 32Z" fill="var(--Colors-Primary-Main)" /></svg>}
+                icon={<img src={pictoPincer} alt="" aria-hidden="true" width="40" height="40" />}
               />
             </CardDemo>
             <CardDemo label="Dans 2 jours">
               <TaskCard
                 title="Vérifier l'humidité" frequency="Dans 2 jours" conseil="Sol trop sec détecté"
-                icon={<svg viewBox="0 0 40 40" fill="none"><path d="M20 8C20 8 12 18 12 24C12 28.4 15.6 32 20 32C24.4 32 28 28.4 28 24C28 18 20 8 20 8Z" fill="var(--Colors-Primary-State-Selected)" /></svg>}
+                icon={<img src={iconHumidity} alt="" aria-hidden="true" width="40" height="40" />}
               />
             </CardDemo>
           </div>
