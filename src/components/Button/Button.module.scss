@@ -92,18 +92,32 @@
 .btn--primary.btn--contained {
   background: var(--Colors-Primary-Main, #2F4C33);
   color:      var(--Colors-Primary-ContrastText, #F8F7F7);
+
+  &:hover:not(:disabled):not(.btn--disabled) {
+    background: var(--primitive-primary-600);
+    filter: none;
+  }
 }
 
 // — Secondary / Contained
 .btn--secondary.btn--contained {
   background: var(--Colors-Secondary-Main, #5A4C39);
   color:      var(--Colors-Secondary-ContrastText, #F8F7F7);
+
+  &:hover:not(:disabled):not(.btn--disabled) {
+    background: var(--primitive-secondary-600);
+    filter: none;
+  }
 }
 
 // — Tertiary / Contained
 .btn--tertiary.btn--contained {
   background: var(--Colors-Tertiary-Main, #9B6E0D);
   color:      var(--Colors-Tertiary-ContrastText, #F8F7F7);
+  &:hover:not(:disabled):not(.btn--disabled) {
+    background: var(--primitive-tertiary-800);
+    filter: none;
+  }
 }
 
 
@@ -125,7 +139,7 @@
   color:  var(--Colors-Primary-Main, #2F4C33);
 
   &:hover:not(:disabled):not(.btn--disabled) {
-    background: var(--primitive-primary-200, #E6F2E7);
+    background: var(--primitive-primary-100, #2F4C33);
   }
 }
 
