@@ -98,11 +98,27 @@
   object-fit: contain;
 }
 
+// ─── Step 3 : bulle en haut, mascotte absolue gauche (valeurs Figma) ─────────
 .mascotteExperience {
   width: 112px;
-  left: -65px;
+  left: -10%;
   top: 51px;
   transform: rotate(37deg);
+}
+
+// Bubble collée en haut du contenu (step 3)
+.bubbleSectionCompact {
+  padding-top: var(--spacing-3);
+  margin-bottom: var(--spacing-6);
+}
+
+// Contenu en colonne depuis le haut, choix poussés vers le bas
+.contentTop {
+  justify-content: flex-start;
+
+  .choices {
+    margin: auto;
+  }
 }
 
 .mascotteLocation {

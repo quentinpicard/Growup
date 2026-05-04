@@ -22,8 +22,8 @@ export default function StepExperience({ onNext, setAnswer }) {
     <div className={styles.step}>
       <img src={brunoImg} alt="Bruno le brocoli" className={`${styles.mascotteAbs} ${styles.mascotteExperience}`} />
 
-      <div className={styles.content}>
-        <div className={styles.bubbleSection}>
+      <div className={`${styles.content} ${styles.contentTop}`}>
+        <div className={styles.bubbleSectionCompact}>
           <div className={styles.bubble}>
             <p>{t.bubble}</p>
           </div>
