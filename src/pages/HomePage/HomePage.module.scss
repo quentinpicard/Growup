@@ -11,6 +11,7 @@
   background: var(--color-light);
   padding-bottom: 150px;
   position: relative;
+  overflow: hidden;
 }
 
 // ─── Header sticky ───────────────────────────────────────────────────────────
@@ -99,15 +100,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--primitive-primary-300);
   border: 2px solid var(--color-text-light);
   border-radius: var(--radius-button-btn);
-  color: var(--color-text-light);
   cursor: pointer;
 
   svg {
     width: 24px;
     height: 24px;
+  }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: white;
   }
 }
 
@@ -229,7 +235,6 @@
   background: var(--color-primary-main);
   border: none;
   border-radius: var(--radius-button-btn);
-  color: var(--color-text-light);
   cursor: pointer;
   flex-shrink: 0;
   box-shadow: inset -2px -2px 4px rgba(37, 35, 35, 0.2), inset 2px 2px 4px rgba(248, 247, 247, 0.2);
@@ -237,6 +242,13 @@
   svg {
     width: 24px;
     height: 24px;
+  }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: white;
   }
 }
 
@@ -332,6 +344,28 @@
   height: 16px;
   border: 2px solid var(--color-primary-main);
   border-radius: 3px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.taskCheckboxDone {
+  background: var(--color-primary-main);
+  border-color: var(--color-primary-main);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / 10px no-repeat;
+  }
+}
+
+.taskCardDone {
+  opacity: 0.6;
+
+  .taskTitle {
+    text-decoration: line-through;
+  }
 }
 
 // ─── Section Jardin ──────────────────────────────────────────────────────────

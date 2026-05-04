@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../../context/AppContext'
 import PlantCard from '../../components/PlantCard/PlantCard'
@@ -19,6 +20,7 @@ import IconAdd     from '../../assets/icons/Add_round.svg?react'
 export default function HomePage() {
   const navigate      = useNavigate()
   const { user, plantInstances } = useApp()
+  const [taskDone, setTaskDone] = useState(false)
 
   // — Contexte plante
   const cleContexte = user.zone_id && user.exposition_id
@@ -107,8 +109,8 @@ export default function HomePage() {
 
           {isEmptyState && (
             <button
-              className={styles.taskCard}
-              onClick={() => navigate('/ajout-plante')}
+              className={`${styles.taskCard} ${taskDone ? styles.taskCardDone : ''}`}
+              onClick={() => setTaskDone(v => !v)}
             >
               <div className={styles.taskCardLeft}>
                 <div className={styles.taskMeta}>
@@ -118,7 +120,10 @@ export default function HomePage() {
                 <p className={styles.taskTitle}>Ajoute ta première plante</p>
                 <p className={styles.taskSubtitle}>Appuie sur le + en bas pour commencer.</p>
               </div>
-              <div className={styles.taskCheckbox} aria-hidden="true" />
+              <div
+                className={`${styles.taskCheckbox} ${taskDone ? styles.taskCheckboxDone : ''}`}
+                aria-hidden="true"
+              />
             </button>
           )}
         </section>
