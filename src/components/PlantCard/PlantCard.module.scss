@@ -1,0 +1,140 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3);
+  border-radius: var(--radius-2);
+  overflow: hidden;
+  width: calc(50% - 4px);
+}
+
+.card--primary { background: var(--primitive-primary-050); }
+.card--tertiary { background: var(--primitive-tertiary-050); }
+
+// — Tags (absolute, top-left)
+.tags {
+  position: absolute;
+  top: var(--spacing-3);
+  left: var(--spacing-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  align-items: center;
+  width: 152px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-tag);
+  border: 2px solid transparent;
+  font-family: var(--font-family-tag);
+  font-size: 12px;
+  font-weight: var(--font-weight-400);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.tag--ideale,
+.tag--facile {
+  background:   var(--color-primary-light);
+  border-color: var(--primitive-primary-300);
+  color:        var(--color-primary-state-outline);
+}
+
+.tag--possible,
+.tag--moyen {
+  background:   var(--color-warning-light);
+  border-color: var(--primitive-warning-300);
+  color:        var(--color-warning-dark);
+}
+
+.tag--deconseille,
+.tag--difficile {
+  background:   var(--color-error-light);
+  border-color: var(--primitive-error-300);
+  color:        var(--color-error-dark);
+}
+
+// — Icon zone (leaves 48px top for tags)
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 48px;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.iconFallback {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-subtitle);
+  font-size: 32px;
+  color: var(--color-primary-main);
+}
+
+// — Footer: name + period + add button
+.footer {
+  display: flex;
+  gap: var(--spacing-1);
+  align-items: center;
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.name {
+  font-family: var(--font-family-cards-title);
+  font-weight: var(--font-weight-700);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-primary-dark);
+  width: 100%;
+}
+
+.period {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-400);
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--primitive-gray-500);
+  white-space: nowrap;
+}
+
+.addBtn {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-primary-main);
+  border-radius: var(--radius-button-btn);
+  background: transparent;
+  color: var(--color-primary-main);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: var(--color-primary-main);
+    color: var(--color-text-light);
+  }
+}

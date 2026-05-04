@@ -1,0 +1,34 @@
+[
+  {
+    "id": "rebord_ext_fenetre",
+    "nom_zone": {
+      "sud": "ton rebord de fenêtre côté sud",
+      "est": "ton rebord de fenêtre côté est",
+      "nord": "ton rebord de fenêtre côté nord"
+    }
+  },
+  {
+    "id": "balcon_terrasse",
+    "nom_zone": {
+      "nord": "ton balcon peu ensoleillé",
+      "est": "ton balcon partiellement ensoleillé",
+      "sud": "ton balcon plein sud"
+    }
+  },
+  {
+    "id": "interieur_fenetre",
+    "nom_zone": {
+      "sud": "ton intérieur plein sud",
+      "est": "ton intérieur mi-exposé",
+      "nord": "ton intérieur peu lumineux"
+    }
+  },
+  {
+    "id": "jardin",
+    "nom_zone": {
+      "plein_soleil": "ton coin de jardin plein soleil",
+      "mi_ombre": "ton coin de jardin mi-ombragé",
+      "ombre": "ton coin de jardin à l'ombre"
+    }
+  }
+]

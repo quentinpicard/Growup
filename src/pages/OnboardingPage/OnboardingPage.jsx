@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './OnboardingPage.module.scss'
 import { saveProfile } from '../../utils/storage'
+import { useApp } from '../../context/AppContext'
 import Button from '../../components/Button/Button'
 import IconArrowLeft from '../../assets/icons/Arrow_alt_left.svg?react'
 import StepSplash       from './steps/StepSplash'
@@ -19,6 +20,7 @@ const TOTAL_STEPS = 7
 
 export default function OnboardingPage() {
   const navigate = useNavigate()
+  const { dispatch } = useApp()
   const [currentStep, setCurrentStep]     = useState(0)
   const [answers, setAnswers]             = useState({})
   const [showSkipModal, setShowSkipModal] = useState(false)
@@ -44,6 +46,14 @@ export default function OnboardingPage() {
     <StepObjectives   key="6" onNext={goNext} answers={answers} setAnswer={setAnswer} />,
     <StepCity         key="7" onNext={goNext} answers={answers} setAnswer={setAnswer} />,
     <StepDone         key="8" answers={answers} onFinish={() => {
+      dispatch({
+        type: 'SET_ONBOARDING_COMPLETE',
+        payload: {
+          prenom:   answers.prenom ?? null,
+          location: answers.location,
+          light:    answers.light,
+        },
+      })
       const profile = { ...answers, onboardingDone: true }
       saveProfile(profile)
       console.log('Choix utilisateur :', profile)

@@ -1,29 +1,550 @@
+// =============================================================================
+// HomePage.module.scss
+// =============================================================================
+
+// ─── Page wrapper ────────────────────────────────────────────────────────────
+
 .page {
-  display:         flex;
-  flex-direction:  column;
-  align-items:     center;
+  min-height: 100dvh;
+  max-width: 393px;
+  margin: 0 auto;
+  background: var(--color-light);
+  padding-bottom: 150px;
+  position: relative;
+}
+
+// ─── Header sticky ───────────────────────────────────────────────────────────
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--primitive-primary-700);
+  border-bottom-left-radius: var(--radius-4);
+  border-bottom-right-radius: var(--radius-4);
+}
+
+// Status bar
+.statusBar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 14px 24px;
+}
+
+.statusTime {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-500);
+  font-size: 16px;
+  line-height: 1.4;
+  color: white;
+}
+
+.statusIcons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.statusIcon,
+.statusBattery {
+  font-size: 11px;
+  color: white;
+  letter-spacing: -1px;
+}
+
+// Greeting row
+.greeting {
+  position: relative;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  min-height:      100dvh;
-  gap:             var(--spacing-6);
-  padding:         var(--spacing-6);
-  background-color: var(--Colors-Primary-Light);
+  padding: 24px 14px 8px;
 }
 
-.title {
-  font-family: var(--Font-family-Title);
-  color:       var(--Colors-Primary-Main);
-}
-
-.subtitle {
-  font-family: var(--Font-family-Subtitle);
-  color:       var(--color-text-dark);
-}
-
-.actions {
-  display:        flex;
+.greetingText {
+  display: flex;
   flex-direction: column;
-  gap:            var(--spacing-3);
-  width:          100%;
-  max-width:      320px;
-  align-items:    center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.greetingHello {
+  font-family: var(--font-family-subtitle);
+  font-weight: var(--font-weight-400);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--color-primary-light);
+}
+
+.greetingName {
+  font-family: var(--font-family-subtitle);
+  font-weight: var(--font-weight-700);
+  font-size: 20px;
+  line-height: 1;
+  color: var(--color-text-light);
+}
+
+// Agenda button (top-left, absolute)
+.agendaBtnWrapper {
+  position: absolute;
+  left: 14px;
+  bottom: 8px;
+}
+
+.agendaBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primitive-primary-300);
+  border: 2px solid var(--color-text-light);
+  border-radius: var(--radius-button-btn);
+  color: var(--color-text-light);
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.agendaBadge {
+  position: absolute;
+  bottom: -8px;
+  right: -7px;
+  width: 21px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primitive-primary-300);
+  border: 1.5px solid var(--color-text-light);
+  border-radius: var(--radius-button-btn);
+  font-family: var(--font-family-btn);
+  font-size: 12px;
+  color: var(--color-primary-main);
+  line-height: 1;
+}
+
+// Weather banner
+.weather {
+  padding: 16px 14px 24px;
+}
+
+.weatherInner {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+}
+
+.weatherTemp {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.weatherIcon {
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+.weatherDegrees {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-500);
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--color-text-light);
+  white-space: nowrap;
+  letter-spacing: -0.22px;
+}
+
+.weatherMsg {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-700);
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--color-text-light);
+  letter-spacing: -0.18px;
+  white-space: nowrap;
+}
+
+// ─── Contenu scrollable ──────────────────────────────────────────────────────
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+// ─── Section base ─────────────────────────────────────────────────────────────
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sectionTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sectionTitle {
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-600);
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--color-primary-main);
+  white-space: nowrap;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  background: var(--color-primary-main);
+  border-radius: 18px;
+  font-family: var(--font-family-subtitle);
+  font-size: 12px;
+  font-weight: var(--font-weight-400);
+  color: var(--color-primary-contrast-text);
+  line-height: 1.5;
+}
+
+.iconBtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-main);
+  border: none;
+  border-radius: var(--radius-button-btn);
+  color: var(--color-text-light);
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: inset -2px -2px 4px rgba(37, 35, 35, 0.2), inset 2px 2px 4px rgba(248, 247, 247, 0.2);
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// ─── Section Tâches ──────────────────────────────────────────────────────────
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 18px;
+}
+
+// TaskCard
+.taskCard {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  background: var(--primitive-primary-050);
+  border: 1px solid var(--primitive-primary-200);
+  border-radius: var(--radius-2);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: var(--primitive-primary-100);
+  }
+}
+
+.taskCardLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.taskMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.taskTag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 8px;
+  background: var(--primitive-primary-400);
+  border-radius: var(--radius-tag);
+  font-family: var(--font-family-tag);
+  font-size: 12px;
+  font-weight: var(--font-weight-400);
+  color: var(--color-primary-contrast-text);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.taskDuration {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-500);
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--color-primary-main);
+  white-space: nowrap;
+}
+
+.taskTitle {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-600);
+  font-size: 18px;
+  line-height: 1.25;
+  color: var(--color-text-dark);
+}
+
+.taskSubtitle {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-400);
+  font-size: 12px;
+  line-height: 1.25;
+  color: var(--color-text-dark);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.taskCheckbox {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-primary-main);
+  border-radius: 3px;
+}
+
+// ─── Section Jardin ──────────────────────────────────────────────────────────
+
+.sectionJardin {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 18px;
+}
+
+// Mascotte + bubble
+.mascotteMsg {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.mascotteMini {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.bubbleBeige {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  padding: 8px 12px;
+  background: var(--primitive-secondary-200);
+  border-radius: 8px 8px 8px 6px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -7px;
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-top: 7px solid var(--primitive-secondary-200);
+  }
+}
+
+// ─── Section Recommandation ──────────────────────────────────────────────────
+
+.sectionReco {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-end;
+  padding: 48px 18px;
+  overflow: visible;
+}
+
+.recoRow {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.bubbleGreen {
+  position: relative;
+  width: 306px;
+  max-width: 100%;
+  padding: 8px 12px;
+  background: var(--primitive-primary-300);
+  border-radius: 8px 8px 8px 6px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -7px;
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-top: 7px solid var(--primitive-primary-300);
+  }
+}
+
+// Shared bubble text style
+.bubbleText {
+  font-family: var(--font-family-subtitle);
+  font-weight: var(--font-weight-300);
+  font-size: 12px;
+  line-height: 1.15;
+  color: var(--color-secondary-main);
+}
+
+.bubbleGreen .bubbleText {
+  color: var(--color-primary-dark);
+}
+
+// Mascotte Bruno (rotated, absolute left)
+.mascotteReco {
+  position: absolute;
+  left: -28px;
+  top: 59px;
+  width: 77px;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  transform: rotate(30deg);
+}
+
+// Plant grid
+.plantGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  width: 100%;
+  align-items: flex-start;
+}
+
+// ─── FAB ─────────────────────────────────────────────────────────────────────
+
+.fab {
+  position: fixed;
+  bottom: 98px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primitive-primary-300);
+  border: 2px solid white;
+  border-radius: var(--radius-button-btn);
+  color: white;
+  cursor: pointer;
+  z-index: 200;
+  transition: background 0.15s ease;
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  &:hover {
+    background: var(--primitive-primary-400);
+  }
+}
+
+// ─── NavBar ──────────────────────────────────────────────────────────────────
+
+.navbar {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 358px;
+  max-width: calc(100% - 36px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px 12px 16px;
+  background: rgba(55, 94, 61, 0.75);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1.5px solid white;
+  border-radius: 1000px;
+  overflow: hidden;
+  z-index: 200;
+}
+
+// Active nav item (Accueil)
+.navItemActive {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 12px 4px 8px;
+  background: var(--color-primary-contrast-text);
+  border: none;
+  border-radius: 63px;
+  cursor: pointer;
+  color: var(--color-primary-main);
+
+  svg {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+}
+
+.navLabel {
+  font-family: var(--font-family-subtitle);
+  font-weight: var(--font-weight-700);
+  font-size: 14px;
+  line-height: 1.15;
+  color: var(--color-primary-main);
+  white-space: nowrap;
+}
+
+// Inactive nav items
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  overflow: hidden;
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
 }
