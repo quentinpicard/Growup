@@ -265,6 +265,58 @@
   margin: auto 0;
 }
 
+.cityAutocomplete {
+  position: relative;
+  width: 100%;
+}
+
+.citySuggestions {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--color-light);
+  border-radius: var(--radius-card-s);
+  overflow: hidden;
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.citySuggestionItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-3) var(--spacing-4);
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  &:hover,
+  &:active {
+    background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  }
+}
+
+.citySuggestionName {
+  font-family: var(--font-family-text);
+  font-size: 15px;
+  color: var(--color-text-dark);
+  font-weight: var(--font-weight-500);
+}
+
+.citySuggestionCode {
+  font-family: var(--font-family-text);
+  font-size: 13px;
+  color: var(--color-text-dark);
+  opacity: 0.5;
+}
+
 .cityInput {
   width: 100%;
   padding: var(--spacing-3) var(--spacing-4);
@@ -286,6 +338,10 @@
   &:focus {
     border-color: var(--primitive-primary-400);
   }
+}
+
+.cityInputValid {
+  border-color: #7C98FD !important;
 }
 
 // ─── Écran Done ──────────────────────────────────────────────────────────────
