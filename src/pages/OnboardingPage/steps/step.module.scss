@@ -98,21 +98,14 @@
   object-fit: contain;
 }
 
-// ─── Step 3 : bulle en haut, mascotte absolue gauche (valeurs Figma) ─────────
-.mascotteExperience {
-  width: 112px;
-  left: -10%;
-  top: 51px;
-  transform: rotate(37deg);
-}
-
-// Bubble collée en haut du contenu (step 3)
+// ─── Steps 3-7 : bulle en haut, choix centrés ───────────────────────────────
+// Bubble collée en haut du contenu
 .bubbleSectionCompact {
   padding-top: var(--spacing-3);
   margin-bottom: var(--spacing-6);
 }
 
-// Contenu en colonne depuis le haut, choix poussés vers le bas
+// Contenu en colonne depuis le haut, choix centrés dans l'espace restant
 .contentTop {
   justify-content: flex-start;
 
@@ -121,10 +114,19 @@
   }
 }
 
+// ─── Step 3 : mascotte gauche (valeurs Figma) ─────────────────────────────────
+.mascotteExperience {
+  width: 112px;
+  left: -10%;
+  top: 51px;
+  transform: rotate(37deg);
+}
+
+// ─── Step 4 : mascotte droite (miroir step 3) ────────────────────────────────
 .mascotteLocation {
   width: 112px;
-  left: 282px;
-  top: 45px;
+  right: -10%;
+  top: 51px;
   transform: rotate(-37deg);
 }
 
