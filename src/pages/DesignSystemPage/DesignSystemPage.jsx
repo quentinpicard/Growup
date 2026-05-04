@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Input, InputPassword, InputSearch, Textarea, Tag, Toggle, VegetableCard, HarvestCard, HerbCard, TaskCard, ChoiceBtn, SpeechBubble } from '../../components'
+import { Button, Input, InputPassword, InputSearch, Textarea, Tag, Toggle, VegetableCard, HarvestCard, HerbCard, TaskCard, ChoiceBtn, SpeechBubble, PlantSelectionCard } from '../../components'
 import styles from './DesignSystemPage.module.scss'
 import IconJardin     from '../../assets/icons/Jardin.svg?react'
 import IconArrowRight from '../../assets/icons/Arrow_right_long.svg?react'
@@ -8,6 +8,9 @@ import IconSearch     from '../../assets/icons/Search_alt_fill.svg?react'
 import IconSend       from '../../assets/icons/Send_fill.svg?react'
 import IconDateRange  from '../../assets/icons/Date_range_fill.svg?react'
 import IconHumidity   from '../../assets/icons/humidity_fill.svg?react'
+import PictoAubergine from '../../assets/pictos/fruits_legumes/Aubergine.svg?react'
+import PictoCarotte   from '../../assets/pictos/fruits_legumes/Carotte.svg?react'
+import PictoCourgette from '../../assets/pictos/fruits_legumes/Courgette.svg?react'
 import PictoTomate    from '../../assets/pictos/fruits_legumes/Tomate cerise.svg?react'
 import PictoBasilic   from '../../assets/pictos/aromatiques/Basilic.svg?react'
 import PictoMenthe    from '../../assets/pictos/aromatiques/Menthe.svg?react'
@@ -661,6 +664,79 @@ export default function DesignSystemPage() {
               <TaskCard
                 title="Vérifier l'humidité" frequency="Dans 2 jours" conseil="Sol trop sec détecté"
                 icon={<IconHumidity aria-hidden="true" width="40" height="40" />}
+              />
+            </CardDemo>
+          </div>
+        </Section>
+
+        {/* ══════════════════════════════════════════
+            PLANT SELECTION CARD
+        ══════════════════════════════════════════ */}
+        <Section title="Plant Selection Card — Compatibilité">
+          <div className={styles.cardRow}>
+            <CardDemo label="Idéale">
+              <PlantSelectionCard
+                planteName="Aubergine"
+                periode="avr. - juin"
+                difficulte="Facile"
+                compatibilite="Idéale"
+                icon={<PictoAubergine aria-hidden="true" width="64" height="64" />}
+                onAdd={() => {}}
+              />
+            </CardDemo>
+            <CardDemo label="Possible">
+              <PlantSelectionCard
+                planteName="Carotte"
+                periode="mars - juil."
+                difficulte="Moyen"
+                compatibilite="Possible"
+                icon={<PictoCarotte aria-hidden="true" width="64" height="64" />}
+                onAdd={() => {}}
+              />
+            </CardDemo>
+            <CardDemo label="Déconseillé">
+              <PlantSelectionCard
+                planteName="Courgette"
+                periode="mai - août"
+                difficulte="Difficile"
+                compatibilite="Déconseillé"
+                icon={<PictoCourgette aria-hidden="true" width="64" height="64" />}
+                onAdd={() => {}}
+              />
+            </CardDemo>
+          </div>
+        </Section>
+
+        <Section title="Plant Selection Card — Difficulté">
+          <div className={styles.cardRow}>
+            <CardDemo label="Facile">
+              <PlantSelectionCard
+                planteName="Tomate cerise"
+                periode="mai - sept."
+                difficulte="Facile"
+                compatibilite="Idéale"
+                icon={<PictoTomate aria-hidden="true" width="64" height="64" />}
+                onAdd={() => {}}
+              />
+            </CardDemo>
+            <CardDemo label="Moyen">
+              <PlantSelectionCard
+                planteName="Aubergine"
+                periode="avr. - juin"
+                difficulte="Moyen"
+                compatibilite="Possible"
+                icon={<PictoAubergine aria-hidden="true" width="64" height="64" />}
+                onAdd={() => {}}
+              />
+            </CardDemo>
+            <CardDemo label="Difficile">
+              <PlantSelectionCard
+                planteName="Carotte"
+                periode="mars - juil."
+                difficulte="Difficile"
+                compatibilite="Déconseillé"
+                icon={<PictoCarotte aria-hidden="true" width="64" height="64" />}
+                onAdd={() => {}}
               />
             </CardDemo>
           </div>

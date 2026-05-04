@@ -1,0 +1,692 @@
+[
+  {
+    "id": "tomate",
+    "nom": "Tomate",
+    "icone": "Tomate",
+    "categorie": "legume-fruit",
+    "type": "fruit",
+    "periode_plantation": { "label": "avr. - juin", "mois_debut": 4, "mois_fin": 6 },
+    "compatibilite": { "niveau": "possible", "label": "Possible" },
+    "difficulte": { "niveau": "moyen", "label": "Moyen" },
+    "stades_disponibles": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+    "stade_par_defaut": "semis",
+    "bruno_intro": "Gourmande en soleil, pas rancunière sur l'arrosage. On va bien s'entendre.",
+    "bruno_stade_semis": "En avril on part en semis. Compte 6 à 8 semaines avant de la voir vraiment pousser. Patience.",
+    "pot_substrat": { "recommandation": "Un pot de 15 à 20 L minimum, terreau tomates + 20 % de compost.", "optionnel_onboarding": true },
+    "voisins_guilde": { "meilleurs_voisins": ["basilic", "carotte", "persil"], "a_eviter": ["fenouil", "chou"] },
+    "contextes": {
+      "balcon_terrasse_sud": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Conditions idéales. Pot de 15 à 20 L, terreau tomates + 20 % de compost, arrosage quotidien en été.",
+        "besoins": { "volume_pot_min_litres": 15, "arrosage": "quotidien en été", "tuteur": true }
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Soleil l'après-midi, ça lui convient bien. Les fruits seront légèrement moins sucrés qu'au sud, mais la récolte est là.",
+        "besoins": { "volume_pot_min_litres": 15, "arrosage": "tous les 2 jours", "tuteur": true }
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification"],
+        "conseil_bruno": "Soleil le matin uniquement — elle va pousser, mais la récolte sera modeste. Une tomate cerise s'en sortira mieux ici.",
+        "besoins": { "volume_pot_min_litres": 15, "arrosage": "tous les 2 jours", "tuteur": true, "variete_conseillee": "tomate-cerise" }
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": ["semis"],
+        "conseil_bruno": "Trop peu de soleil pour une tomate. Elle peut démarrer en semis, mais elle ne fructifiera pas. Pense à la salade ou aux herbes à la place.",
+        "besoins": null
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison"],
+        "conseil_bruno": "Exposition correcte mais l'espace est limité. Pot de 10 L max, préfère une variété naine ou une tomate cerise.",
+        "besoins": { "volume_pot_min_litres": 10, "volume_pot_max_litres": 12, "arrosage": "quotidien en été", "tuteur": true, "variete_conseillee": "tomate-cerise" }
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant"],
+        "conseil_bruno": "Ça peut aller pour démarrer. Avec un espace aussi restreint, reste sur une variété compacte.",
+        "besoins": { "volume_pot_min_litres": 8, "arrosage": "tous les 2 jours", "tuteur": true, "variete_conseillee": "tomate-cerise" }
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": ["semis"],
+        "conseil_bruno": "Peu de place et peu de soleil direct — le combo n'est pas idéal. Je te conseille plutôt de la ciboulette ou du basilic ici.",
+        "besoins": null
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Pas assez de lumière, pas assez de place. La tomate n'a rien à faire là.",
+        "besoins": null
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": ["semis", "jeune_plant"],
+        "conseil_bruno": "Le semis peut se faire en intérieur, c'est même recommandé. Mais pour la suite, il faudra la sortir dehors.",
+        "besoins": { "volume_pot_min_litres": 10, "arrosage": "tous les 2 jours", "tuteur": true, "note": "Transfert en extérieur recommandé dès le jeune plant" }
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": ["semis"],
+        "conseil_bruno": "Correct pour démarrer un semis. Elle aura besoin de sortir rapidement si tu veux des fruits.",
+        "besoins": { "note": "Semis uniquement, transfert en extérieur indispensable" }
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": ["semis"],
+        "conseil_bruno": "Lumière insuffisante pour une tomate. Le semis passera, mais ne t'attends à rien de plus.",
+        "besoins": null
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Même moi je ne pousserais pas dans ces conditions. Oublie la tomate ici.",
+        "besoins": null
+      },
+      "interieur_fenetre_nord_est": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Pas assez de lumière directe pour que ça vaille la peine. Passe ton chemin.",
+        "besoins": null
+      },
+      "interieur_fenetre_nord_ouest": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Pareil que le nord. Privilégie des plantes d'ombre — pothos, menthe, ou même rien du tout.",
+        "besoins": null
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Son habitat naturel. Espacement 60 cm entre les pieds, tuteur dès le jeune plant, paillis au sol.",
+        "besoins": { "espacement_cm": 60, "tuteur": true, "paillage": true, "arrosage": "tous les 2 jours, à la base" }
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification"],
+        "conseil_bruno": "Elle va pousser mais les fruits seront moins nombreux et moins sucrés. Choisis un emplacement qui capte quand même le soleil le matin.",
+        "besoins": { "espacement_cm": 60, "tuteur": true, "paillage": true, "arrosage": "tous les 2 à 3 jours" }
+      },
+      "jardin_ombre": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Non. Une tomate à l'ombre, ça ne donne rien. Plante plutôt de la salade, de la roquette ou des herbes.",
+        "besoins": null
+      }
+    }
+  },
+
+  {
+    "id": "tomate-cerise",
+    "nom": "Tomate cerise",
+    "icone": "Tomate cerise",
+    "categorie": "legume-fruit",
+    "type": "fruit",
+    "periode_plantation": { "label": "avr. - juin", "mois_debut": 4, "mois_fin": 6 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+    "stade_par_defaut": "semis",
+    "bruno_intro": "Plus facile que sa grande sœur, plus productive au m². Elle pardonne les oublis d'arrosage. On va s'entendre.",
+    "bruno_stade_semis": "Semis en intérieur dès mars-avril. Elle pousse vite — 5 à 6 semaines et tu as un jeune plant costaud.",
+    "pot_substrat": { "recommandation": "Un pot de 10 à 12 L suffit. Terreau tomates ou universel + un peu de compost.", "optionnel_onboarding": true },
+    "voisins_guilde": { "meilleurs_voisins": ["basilic", "carotte", "persil"], "a_eviter": ["fenouil", "chou"] },
+    "contextes": {
+      "balcon_terrasse_sud": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Balcon sud — elle va exploser de fruits. Pot de 10 à 12 L, arrosage régulier, et tu n'auras qu'à récolter.",
+        "besoins": { "volume_pot_min_litres": 10, "arrosage": "tous les 2 jours", "tuteur": true }
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Très bien. Soleil l'après-midi, elle sera productive. Tu peux prévoir deux pieds sans problème.",
+        "besoins": { "volume_pot_min_litres": 10, "arrosage": "tous les 2 jours", "tuteur": true }
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Soleil le matin — suffisant pour elle. Moins de fruits que plein sud, mais une belle récolte quand même.",
+        "besoins": { "volume_pot_min_litres": 10, "arrosage": "tous les 2 à 3 jours", "tuteur": true }
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison"],
+        "conseil_bruno": "Balcon nord — c'est limite mais la tomate cerise est la plus tolérante. Elle poussera, avec peu de fruits. Tente si tu n'as pas mieux.",
+        "besoins": { "volume_pot_min_litres": 10, "arrosage": "tous les 2 à 3 jours", "tuteur": true }
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Rebord sud — c'est exactement la plante qu'il faut ici. Compacte, productive, pas capricieuse.",
+        "besoins": { "volume_pot_min_litres": 8, "arrosage": "quotidien en été", "tuteur": true }
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Bonne option pour un rebord ouest. Elle s'en sortira bien avec le soleil de l'après-midi.",
+        "besoins": { "volume_pot_min_litres": 8, "arrosage": "tous les 2 jours", "tuteur": true }
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification"],
+        "conseil_bruno": "Rebord est — ça peut marcher avec la cerise, elle est plus tolérante que la grande tomate. Résultats modestes mais honnêtes.",
+        "besoins": { "volume_pot_min_litres": 8, "arrosage": "tous les 2 jours", "tuteur": true }
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": ["semis"],
+        "conseil_bruno": "Rebord nord — même la cerise a besoin d'un minimum de lumière. Je ne peux pas te promettre grand chose ici.",
+        "besoins": null
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison"],
+        "conseil_bruno": "Fenêtre sud — correct pour démarrer et même produire quelques fruits. Sors-la dès que possible.",
+        "besoins": { "volume_pot_min_litres": 8, "arrosage": "tous les 2 jours", "tuteur": true }
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant"],
+        "conseil_bruno": "Fenêtre ouest — bon pour le semis. Pour les fruits, mieux vaut prévoir de la sortir dès le printemps.",
+        "besoins": { "note": "Transfert en extérieur recommandé pour la floraison" }
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": ["semis"],
+        "conseil_bruno": "Lumière trop faible pour espérer des fruits en intérieur. Le semis passe, mais ça s'arrête là.",
+        "besoins": null
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Non, même pour la cerise. Fenêtre nord en intérieur, c'est trop sombre.",
+        "besoins": null
+      },
+      "interieur_fenetre_nord_est": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Pas assez de lumière directe. Même réponse que le nord.",
+        "besoins": null
+      },
+      "interieur_fenetre_nord_ouest": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Pareil. Trop sombre pour produire quoi que ce soit.",
+        "besoins": null
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Plein soleil au jardin — elle va être heureuse et très productive. Espacement 50 cm, tuteur léger, et profite.",
+        "besoins": { "espacement_cm": 50, "tuteur": true, "paillage": true, "arrosage": "tous les 2 jours" }
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Mi-ombre acceptable pour la cerise — moins productive que plein soleil, mais ça reste rentable.",
+        "besoins": { "espacement_cm": 50, "tuteur": true, "paillage": true, "arrosage": "tous les 2 à 3 jours" }
+      },
+      "jardin_ombre": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant"],
+        "conseil_bruno": "À l'ombre même la cerise galère. Tu auras des feuilles, pas de fruits.",
+        "besoins": null
+      }
+    }
+  },
+
+  {
+    "id": "fraise",
+    "nom": "Fraise",
+    "icone": "Fraise",
+    "categorie": "fruit",
+    "type": "fruit",
+    "periode_plantation": { "label": "mars - mai", "mois_debut": 3, "mois_fin": 5 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["plantation", "croissance", "floraison", "fructification", "recolte"],
+    "stade_par_defaut": "plantation",
+    "bruno_intro": "Discrète, productive, et elle revient chaque année. Une des meilleures pour débuter en micro-espace.",
+    "bruno_stade_plantation": "On plante les fraisiers de mars à mai. Installe-la avec la couronne au niveau du sol — ni trop enfouie, ni trop exposée.",
+    "pot_substrat": { "recommandation": "Pot de 20 cm de profondeur minimum, terreau universel bien drainant.", "optionnel_onboarding": true },
+    "voisins_guilde": { "meilleurs_voisins": ["ail", "ciboulette", "salade"], "a_eviter": ["fenouil", "chou"] },
+    "contextes": {
+      "balcon_terrasse_sud": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["plantation", "croissance", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Balcon plein sud — parfait pour la fraise. Elle va sucrer comme il faut. Attention à ne pas laisser le sol sécher en été.",
+        "besoins": { "volume_pot_min_litres": 5, "arrosage": "tous les 2 jours", "paillage": true }
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["plantation", "croissance", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Balcon ouest — elle s'en sort très bien. Le soleil de l'après-midi suffit à mûrir les fruits correctement.",
+        "besoins": { "volume_pot_min_litres": 5, "arrosage": "tous les 2 à 3 jours", "paillage": true }
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["plantation", "croissance", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Balcon est — la fraise tolère bien le soleil du matin. Bonne option, fruits un peu moins sucrés mais une belle récolte.",
+        "besoins": { "volume_pot_min_litres": 5, "arrosage": "tous les 2 à 3 jours", "paillage": true }
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["plantation", "croissance", "floraison"],
+        "conseil_bruno": "Balcon nord — elle pousse, mais peu de fruits et peu sucrés. Si tu n'as que ça, tente une variété remontante.",
+        "besoins": { "volume_pot_min_litres": 5, "arrosage": "tous les 3 jours", "variete_conseillee": "fraise remontante" }
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["plantation", "croissance", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Rebord sud — la fraise est parfaite ici. Compacte, elle ne déborde pas et elle produit bien.",
+        "besoins": { "volume_pot_min_litres": 3, "arrosage": "tous les 2 jours", "paillage": true }
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["plantation", "croissance", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Rebord ouest — très bien adapté. Elle apprécie le soleil de l'après-midi et ne prend pas trop de place.",
+        "besoins": { "volume_pot_min_litres": 3, "arrosage": "tous les 2 à 3 jours" }
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["plantation", "croissance", "floraison", "fructification"],
+        "conseil_bruno": "Rebord est — acceptable pour la fraise. Elle fructifiera, avec moins de sucre que plein sud.",
+        "besoins": { "volume_pot_min_litres": 3, "arrosage": "tous les 2 à 3 jours" }
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["plantation", "croissance"],
+        "conseil_bruno": "Rebord nord — la fraise poussera mais ne produira presque rien. Mets-y plutôt de la ciboulette ou de la menthe.",
+        "besoins": null
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["plantation", "croissance", "floraison"],
+        "conseil_bruno": "Fenêtre sud en intérieur — elle peut fleurir, mais sans pollinisateurs dehors, les fruits seront rares. Pollinise à la main si tu veux des fraises.",
+        "besoins": { "note": "Pollinisation manuelle recommandée en intérieur" }
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["plantation", "croissance"],
+        "conseil_bruno": "Fenêtre ouest — elle survit et reste jolie. Pour les fruits, c'est compliqué en intérieur. Sors-la dès que tu peux.",
+        "besoins": null
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["plantation", "croissance"],
+        "conseil_bruno": "Fenêtre est en intérieur — trop peu de lumière pour fructifier. Elle restera verte et sans fruits.",
+        "besoins": null
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Fenêtre nord en intérieur — non. La fraise a besoin de lumière pour fleurir. Ce n'est pas ici.",
+        "besoins": null
+      },
+      "interieur_fenetre_nord_est": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Pas assez de lumière. Même réponse que le nord.",
+        "besoins": null
+      },
+      "interieur_fenetre_nord_ouest": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Pareil. Trop sombre pour une fraise.",
+        "besoins": null
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["plantation", "croissance", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Plein soleil au jardin — c'est là qu'elle donne le mieux. Paillis de paille sous les fruits, espacement 30 cm.",
+        "besoins": { "espacement_cm": 30, "paillage": true, "arrosage": "tous les 2 à 3 jours" }
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["plantation", "croissance", "floraison", "fructification"],
+        "conseil_bruno": "Mi-ombre au jardin — elle pousse bien, les fruits seront moins sucrés. Acceptable si c'est tout ce que tu as.",
+        "besoins": { "espacement_cm": 30, "paillage": true, "arrosage": "tous les 3 jours" }
+      },
+      "jardin_ombre": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["plantation", "croissance"],
+        "conseil_bruno": "À l'ombre au jardin — feuillage correct, fruits quasi inexistants. Plante plutôt de la menthe ou du persil ici.",
+        "besoins": null
+      }
+    }
+  },
+
+  {
+    "id": "courgette",
+    "nom": "Courgette",
+    "icone": "Courgette",
+    "categorie": "legume",
+    "type": "legume",
+    "periode_plantation": { "label": "avr. - mai", "mois_debut": 4, "mois_fin": 5 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+    "stade_par_defaut": "semis",
+    "bruno_intro": "Productive, rapide, et elle ne se plaint pas. Si t'as la place, elle te le rend bien.",
+    "bruno_stade_semis": "Semis de mars à mai, en intérieur d'abord si les nuits sont encore fraîches. Elle pousse vite — 3 à 4 semaines et c'est un plant costaud.",
+    "pot_substrat": { "recommandation": "Pot de 40 à 50 L minimum. Elle est gourmande en volume et en eau.", "optionnel_onboarding": true },
+    "voisins_guilde": { "meilleurs_voisins": ["haricot", "radis", "aneth"], "a_eviter": ["pomme de terre", "fenouil"] },
+    "contextes": {
+      "balcon_terrasse_sud": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Balcon sud avec de la place — c'est son endroit préféré. Prévois un grand pot de 40 L minimum et attends-toi à une belle production.",
+        "besoins": { "volume_pot_min_litres": 40, "arrosage": "quotidien en été", "paillage": true }
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Balcon ouest — elle apprécie le soleil de l'après-midi. Production légèrement inférieure au plein sud, mais très correcte.",
+        "besoins": { "volume_pot_min_litres": 40, "arrosage": "tous les 2 jours", "paillage": true }
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification"],
+        "conseil_bronze": "Balcon est — elle poussera mais produira moins. La courgette a besoin de chaleur pour bien fructifier.",
+        "conseil_bruno": "Balcon est — elle poussera mais produira moins. La courgette a besoin de chaleur pour bien fructifier.",
+        "besoins": { "volume_pot_min_litres": 40, "arrosage": "tous les 2 jours" }
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": ["semis"],
+        "conseil_bruno": "Balcon nord — la courgette sans soleil, c'est une plante verte sans légumes. Pas la peine.",
+        "besoins": null
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Rebord de fenêtre — même pas la peine d'essayer. La courgette a besoin de beaucoup de volume et d'espace. Ce n'est pas la bonne plante pour cet endroit.",
+        "besoins": null
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Trop peu de place pour une courgette. Elle a besoin d'un grand bac. Passe à la tomate cerise ou à la ciboulette ici.",
+        "besoins": null
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Ni la place, ni la lumière. La courgette, c'est non ici.",
+        "besoins": null
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Non sur tous les plans — espace, lumière, volume. Oublie la courgette ici.",
+        "besoins": null
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": ["semis"],
+        "conseil_bruno": "En intérieur fenêtre sud — seul le semis est envisageable. Pour la suite, il faut absolument un espace extérieur.",
+        "besoins": { "note": "Semis uniquement, transfert en extérieur obligatoire" }
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": ["semis"],
+        "conseil_bruno": "Semis possible en intérieur, mais elle devra sortir dès qu'il fait doux. Pas de fruits en intérieur.",
+        "besoins": { "note": "Semis uniquement" }
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Non. Courgette en intérieur fenêtre est — aucun intérêt. Choisis une plante adaptée à l'intérieur.",
+        "besoins": null
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Non, non, et non. La courgette a besoin de plein soleil et de volume. Ce n'est vraiment pas la bonne plante ici.",
+        "besoins": null
+      },
+      "interieur_fenetre_nord_est": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Idem nord. Oublie.",
+        "besoins": null
+      },
+      "interieur_fenetre_nord_ouest": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "Idem nord. Oublie.",
+        "besoins": null
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+        "conseil_bruno": "Plein soleil au jardin — son terrain de jeu. Espacement 80 cm minimum entre les pieds, paillis au sol, arrosage copieux.",
+        "besoins": { "espacement_cm": 80, "paillage": true, "arrosage": "quotidien en été" }
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "jeune_plant", "floraison", "fructification"],
+        "conseil_bruno": "Mi-ombre au jardin — elle va pousser mais produire moins. Si c'est une mi-ombre matinale, ça passe encore.",
+        "besoins": { "espacement_cm": 80, "paillage": true, "arrosage": "tous les 2 jours" }
+      },
+      "jardin_ombre": {
+        "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+        "difficulte": { "niveau": "difficile", "label": "Difficile" },
+        "stades_recommandes": [],
+        "conseil_bruno": "À l'ombre — non. Beaucoup de feuilles, zéro courgette. Plante à la place des légumes feuilles ou de la menthe.",
+        "besoins": null
+      }
+    }
+  },
+
+  {
+    "id": "ciboulette",
+    "nom": "Ciboulette",
+    "icone": "Ciboulette",
+    "categorie": "aromatique",
+    "type": "aromatique",
+    "periode_plantation": { "label": "mars - avr.", "mois_debut": 3, "mois_fin": 4 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["semis", "croissance", "mature", "recolte"],
+    "stade_par_defaut": "semis",
+    "bruno_intro": "La plus tolérante de toutes. Elle pousse dans presque n'importe quelles conditions, revient chaque année, et tu la coupes autant que tu veux.",
+    "bruno_stade_semis": "Semis direct de mars à avril. Elle lève en 10 à 15 jours. Patience — les premières tiges sont fines, mais elle se densifie vite.",
+    "pot_substrat": { "recommandation": "N'importe quel pot de 15 cm de profondeur minimum. Terreau universel, point.", "optionnel_onboarding": true },
+    "voisins_guilde": { "meilleurs_voisins": ["tomate", "carotte", "fraise"], "a_eviter": [] },
+    "contextes": {
+      "balcon_terrasse_sud": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "Balcon plein sud — elle adore. Tu peux la planter dans un petit pot entre deux autres cultures et elle s'en sortira très bien.",
+        "besoins": { "volume_pot_min_litres": 2, "arrosage": "tous les 3 jours" }
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "Balcon ouest — très bien. Elle n'est pas exigeante et pousse rapidement.",
+        "besoins": { "volume_pot_min_litres": 2, "arrosage": "tous les 3 jours" }
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "Balcon est — pas de problème. Elle tolère une demi-journée de soleil sans broncher.",
+        "besoins": { "volume_pot_min_litres": 2, "arrosage": "tous les 3 à 4 jours" }
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "Balcon nord — une des rares plantes que je conseillerais même là. Elle pousse plus lentement, mais elle pousse.",
+        "besoins": { "volume_pot_min_litres": 2, "arrosage": "tous les 4 à 5 jours" }
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "Rebord sud — la ciboulette est taillée pour ça. Petit pot, grande récolte.",
+        "besoins": { "volume_pot_min_litres": 1, "arrosage": "tous les 3 jours" }
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "Rebord ouest — parfait. Elle est discrète et productive.",
+        "besoins": { "volume_pot_min_litres": 1, "arrosage": "tous les 3 à 4 jours" }
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "Rebord est — très bien pour la ciboulette. Elle ne demande pas grand chose.",
+        "besoins": { "volume_pot_min_litres": 1, "arrosage": "tous les 4 jours" }
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "Rebord nord — elle poussera, mais plus lentement. C'est l'une des seules aromatiques que je recommanderais quand même ici.",
+        "besoins": { "volume_pot_min_litres": 1, "arrosage": "tous les 5 jours" }
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "Fenêtre sud en intérieur — elle y est comme chez elle. Coupe les tiges régulièrement pour stimuler la pousse.",
+        "besoins": { "volume_pot_min_litres": 1, "arrosage": "tous les 3 à 4 jours" }
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "Fenêtre ouest en intérieur — très bon choix. Elle s'adapte facilement à la lumière indirecte.",
+        "besoins": { "volume_pot_min_litres": 1, "arrosage": "tous les 4 jours" }
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "Fenêtre est en intérieur — ça passe. Elle poussera un peu plus lentement, mais c'est tout à fait faisable.",
+        "besoins": { "volume_pot_min_litres": 1, "arrosage": "tous les 4 à 5 jours" }
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "croissance", "mature"],
+        "conseil_bruno": "Fenêtre nord en intérieur — c'est limite, mais la ciboulette est la plus résistante des aromatiques. Elle poussera, lentement.",
+        "besoins": { "volume_pot_min_litres": 1, "arrosage": "tous les 5 à 6 jours", "note": "Croissance lente, couper peu souvent" }
+      },
+      "interieur_fenetre_nord_est": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "croissance", "mature"],
+        "conseil_bruno": "Nord-est en intérieur — même logique que le nord. Elle s'en sort, mais ne t'attends pas à des miracles.",
+        "besoins": { "volume_pot_min_litres": 1, "arrosage": "tous les 5 à 6 jours" }
+      },
+      "interieur_fenetre_nord_ouest": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "moyen", "label": "Moyen" },
+        "stades_recommandes": ["semis", "croissance", "mature"],
+        "conseil_bruno": "Nord-ouest en intérieur — pareil que le nord. La ciboulette reste ton meilleur choix dans ces conditions.",
+        "besoins": { "volume_pot_min_litres": 1, "arrosage": "tous les 5 à 6 jours" }
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "Plein soleil au jardin — elle sera très productive et reviendra chaque année. Plante-la en bordure pour éloigner les pucerons.",
+        "besoins": { "espacement_cm": 20, "arrosage": "tous les 4 à 5 jours" }
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "Mi-ombre au jardin — elle tolère très bien ça. Une des rares aromatiques à bien se comporter à l'ombre partielle.",
+        "besoins": { "espacement_cm": 20, "arrosage": "tous les 5 jours" }
+      },
+      "jardin_ombre": {
+        "compatibilite": { "niveau": "possible", "label": "Possible" },
+        "difficulte": { "niveau": "facile", "label": "Facile" },
+        "stades_recommandes": ["semis", "croissance", "mature", "recolte"],
+        "conseil_bruno": "À l'ombre au jardin — elle pousse quand même, plus lentement. C'est l'une des seules aromatiques à tenir dans ces conditions.",
+        "besoins": { "espacement_cm": 20, "arrosage": "tous les 5 à 7 jours" }
+      }
+    }
+  }
+]
