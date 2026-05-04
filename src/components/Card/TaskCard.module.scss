@@ -10,7 +10,6 @@
   background:     var(--primitive-primary-050);
   border:         1.5px solid var(--primitive-primary-200);
   border-radius:  var(--radius-2);
-  // box-shadow:     0 2px 8px rgba(47, 76, 51, 0.06);
   cursor:         pointer;
   transition:     background 0.2s ease, opacity 0.2s ease, box-shadow 0.15s ease;
   user-select:    none;
@@ -167,11 +166,6 @@
   }
 
   &:active { transform: scale(0.9); }
-
-  &:focus-visible {
-    // outline:        2px solid var(--Colors-Focus-Focus);
-    outline-offset: 2px;
-  }
 }
 
 // =============================================================================
