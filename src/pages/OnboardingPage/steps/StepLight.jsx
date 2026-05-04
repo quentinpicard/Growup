@@ -23,13 +23,15 @@ export default function StepLight({ onNext, answers, setAnswer }) {
 
   return (
     <div className={styles.step}>
-      <img src={brunoImg} alt="Bruno le brocoli" className={`${styles.mascotteAbs} ${styles.mascotteLight}`} />
-
-      <div className={styles.content}>
-        <div className={styles.bubbleSection}>
-          <div className={[styles.bubble, styles.bubbleArrowRight].join(' ')}>
+      <div className={`${styles.content} ${styles.contentTop}`}>
+        <div className={styles.bubbleSectionCompact}>
+          <div className={styles.bubble}>
             <p>{question}</p>
           </div>
+        </div>
+
+        <div className={styles.mascotteLightSection}>
+          <img src={brunoImg} alt="Bruno le brocoli" className={styles.mascotteLight} />
         </div>
 
         <div className={styles.choices}>
