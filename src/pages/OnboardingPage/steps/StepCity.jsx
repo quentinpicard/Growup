@@ -25,7 +25,7 @@ export default function StepCity({ onNext, setAnswer }) {
     <div className={styles.step}>
       <img src={brunoImg} alt="Bruno le brocoli" className={`${styles.mascotteAbs} ${styles.mascotteCity}`} />
 
-      <div className={styles.content}>
+      <div className={[styles.content, styles.contentTop].join(' ')}>
         <div className={styles.bubbleSectionHigh}>
           <div className={[styles.bubble, styles.bubbleArrowRight].join(' ')}>
             <p>{t.bubble}</p>

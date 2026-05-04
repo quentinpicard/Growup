@@ -147,10 +147,25 @@
 }
 
 .mascotteObjectives {
-  width: 112px;
-  left: -65px;
-  top: -57px;
-  transform: rotate(120deg);
+  width: 130px;
+  left: -7%;
+  top: 10px;
+  transform: rotate(220deg);
+  z-index: 1;
+}
+
+.bubbleSectionObjectives {
+  padding-top: 70px;
+  margin-bottom: var(--spacing-6);
+}
+
+.bubbleArrowTop {
+  &::before {
+    top: calc(-1 * var(--spacing-2));
+    bottom: auto;
+    border-bottom: var(--spacing-2) solid var(--color-light);
+    border-top: none;
+  }
 }
 
 .mascotteCity {
@@ -247,7 +262,7 @@
 
 // ─── Input ville ─────────────────────────────────────────────────────────────
 .cityInputWrapper {
-  margin-bottom: var(--spacing-4);
+  margin: auto 0;
 }
 
 .cityInput {

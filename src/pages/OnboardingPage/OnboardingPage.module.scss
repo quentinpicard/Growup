@@ -17,6 +17,8 @@
   padding: 0 var(--spacing-4);
   height: 52px;
   flex-shrink: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .backBtn {
