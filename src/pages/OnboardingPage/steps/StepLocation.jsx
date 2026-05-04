@@ -3,17 +3,16 @@ import styles from './step.module.scss'
 import Button from '../../../components/Button/Button'
 import ChoiceBtn from '../../../components/ChoiceBtn/ChoiceBtn'
 import brunoImg from '../../../assets/Mascotte 1.png'
-import { LOCATION_OPTIONS, LOCATION_QUESTION, STEP_TEXTS } from '../onboarding.data'
+import { LOCATION_OPTIONS_AVANCE, LOCATION_OPTIONS_DEBUTANT, LOCATION_QUESTION, STEP_TEXTS } from '../onboarding.data'
 
 const t = STEP_TEXTS.location
 
 export default function StepLocation({ onNext, answers, setAnswer }) {
   const [selected, setSelected] = useState(null)
 
-  const question =
-    answers.experience === 'oui_deja'
-      ? LOCATION_QUESTION.avance
-      : LOCATION_QUESTION.debutant
+  const isAvance = answers.experience === 'oui_deja'
+  const question = isAvance ? LOCATION_QUESTION.avance : LOCATION_QUESTION.debutant
+  const locationOptions = isAvance ? LOCATION_OPTIONS_AVANCE : LOCATION_OPTIONS_DEBUTANT
 
   const handleSelect = (value) => {
     const next = selected === value ? null : value
@@ -35,7 +34,7 @@ export default function StepLocation({ onNext, answers, setAnswer }) {
         </div>
 
         <div className={styles.choices}>
-          {LOCATION_OPTIONS.map(opt => (
+          {locationOptions.map(opt => (
             <ChoiceBtn
               key={opt.value}
               label={opt.label}
