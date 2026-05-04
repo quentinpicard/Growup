@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './OnboardingPage.module.scss'
+import { saveProfile } from '../../utils/storage'
 import Button from '../../components/Button/Button'
 import IconArrowLeft from '../../assets/icons/Arrow_alt_left.svg?react'
 import StepSplash       from './steps/StepSplash'
@@ -42,7 +43,12 @@ export default function OnboardingPage() {
     <StepLight        key="5" onNext={goNext} answers={answers} setAnswer={setAnswer} />,
     <StepObjectives   key="6" onNext={goNext} answers={answers} setAnswer={setAnswer} />,
     <StepCity         key="7" onNext={goNext} answers={answers} setAnswer={setAnswer} />,
-    <StepDone         key="8" answers={answers} onFinish={() => navigate('/')} />,
+    <StepDone         key="8" answers={answers} onFinish={() => {
+      const profile = { ...answers, onboardingDone: true }
+      saveProfile(profile)
+      console.log('Choix utilisateur :', profile)
+      navigate('/')
+    }} />,
   ]
 
   return (
