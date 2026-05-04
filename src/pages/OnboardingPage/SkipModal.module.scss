@@ -3,18 +3,18 @@
   inset: 0;
   background: color-mix(in srgb, var(--color-dark) 65%, transparent);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   z-index: 200;
-  padding: var(--spacing-4);
+  padding: var(--spacing-4) 15%;
 }
 
 .modal {
   background: var(--primitive-primary-800);
   border-radius: var(--radius-card-l);
   padding: var(--spacing-6);
-  width: 100%;
-  max-width: 420px;
+  width: 80%;
+  max-width: 360px;
   position: relative;
   display: flex;
   flex-direction: column;

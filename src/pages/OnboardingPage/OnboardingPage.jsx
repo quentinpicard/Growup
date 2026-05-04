@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './OnboardingPage.module.scss'
+import Button from '../../components/Button/Button'
 import IconArrowLeft from '../../assets/icons/Arrow_alt_left.svg?react'
 import StepSplash       from './steps/StepSplash'
 import StepBrunoHello   from './steps/StepBrunoHello'
@@ -28,7 +29,7 @@ export default function OnboardingPage() {
   const goBack = () => setCurrentStep(s => s - 1)
 
   const showStepper    = currentStep >= 1 && currentStep <= 7
-  const showBack       = currentStep >= 2 && currentStep <= 7
+  const showBack       = currentStep >= 1 && currentStep <= 7
   const showSkipButton = currentStep >= 3 && currentStep <= 7
   const progressPct    = showStepper ? (currentStep / TOTAL_STEPS) * 100 : 0
 
@@ -49,9 +50,15 @@ export default function OnboardingPage() {
       {showStepper && (
         <header className={styles.stepper}>
           {showBack ? (
-            <button className={styles.backBtn} onClick={goBack} aria-label="Retour">
-              <IconArrowLeft aria-hidden="true" width="24" height="24" />
-            </button>
+            <Button
+              fill="outlined"
+              variant="primary"
+              className={styles.backBtn}
+              onClick={goBack}
+              aria-label="Retour"
+            >
+              <IconArrowLeft aria-hidden="true" width="20" height="20" />
+            </Button>
           ) : (
             <span className={styles.stepperSide} />
           )}
@@ -67,9 +74,14 @@ export default function OnboardingPage() {
           </div>
 
           {showSkipButton ? (
-            <button className={styles.skipBtn} onClick={() => setShowSkipModal(true)}>
+            <Button
+              fill="outlined"
+              variant="primary"
+              className={styles.skipBtn}
+              onClick={() => setShowSkipModal(true)}
+            >
               Passer
-            </button>
+            </Button>
           ) : (
             <span className={styles.stepperSide} />
           )}
