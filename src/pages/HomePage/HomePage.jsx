@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../../context/AppContext'
+import useWeather from '../../hooks/useWeather'
 import PlantCard from '../../components/PlantCard/PlantCard'
 import styles from './HomePage.module.scss'
 
@@ -21,6 +22,7 @@ export default function HomePage() {
   const navigate      = useNavigate()
   const { user, plantInstances } = useApp()
   const [taskDone, setTaskDone] = useState(false)
+  const { temp, message: weatherMsg, loading: weatherLoading } = useWeather(user.city)
 
   // — Contexte plante
   const cleContexte = user.zone_id && user.exposition_id
@@ -83,11 +85,20 @@ export default function HomePage() {
         {/* Weather banner */}
         <div className={styles.weather}>
           <div className={styles.weatherInner}>
-            <div className={styles.weatherTemp}>
-              <IconCloud width={24} height={24} className={styles.weatherIcon} aria-hidden="true" />
-              <span className={styles.weatherDegrees}>16°c</span>
+            <div className={styles.weatherTempGroup}>
+              {user.city && <p className={styles.weatherCity}>{user.city}</p>}
+              <div className={styles.weatherTemp}>
+                <IconCloud width={24} height={24} className={styles.weatherIcon} aria-hidden="true" />
+                <span className={styles.weatherDegrees}>
+                  {weatherLoading ? '…' : temp !== null ? `${temp}°c` : '—'}
+                </span>
+              </div>
             </div>
-            <p className={styles.weatherMsg}>Ciel voilé, bon pour les semis.</p>
+            <p className={styles.weatherMsg}>
+              {weatherLoading
+                ? 'Chargement de la météo…'
+                : weatherMsg ?? (user.city ? 'Météo indisponible.' : 'Renseigne ta ville pour la météo.')}
+            </p>
           </div>
         </div>
       </header>

@@ -38,11 +38,11 @@ const LIGHT_TO_EXPOSITION_ID = {
   },
 }
 
-function mapOnboardingToUserProfile({ location, light, prenom }) {
+function mapOnboardingToUserProfile({ location, light, prenom, city }) {
   const zone_id = LOCATION_TO_ZONE_ID[location] ?? null
   const expositionMap = LIGHT_TO_EXPOSITION_ID[location] ?? {}
   const exposition_id = expositionMap[light] ?? null
-  return { prenom: prenom ?? null, zone_id, exposition_id }
+  return { prenom: prenom ?? null, zone_id, exposition_id, city: city ?? null }
 }
 
 const BASE_STATE = {
@@ -50,6 +50,7 @@ const BASE_STATE = {
     prenom: null,
     zone_id: null,
     exposition_id: null,
+    city: null,
     onboarding_complete: false,
   },
   zones: [],
@@ -64,6 +65,7 @@ function getInitialState() {
       prenom:   saved.prenom ?? null,
       location: saved.location,
       light:    saved.light,
+      city:     saved.city ?? null,
     })
     return {
       ...BASE_STATE,
@@ -76,7 +78,10 @@ function getInitialState() {
 function reducer(state, action) {
   switch (action.type) {
     case 'SET_ONBOARDING_COMPLETE': {
-      const profile = mapOnboardingToUserProfile(action.payload)
+      const profile = mapOnboardingToUserProfile({
+        ...action.payload,
+        city: action.payload.city ?? null,
+      })
       return {
         ...state,
         user: { ...state.user, ...profile, onboarding_complete: true },
