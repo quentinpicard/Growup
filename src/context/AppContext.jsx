@@ -98,6 +98,8 @@ function reducer(state, action) {
           t.id === action.payload.taskId ? { ...t, completed: true } : t
         ),
       }
+    case 'RESET_ONBOARDING':
+      return BASE_STATE
     default:
       return state
   }

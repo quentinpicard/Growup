@@ -6,7 +6,8 @@ import JardinPage        from '../pages/JardinPage/JardinPage'
 import PlantePage        from '../pages/PlantePage/PlantePage'
 import DiagnosticPage    from '../pages/DiagnosticPage/DiagnosticPage'
 import AjoutPlantePage   from '../pages/AjoutPlantePage/AjoutPlantePage'
-import DesignSystemPage  from '../pages/DesignSystemPage/DesignSystemPage'
+import DesignSystemPage       from '../pages/DesignSystemPage/DesignSystemPage'
+import ResetOnboardingPage    from '../pages/ResetOnboardingPage/ResetOnboardingPage'
 
 function ProtectedRoute({ children }) {
   const { user } = useApp()
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
   { path: '/diagnostic/:id', element: <DiagnosticPage /> },
   { path: '/ajout-plante',   element: <AjoutPlantePage /> },
   { path: '/design-system',  element: <DesignSystemPage /> },
+  { path: '/reset-onboarding', element: <ResetOnboardingPage /> },
 ])
 
 export default function AppRouter() {
