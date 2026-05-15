@@ -5,15 +5,11 @@ import { TaskCard } from '../../components/index'
 import Tag from '../../components/Tag/Tag'
 import styles from './TachesPage.module.scss'
 
-import IconFilterSvg    from '../../assets/icons/Filter.svg?react'
-import IconCloseSvg     from '../../assets/icons/Close_round.svg?react'
-import IconAddSvg       from '../../assets/icons/Add_round.svg?react'
-import IconHomeSvg      from '../../assets/icons/Home_fill.svg?react'
-import IconJardinSvg    from '../../assets/icons/Jardin.svg?react'
-import IconCalendarSvg  from '../../assets/icons/Date_range_fill.svg?react'
-import IconUserSvg      from '../../assets/icons/User_fill.svg?react'
-import IconArrowSvg     from '../../assets/icons/circle_right.svg?react'
-import IconPlanterSvg   from '../../assets/pictos/Planter.svg?react'
+import IconFilterSvg  from '../../assets/icons/Filter.svg?react'
+import IconCloseSvg    from '../../assets/icons/Close_round.svg?react'
+import IconAddSvg      from '../../assets/icons/Add_round.svg?react'
+import IconBackSvg     from '../../assets/icons/Arrow_alt_lright.svg?react'
+import IconPlanterSvg  from '../../assets/pictos/Planter.svg?react'
 
 const FILTERS = [
   { id: 'toutes',        label: 'Toutes les tâches' },
@@ -76,8 +72,12 @@ export default function TachesPage() {
 
         <div className={styles.headerContent}>
           <h1 className={styles.pageTitle}>Mes Tâches</h1>
-          <button className={styles.headerBtn} aria-label="Calendrier">
-            <IconArrowSvg width={24} height={24} aria-hidden="true" />
+          <button
+            className={styles.headerBtn}
+            aria-label="Retour"
+            onClick={() => navigate(-1)}
+          >
+            <IconBackSvg width={24} height={24} aria-hidden="true" />
           </button>
         </div>
       </header>
@@ -196,30 +196,6 @@ export default function TachesPage() {
         <IconAddSvg width={32} height={32} aria-hidden="true" />
       </button>
 
-      {/* ─── NavBar ─────────────────────────────────────────── */}
-      <nav className={styles.navbar} aria-label="Navigation principale">
-        <button
-          className={styles.navItem}
-          onClick={() => navigate('/')}
-          aria-label="Accueil"
-        >
-          <IconHomeSvg width={32} height={32} aria-hidden="true" />
-        </button>
-        <button
-          className={styles.navItem}
-          onClick={() => navigate('/jardin')}
-          aria-label="Jardin"
-        >
-          <IconJardinSvg width={32} height={32} aria-hidden="true" />
-        </button>
-        <button className={styles.navItemActive} aria-current="page">
-          <IconCalendarSvg width={32} height={32} aria-hidden="true" />
-          <span className={styles.navLabel}>Tâches</span>
-        </button>
-        <button className={styles.navItem} aria-label="Profil">
-          <IconUserSvg width={32} height={32} aria-hidden="true" />
-        </button>
-      </nav>
     </div>
   )
 }

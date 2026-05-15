@@ -8,7 +8,7 @@
   max-width:      393px;
   margin:         0 auto;
   background:     var(--color-light);
-  padding-bottom: 150px;
+  padding-bottom: 100px;
   position:       relative;
 }
 
@@ -349,66 +349,3 @@
   &:hover { background: var(--primitive-primary-400); }
 }
 
-// ─── NavBar ───────────────────────────────────────────────────────────────────
-.navbar {
-  position:         fixed;
-  bottom:           18px;
-  left:             50%;
-  transform:        translateX(-50%);
-  width:            358px;
-  max-width:        calc(100% - 36px);
-  display:          flex;
-  align-items:      center;
-  justify-content:  space-between;
-  padding:          12px 24px 12px 16px;
-  background:       rgba(55, 94, 61, 0.75);
-  backdrop-filter:  blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border:           1.5px solid white;
-  border-radius:    1000px;
-  overflow:         hidden;
-  z-index:          200;
-}
-
-.navItemActive {
-  display:       flex;
-  align-items:   center;
-  gap:           2px;
-  padding:       4px 12px 4px 8px;
-  background:    var(--color-primary-contrast-text);
-  border:        none;
-  border-radius: 63px;
-  cursor:        pointer;
-  color:         var(--color-primary-main);
-
-  svg { width: 32px; height: 32px; flex-shrink: 0; }
-}
-
-.navLabel {
-  font-family: var(--font-family-subtitle);
-  font-weight: var(--font-weight-700);
-  font-size:   14px;
-  line-height: 1.15;
-  color:       var(--color-primary-main);
-  white-space: nowrap;
-}
-
-.navItem {
-  display:         flex;
-  align-items:     center;
-  justify-content: center;
-  width:           32px;
-  height:          32px;
-  background:      transparent;
-  border:          none;
-  cursor:          pointer;
-
-  svg { width: 32px; height: 32px; }
-
-  svg path,
-  svg rect,
-  svg circle,
-  svg polygon {
-    fill: white;
-  }
-}

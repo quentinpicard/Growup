@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../../context/AppContext'
 import useWeather from '../../hooks/useWeather'
@@ -47,8 +47,25 @@ export default function HomePage() {
 
   const isEmptyState = plantInstances.length === 0
 
+  const touchStartX = useRef(null)
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return
+    const diff = e.changedTouches[0].clientX - touchStartX.current
+    if (diff > 80) navigate('/taches')
+    touchStartX.current = null
+  }
+
   return (
-    <div className={styles.page}>
+    <div
+      className={styles.page}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
 
       {/* ─── Header sticky ──────────────────────────────────── */}
       <header className={styles.header}>
@@ -68,8 +85,8 @@ export default function HomePage() {
           <div className={styles.agendaBtnWrapper}>
             <button
               className={styles.agendaBtn}
-              aria-label="Agenda"
-              onClick={() => {}}
+              aria-label="Mes tâches"
+              onClick={() => navigate('/taches')}
             >
               <IconDesk width={24} height={24} aria-hidden="true" />
               <span className={styles.agendaBadge}>1</span>
@@ -213,7 +230,7 @@ export default function HomePage() {
         <button className={styles.navItem} aria-label="Jardin">
           <IconJardin width={32} height={32} aria-hidden="true" />
         </button>
-        <button className={styles.navItem} aria-label="Tâches" onClick={() => navigate('/taches')}>
+        <button className={styles.navItem} aria-label="Calendrier">
           <IconCalendar width={32} height={32} aria-hidden="true" />
         </button>
         <button className={styles.navItem} aria-label="Profil">
