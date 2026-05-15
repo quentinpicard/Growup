@@ -593,11 +593,17 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  color: white;
   overflow: hidden;
 
   svg {
     width: 32px;
     height: 32px;
+  }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: white;
   }
 }

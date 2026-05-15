@@ -1,0 +1,414 @@
+// =============================================================================
+// TachesPage.module.scss
+// =============================================================================
+
+// ─── Page wrapper ─────────────────────────────────────────────────────────────
+.page {
+  min-height:     100dvh;
+  max-width:      393px;
+  margin:         0 auto;
+  background:     var(--color-light);
+  padding-bottom: 150px;
+  position:       relative;
+}
+
+// ─── Header sticky ────────────────────────────────────────────────────────────
+.header {
+  position:                    sticky;
+  top:                         0;
+  z-index:                     100;
+  background:                  var(--primitive-primary-700);
+  border-bottom-left-radius:   var(--radius-4);
+  border-bottom-right-radius:  var(--radius-4);
+}
+
+.statusBar {
+  display:         flex;
+  align-items:     flex-end;
+  justify-content: space-between;
+  padding:         14px 24px;
+}
+
+.statusTime {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-500);
+  font-size:   16px;
+  line-height: 1.4;
+  color:       white;
+}
+
+.statusIcons {
+  display:     flex;
+  gap:         12px;
+  align-items: center;
+}
+
+.statusIcon,
+.statusBattery {
+  font-size:      11px;
+  color:          white;
+  letter-spacing: -1px;
+}
+
+// Titre + bouton flèche
+.headerContent {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         8px 16px 20px;
+}
+
+.pageTitle {
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-700);
+  font-size:   22px;
+  line-height: 1.2;
+  color:       var(--color-text-light);
+  margin:      0;
+}
+
+.headerBtn {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           40px;
+  height:          40px;
+  background:      transparent;
+  border:          2px solid rgba(255, 255, 255, 0.5);
+  border-radius:   var(--radius-button-btn);
+  cursor:          pointer;
+  transition:      border-color 0.15s ease;
+
+  &:hover { border-color: white; }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: white;
+  }
+}
+
+// ─── Barre de filtres (sticky sous le header) ─────────────────────────────────
+.filterBar {
+  position:    sticky;
+  top:         88px; // hauteur du header
+  z-index:     90;
+  display:     flex;
+  align-items: center;
+  gap:         var(--spacing-2);
+  padding:     12px 16px;
+  background:  var(--color-light);
+  border-bottom: 1px solid var(--primitive-primary-100);
+}
+
+.filterIconBtn {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:           36px;
+  height:          36px;
+  background:      var(--primitive-primary-050);
+  border:          1.5px solid var(--primitive-primary-200);
+  border-radius:   var(--radius-2);
+  cursor:          pointer;
+  transition:      background 0.15s ease;
+
+  &:hover { background: var(--primitive-primary-100); }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: var(--color-primary-main);
+  }
+}
+
+.filterTags {
+  display:     flex;
+  align-items: center;
+  gap:         var(--spacing-1-5);
+  flex-wrap:   wrap;
+  min-width:   0;
+}
+
+// ─── Contenu scrollable ───────────────────────────────────────────────────────
+.content {
+  display:        flex;
+  flex-direction: column;
+  gap:            0;
+}
+
+// ─── Bannière état vide ───────────────────────────────────────────────────────
+.emptyBanner {
+  margin:        16px 16px 0;
+  padding:       12px 14px;
+  background:    var(--primitive-secondary-100);
+  border-radius: var(--radius-2);
+}
+
+.emptyBannerText {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-400);
+  font-size:   13px;
+  line-height: 1.4;
+  color:       var(--color-secondary-main);
+  margin:      0;
+}
+
+// ─── Section tâches ───────────────────────────────────────────────────────────
+.section {
+  display:        flex;
+  flex-direction: column;
+  gap:            10px;
+  padding:        20px 16px 8px;
+}
+
+.sectionHeader {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  width:           100%;
+}
+
+.sectionTitleRow {
+  display:     flex;
+  align-items: center;
+  gap:         8px;
+}
+
+.sectionTitle {
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-600);
+  font-size:   16px;
+  line-height: 1.4;
+  color:       var(--color-primary-main);
+  margin:      0;
+  white-space: nowrap;
+}
+
+.badge {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  min-width:       18px;
+  height:          18px;
+  padding:         0 5px;
+  background:      var(--color-primary-main);
+  border-radius:   18px;
+  font-family:     var(--font-family-subtitle);
+  font-size:       12px;
+  font-weight:     var(--font-weight-400);
+  color:           var(--color-primary-contrast-text);
+  line-height:     1.5;
+}
+
+.taskList {
+  display:        flex;
+  flex-direction: column;
+  gap:            8px;
+}
+
+// ─── Modal filtres ────────────────────────────────────────────────────────────
+.modalOverlay {
+  position: fixed;
+  inset:    0;
+  z-index:  300;
+  display:  flex;
+  align-items: flex-end;
+  background:  rgba(0, 0, 0, 0.45);
+}
+
+.modal {
+  width:                      100%;
+  max-width:                  393px;
+  margin:                     0 auto;
+  background:                 var(--primitive-primary-700);
+  border-top-left-radius:     var(--radius-4);
+  border-top-right-radius:    var(--radius-4);
+  padding:                    24px 20px 32px;
+  display:                    flex;
+  flex-direction:             column;
+  gap:                        20px;
+}
+
+.modalHeader {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+}
+
+.modalTitle {
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-700);
+  font-size:   20px;
+  line-height: 1.2;
+  color:       white;
+  margin:      0;
+}
+
+.modalClose {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           36px;
+  height:          36px;
+  background:      rgba(255, 255, 255, 0.15);
+  border:          none;
+  border-radius:   var(--radius-button-btn);
+  cursor:          pointer;
+  transition:      background 0.15s ease;
+
+  &:hover { background: rgba(255, 255, 255, 0.25); }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: white;
+  }
+}
+
+// Grille de chips de filtre
+.filterGrid {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       10px;
+}
+
+.filterChip {
+  display:       inline-flex;
+  align-items:   center;
+  gap:           6px;
+  padding:       8px 12px;
+  border:        1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--Radius-Tag);
+  background:    transparent;
+  color:         rgba(255, 255, 255, 0.85);
+  font-family:   var(--Font-family-Tag);
+  font-size:     13px;
+  cursor:        pointer;
+  transition:    background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background:   rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+}
+
+.filterChip--active {
+  background:   rgba(255, 255, 255, 0.2);
+  border-color: white;
+  color:        white;
+}
+
+.filterChipIcon {
+  font-size:   14px;
+  font-weight: var(--font-weight-600);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+// ─── FAB ──────────────────────────────────────────────────────────────────────
+.fab {
+  position:  fixed;
+  bottom:    98px;
+  left:      50%;
+  transform: translateX(-50%);
+  width:     48px;
+  height:    48px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  background:   var(--primitive-primary-300);
+  border:       2px solid white;
+  border-radius: var(--radius-button-btn);
+  color:        white;
+  cursor:       pointer;
+  z-index:      200;
+  transition:   background 0.15s ease;
+
+  svg { width: 32px; height: 32px; }
+
+  &:hover { background: var(--primitive-primary-400); }
+}
+
+// ─── NavBar ───────────────────────────────────────────────────────────────────
+.navbar {
+  position:         fixed;
+  bottom:           18px;
+  left:             50%;
+  transform:        translateX(-50%);
+  width:            358px;
+  max-width:        calc(100% - 36px);
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  padding:          12px 24px 12px 16px;
+  background:       rgba(55, 94, 61, 0.75);
+  backdrop-filter:  blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border:           1.5px solid white;
+  border-radius:    1000px;
+  overflow:         hidden;
+  z-index:          200;
+}
+
+.navItemActive {
+  display:       flex;
+  align-items:   center;
+  gap:           2px;
+  padding:       4px 12px 4px 8px;
+  background:    var(--color-primary-contrast-text);
+  border:        none;
+  border-radius: 63px;
+  cursor:        pointer;
+  color:         var(--color-primary-main);
+
+  svg { width: 32px; height: 32px; flex-shrink: 0; }
+}
+
+.navLabel {
+  font-family: var(--font-family-subtitle);
+  font-weight: var(--font-weight-700);
+  font-size:   14px;
+  line-height: 1.15;
+  color:       var(--color-primary-main);
+  white-space: nowrap;
+}
+
+.navItem {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           32px;
+  height:          32px;
+  background:      transparent;
+  border:          none;
+  cursor:          pointer;
+
+  svg { width: 32px; height: 32px; }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: white;
+  }
+}

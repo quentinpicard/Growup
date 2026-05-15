@@ -6,6 +6,7 @@ import JardinPage        from '../pages/JardinPage/JardinPage'
 import PlantePage        from '../pages/PlantePage/PlantePage'
 import DiagnosticPage    from '../pages/DiagnosticPage/DiagnosticPage'
 import AjoutPlantePage   from '../pages/AjoutPlantePage/AjoutPlantePage'
+import TachesPage        from '../pages/TachesPage/TachesPage'
 import DesignSystemPage       from '../pages/DesignSystemPage/DesignSystemPage'
 import ResetOnboardingPage    from '../pages/ResetOnboardingPage/ResetOnboardingPage'
 
@@ -29,6 +30,14 @@ const router = createBrowserRouter([
   { path: '/plante/:id',     element: <PlantePage /> },
   { path: '/diagnostic/:id', element: <DiagnosticPage /> },
   { path: '/ajout-plante',   element: <AjoutPlantePage /> },
+  {
+    path: '/taches',
+    element: (
+      <ProtectedRoute>
+        <TachesPage />
+      </ProtectedRoute>
+    ),
+  },
   { path: '/design-system',  element: <DesignSystemPage /> },
   { path: '/reset-onboarding', element: <ResetOnboardingPage /> },
 ])

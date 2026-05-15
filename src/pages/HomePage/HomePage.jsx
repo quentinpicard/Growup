@@ -178,13 +178,15 @@ export default function HomePage() {
           />
 
           <div className={styles.plantGrid}>
-            {plantesRecommandees.map(plant => {
-              const contexte = cleContexte ? plant.contextes?.[cleContexte] ?? null : null
+            {plantesRecommandees.map((plant, index) => {
+              const contexte     = cleContexte ? plant.contextes?.[cleContexte] ?? null : null
+              const colorVariant = (index % 4 === 0 || index % 4 === 3) ? 'primary' : 'tertiary'
               return (
                 <PlantCard
                   key={plant.id}
                   plant={plant}
                   contexte={contexte}
+                  colorVariant={colorVariant}
                   onAdd={() => navigate('/ajout-plante')}
                 />
               )
@@ -211,7 +213,7 @@ export default function HomePage() {
         <button className={styles.navItem} aria-label="Jardin">
           <IconJardin width={32} height={32} aria-hidden="true" />
         </button>
-        <button className={styles.navItem} aria-label="Calendrier">
+        <button className={styles.navItem} aria-label="Tâches" onClick={() => navigate('/taches')}>
           <IconCalendar width={32} height={32} aria-hidden="true" />
         </button>
         <button className={styles.navItem} aria-label="Profil">

@@ -58,12 +58,11 @@ const DIFF_NIVEAU_CLASS = {
   difficile: styles['tag--difficile'],
 }
 
-export default function PlantCard({ plant, contexte, onAdd }) {
+export default function PlantCard({ plant, contexte, onAdd, colorVariant = 'primary' }) {
   const compat     = contexte?.compatibilite ?? plant.compatibilite
   const difficulte = contexte?.difficulte    ?? plant.difficulte
 
-  const isLegume = plant.categorie === 'legume' || plant.categorie === 'legume-fruit'
-  const bgClass  = isLegume ? styles['card--primary'] : styles['card--tertiary']
+  const bgClass = colorVariant === 'tertiary' ? styles['card--tertiary'] : styles['card--primary']
 
   const picto  = PICTO_MAP[plant.icone]
   const periode = plant.periode_plantation?.label
