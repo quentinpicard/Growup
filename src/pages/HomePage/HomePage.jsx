@@ -130,7 +130,7 @@ export default function HomePage() {
               <h2 className={styles.sectionTitle}>Tâches</h2>
               <span className={styles.badge}>1</span>
             </div>
-            <button className={styles.iconBtn} aria-label="Voir les tâches">
+            <button className={styles.iconBtn} aria-label="Voir les tâches" onClick={() => navigate('/taches')}>
               <IconDesk width={24} height={24} aria-hidden="true" />
             </button>
           </div>

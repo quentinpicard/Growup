@@ -6,14 +6,15 @@ import Tag from '../../components/Tag/Tag'
 import styles from './TachesPage.module.scss'
 
 import IconFilterSvg  from '../../assets/icons/Filter.svg?react'
-import IconCloseSvg    from '../../assets/icons/Close_round.svg?react'
-import IconAddSvg      from '../../assets/icons/Add_round.svg?react'
-import IconBackSvg     from '../../assets/icons/Arrow_alt_lright.svg?react'
-import IconPlanterSvg  from '../../assets/pictos/Planter.svg?react'
+import IconCloseSvg   from '../../assets/icons/Close_round.svg?react'
+import IconBackSvg    from '../../assets/icons/Arrow_alt_lright.svg?react'
+import IconPlanterSvg from '../../assets/pictos/Planter.svg?react'
+
+// ─── Données statiques ───────────────────────────────────────────────────────
 
 const FILTERS = [
   { id: 'toutes',        label: 'Toutes les tâches' },
-  { id: 'urgent',        label: 'urgent' },
+  { id: 'urgent',        label: 'Urgent' },
   { id: 'today',         label: "Aujourd'hui" },
   { id: 'tomorrow',      label: 'Demain' },
   { id: '2jours',        label: 'Dans 2 jours' },
@@ -22,15 +23,57 @@ const FILTERS = [
   { id: 'aromatiques',   label: 'Aromatiques en cours' },
 ]
 
+// Sections de la timeline dans l'ordre d'affichage
+const SECTIONS = [
+  { id: 'surveiller', label: 'À surveiller', variant: 'surveiller' },
+  { id: 'today',      label: "Aujourd'hui" },
+  { id: 'tomorrow',   label: 'Demain' },
+  { id: '2-3jours',   label: 'Dans 2-3 jours' },
+  { id: '1semaine',   label: 'Dans 1 semaine' },
+  { id: '2semaines',  label: 'Dans 2 semaines' },
+  { id: '1mois',      label: 'Dans 1 mois' },
+  { id: '2mois',      label: 'Dans 2 mois' },
+]
+
+// Tâche d'onboarding (première connexion, aucune plante)
+const ONBOARDING_TASKS = [
+  {
+    id:        'first-plant',
+    section:   'today',
+    filterTags: ['today'],
+    title:     "Ajoute ta première plante",
+    frequency: "Premier jour",
+    duration:  "~5 min",
+    conseil:   "Clique sur le plus en bas de l'écran",
+    icon:      <IconPlanterSvg width={40} height={40} aria-hidden="true" />,
+  },
+]
+
+// ─── Composant ───────────────────────────────────────────────────────────────
+
 export default function TachesPage() {
   const navigate = useNavigate()
   const { plantInstances } = useApp()
 
-  const [showFilters, setShowFilters]   = useState(false)
+  const [showFilters, setShowFilters]     = useState(false)
   const [activeFilters, setActiveFilters] = useState(['toutes'])
 
   const isEmptyState = plantInstances.length === 0
 
+  // Filtre les tâches selon les filtres actifs
+  const allTasks = isEmptyState ? ONBOARDING_TASKS : []
+
+  const visibleTasks = allTasks.filter(task => {
+    if (activeFilters.includes('toutes')) return true
+    return task.filterTags.some(tag => activeFilters.includes(tag))
+  })
+
+  const getTasksForSection = (sectionId) =>
+    visibleTasks.filter(t => t.section === sectionId)
+
+  const hasAnyVisibleTask = visibleTasks.length > 0
+
+  // Gestion des filtres
   const toggleFilter = (id) => {
     if (id === 'toutes') {
       setActiveFilters(['toutes'])
@@ -47,7 +90,6 @@ export default function TachesPage() {
   }
 
   const removeFilter = (id) => {
-    if (id === 'toutes') return
     setActiveFilters(prev => {
       const next = prev.filter(f => f !== id)
       return next.length === 0 ? ['toutes'] : next
@@ -98,7 +140,7 @@ export default function TachesPage() {
               key={f.id}
               color="primary"
               variant="outline"
-              onRemove={f.id === 'toutes' ? () => {} : () => removeFilter(f.id)}
+              onRemove={f.id === 'toutes' ? undefined : () => removeFilter(f.id)}
             >
               {f.label}
             </Tag>
@@ -109,7 +151,7 @@ export default function TachesPage() {
       {/* ─── Contenu scrollable ─────────────────────────────── */}
       <main className={styles.content}>
 
-        {/* Bannière état vide */}
+        {/* Bannière état vide (toujours visible si pas de plantes) */}
         {isEmptyState && (
           <div className={styles.emptyBanner}>
             <p className={styles.emptyBannerText}>
@@ -118,30 +160,45 @@ export default function TachesPage() {
           </div>
         )}
 
-        {/* ── Section Aujourd'hui ─────────────────────────── */}
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <div className={styles.sectionTitleRow}>
-              <h2 className={styles.sectionTitle}>Aujourd'hui</h2>
-              <span className={styles.badge}>{isEmptyState ? 1 : 0}</span>
-            </div>
-          </div>
+        {/* Message aucune tâche pour ce filtre */}
+        {!hasAnyVisibleTask && !activeFilters.includes('toutes') && (
+          <p className={styles.emptyFilter}>
+            Aucune tâche pour ce filtre.
+          </p>
+        )}
 
-          <div className={styles.taskList}>
-            {isEmptyState && (
-              <TaskCard
-                title="Ajoute ta première plante"
-                frequency="Premier jour"
-                duration="~5 min"
-                conseil="Clique sur le plus en bas de l'écran"
-                icon={<IconPlanterSvg width={40} height={40} aria-hidden="true" />}
-              />
-            )}
-          </div>
-        </section>
+        {/* Sections chronologiques */}
+        {SECTIONS.map(section => {
+          const tasks = getTasksForSection(section.id)
+          if (tasks.length === 0) return null
 
-        {/* Les sections futures (Demain, Dans 2-3 jours…) s'ajouteront ici
-            lors de la mise en place des plantes */}
+          return (
+            <section key={section.id} className={styles.section}>
+              <div className={styles.sectionHeader}>
+                <div className={styles.sectionTitleRow}>
+                  <h2 className={styles.sectionTitle}>{section.label}</h2>
+                  <span className={styles.badge}>{tasks.length}</span>
+                </div>
+              </div>
+
+              <div className={styles.taskList}>
+                {tasks.map(task => (
+                  <TaskCard
+                    key={task.id}
+                    title={task.title}
+                    frequency={task.frequency}
+                    duration={task.duration}
+                    conseil={task.conseil}
+                    icon={task.icon}
+                    variant={section.variant}
+                  />
+                ))}
+              </div>
+            </section>
+          )
+        })}
+
+        {/* Les tâches des plantes s'ajouteront ici lors de leur mise en place */}
 
       </main>
 
@@ -186,15 +243,6 @@ export default function TachesPage() {
           </div>
         </div>
       )}
-
-      {/* ─── Bouton + flottant ──────────────────────────────── */}
-      <button
-        className={styles.fab}
-        onClick={() => navigate('/ajout-plante')}
-        aria-label="Ajouter une plante"
-      >
-        <IconAddSvg width={32} height={32} aria-hidden="true" />
-      </button>
 
     </div>
   )
