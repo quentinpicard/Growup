@@ -2,6 +2,7 @@
   {
     "id": "tomate",
     "nom": "Tomate",
+    "nom_scientifique": "Solanum lycopersicum",
     "icone": "Tomate",
     "categorie": "legume-fruit",
     "type": "fruit",
@@ -140,6 +141,7 @@
   {
     "id": "tomate-cerise",
     "nom": "Tomate cerise",
+    "nom_scientifique": "Solanum lycopersicum var. cerasiforme",
     "icone": "Tomate cerise",
     "categorie": "legume-fruit",
     "type": "fruit",
@@ -278,6 +280,7 @@
   {
     "id": "fraise",
     "nom": "Fraise",
+    "nom_scientifique": "Fragaria × ananassa",
     "icone": "Fraise",
     "categorie": "fruit",
     "type": "fruit",
@@ -416,6 +419,7 @@
   {
     "id": "courgette",
     "nom": "Courgette",
+    "nom_scientifique": "Cucurbita pepo",
     "icone": "Courgette",
     "categorie": "legume",
     "type": "legume",
@@ -555,6 +559,7 @@
   {
     "id": "ciboulette",
     "nom": "Ciboulette",
+    "nom_scientifique": "Allium schoenoprasum",
     "icone": "Ciboulette",
     "categorie": "aromatique",
     "type": "aromatique",

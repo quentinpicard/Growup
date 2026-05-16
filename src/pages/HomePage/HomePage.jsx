@@ -204,6 +204,7 @@ export default function HomePage() {
                   plant={plant}
                   contexte={contexte}
                   colorVariant={colorVariant}
+                  variant="add"
                   onAdd={() => navigate('/ajout-plante')}
                 />
               )

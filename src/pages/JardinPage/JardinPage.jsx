@@ -183,6 +183,7 @@ export default function JardinPage() {
                   plant={plant}
                   contexte={contexte}
                   colorVariant={colorVariant}
+                  variant="link"
                   onAdd={() => navigate(`/plante/${plant.id}`)}
                 />
               )

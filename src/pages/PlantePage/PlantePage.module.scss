@@ -1,7 +1,695 @@
+// =============================================================================
+// PlantePage.module.scss
+// =============================================================================
+
+// — Page container
 .page {
+  min-height: 100dvh;
+  max-width: 393px;
+  margin: 0 0;
+  background: var(--color-light);
+  overflow-x: hidden;
+  position: relative;
+}
+
+// — Status bar
+.statusBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px 0;
+  pointer-events: none;
+}
+
+.statusTime {
+  font-family: var(--font-family-text);
+  font-size: 16px;
+  font-weight: 500;
+  color: #343434;
+}
+
+.statusIcons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 10px;
+  color: #343434;
+}
+
+// — Hero
+.hero {
+  position: relative;
+  height: 250px;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px rgba(90, 76, 57, 0.2);
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    var(--primitive-primary-700) 0%,
+    var(--primitive-primary-500) 45%,
+    var(--primitive-primary-300) 100%
+  );
+}
+
+.heroPlantIcon {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.heroActions {
+  position: absolute;
+  top: 54px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-button-btn);
+  border: 2px solid var(--color-primary-main);
+  background: var(--color-primary-main);
+  cursor: pointer;
+  padding: 0;
+  box-shadow: inset -2px -2px 4px rgba(37, 35, 35, 0.2),
+              inset  2px  2px 4px rgba(248, 247, 247, 0.2);
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  svg path   { fill:   white; }
+  svg circle { stroke: white; fill: white; }
+  svg rect   { fill:   white; }
+  svg polygon { fill:  white; }
+}
+
+// — Sticky header
+.stickyHeader {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin-top: -48px;
+  margin-bottom: 12px;
+  background: var(--primitive-secondary-050);
+  border-radius: var(--radius-card-l);
+  padding: 20px 12px 0;
+  box-shadow: 0 4px 4px rgba(90, 76, 57, 0.1);
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
-  padding: var(--spacing-6);
-  background-color: var(--color-light);
+  gap: var(--spacing-2);
+}
+
+.plantTitleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.plantTitleLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.plantNameRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.plantName {
+  font-family: var(--font-family-title);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1;
+  margin: 0;
+}
+
+.plantNameIcon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.scientificName {
+  font-family: var(--font-family-subtitle);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-disabled-bg);
+  margin: 0;
+  line-height: 1.4;
+}
+
+// — Tag row
+.tagRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  flex-wrap: wrap;
+}
+
+.harvestTag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-tag);
+  background: var(--primitive-tertiary-200);
+  font-family: var(--font-family-tag);
+  font-size: 12px;
+  color: var(--primitive-gray-900);
+  white-space: nowrap;
+
+  img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+  }
+}
+
+// — Tab bar
+.tabBar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1-5);
+  width: 100%;
+  background: var(--primitive-secondary-100);
+  border-radius: var(--radius-button-btn);
+  padding: 6px;
+  margin-top: var(--spacing-2);
+}
+
+.tab {
+  flex: 1;
+  min-width: 0;
+  padding: var(--spacing-2) var(--spacing-1);
+  border-radius: var(--radius-button-btn);
+  border: none;
+  background: transparent;
+  font-family: var(--font-family-btn);
+  font-size: 14px;
+  color: var(--color-primary-main);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+  text-align: center;
+
+  &:hover:not(&Active) {
+    background: rgba(47, 76, 51, 0.08);
+  }
+}
+
+.tabActive {
+  background: var(--color-primary-main);
+  color: var(--color-primary-contrast-text);
+  box-shadow: inset -4px -4px 4px rgba(37, 35, 35, 0.2),
+              inset  4px  4px 4px rgba(248, 247, 247, 0.2);
+}
+
+// — Main content
+.content {
+  padding: var(--spacing-4) var(--spacing-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding-bottom: 100px;
+}
+
+.comingSoon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  font-family: var(--font-family-subtitle);
+  font-size: 16px;
+  color: var(--primitive-gray-400);
+}
+
+// — Sections / blocs
+.bloc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.blocHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionTitle {
+  font-family: var(--font-family-title);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-primary-main);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.sectionTitleSecondary {
+  font-family: var(--font-family-title);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-secondary-main);
+  margin: 0;
+  line-height: 1.4;
+}
+
+// — Card label (subtitle gris)
+.cardLabel {
+  font-family: var(--font-family-title);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--primitive-gray-400);
+  margin: 0;
+  line-height: 1.4;
+}
+
+// — Stade de croissance
+.stadeCard {
+  background: var(--primitive-secondary-050);
+  border: 1px solid var(--primitive-secondary-100);
+  border-radius: var(--radius-2);
+  padding: var(--spacing-4) var(--spacing-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.progressWrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.progressTrack {
+  position: relative;
+  height: 8px;
+  background: var(--primitive-gray-200);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progressFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--color-primary-state-selected);
+  border-radius: 100px;
+  transition: width 0.4s ease;
+}
+
+.stagesList {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.stageItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.stageDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primitive-gray-200);
+  flex-shrink: 0;
+}
+
+.stageDotDone {
+  background: var(--primitive-primary-400);
+}
+
+.stageDotActive {
+  background: var(--color-primary-state-selected);
+  border: 3px solid var(--primitive-primary-300);
+  width: 10px;
+  height: 10px;
+}
+
+.stageLabel {
+  font-family: var(--font-family-subtitle);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--primitive-gray-500);
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.stageLabelActive {
+  font-weight: 600;
+  color: var(--primitive-primary-800);
+}
+
+// — Stat row (Etat + Ensoleillement)
+.statRow {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.statCard {
+  flex: 1;
+  border-radius: var(--radius-2);
+  padding: var(--spacing-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  overflow: hidden;
+}
+
+.etatCardGreen  { background: var(--primitive-primary-100); }
+.etatCardYellow { background: var(--primitive-tertiary-100); }
+.etatCardRed    { background: var(--primitive-error-100); }
+
+.statValue {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  justify-content: center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+}
+
+.etatTextGreen  {
+  font-family: var(--font-family-tag);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary-state-outline);
+  white-space: nowrap;
+}
+
+.etatTextYellow {
+  font-family: var(--font-family-tag);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-tertiary-main);
+  white-space: nowrap;
+}
+
+.etatTextAmber {
+  font-family: var(--font-family-tag);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primitive-tertiary-700);
+  text-align: center;
+  line-height: 1;
+  flex: 1;
+}
+
+.etatTextRed {
+  font-family: var(--font-family-tag);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-error-main);
+  white-space: nowrap;
+}
+
+.sunIcon {
+  color: var(--primitive-tertiary-500);
+  flex-shrink: 0;
+}
+
+// — Zone card
+.zoneCard {
+  position: relative;
+  background: var(--primitive-secondary-050);
+  border-radius: var(--radius-2);
+  padding: var(--spacing-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  width: fit-content;
+  min-width: 172px;
+  overflow: hidden;
+}
+
+.zoneValue {
+  font-family: var(--font-family-tag);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primitive-secondary-700);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.zoneMenuBtn {
+  position: absolute;
+  top: var(--spacing-2);
+  right: var(--spacing-2);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  color: var(--primitive-gray-500);
+  transform: rotate(-90deg);
+}
+
+// — Bruno + bulles
+.brunoRow {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-4);
+}
+
+.brunoAvatar {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.bubbleWrap {
+  flex: 1;
+  position: relative;
+}
+
+.bubble {
+  border-radius: 6px 8px 8px 6px;
+  padding: var(--spacing-2) var(--spacing-3);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -8px;
+    width: 0;
+    height: 0;
+    border-right: 8px solid transparent;
+    border-top: 8px solid transparent;
+  }
+}
+
+.bubbleYellow {
+  background: var(--primitive-tertiary-050);
+  border: 1px solid var(--primitive-tertiary-300);
+
+  &::before {
+    border-top-color: var(--primitive-tertiary-050);
+  }
+}
+
+.bubbleBeige {
+  background: var(--primitive-secondary-050);
+  border: 1px solid var(--primitive-secondary-300);
+
+  &::before {
+    border-top-color: var(--primitive-secondary-050);
+  }
+}
+
+.bubbleActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-top: 2px;
+}
+
+.bubbleText {
+  font-family: var(--font-family-subtitle);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-secondary-main);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.bubbleTextBold {
+  font-weight: 700;
+  margin-top: var(--spacing-2);
+}
+
+// Bubble with zone question content
+.bubbleYellow span {
+  font-family: var(--font-family-subtitle);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-tertiary-main);
+}
+
+.iconCheck {
+  color: var(--color-primary-main);
+  width: 20px;
+  height: 20px;
+}
+
+.iconClose {
+  color: var(--primitive-gray-400);
+  width: 20px;
+  height: 20px;
+}
+
+// — Tasks
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+// — Edit button
+.editBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-button-btn);
+  border: 2px solid var(--color-secondary-main);
+  background: var(--color-secondary-main);
+  cursor: pointer;
+  padding: 0;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  svg path    { fill:   white; }
+  svg circle  { fill:   white; stroke: white; }
+  svg rect    { fill:   white; }
+  svg polygon { fill:   white; }
+}
+
+// — Voisins et Guilde
+.guildeBloc {
+  background: var(--primitive-secondary-050);
+  border-radius: var(--radius-2);
+  padding: var(--spacing-3);
+  gap: var(--spacing-4);
+}
+
+.guildeGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.tagGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+// — Navbar
+.navbar {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 358px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-3) var(--spacing-6);
+  background: rgba(55, 94, 61, 0.75);
+  backdrop-filter: blur(5px);
+  border: 1.5px solid white;
+  border-radius: 1000px;
+  z-index: 100;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  svg path    { fill:   white; }
+  svg circle  { fill:   white; stroke: white; }
+  svg rect    { fill:   white; }
+  svg polygon { fill:   white; }
+}
+
+.navItemActive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-contrast-text);
+  border-radius: 63px;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-1) var(--spacing-2-5);
+  gap: 6px;
+  width: auto;
+  height: auto;
+
+  svg path    { fill:   var(--color-primary-main); }
+  svg circle  { fill:   var(--color-primary-main); stroke: var(--color-primary-main); }
+  svg rect    { fill:   var(--color-primary-main); }
+  svg polygon { fill:   var(--color-primary-main); }
+}
+
+.navLabel {
+  font-family: var(--font-family-subtitle);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-primary-main);
 }

@@ -1,15 +1,22 @@
 .card {
-  position:   relative;
-  display:    flex;
+  position:       relative;
+  display:        flex;
   flex-direction: column;
-  gap:        var(--spacing-2);
-  padding:    var(--spacing-3);
-  border-radius: var(--radius-2);
-  overflow:   hidden;
-  width:      calc(50% - 4px);
-  border:     none;
+  gap:            var(--spacing-2);
+  padding:        var(--spacing-3);
+  border-radius:  var(--radius-2);
+  overflow:       hidden;
+  width:          calc(50% - 4px);
+  border:         none;
+  text-align:     left;
+}
+
+.card--primary { background: var(--primitive-primary-050); }
+.card--tertiary { background: var(--primitive-tertiary-050); }
+
+// Variante cliquable (toute la card est un bouton)
+.card--link {
   cursor:     pointer;
-  text-align: left;
   transition: filter 0.15s ease, transform 0.15s ease;
 
   &:hover  { filter: brightness(0.95); transform: translateY(-2px); }
@@ -21,33 +28,30 @@
   }
 }
 
-.card--primary { background: var(--primitive-primary-050); }
-.card--tertiary { background: var(--primitive-tertiary-050); }
-
 // — Tags (absolute, top-left)
 .tags {
-  position: absolute;
-  top: var(--spacing-3);
-  left: var(--spacing-3);
-  display: flex;
+  position:  absolute;
+  top:       var(--spacing-3);
+  left:      var(--spacing-3);
+  display:   flex;
   flex-wrap: wrap;
-  gap: var(--spacing-2);
+  gap:       var(--spacing-2);
   align-items: center;
-  width: 152px;
+  width:     152px;
 }
 
 .tag {
-  display: inline-flex;
-  align-items: center;
+  display:         inline-flex;
+  align-items:     center;
   justify-content: center;
-  padding: var(--spacing-1) var(--spacing-2);
-  border-radius: var(--radius-tag);
-  border: 2px solid transparent;
-  font-family: var(--font-family-tag);
-  font-size: 12px;
-  font-weight: var(--font-weight-400);
-  line-height: 1.5;
-  white-space: nowrap;
+  padding:         var(--spacing-1) var(--spacing-2);
+  border-radius:   var(--radius-tag);
+  border:          2px solid transparent;
+  font-family:     var(--font-family-tag);
+  font-size:       12px;
+  font-weight:     var(--font-weight-400);
+  line-height:     1.5;
+  white-space:     nowrap;
 }
 
 .tag--ideale,
@@ -73,59 +77,86 @@
 
 // — Icon zone (leaves 48px top for tags)
 .iconWrap {
-  display: flex;
-  align-items: center;
+  display:         flex;
+  align-items:     center;
   justify-content: center;
-  padding-top: 48px;
+  padding-top:     48px;
 }
 
 .icon {
-  width: 64px;
-  height: 64px;
+  width:      64px;
+  height:     64px;
   object-fit: contain;
 }
 
 .iconFallback {
-  width: 64px;
-  height: 64px;
-  display: flex;
-  align-items: center;
+  width:           64px;
+  height:          64px;
+  display:         flex;
+  align-items:     center;
   justify-content: center;
-  font-family: var(--font-family-subtitle);
-  font-size: 32px;
-  color: var(--color-primary-main);
+  font-family:     var(--font-family-subtitle);
+  font-size:       32px;
+  color:           var(--color-primary-main);
 }
 
-// — Footer: name + period
+// — Footer: name + period + (optional) add button
 .footer {
-  display: flex;
-  gap: var(--spacing-1);
+  display:     flex;
+  gap:         var(--spacing-1);
   align-items: center;
 }
 
 .info {
-  flex: 1;
-  display: flex;
+  flex:           1;
+  display:        flex;
   flex-direction: column;
-  gap: var(--spacing-2);
-  min-width: 0;
+  gap:            var(--spacing-2);
+  min-width:      0;
 }
 
 .name {
   font-family: var(--font-family-cards-title);
   font-weight: var(--font-weight-700);
-  font-size: 16px;
+  font-size:   16px;
   line-height: 1.5;
-  color: var(--color-primary-dark);
-  width: 100%;
+  color:       var(--color-primary-dark);
+  width:       100%;
 }
 
 .period {
   font-family: var(--font-family-text);
   font-weight: var(--font-weight-400);
-  font-size: 12px;
+  font-size:   12px;
   line-height: 1.4;
-  color: var(--primitive-gray-500);
+  color:       var(--primitive-gray-500);
   white-space: nowrap;
 }
 
+// — Bouton "+" (variant add)
+.addBtn {
+  flex-shrink:     0;
+  width:           32px;
+  height:          32px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  border:          2px solid var(--color-primary-main);
+  border-radius:   var(--radius-button-btn);
+  background:      transparent;
+  color:           var(--color-primary-main);
+  font-size:       20px;
+  line-height:     1;
+  cursor:          pointer;
+  transition:      background 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: var(--color-primary-main);
+    color:      var(--color-text-light);
+  }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+}

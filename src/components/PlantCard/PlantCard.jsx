@@ -58,7 +58,13 @@ const DIFF_NIVEAU_CLASS = {
   difficile: styles['tag--difficile'],
 }
 
-export default function PlantCard({ plant, contexte, onAdd, colorVariant = 'primary' }) {
+/**
+ * PlantCard
+ *
+ * variant="add"  (défaut) — card statique + bouton "+" en bas à droite
+ * variant="link"          — toute la card est cliquable, pas de bouton "+"
+ */
+export default function PlantCard({ plant, contexte, onAdd, colorVariant = 'primary', variant = 'add' }) {
   const compat     = contexte?.compatibilite ?? plant.compatibilite
   const difficulte = contexte?.difficulte    ?? plant.difficulte
 
@@ -67,12 +73,8 @@ export default function PlantCard({ plant, contexte, onAdd, colorVariant = 'prim
   const picto  = PICTO_MAP[plant.icone]
   const periode = plant.periode_plantation?.label
 
-  return (
-    <button
-      className={`${styles.card} ${bgClass}`}
-      onClick={onAdd}
-      aria-label={plant.nom}
-    >
+  const inner = (
+    <>
       <div className={styles.tags}>
         <span className={`${styles.tag} ${COMPAT_NIVEAU_CLASS[compat.niveau] ?? ''}`}>
           {compat.label}
@@ -96,7 +98,34 @@ export default function PlantCard({ plant, contexte, onAdd, colorVariant = 'prim
             <p className={styles.period}>Planter : {periode}</p>
           )}
         </div>
+        {variant === 'add' && (
+          <button
+            className={styles.addBtn}
+            onClick={onAdd}
+            aria-label={`Ajouter ${plant.nom}`}
+          >
+            +
+          </button>
+        )}
       </div>
-    </button>
+    </>
+  )
+
+  if (variant === 'link') {
+    return (
+      <button
+        className={`${styles.card} ${styles['card--link']} ${bgClass}`}
+        onClick={onAdd}
+        aria-label={plant.nom}
+      >
+        {inner}
+      </button>
+    )
+  }
+
+  return (
+    <div className={`${styles.card} ${bgClass}`}>
+      {inner}
+    </div>
   )
 }
