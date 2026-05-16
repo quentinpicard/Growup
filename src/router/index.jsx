@@ -26,7 +26,14 @@ const router = createBrowserRouter([
     ),
   },
   { path: '/onboarding/*',   element: <OnboardingPage /> },
-  { path: '/jardin',         element: <JardinPage /> },
+  {
+    path: '/jardin',
+    element: (
+      <ProtectedRoute>
+        <JardinPage />
+      </ProtectedRoute>
+    ),
+  },
   { path: '/plante/:id',     element: <PlantePage /> },
   { path: '/diagnostic/:id', element: <DiagnosticPage /> },
   { path: '/ajout-plante',   element: <AjoutPlantePage /> },

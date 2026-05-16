@@ -1,7 +1,331 @@
+// =============================================================================
+// JardinPage.module.scss
+// =============================================================================
+
+// ─── Page wrapper ─────────────────────────────────────────────────────────────
 .page {
-  display: flex;
+  min-height:     100dvh;
+  max-width:      393px;
+  margin:         0 auto;
+  background:     var(--color-light);
+  padding-bottom: 140px;
+  position:       relative;
+}
+
+// ─── Header sticky ────────────────────────────────────────────────────────────
+.header {
+  position:   sticky;
+  top:        0;
+  z-index:    100;
+  background: var(--primitive-primary-700);
+}
+
+.statusBar {
+  display:         flex;
+  align-items:     flex-end;
+  justify-content: space-between;
+  padding:         14px 24px 0;
+}
+
+.statusTime {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-500);
+  font-size:   16px;
+  line-height: 1.4;
+  color:       white;
+}
+
+.statusIcons {
+  display:     flex;
+  gap:         12px;
+  align-items: center;
+}
+
+.statusIcon,
+.statusBattery {
+  font-size:      11px;
+  color:          white;
+  letter-spacing: -1px;
+}
+
+// Titre + bouton "Ajouter une plante"
+.headerContent {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         12px 16px 8px;
+  gap:             8px;
+}
+
+.pageTitle {
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-700);
+  font-size:   22px;
+  line-height: 1.2;
+  color:       var(--color-text-light);
+  margin:      0;
+  white-space: nowrap;
+}
+
+.addPlantBtn {
+  display:       inline-flex;
+  align-items:   center;
+  gap:           6px;
+  padding:       8px 14px;
+  background:    var(--primitive-primary-800);
+  border:        none;
+  border-radius: 1000px;
+  font-family:   var(--font-family-text);
+  font-weight:   var(--font-weight-500);
+  font-size:     13px;
+  color:         white;
+  cursor:        pointer;
+  white-space:   nowrap;
+  transition:    background 0.15s ease;
+  flex-shrink:   0;
+
+  &:hover  { background: var(--primitive-primary-900); }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+}
+
+// Tab bar
+.tabBar {
+  display:     flex;
+  align-items: flex-end;
+  padding:     0 16px;
+}
+
+.tabActive {
+  padding:       8px 16px 12px;
+  border:        none;
+  border-bottom: 3px solid white;
+  background:    transparent;
+  font-family:   var(--font-family-subtitle);
+  font-weight:   var(--font-weight-700);
+  font-size:     15px;
+  color:         white;
+  cursor:        default;
+  border-radius: 0;
+}
+
+// ─── Barre de filtres ─────────────────────────────────────────────────────────
+.filterBar {
+  position:           sticky;
+  top:                130px;
+  z-index:            90;
+  display:            flex;
+  align-items:        center;
+  gap:                8px;
+  padding:            10px 16px;
+  background:         var(--color-light);
+  overflow-x:         auto;
+  scrollbar-width:    none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar { display: none; }
+}
+
+.filterChip {
+  display:       inline-flex;
+  align-items:   center;
+  gap:           5px;
+  padding:       6px 12px;
+  border:        1.5px solid var(--primitive-primary-300);
+  border-radius: 1000px;
+  background:    transparent;
+  font-family:   var(--font-family-text);
+  font-size:     13px;
+  color:         var(--color-primary-main);
+  cursor:        pointer;
+  white-space:   nowrap;
+  flex-shrink:   0;
+  transition:    background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: var(--color-primary-main);
+  }
+
+  &:hover { background: var(--primitive-primary-050); }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+}
+
+.filterChip--active {
+  background:   var(--primitive-primary-700);
+  border-color: var(--primitive-primary-700);
+  color:        white;
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: white;
+  }
+
+  &:hover { background: var(--primitive-primary-800); }
+}
+
+.filterCount {
+  font-weight: var(--font-weight-700);
+}
+
+// ─── Contenu ──────────────────────────────────────────────────────────────────
+.content {
+  display:        flex;
   flex-direction: column;
-  min-height: 100dvh;
-  padding: var(--spacing-6);
-  background-color: var(--color-light);
+  gap:            12px;
+  padding:        16px 16px 0;
+}
+
+.plantCount {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-400);
+  font-size:   15px;
+  color:       var(--color-primary-dark);
+  margin:      0;
+
+  strong {
+    font-weight: var(--font-weight-700);
+  }
+}
+
+// ─── Grille de plantes ────────────────────────────────────────────────────────
+.plantGrid {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       8px;
+}
+
+// ─── État vide ────────────────────────────────────────────────────────────────
+.emptyState {
+  display:     flex;
+  align-items: center;
+  gap:         12px;
+  margin-top:  4px;
+}
+
+.brunoImg {
+  width:       52px;
+  height:      52px;
+  object-fit:  contain;
+  flex-shrink: 0;
+}
+
+// ─── FAB ──────────────────────────────────────────────────────────────────────
+.fab {
+  position:        fixed;
+  bottom:          98px;
+  left:            50%;
+  transform:       translateX(-50%);
+  width:           48px;
+  height:          48px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  background:      var(--primitive-primary-300);
+  border:          2px solid white;
+  border-radius:   var(--radius-button-btn);
+  color:           white;
+  cursor:          pointer;
+  z-index:         200;
+  transition:      background 0.15s ease;
+
+  &:hover { background: var(--primitive-primary-400); }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: white;
+  }
+}
+
+// ─── Navbar ───────────────────────────────────────────────────────────────────
+.navbar {
+  position:                fixed;
+  bottom:                  18px;
+  left:                    50%;
+  transform:               translateX(-50%);
+  width:                   358px;
+  max-width:               calc(100% - 36px);
+  display:                 flex;
+  align-items:             center;
+  justify-content:         space-between;
+  padding:                 12px 24px 12px 16px;
+  background:              rgba(55, 94, 61, 0.75);
+  backdrop-filter:         blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border:                  1.5px solid white;
+  border-radius:           1000px;
+  overflow:                hidden;
+  z-index:                 200;
+}
+
+.navItemActive {
+  display:       flex;
+  align-items:   center;
+  gap:           2px;
+  padding:       4px 12px 4px 8px;
+  background:    var(--color-primary-contrast-text);
+  border:        none;
+  border-radius: 63px;
+  cursor:        default;
+  color:         var(--color-primary-main);
+
+  svg {
+    width:       32px;
+    height:      32px;
+    flex-shrink: 0;
+  }
+}
+
+.navLabel {
+  font-family: var(--font-family-subtitle);
+  font-weight: var(--font-weight-700);
+  font-size:   14px;
+  line-height: 1.15;
+  color:       var(--color-primary-main);
+  white-space: nowrap;
+}
+
+.navItem {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           40px;
+  height:          40px;
+  background:      transparent;
+  border:          none;
+  border-radius:   var(--radius-button-btn);
+  cursor:          pointer;
+  transition:      background 0.15s ease;
+
+  &:hover { background: rgba(255, 255, 255, 0.15); }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: rgba(255, 255, 255, 0.7);
+  }
 }

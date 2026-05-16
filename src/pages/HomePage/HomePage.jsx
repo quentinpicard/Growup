@@ -227,7 +227,7 @@ export default function HomePage() {
           <IconHome width={32} height={32} aria-hidden="true" />
           <span className={styles.navLabel}>Accueil</span>
         </button>
-        <button className={styles.navItem} aria-label="Jardin">
+        <button className={styles.navItem} aria-label="Jardin" onClick={() => navigate('/jardin')}>
           <IconJardin width={32} height={32} aria-hidden="true" />
         </button>
         <button className={styles.navItem} aria-label="Calendrier">
