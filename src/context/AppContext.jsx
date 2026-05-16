@@ -56,6 +56,7 @@ const BASE_STATE = {
   zones: [],
   plantInstances: [],
   tasks: [],
+  checkedTaskIds: [],
 }
 
 function getInitialState() {
@@ -97,6 +98,13 @@ function reducer(state, action) {
         tasks: state.tasks.map(t =>
           t.id === action.payload.taskId ? { ...t, completed: true } : t
         ),
+      }
+    case 'TOGGLE_TASK_CHECKED':
+      return {
+        ...state,
+        checkedTaskIds: state.checkedTaskIds.includes(action.payload)
+          ? state.checkedTaskIds.filter(id => id !== action.payload)
+          : [...state.checkedTaskIds, action.payload],
       }
     case 'RESET_ONBOARDING':
       return BASE_STATE

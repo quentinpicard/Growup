@@ -15,6 +15,25 @@
     "bruno_stade_semis": "En avril on part en semis. Compte 6 à 8 semaines avant de la voir vraiment pousser. Patience.",
     "pot_substrat": { "recommandation": "Un pot de 15 à 20 L minimum, terreau tomates + 20 % de compost.", "optionnel_onboarding": true },
     "voisins_guilde": { "meilleurs_voisins": ["basilic", "carotte", "persil"], "a_eviter": ["fenouil", "chou"] },
+    "cycle": {
+      "duree_jours": 138,
+      "date_debut": "04 avril",
+      "date_repiquage": "10 avril",
+      "date_recolte": "Entre le 15-30 juil.",
+      "conseil": "Arrose à la base sans mouiller le feuillage — les maladies adorent les feuilles humides.",
+      "stades_dates": {
+        "semis":          { "mois": "Avril" },
+        "jeune_plant":    { "date": "10 avril",    "mois": "Avril" },
+        "floraison":      { "date": "05-25 juin",  "mois": "Juin" },
+        "fructification": { "date": "15 juin",     "mois": "Juin" },
+        "recolte":        { "date": "15-30 juil.", "mois": "Juillet" }
+      },
+      "conditions": {
+        "temperature":    "18 - 25 °c",
+        "ensoleillement": "6 - 8h / jour",
+        "arrosage":       "Tous les 2 - 3 jours"
+      }
+    },
     "contextes": {
       "balcon_terrasse_sud": {
         "compatibilite": { "niveau": "ideale", "label": "Idéale" },
@@ -154,6 +173,25 @@
     "bruno_stade_semis": "Semis en intérieur dès mars-avril. Elle pousse vite — 5 à 6 semaines et tu as un jeune plant costaud.",
     "pot_substrat": { "recommandation": "Un pot de 10 à 12 L suffit. Terreau tomates ou universel + un peu de compost.", "optionnel_onboarding": true },
     "voisins_guilde": { "meilleurs_voisins": ["basilic", "carotte", "persil"], "a_eviter": ["fenouil", "chou"] },
+    "cycle": {
+      "duree_jours": 110,
+      "date_debut": "04 avril",
+      "date_repiquage": "08 avril",
+      "date_recolte": "Dès le 20 juil.",
+      "conseil": "Pince les gourmands régulièrement pour concentrer l'énergie sur les fruits.",
+      "stades_dates": {
+        "semis":          { "mois": "Avril" },
+        "jeune_plant":    { "date": "08 avril",   "mois": "Avril" },
+        "floraison":      { "date": "20 mai",     "mois": "Mai" },
+        "fructification": { "date": "10 juin",    "mois": "Juin" },
+        "recolte":        { "date": "dès 20 juil.", "mois": "Juillet" }
+      },
+      "conditions": {
+        "temperature":    "16 - 25 °c",
+        "ensoleillement": "5 - 8h / jour",
+        "arrosage":       "Tous les 2 - 3 jours"
+      }
+    },
     "contextes": {
       "balcon_terrasse_sud": {
         "compatibilite": { "niveau": "ideale", "label": "Idéale" },
@@ -293,6 +331,24 @@
     "bruno_stade_plantation": "On plante les fraisiers de mars à mai. Installe-la avec la couronne au niveau du sol — ni trop enfouie, ni trop exposée.",
     "pot_substrat": { "recommandation": "Pot de 20 cm de profondeur minimum, terreau universel bien drainant.", "optionnel_onboarding": true },
     "voisins_guilde": { "meilleurs_voisins": ["ail", "ciboulette", "salade"], "a_eviter": ["fenouil", "chou"] },
+    "cycle": {
+      "duree_jours": 75,
+      "date_debut": "20 mars",
+      "date_recolte": "Dès le 15 juin",
+      "conseil": "Retire les stolons si tu ne veux pas multiplier les pieds — ils épuisent la mère.",
+      "stades_dates": {
+        "plantation":     { "mois": "Mars" },
+        "croissance":     { "date": "10 avril",    "mois": "Avril" },
+        "floraison":      { "date": "01 mai",      "mois": "Mai" },
+        "fructification": { "date": "20 mai",      "mois": "Mai" },
+        "recolte":        { "date": "dès 15 juin", "mois": "Juin" }
+      },
+      "conditions": {
+        "temperature":    "15 - 25 °c",
+        "ensoleillement": "5 - 7h / jour",
+        "arrosage":       "Tous les 2 - 3 jours"
+      }
+    },
     "contextes": {
       "balcon_terrasse_sud": {
         "compatibilite": { "niveau": "ideale", "label": "Idéale" },
@@ -432,6 +488,25 @@
     "bruno_stade_semis": "Semis de mars à mai, en intérieur d'abord si les nuits sont encore fraîches. Elle pousse vite — 3 à 4 semaines et c'est un plant costaud.",
     "pot_substrat": { "recommandation": "Pot de 40 à 50 L minimum. Elle est gourmande en volume et en eau.", "optionnel_onboarding": true },
     "voisins_guilde": { "meilleurs_voisins": ["haricot", "radis", "aneth"], "a_eviter": ["pomme de terre", "fenouil"] },
+    "cycle": {
+      "duree_jours": 65,
+      "date_debut": "15 avril",
+      "date_repiquage": "20 avril",
+      "date_recolte": "Dès le 20 juin",
+      "conseil": "Récolte les courgettes petites à 15-20 cm — la plante continue de produire et le goût est meilleur.",
+      "stades_dates": {
+        "semis":          { "mois": "Avril" },
+        "jeune_plant":    { "date": "20 avril",    "mois": "Avril" },
+        "floraison":      { "date": "10 mai",      "mois": "Mai" },
+        "fructification": { "date": "25 mai",      "mois": "Mai" },
+        "recolte":        { "date": "dès 20 juin", "mois": "Juin" }
+      },
+      "conditions": {
+        "temperature":    "15 - 28 °c",
+        "ensoleillement": "6 - 8h / jour",
+        "arrosage":       "Quotidien en été"
+      }
+    },
     "contextes": {
       "balcon_terrasse_sud": {
         "compatibilite": { "niveau": "ideale", "label": "Idéale" },
@@ -557,6 +632,348 @@
   },
 
   {
+    "id": "concombre",
+    "nom": "Concombre",
+    "nom_scientifique": "Cucumis sativus",
+    "icone": "Concombre",
+    "categorie": "legume",
+    "type": "legume",
+    "periode_plantation": { "label": "mai - juin", "mois_debut": 5, "mois_fin": 6 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+    "stade_par_defaut": "semis",
+    "cycle": {
+      "duree_jours": 65,
+      "conditions": { "temperature": "18 - 28 °c", "ensoleillement": "6 - 8h / jour", "arrosage": "Tous les 2 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "salade",
+    "nom": "Salade",
+    "nom_scientifique": "Lactuca sativa",
+    "icone": "Salade",
+    "categorie": "legume",
+    "type": "legume",
+    "periode_plantation": { "label": "mars - mai", "mois_debut": 3, "mois_fin": 5 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["semis", "jeune_plant", "croissance", "recolte"],
+    "stade_par_defaut": "semis",
+    "cycle": {
+      "duree_jours": 55,
+      "conditions": { "temperature": "10 - 20 °c", "ensoleillement": "4 - 6h / jour", "arrosage": "Tous les 2 - 3 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "aubergine",
+    "nom": "Aubergine",
+    "nom_scientifique": "Solanum melongena",
+    "icone": "Aubergine",
+    "categorie": "legume-fruit",
+    "type": "legume",
+    "periode_plantation": { "label": "mai - juin", "mois_debut": 5, "mois_fin": 6 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "moyen", "label": "Moyen" },
+    "stades_disponibles": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+    "stade_par_defaut": "semis",
+    "cycle": {
+      "duree_jours": 120,
+      "conditions": { "temperature": "20 - 30 °c", "ensoleillement": "6 - 8h / jour", "arrosage": "Tous les 2 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "carotte",
+    "nom": "Carotte",
+    "nom_scientifique": "Daucus carota",
+    "icone": "Carotte",
+    "categorie": "legume",
+    "type": "legume",
+    "periode_plantation": { "label": "mars - mai", "mois_debut": 3, "mois_fin": 5 },
+    "compatibilite": { "niveau": "possible", "label": "Possible" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["semis", "croissance", "recolte"],
+    "stade_par_defaut": "semis",
+    "cycle": {
+      "duree_jours": 90,
+      "conditions": { "temperature": "15 - 20 °c", "ensoleillement": "5 - 7h / jour", "arrosage": "Tous les 3 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "oignon",
+    "nom": "Oignon",
+    "nom_scientifique": "Allium cepa",
+    "icone": "Oignon",
+    "categorie": "legume",
+    "type": "legume",
+    "periode_plantation": { "label": "mars - avr.", "mois_debut": 3, "mois_fin": 4 },
+    "compatibilite": { "niveau": "possible", "label": "Possible" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["plantation", "croissance", "recolte"],
+    "stade_par_defaut": "plantation",
+    "cycle": {
+      "duree_jours": 100,
+      "conditions": { "temperature": "12 - 22 °c", "ensoleillement": "5 - 7h / jour", "arrosage": "Tous les 3 - 4 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "pomme-de-terre",
+    "nom": "Pomme de terre",
+    "nom_scientifique": "Solanum tuberosum",
+    "icone": "Pomme de terre",
+    "categorie": "legume",
+    "type": "legume",
+    "periode_plantation": { "label": "mars - avr.", "mois_debut": 3, "mois_fin": 4 },
+    "compatibilite": { "niveau": "possible", "label": "Possible" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["plantation", "croissance", "floraison", "recolte"],
+    "stade_par_defaut": "plantation",
+    "cycle": {
+      "duree_jours": 90,
+      "conditions": { "temperature": "12 - 20 °c", "ensoleillement": "5 - 7h / jour", "arrosage": "Tous les 3 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "chou",
+    "nom": "Chou",
+    "nom_scientifique": "Brassica oleracea",
+    "icone": "Chou",
+    "categorie": "legume",
+    "type": "legume",
+    "periode_plantation": { "label": "mars - avr.", "mois_debut": 3, "mois_fin": 4 },
+    "compatibilite": { "niveau": "possible", "label": "Possible" },
+    "difficulte": { "niveau": "moyen", "label": "Moyen" },
+    "stades_disponibles": ["semis", "jeune_plant", "croissance", "recolte"],
+    "stade_par_defaut": "semis",
+    "cycle": {
+      "duree_jours": 120,
+      "conditions": { "temperature": "10 - 18 °c", "ensoleillement": "5 - 7h / jour", "arrosage": "Tous les 3 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "courge",
+    "nom": "Courge",
+    "nom_scientifique": "Cucurbita maxima",
+    "icone": "Courge",
+    "categorie": "legume",
+    "type": "legume",
+    "periode_plantation": { "label": "mai - juin", "mois_debut": 5, "mois_fin": 6 },
+    "compatibilite": { "niveau": "possible", "label": "Possible" },
+    "difficulte": { "niveau": "moyen", "label": "Moyen" },
+    "stades_disponibles": ["semis", "jeune_plant", "floraison", "fructification", "recolte"],
+    "stade_par_defaut": "semis",
+    "cycle": {
+      "duree_jours": 100,
+      "conditions": { "temperature": "18 - 28 °c", "ensoleillement": "6 - 8h / jour", "arrosage": "Tous les 2 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "brocoli",
+    "nom": "Brocoli",
+    "nom_scientifique": "Brassica oleracea var. italica",
+    "icone": "Brocolie",
+    "categorie": "legume",
+    "type": "legume",
+    "periode_plantation": { "label": "mars - avr.", "mois_debut": 3, "mois_fin": 4 },
+    "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["semis", "jeune_plant", "croissance", "recolte"],
+    "stade_par_defaut": "semis",
+    "cycle": {
+      "duree_jours": 90,
+      "conditions": { "temperature": "10 - 18 °c", "ensoleillement": "5 - 7h / jour", "arrosage": "Tous les 3 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "poireau",
+    "nom": "Poireau",
+    "nom_scientifique": "Allium porrum",
+    "icone": "Poireau",
+    "categorie": "legume",
+    "type": "legume",
+    "periode_plantation": { "label": "mars - avr.", "mois_debut": 3, "mois_fin": 4 },
+    "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+    "difficulte": { "niveau": "moyen", "label": "Moyen" },
+    "stades_disponibles": ["semis", "jeune_plant", "croissance", "recolte"],
+    "stade_par_defaut": "semis",
+    "cycle": {
+      "duree_jours": 150,
+      "conditions": { "temperature": "10 - 18 °c", "ensoleillement": "5 - 7h / jour", "arrosage": "Tous les 3 - 4 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "pomme",
+    "nom": "Pomme",
+    "nom_scientifique": "Malus domestica",
+    "icone": "Pomme",
+    "categorie": "fruit",
+    "type": "fruit",
+    "periode_plantation": { "label": "N/A", "mois_debut": null, "mois_fin": null },
+    "compatibilite": { "niveau": "deconseille", "label": "Déconseillée" },
+    "difficulte": { "niveau": "difficile", "label": "Difficile" },
+    "stades_disponibles": ["plantation", "croissance", "floraison", "fructification", "recolte"],
+    "stade_par_defaut": "plantation",
+    "cycle": {
+      "duree_jours": 365,
+      "conditions": { "temperature": "10 - 20 °c", "ensoleillement": "6 - 8h / jour", "arrosage": "Tous les 7 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "basilic",
+    "nom": "Basilic",
+    "nom_scientifique": "Ocimum basilicum",
+    "icone": "Basilic",
+    "categorie": "aromatique",
+    "type": "aromatique",
+    "periode_plantation": { "label": "mai - juil.", "mois_debut": 5, "mois_fin": 7 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["semis", "croissance", "mature", "recolte"],
+    "stade_par_defaut": "semis",
+    "cycle": {
+      "duree_jours": 60,
+      "conditions": { "temperature": "18 - 28 °c", "ensoleillement": "6 - 8h / jour", "arrosage": "Tous les 2 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "coriandre",
+    "nom": "Coriandre",
+    "nom_scientifique": "Coriandrum sativum",
+    "icone": "Coriandre",
+    "categorie": "aromatique",
+    "type": "aromatique",
+    "periode_plantation": { "label": "avr. - mai", "mois_debut": 4, "mois_fin": 5 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["semis", "croissance", "mature", "recolte"],
+    "stade_par_defaut": "semis",
+    "cycle": {
+      "duree_jours": 45,
+      "conditions": { "temperature": "15 - 22 °c", "ensoleillement": "4 - 6h / jour", "arrosage": "Tous les 2 - 3 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "menthe",
+    "nom": "Menthe",
+    "nom_scientifique": "Mentha spp.",
+    "icone": "Menthe",
+    "categorie": "aromatique",
+    "type": "aromatique",
+    "periode_plantation": { "label": "mars - mai", "mois_debut": 3, "mois_fin": 5 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["plantation", "croissance", "mature", "recolte"],
+    "stade_par_defaut": "plantation",
+    "cycle": {
+      "duree_jours": 60,
+      "conditions": { "temperature": "12 - 22 °c", "ensoleillement": "3 - 6h / jour", "arrosage": "Tous les 2 - 3 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "origan",
+    "nom": "Origan",
+    "nom_scientifique": "Origanum vulgare",
+    "icone": "Origan",
+    "categorie": "aromatique",
+    "type": "aromatique",
+    "periode_plantation": { "label": "avr. - juin", "mois_debut": 4, "mois_fin": 6 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["semis", "croissance", "mature", "recolte"],
+    "stade_par_defaut": "semis",
+    "cycle": {
+      "duree_jours": 75,
+      "conditions": { "temperature": "15 - 25 °c", "ensoleillement": "5 - 7h / jour", "arrosage": "Tous les 3 - 4 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "persil",
+    "nom": "Persil",
+    "nom_scientifique": "Petroselinum crispum",
+    "icone": "Persil",
+    "categorie": "aromatique",
+    "type": "aromatique",
+    "periode_plantation": { "label": "mars - mai", "mois_debut": 3, "mois_fin": 5 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["semis", "croissance", "mature", "recolte"],
+    "stade_par_defaut": "semis",
+    "cycle": {
+      "duree_jours": 80,
+      "conditions": { "temperature": "12 - 20 °c", "ensoleillement": "4 - 6h / jour", "arrosage": "Tous les 2 - 3 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "romarin",
+    "nom": "Romarin",
+    "nom_scientifique": "Salvia rosmarinus",
+    "icone": "Romarin",
+    "categorie": "aromatique",
+    "type": "aromatique",
+    "periode_plantation": { "label": "mars - avr.", "mois_debut": 3, "mois_fin": 4 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["bouturage", "croissance", "mature", "recolte"],
+    "stade_par_defaut": "bouturage",
+    "cycle": {
+      "duree_jours": 90,
+      "conditions": { "temperature": "15 - 25 °c", "ensoleillement": "6 - 8h / jour", "arrosage": "Tous les 5 - 7 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
+    "id": "thym",
+    "nom": "Thym",
+    "nom_scientifique": "Thymus vulgaris",
+    "icone": "Thym",
+    "categorie": "aromatique",
+    "type": "aromatique",
+    "periode_plantation": { "label": "mars - avr.", "mois_debut": 3, "mois_fin": 4 },
+    "compatibilite": { "niveau": "ideale", "label": "Idéale" },
+    "difficulte": { "niveau": "facile", "label": "Facile" },
+    "stades_disponibles": ["semis", "croissance", "mature", "recolte"],
+    "stade_par_defaut": "semis",
+    "cycle": {
+      "duree_jours": 90,
+      "conditions": { "temperature": "15 - 25 °c", "ensoleillement": "6 - 8h / jour", "arrosage": "Tous les 5 - 7 jours" }
+    },
+    "contextes": {}
+  },
+
+  {
     "id": "ciboulette",
     "nom": "Ciboulette",
     "nom_scientifique": "Allium schoenoprasum",
@@ -572,6 +989,23 @@
     "bruno_stade_semis": "Semis direct de mars à avril. Elle lève en 10 à 15 jours. Patience — les premières tiges sont fines, mais elle se densifie vite.",
     "pot_substrat": { "recommandation": "N'importe quel pot de 15 cm de profondeur minimum. Terreau universel, point.", "optionnel_onboarding": true },
     "voisins_guilde": { "meilleurs_voisins": ["tomate", "carotte", "fraise"], "a_eviter": [] },
+    "cycle": {
+      "duree_jours": 90,
+      "date_debut": "20 mars",
+      "date_recolte": "Dès le 15 mai",
+      "conseil": "Coupe à 2 cm du sol pour stimuler la repousse — elle se régénère en quelques jours.",
+      "stades_dates": {
+        "semis":      { "mois": "Mars" },
+        "croissance": { "date": "05 avril",    "mois": "Avril" },
+        "mature":     { "date": "15 mai",      "mois": "Mai" },
+        "recolte":    { "date": "dès 15 mai",  "mois": "Mai" }
+      },
+      "conditions": {
+        "temperature":    "10 - 25 °c",
+        "ensoleillement": "3 - 6h / jour",
+        "arrosage":       "Tous les 3 - 4 jours"
+      }
+    },
     "contextes": {
       "balcon_terrasse_sud": {
         "compatibilite": { "niveau": "ideale", "label": "Idéale" },

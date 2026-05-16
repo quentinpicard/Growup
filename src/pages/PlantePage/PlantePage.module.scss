@@ -117,7 +117,7 @@
   margin-bottom: 12px;
   background: var(--primitive-secondary-050);
   border-radius: var(--radius-card-l);
-  padding: 20px 12px 0;
+  padding: 20px 12px 12px;
   box-shadow: 0 4px 4px rgba(90, 76, 57, 0.1);
   display: flex;
   flex-direction: column;
@@ -692,4 +692,248 @@
   font-size: 14px;
   font-weight: 700;
   color: var(--color-primary-main);
+}
+
+// =============================================================================
+// Cycle tab
+// =============================================================================
+
+.cycleScrollWrap {
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin: 0 -4px;
+  padding: 0 4px 4px;
+
+  &::-webkit-scrollbar { display: none; }
+}
+
+.cycleTimeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  min-width: max-content;
+  width: 100%;
+}
+
+// Barre de fond + progression
+.cycleBg {
+  position: absolute;
+  // center between first and last dot: 50% / N from each side
+  left: calc(50% / var(--stage-count, 5));
+  right: calc(50% / var(--stage-count, 5));
+  top: 25px; // date-height(20px) + gap(4px) + (10px dot - 8px bar) / 2 = 25px
+  height: 8px;
+  background: var(--primitive-gray-200);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.cycleBgFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--color-primary-state-selected);
+  border-radius: 100px;
+  transition: width 0.4s ease;
+}
+
+.cycleStageItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 70px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.cycleDateLabel {
+  font-family: var(--font-family-title);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--primitive-gray-300);
+  white-space: nowrap;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.cycleDateLabelToday {
+  color: var(--primitive-gray-500);
+}
+
+.cycleStageLabel {
+  font-family: var(--font-family-subtitle);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primitive-primary-800);
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.cycleStageLabelActive {
+  color: var(--primitive-primary-800);
+}
+
+.cycleMoisLabel {
+  font-family: var(--font-family-text);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--primitive-gray-500);
+  white-space: nowrap;
+  text-align: center;
+  margin: 0;
+}
+
+// — Info cards 2×2
+.cycleInfoGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.cycleInfoCard {
+  flex: 1 1 calc(50% - var(--spacing-1));
+  min-width: 140px;
+  border-radius: var(--radius-2);
+  padding: var(--spacing-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  overflow: hidden;
+}
+
+.cycleInfoCardGreen  { background: var(--primitive-primary-100); }
+.cycleInfoCardBeige  {
+  background: var(--primitive-secondary-100);
+  border: 1px solid var(--primitive-secondary-100);
+}
+.cycleInfoCardYellow { background: var(--primitive-tertiary-100); }
+
+.cycleInfoValue {
+  font-family: var(--font-family-tag);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primitive-secondary-700);
+  line-height: 1.5;
+  margin: 0;
+}
+
+// — Durée totale
+.cycleDurationCard {
+  border: 1.5px solid var(--primitive-secondary-100);
+  border-radius: var(--radius-2);
+  padding: var(--spacing-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.cycleDurationBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.cycleDurationValue {
+  font-family: var(--font-family-tag);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primitive-secondary-700);
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+}
+
+.cycleDurationSub {
+  font-family: var(--font-family-text);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--primitive-gray-400);
+  text-align: center;
+  margin: 0;
+}
+
+// — Conditions idéales
+.cycleConditionsCard {
+  background: var(--primitive-secondary-050);
+  border-radius: var(--radius-2);
+  padding: var(--spacing-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.cycleConditionsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.cycleConditionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cycleConditionValue {
+  font-family: var(--font-family-tag);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primitive-secondary-700);
+  line-height: 1.5;
+  margin: 0;
+  text-align: right;
+}
+
+// =============================================================================
+// Tâches tab
+// =============================================================================
+
+.tachesWrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  width: 100%;
+}
+
+.tacheSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tacheSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tacheSectionTitleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.tacheBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  background: var(--color-primary-main);
+  border-radius: 18px;
+  font-family: var(--font-family-subtitle);
+  font-size: 12px;
+  font-weight: var(--font-weight-400);
+  color: var(--color-primary-contrast-text);
+  line-height: 1.5;
 }

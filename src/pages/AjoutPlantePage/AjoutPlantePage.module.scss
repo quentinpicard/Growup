@@ -1,7 +1,233 @@
+// =============================================================================
+// AjoutPlantePage.module.scss
+// =============================================================================
+
 .page {
-  display: flex;
+  display:        flex;
   flex-direction: column;
-  min-height: 100dvh;
-  padding: var(--spacing-6);
-  background-color: var(--color-light);
+  min-height:     100dvh;
+  width:          393px;
+  max-width:      100%;
+  margin:         0 auto;
+  background:     var(--color-light);
+  padding-bottom: 90px;
+}
+
+// ─── Header ───────────────────────────────────────────────────────────────────
+.header {
+  position:   sticky;
+  top:        0;
+  z-index:    100;
+  background: var(--primitive-primary-800);
+  padding:    12px 16px 20px;
+}
+
+.statusBar {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  margin-bottom:   8px;
+  color:           white;
+  font-size:       12px;
+  font-family:     var(--font-family-text);
+}
+
+.statusTime {
+  font-weight: var(--font-weight-600);
+}
+
+.statusIcons {
+  display: flex;
+  gap:     6px;
+}
+
+.headerContent {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: var(--font-family-title);
+  font-size:   22px;
+  font-weight: var(--font-weight-700);
+  color:       white;
+  margin:      0;
+}
+
+.backBtn {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:           40px;
+  height:          40px;
+  background:      transparent;
+  border:          2px solid white;
+  border-radius:   50%;
+  cursor:          pointer;
+  transition:      background 0.15s ease;
+
+  svg {
+    width:  20px;
+    height: 20px;
+  }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: white;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+}
+
+// ─── Barre de recherche ───────────────────────────────────────────────────────
+.searchRow {
+  position:    sticky;
+  top:         76px;
+  z-index:     99;
+  display:     flex;
+  align-items: center;
+  gap:         8px;
+  padding:     12px 16px;
+  background:  var(--color-light);
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 0;
+}
+
+.filterBtn {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:           44px;
+  height:          44px;
+  background:      var(--color-light);
+  border:          1.5px solid var(--primitive-primary-300);
+  border-radius:   var(--radius-2);
+  cursor:          not-allowed;
+  opacity:         0.6;
+
+  svg {
+    width:  20px;
+    height: 20px;
+  }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: var(--primitive-primary-700);
+  }
+}
+
+// ─── Contenu scrollable ───────────────────────────────────────────────────────
+.content {
+  flex:    1;
+  padding: 4px 16px 16px;
+}
+
+.emptyMsg {
+  text-align:  center;
+  color:       var(--primitive-gray-500);
+  font-family: var(--font-family-text);
+  font-size:   14px;
+  margin-top:  32px;
+}
+
+.grid {
+  display:               grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:                   12px;
+}
+
+.plantCard {
+  width: 100%;
+}
+
+// ─── Navbar ───────────────────────────────────────────────────────────────────
+.navbar {
+  position:                fixed;
+  bottom:                  18px;
+  left:                    50%;
+  transform:               translateX(-50%);
+  width:                   358px;
+  max-width:               calc(100% - 36px);
+  display:                 flex;
+  align-items:             center;
+  justify-content:         space-between;
+  padding:                 12px 24px 12px 16px;
+  background:              rgba(55, 94, 61, 0.75);
+  backdrop-filter:         blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border:                  1.5px solid white;
+  border-radius:           1000px;
+  overflow:                hidden;
+  z-index:                 200;
+}
+
+.navItemActive {
+  display:       flex;
+  align-items:   center;
+  gap:           2px;
+  padding:       4px 12px 4px 8px;
+  background:    var(--color-primary-contrast-text);
+  border:        none;
+  border-radius: 63px;
+  cursor:        pointer;
+  color:         var(--color-primary-main);
+
+  svg {
+    width:       32px;
+    height:      32px;
+    flex-shrink: 0;
+  }
+}
+
+.navLabel {
+  font-family: var(--font-family-subtitle);
+  font-weight: var(--font-weight-700);
+  font-size:   14px;
+  line-height: 1.15;
+  color:       var(--color-primary-main);
+  white-space: nowrap;
+}
+
+.navItem {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           40px;
+  height:          40px;
+  background:      transparent;
+  border:          none;
+  border-radius:   var(--radius-button-btn);
+  cursor:          pointer;
+  transition:      background 0.15s ease;
+
+  &:hover { background: rgba(255, 255, 255, 0.15); }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: white;
+  }
 }

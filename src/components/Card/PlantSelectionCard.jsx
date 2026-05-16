@@ -3,9 +3,10 @@ import Tag from '../Tag/Tag'
 import AddRoundIcon from '../../assets/icons/Add_round.svg?react'
 
 const COMPATIBILITE_COLOR = {
-  'Idéale':      'primary',
-  'Possible':    'warning',
-  'Déconseillé': 'error',
+  'Idéale':       'primary',
+  'Possible':     'warning',
+  'Déconseillé':  'error',
+  'Déconseillée': 'error',
 }
 
 const DIFFICULTE_COLOR = {
@@ -30,15 +31,27 @@ export default function PlantSelectionCard({
   icon,
   difficulte = 'Facile',
   compatibilite = 'Idéale',
+  colorVariant = 'secondary',
   onAdd,
+  onClick,
   className,
 }) {
-  const cls = [styles.card, className].filter(Boolean).join(' ')
+  const variantClass = colorVariant === 'primary'
+    ? styles['card--primary']
+    : colorVariant === 'tertiary'
+      ? styles['card--tertiary']
+      : ''
+
+  const cls = [styles.card, variantClass, className].filter(Boolean).join(' ')
   const compatibiliteColor = COMPATIBILITE_COLOR[compatibilite] ?? 'primary'
   const difficulteColor    = DIFFICULTE_COLOR[difficulte]    ?? 'primary'
 
   return (
-    <article className={cls}>
+    <article
+      className={cls}
+      onClick={onClick}
+      style={{ cursor: onClick ? 'pointer' : undefined }}
+    >
       <div className={styles.card__tags}>
         <Tag variant="outline" color={compatibiliteColor}>{compatibilite}</Tag>
         <Tag variant="outline" color={difficulteColor}>{difficulte}</Tag>
@@ -59,7 +72,7 @@ export default function PlantSelectionCard({
         <button
           type="button"
           className={styles.card__addBtn}
-          onClick={onAdd}
+          onClick={(e) => { e.stopPropagation(); onAdd?.() }}
           aria-label={`Ajouter ${planteName}`}
         >
           <AddRoundIcon aria-hidden="true" />
