@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../../context/AppContext'
 import PlantCard from '../../components/PlantCard/PlantCard'
@@ -14,6 +14,7 @@ import IconJardin   from '../../assets/icons/Jardin.svg?react'
 import IconCalendar from '../../assets/icons/Date_range_fill.svg?react'
 import IconUser     from '../../assets/icons/User_fill.svg?react'
 import IconAdd      from '../../assets/icons/Add_round.svg?react'
+import IconClose    from '../../assets/icons/Close_round.svg?react'
 
 const PLANTS_BY_ID = Object.fromEntries(plants.map(p => [p.id, p]))
 
@@ -30,6 +31,18 @@ export default function JardinPage() {
   const navigate = useNavigate()
   const { plantInstances, user } = useApp()
   const [activeCategory, setActiveCategory] = useState(null)
+  const [showSearch, setShowSearch]         = useState(false)
+  const [searchQuery, setSearchQuery]       = useState('')
+  const searchInputRef                      = useRef(null)
+
+  useEffect(() => {
+    if (showSearch) searchInputRef.current?.focus()
+  }, [showSearch])
+
+  const closeSearch = () => {
+    setShowSearch(false)
+    setSearchQuery('')
+  }
 
   const contextKey = user.zone_id && user.exposition_id
     ? `${user.zone_id}_${user.exposition_id}`
@@ -51,12 +64,16 @@ export default function JardinPage() {
     return counts
   }, [resolvedPlants])
 
-  const visiblePlants = useMemo(() =>
-    activeCategory
+  const visiblePlants = useMemo(() => {
+    let list = activeCategory
       ? resolvedPlants.filter(({ plant }) => plant.categorie === activeCategory)
-      : resolvedPlants,
-    [resolvedPlants, activeCategory]
-  )
+      : resolvedPlants
+    if (searchQuery.trim()) {
+      const q = searchQuery.trim().toLowerCase()
+      list = list.filter(({ plant }) => plant.nom.toLowerCase().includes(q))
+    }
+    return list
+  }, [resolvedPlants, activeCategory, searchQuery])
 
   return (
     <div className={styles.page}>
@@ -87,26 +104,53 @@ export default function JardinPage() {
         </div>
       </header>
 
-      {/* ─── Filtres par catégorie ───────────────────────────── */}
+      {/* ─── Filtres / recherche ────────────────────────────── */}
       <div className={styles.filterBar}>
-        <button
-          className={`${styles.filterChip} ${!activeCategory ? styles['filterChip--active'] : ''}`}
-          onClick={() => setActiveCategory(null)}
-          aria-label="Toutes les plantes"
-        >
-          <IconSearch width={16} height={16} aria-hidden="true" />
-        </button>
+        {showSearch ? (
+          <>
+            <span className={`${styles.filterChip} ${styles['filterChip--active']} ${styles['filterChip--icon']}`}>
+              <IconSearch width={16} height={16} aria-hidden="true" />
+            </span>
+            <input
+              ref={searchInputRef}
+              type="search"
+              className={styles.searchInput}
+              placeholder="Rechercher une plante…"
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              onKeyDown={e => e.key === 'Escape' && closeSearch()}
+              aria-label="Rechercher une plante"
+            />
+            <button
+              className={styles.searchCloseBtn}
+              onClick={closeSearch}
+              aria-label="Fermer la recherche"
+            >
+              <IconClose width={18} height={18} aria-hidden="true" />
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              className={`${styles.filterChip} ${styles['filterChip--icon']} ${!activeCategory ? styles['filterChip--active'] : ''}`}
+              onClick={() => setShowSearch(true)}
+              aria-label="Rechercher"
+            >
+              <IconSearch width={16} height={16} aria-hidden="true" />
+            </button>
 
-        {ALL_CATEGORIES.map(cat => (
-          <button
-            key={cat}
-            className={`${styles.filterChip} ${activeCategory === cat ? styles['filterChip--active'] : ''}`}
-            onClick={() => setActiveCategory(prev => prev === cat ? null : cat)}
-          >
-            <strong className={styles.filterCount}>{categoryCounts[cat]}</strong>
-            <span>{CATEGORY_LABELS[cat] ?? cat}</span>
-          </button>
-        ))}
+            {ALL_CATEGORIES.map(cat => (
+              <button
+                key={cat}
+                className={`${styles.filterChip} ${activeCategory === cat ? styles['filterChip--active'] : ''}`}
+                onClick={() => setActiveCategory(prev => prev === cat ? null : cat)}
+              >
+                <strong className={styles.filterCount}>{categoryCounts[cat]}</strong>
+                <span>{CATEGORY_LABELS[cat] ?? cat}</span>
+              </button>
+            ))}
+          </>
+        )}
       </div>
 
       {/* ─── Contenu ────────────────────────────────────────── */}

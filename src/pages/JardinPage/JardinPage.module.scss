@@ -179,6 +179,61 @@
   font-weight: var(--font-weight-700);
 }
 
+// chip loupe seul (padding carré)
+.filterChip--icon {
+  padding: 6px 10px;
+}
+
+// ─── Barre de recherche ───────────────────────────────────────────────────────
+.searchInput {
+  flex:          1;
+  min-width:     0;
+  height:        34px;
+  padding:       0 10px;
+  background:    transparent;
+  border:        none;
+  border-bottom: 1.5px solid var(--primitive-primary-300);
+  border-radius: 0;
+  font-family:   var(--font-family-text);
+  font-size:     14px;
+  color:         var(--color-primary-dark);
+  outline:       none;
+
+  &::placeholder { color: var(--primitive-primary-300); }
+  &:focus { border-bottom-color: var(--primitive-primary-600); }
+
+  // supprime l'icône native du type=search
+  &::-webkit-search-cancel-button { display: none; }
+}
+
+.searchCloseBtn {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:           32px;
+  height:          32px;
+  background:      transparent;
+  border:          none;
+  border-radius:   var(--radius-button-btn);
+  cursor:          pointer;
+  transition:      background 0.15s ease;
+
+  &:hover { background: var(--primitive-primary-100); }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg polygon {
+    fill: var(--color-primary-main);
+  }
+}
+
 // ─── Contenu ──────────────────────────────────────────────────────────────────
 .content {
   display:        flex;

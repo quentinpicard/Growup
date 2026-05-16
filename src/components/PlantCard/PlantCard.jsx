@@ -68,7 +68,11 @@ export default function PlantCard({ plant, contexte, onAdd, colorVariant = 'prim
   const periode = plant.periode_plantation?.label
 
   return (
-    <div className={`${styles.card} ${bgClass}`}>
+    <button
+      className={`${styles.card} ${bgClass}`}
+      onClick={onAdd}
+      aria-label={plant.nom}
+    >
       <div className={styles.tags}>
         <span className={`${styles.tag} ${COMPAT_NIVEAU_CLASS[compat.niveau] ?? ''}`}>
           {compat.label}
@@ -92,14 +96,7 @@ export default function PlantCard({ plant, contexte, onAdd, colorVariant = 'prim
             <p className={styles.period}>Planter : {periode}</p>
           )}
         </div>
-        <button
-          className={styles.addBtn}
-          onClick={onAdd}
-          aria-label={`Ajouter ${plant.nom}`}
-        >
-          +
-        </button>
       </div>
-    </div>
+    </button>
   )
 }
