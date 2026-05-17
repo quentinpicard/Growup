@@ -6,8 +6,6 @@ import Button from '../../components/Button/Button'
 import styles from './PlantInfosAjoutPage.module.scss'
 
 import plants from '../../mocks/plants.json'
-import { getContexteFromCatalogue } from '../../data/getCompatibilite'
-import { getPlantContextData } from '../../data/getPlantContextData'
 import brunoImg from '../../assets/Mascotte 1.png'
 
 import IconArrowLeft  from '../../assets/icons/Arrow_alt_left.svg?react'
@@ -139,24 +137,21 @@ export default function PlantInfosAjoutPage() {
   const plant = PLANTS_BY_ID[id]
   if (!plant) return <Navigate to="/ajout-plante" replace />
 
-  const contextKey   = user.zone_id && user.exposition_id ? `${user.zone_id}_${user.exposition_id}` : null
-  const catalogueCtx = contextKey ? getContexteFromCatalogue(plant.id, contextKey) : null
-  const compat       = catalogueCtx?.compatibilite ?? null
-  const difficulte   = catalogueCtx?.difficulte    ?? null
-
-  const plantCtxData = getPlantContextData(plant.id, contextKey)
+  const contextKey  = user.zone_id && user.exposition_id ? `${user.zone_id}_${user.exposition_id}` : null
+  const plantCtx    = contextKey ? plant.contextes?.[contextKey] ?? null : null
+  const compat      = plantCtx?.compatibilite ?? plant.compatibilite
+  const difficulte  = plantCtx?.difficulte    ?? plant.difficulte
 
   const stade       = plant.stade_par_defaut
   const stadePicto  = STADE_PICTO[stade]
   const stadeLabel  = STADE_DISPLAY[stade] ?? stade
   const brunoStade  = plant[`bruno_stade_${stade}`] ?? null
-  const brunoAdvice = plantCtxData?.conseil_bruno ?? brunoStade
   const picto       = PICTO_MAP[plant.icone]
 
-  const compatCfg  = compat     ? COMPAT_CONFIG[compat.niveau]     ?? COMPAT_CONFIG.ideale : null
-  const diffCfg    = difficulte ? DIFF_CONFIG[difficulte.niveau]   ?? DIFF_CONFIG.facile   : null
-  const CompatIcon = compatCfg?.Icon ?? null
-  const DiffIcon   = diffCfg?.Icon   ?? null
+  const compatCfg = COMPAT_CONFIG[compat.niveau] ?? COMPAT_CONFIG.ideale
+  const diffCfg   = DIFF_CONFIG[difficulte.niveau] ?? DIFF_CONFIG.facile
+  const CompatIcon = compatCfg.Icon
+  const DiffIcon   = diffCfg.Icon
 
   function handleAdd() {
     dispatch({
@@ -166,7 +161,6 @@ export default function PlantInfosAjoutPage() {
         plantId: plant.id,
         stade: plant.stade_par_defaut,
         dateAjout: new Date().toISOString(),
-        plantedAt: new Date().toISOString(),
       },
     })
     setToast(true)
@@ -178,6 +172,14 @@ export default function PlantInfosAjoutPage() {
 
   return (
     <div className={styles.page}>
+
+      {/* ─── Status bar ─────────────────────────────────────────── */}
+      <div className={styles.statusBar}>
+        <span className={styles.statusTime}>12:00</span>
+        <div className={styles.statusIcons}>
+          <span>▲▲▲</span><span>◈</span><span>▊</span>
+        </div>
+      </div>
 
       {/* ─── Hero ────────────────────────────────────────────────── */}
       <div className={styles.hero}>
@@ -225,99 +227,47 @@ export default function PlantInfosAjoutPage() {
           </div>
         </div>
 
-        {/* Conseil Bruno — spécifique à la zone */}
-        {brunoAdvice && (
-          <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Conseil</h2>
-            <div className={styles.brunoRow}>
-              <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
-              <div className={`${styles.bubble} ${styles.bubbleYellow}`}>
-                <p className={styles.bubbleText}>{brunoAdvice}</p>
-              </div>
+        {/* Bruno conseil stade */}
+        {brunoStade && (
+          <div className={styles.brunoRow}>
+            <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
+            <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
+              <p className={styles.bubbleText}>{brunoStade}</p>
             </div>
           </div>
         )}
 
         {/* Compatibilité + Difficulté */}
-        {(compatCfg || diffCfg) && (
-          <div className={styles.statsRow}>
-            {compatCfg && compat && (
-              <div className={`${styles.statCard} ${compatCfg.cardClass}`}>
-                <p className={styles.cardLabel}>Compatibilité</p>
-                <div className={styles.statBody}>
-                  <CompatIcon width={28} height={28} aria-hidden="true" />
-                  <p className={`${styles.statValue} ${compatCfg.textClass}`}>{compat.label}</p>
-                </div>
-              </div>
-            )}
-            {diffCfg && difficulte && (
-              <div className={`${styles.statCard} ${diffCfg.cardClass}`}>
-                <p className={styles.cardLabel}>Difficulté</p>
-                <div className={styles.statBody}>
-                  <DiffIcon width={28} height={28} aria-hidden="true" />
-                  <p className={`${styles.statValue} ${diffCfg.textClass}`}>{difficulte.label}</p>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Période de semis idéale */}
-        {plantCtxData?.mois_semis_ideal?.length > 0 && (
-          <div className={styles.section}>
-            <p className={styles.cardLabel}>Semer idéalement</p>
-            <div className={styles.moisRow}>
-              {plantCtxData.mois_semis_ideal.map(m => (
-                <span key={m} className={styles.moisChip}>
-                  {m.charAt(0).toUpperCase() + m.slice(1)}
-                </span>
-              ))}
+        <div className={styles.statsRow}>
+          <div className={`${styles.statCard} ${compatCfg.cardClass}`}>
+            <p className={styles.cardLabel}>Compatibilité</p>
+            <div className={styles.statBody}>
+              <CompatIcon width={28} height={28} aria-hidden="true" />
+              <p className={`${styles.statValue} ${compatCfg.textClass}`}>{compat.label}</p>
             </div>
           </div>
-        )}
+          <div className={`${styles.statCard} ${diffCfg.cardClass}`}>
+            <p className={styles.cardLabel}>Difficulté</p>
+            <div className={styles.statBody}>
+              <DiffIcon width={28} height={28} aria-hidden="true" />
+              <p className={`${styles.statValue} ${diffCfg.textClass}`}>{difficulte.label}</p>
+            </div>
+          </div>
+        </div>
 
-        {/* Pot et Substrat — données contextuelles si dispo, sinon génériques */}
-        {(plantCtxData?.pot_recommande || plant.pot_substrat?.recommandation) && (
+        {/* Pot et Substrat */}
+        {plant.pot_substrat?.recommandation && (
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>Pot et Substrat</h2>
             <div className={styles.brunoRow}>
               <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
               <div className={`${styles.bubble} ${styles.bubbleYellow}`}>
-                <p className={styles.bubbleText}>Selon moi, pour ta zone :</p>
+                <p className={styles.bubbleText}>Selon moi, pour bien démarrer :</p>
                 <p className={`${styles.bubbleText} ${styles.bubbleTextBold}`}>
-                  {plantCtxData?.pot_recommande?.type ?? plant.pot_substrat.recommandation}
+                  {plant.pot_substrat.recommandation}
                 </p>
-                {plantCtxData?.pot_recommande?.materiau_conseille && (
-                  <p className={styles.bubbleText}>{plantCtxData.pot_recommande.materiau_conseille}</p>
-                )}
               </div>
             </div>
-            {plantCtxData?.pot_recommande && (
-              <div className={styles.potSpecs}>
-                {plantCtxData.pot_recommande.profondeur_min_cm && (
-                  <span className={styles.potSpec}>
-                    ↓ {plantCtxData.pot_recommande.profondeur_min_cm} cm min
-                  </span>
-                )}
-                {plantCtxData.pot_recommande.volume_min_litres && (
-                  <span className={styles.potSpec}>
-                    ◎ {plantCtxData.pot_recommande.volume_min_litres} L min
-                  </span>
-                )}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* À savoir pour ta zone */}
-        {plantCtxData?.besoins_specifiques?.length > 0 && (
-          <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>À savoir pour ta zone</h2>
-            <ul className={styles.besoinsList}>
-              {plantCtxData.besoins_specifiques.map((b, i) => (
-                <li key={i} className={styles.besoinsItem}>{b}</li>
-              ))}
-            </ul>
           </div>
         )}
 

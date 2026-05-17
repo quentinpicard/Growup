@@ -6,7 +6,6 @@ import InputSearch from '../../components/Input/InputSearch'
 import styles from './AjoutPlantePage.module.scss'
 
 import plants from '../../mocks/plants.json'
-import { getContexteFromCatalogue } from '../../data/getCompatibilite'
 
 import IconArrowRight from '../../assets/icons/Arrow_alt_lright.svg?react'
 import IconFilter     from '../../assets/icons/Filter.svg?react'
@@ -104,6 +103,14 @@ export default function AjoutPlantePage() {
 
       {/* ─── Header ─────────────────────────────────────────────── */}
       <header className={styles.header}>
+        <div className={styles.statusBar}>
+          <span className={styles.statusTime}>12:00</span>
+          <div className={styles.statusIcons}>
+            <span>▲▲▲</span>
+            <span>◈</span>
+            <span>▊</span>
+          </div>
+        </div>
         <div className={styles.headerContent}>
           <h1 className={styles.title}>Sélection de plantes</h1>
           <button
@@ -137,10 +144,10 @@ export default function AjoutPlantePage() {
         ) : (
           <div className={styles.grid}>
             {filteredPlants.map((plant, index) => {
-              const catalogueCtx = contextKey ? getContexteFromCatalogue(plant.id, contextKey) : null
-              const compat       = catalogueCtx?.compatibilite ?? null
-              const diff         = catalogueCtx?.difficulte    ?? null
-              const picto        = PICTO_MAP[plant.icone]
+              const contexte    = contextKey ? plant.contextes?.[contextKey] ?? null : null
+              const compat      = contexte?.compatibilite ?? plant.compatibilite
+              const diff        = contexte?.difficulte    ?? plant.difficulte
+              const picto       = PICTO_MAP[plant.icone]
               const colorVariant = (index % 4 === 0 || index % 4 === 3) ? 'primary' : 'tertiary'
 
               return (
@@ -149,8 +156,8 @@ export default function AjoutPlantePage() {
                   planteName={plant.nom}
                   periode={plant.periode_plantation?.label ?? 'N/A'}
                   icon={picto ? <img src={picto} alt="" /> : null}
-                  difficulte={diff?.label ?? null}
-                  compatibilite={compat?.label ?? null}
+                  difficulte={diff.label}
+                  compatibilite={compat.label}
                   colorVariant={colorVariant}
                   onAdd={() => handleAdd(plant)}
                   onClick={() => navigate(`/info-plante/${plant.id}`)}

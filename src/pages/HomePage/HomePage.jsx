@@ -185,22 +185,12 @@ export default function HomePage() {
     setTimeout(() => setToast(null), 2000)
   }, [dispatch])
 
-  const plantesRecommandees = useMemo(() => {
-    if (!cleContexte) return plants
-
-    const idealeFacile = plants.filter(plant => {
-      const ctx = getContexteFromCatalogue(plant.id, cleContexte)
-      return ctx?.compatibilite.niveau === 'ideale' && ctx?.difficulte.niveau === 'facile'
-    })
-
-    if (idealeFacile.length > 0) return idealeFacile
-
-    return plants.filter(plant => {
-      const ctx = getContexteFromCatalogue(plant.id, cleContexte)
-      if (!ctx) return plant.compatibilite?.niveau !== 'deconseille'
-      return ctx.compatibilite.niveau !== 'deconseille'
-    })
-  }, [cleContexte])
+  const plantesRecommandees = plants.filter(plant => {
+    if (!cleContexte) return true
+    const ctx = getContexteFromCatalogue(plant.id, cleContexte) ?? plant.contextes?.[cleContexte] ?? null
+    if (!ctx) return false
+    return ctx.compatibilite.niveau === 'ideale' && ctx.difficulte.niveau === 'facile'
+  })
 
   const nomZone = cleContexte
     ? zones.find(z => z.id === user.zone_id)?.nom_zone?.[user.exposition_id] ?? null
@@ -238,6 +228,16 @@ export default function HomePage() {
 
       {/* ─── Header sticky ──────────────────────────────────── */}
       <header className={styles.header}>
+
+        {/* Status bar */}
+        <div className={styles.statusBar}>
+          <span className={styles.statusTime}>12:00</span>
+          <div className={styles.statusIcons}>
+            <span className={styles.statusIcon}>▲▲▲</span>
+            <span className={styles.statusIcon}>◈</span>
+            <span className={styles.statusBattery}>▊</span>
+          </div>
+        </div>
 
         {/* Greeting + agenda button */}
         <div className={styles.greeting}>
@@ -299,14 +299,9 @@ export default function HomePage() {
           </div>
 
           {isEmptyState ? (
-            <div className={styles.taskList}>
-              <TaskCard
-                title="Ajouter ta première plante"
-                conseil="Commence ton jardin dès maintenant"
-                icon={<IconPlanterSvg width={40} height={40} aria-hidden="true" />}
-                onChange={() => navigate('/ajout-plante')}
-              />
-            </div>
+            <p className={styles.emptyTaskMsg}>
+              Ajoute des plantes pour voir tes tâches ici.
+            </p>
           ) : visibleHomeTasks.length === 0 ? (
             <p className={styles.emptyTaskMsg}>
               Toutes les tâches du jour sont faites !
@@ -356,7 +351,7 @@ export default function HomePage() {
           ) : (
             <div className={styles.plantGrid}>
               {myPlants.map(({ inst, plant }, index) => {
-                const contexte    = cleContexte ? getContexteFromCatalogue(plant.id, cleContexte) : null
+                const contexte    = cleContexte ? getContexteFromCatalogue(plant.id, cleContexte) ?? plant.contextes?.[cleContexte] ?? null : null
                 const colorVariant = (index % 4 === 0 || index % 4 === 3) ? 'primary' : 'tertiary'
                 return (
                   <PlantCard
@@ -394,7 +389,7 @@ export default function HomePage() {
 
           <div className={styles.plantGrid}>
             {plantesRecommandees.map((plant, index) => {
-              const contexte     = cleContexte ? getContexteFromCatalogue(plant.id, cleContexte) : null
+              const contexte     = cleContexte ? getContexteFromCatalogue(plant.id, cleContexte) ?? plant.contextes?.[cleContexte] ?? null : null
               const colorVariant = (index % 4 === 0 || index % 4 === 3) ? 'primary' : 'tertiary'
               return (
                 <PlantCard
