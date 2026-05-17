@@ -92,6 +92,8 @@ function reducer(state, action) {
       return { ...state, zones: [...state.zones, action.payload] }
     case 'ADD_PLANT_INSTANCE':
       return { ...state, plantInstances: [...state.plantInstances, action.payload] }
+    case 'REMOVE_PLANT_INSTANCE':
+      return { ...state, plantInstances: state.plantInstances.filter(i => i.plantId !== action.payload) }
     case 'COMPLETE_TASK':
       return {
         ...state,

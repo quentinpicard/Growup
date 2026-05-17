@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useParams, useNavigate, Navigate } from 'react-router-dom'
 import { useApp } from '../../context/AppContext'
 import Tag from '../../components/Tag/Tag'
@@ -48,6 +48,13 @@ import thymSvg         from '../../assets/pictos/aromatiques/Thym.svg'
 import arroserSvg      from '../../assets/pictos/Arroser 3.svg'
 import planterSvg      from '../../assets/pictos/Planter.svg'
 import rempoterSvg     from '../../assets/pictos/Rempoter.svg'
+
+import IconArroserSvg  from '../../assets/pictos/Arroser 1.svg?react'
+import IconGraineSvg   from '../../assets/pictos/Graine.svg?react'
+import IconRecolterSvg from '../../assets/pictos/Récolter.svg?react'
+import IconPlanterSvg  from '../../assets/pictos/Planter.svg?react'
+
+import { generateTasks } from '../../data/plantTasks'
 
 const PLANTS_BY_ID = Object.fromEntries(plants.map(p => [p.id, p]))
 
@@ -127,61 +134,50 @@ const EXPOSITION_LABELS = {
 const TACHES_SECTIONS = [
   { id: 'surveiller', label: 'À surveiller', variant: 'surveiller' },
   { id: 'today',      label: "Aujourd'hui" },
+  { id: 'tomorrow',   label: 'Demain' },
   { id: '2-3jours',   label: 'Dans 2-3 jours' },
   { id: '1semaine',   label: 'Dans 1 semaine' },
   { id: '2semaines',  label: 'Dans 2 semaines' },
-  { id: '1mois',      label: 'Dans 1 mois' },
-  { id: '2mois',      label: 'Dans 2 mois' },
+  { id: 'month-1',    label: 'Dans 1 mois' },
+  { id: 'month-2',    label: 'Dans 2 mois' },
 ]
 
-const PLANT_TASKS = {
-  'tomate': [
-    { id: 'tom-s1', section: 'surveiller', title: 'Température nocturne < 10° ?',      frequency: 'À surveiller', duration: '~1 min',  picto: arroserSvg },
-    { id: 'tom-t1', section: 'today',      title: 'Préparer le substrat de semis',     frequency: "Aujourd'hui",  duration: '~5 min',  picto: planterSvg },
-    { id: 'tom-t2', section: 'today',      title: 'Semer 2-3 graines par pot',         frequency: "Aujourd'hui",  duration: '~2 min',  picto: planterSvg },
-    { id: 'tom-d1', section: '2-3jours',   title: "Vérifier l'humidité du substrat",   frequency: '2-3 jours',    duration: '~1 min',  picto: arroserSvg },
-    { id: 'tom-1s', section: '1semaine',   title: 'Observer la germination',            frequency: '1 semaine',    duration: '~2 min',  picto: arroserSvg },
-    { id: 'tom-2s', section: '2semaines',  title: 'Repiquer les plants les plus forts', frequency: '2 semaines',   duration: '~15 min', picto: rempoterSvg },
-    { id: 'tom-1m', section: '1mois',      title: 'Installer un tuteur en bambou',     frequency: '1 mois',       duration: '~10 min', picto: planterSvg },
-    { id: 'tom-2m', section: '2mois',      title: 'Attacher la tige au tuteur',        frequency: '2 mois',       duration: '~5 min',  picto: planterSvg },
-  ],
-  'tomate-cerise': [
-    { id: 'tc-s1', section: 'surveiller', title: 'Feuilles qui jaunissent ?',           frequency: 'À surveiller', duration: '~1 min',  picto: arroserSvg },
-    { id: 'tc-t1', section: 'today',      title: 'Semer en terreau fin',                frequency: "Aujourd'hui",  duration: '~5 min',  picto: planterSvg },
-    { id: 'tc-d1', section: '2-3jours',   title: 'Arroser légèrement sans déranger les graines', frequency: '2-3 jours', duration: '~2 min', picto: arroserSvg },
-    { id: 'tc-1s', section: '1semaine',   title: 'Vérifier la germination',             frequency: '1 semaine',    duration: '~2 min',  picto: arroserSvg },
-    { id: 'tc-2s', section: '2semaines',  title: 'Éclaircir en gardant 1 plant par pot',frequency: '2 semaines',   duration: '~5 min',  picto: rempoterSvg },
-    { id: 'tc-1m', section: '1mois',      title: 'Repiquer en pot définitif (12L+)',    frequency: '1 mois',       duration: '~15 min', picto: rempoterSvg },
-    { id: 'tc-2m', section: '2mois',      title: 'Pincer les gourmands',               frequency: '2 mois',       duration: '~5 min',  picto: planterSvg },
-  ],
-  'fraise': [
-    { id: 'fr-s1', section: 'surveiller', title: 'Pucerons ou limaces à signaler ?',    frequency: 'À surveiller', duration: '~1 min',  picto: arroserSvg },
-    { id: 'fr-t1', section: 'today',      title: 'Planter les fraisiers en pot',        frequency: "Aujourd'hui",  duration: '~15 min', picto: planterSvg },
-    { id: 'fr-t2', section: 'today',      title: 'Arroser abondamment après plantation',frequency: "Aujourd'hui",  duration: '~3 min',  picto: arroserSvg },
-    { id: 'fr-d1', section: '2-3jours',   title: 'Vérifier la reprise racinaire',       frequency: '2-3 jours',    duration: '~2 min',  picto: arroserSvg },
-    { id: 'fr-1s', section: '1semaine',   title: 'Apporter un engrais spécial fraises', frequency: '1 semaine',    duration: '~5 min',  picto: planterSvg },
-    { id: 'fr-1m', section: '1mois',      title: 'Supprimer les stolons non désirés',   frequency: '1 mois',       duration: '~10 min', picto: planterSvg },
-    { id: 'fr-2m', section: '2mois',      title: 'Récolter les premiers fruits rouges', frequency: '2 mois',       duration: '~10 min', picto: arroserSvg },
-  ],
-  'courgette': [
-    { id: 'co-s1', section: 'surveiller', title: 'Oïdium sur les feuilles ?',           frequency: 'À surveiller', duration: '~1 min',  picto: arroserSvg },
-    { id: 'co-t1', section: 'today',      title: 'Semer 1-2 graines par pot (2 cm)',    frequency: "Aujourd'hui",  duration: '~5 min',  picto: planterSvg },
-    { id: 'co-d1', section: '2-3jours',   title: 'Maintenir humide et au chaud (20°)',  frequency: '2-3 jours',    duration: '~3 min',  picto: arroserSvg },
-    { id: 'co-1s', section: '1semaine',   title: 'Lever de germination attendue',       frequency: '1 semaine',    duration: '~2 min',  picto: arroserSvg },
-    { id: 'co-2s', section: '2semaines',  title: 'Repiquer en grand pot (30L+)',         frequency: '2 semaines',   duration: '~15 min', picto: rempoterSvg },
-    { id: 'co-1m', section: '1mois',      title: 'Polliniser les fleurs manuellement',  frequency: '1 mois',       duration: '~5 min',  picto: planterSvg },
-    { id: 'co-2m', section: '2mois',      title: 'Récolter régulièrement pour stimuler',frequency: '2 mois',       duration: '~5 min',  picto: arroserSvg },
-  ],
-  'ciboulette': [
-    { id: 'ci-s1', section: 'surveiller', title: 'Feuilles qui pâlissent ?',            frequency: 'À surveiller', duration: '~1 min',  picto: arroserSvg },
-    { id: 'ci-t1', section: 'today',      title: 'Semer à la volée en surface',         frequency: "Aujourd'hui",  duration: '~3 min',  picto: planterSvg },
-    { id: 'ci-t2', section: 'today',      title: 'Recouvrir légèrement de terreau',     frequency: "Aujourd'hui",  duration: '~2 min',  picto: planterSvg },
-    { id: 'ci-d1', section: '2-3jours',   title: "Maintenir l'humidité sans excès",     frequency: '2-3 jours',    duration: '~2 min',  picto: arroserSvg },
-    { id: 'ci-1s', section: '1semaine',   title: 'Observer la levée des plants',        frequency: '1 semaine',    duration: '~1 min',  picto: arroserSvg },
-    { id: 'ci-1m', section: '1mois',      title: 'Couper dès 15 cm pour stimuler',      frequency: '1 mois',       duration: '~2 min',  picto: planterSvg },
-    { id: 'ci-2m', section: '2mois',      title: 'Couper régulièrement les tiges',      frequency: '2 mois',       duration: '~3 min',  picto: planterSvg },
-  ],
+const MS_PER_DAY = 1000 * 60 * 60 * 24
+
+const CATEGORY_LABELS = {
+  arrosage:     'Arrosage',
+  récolte:      'Récolte',
+  semis:        'Semis',
+  entretien:    'Entretien',
+  surveillance: 'Surveillance',
+  fin_cycle:    'Fin de cycle',
 }
+
+function dateToSection(date, today) {
+  const diff = Math.floor((date - today) / MS_PER_DAY)
+  if (diff < 0)   return 'surveiller'
+  if (diff === 0) return 'today'
+  if (diff === 1) return 'tomorrow'
+  if (diff <= 3)  return '2-3jours'
+  if (diff <= 7)  return '1semaine'
+  if (diff <= 14) return '2semaines'
+  for (let m = 1; m <= 2; m++) {
+    const limit = new Date(today)
+    limit.setMonth(today.getMonth() + m)
+    if (date <= limit) return `month-${m}`
+  }
+  return null
+}
+
+function getCategoryIcon(category) {
+  switch (category) {
+    case 'arrosage': return <IconArroserSvg  width={40} height={40} aria-hidden="true" />
+    case 'récolte':  return <IconRecolterSvg width={40} height={40} aria-hidden="true" />
+    case 'semis':    return <IconGraineSvg   width={40} height={40} aria-hidden="true" />
+    default:         return <IconPlanterSvg  width={40} height={40} aria-hidden="true" />
+  }
+}
+
 
 const STAGE_TASKS = {
   semis: [
@@ -237,7 +233,8 @@ export default function PlantePage() {
   const { id }        = useParams()
   const navigate      = useNavigate()
   const { plantInstances, user, checkedTaskIds, dispatch } = useApp()
-  const [activeTab, setActiveTab] = useState('infos')
+  const [activeTab, setActiveTab]   = useState('infos')
+  const [menuOpen, setMenuOpen]     = useState(false)
 
   const plant    = PLANTS_BY_ID[id]
   if (!plant) return <Navigate to="/jardin" replace />
@@ -258,8 +255,25 @@ export default function PlantePage() {
   const compat     = plantCtx?.compatibilite ?? plant.compatibilite
   const difficulte = plantCtx?.difficulte ?? plant.difficulte
 
-  const tasks          = STAGE_TASKS[stade] ?? []
-  const plantTacheTasks = PLANT_TASKS[id] ?? []
+  const tasks = STAGE_TASKS[stade] ?? []
+
+  const plantTacheTasks = useMemo(() => {
+    if (!instance?.plantedAt) return []
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+    return generateTasks(instance).flatMap(task => {
+      const section = dateToSection(task.date, today)
+      if (!section) return []
+      if (task.intervalDays >= 1 && task.intervalDays <= 3 && !['today', 'tomorrow'].includes(section)) return []
+      return [{
+        ...task,
+        section,
+        frequency: CATEGORY_LABELS[task.category] ?? null,
+        icon: getCategoryIcon(task.category),
+      }]
+    })
+  }, [instance])
+
   const getSectionTasks = (sectionId) => plantTacheTasks.filter(t => t.section === sectionId)
 
   const COMPAT_COLOR = { ideale: 'primary', possible: 'secondary', deconseille: 'error' }
@@ -295,9 +309,31 @@ export default function PlantePage() {
           >
             <IconArrowLeft width={24} height={24} />
           </button>
-          <button className={styles.actionBtn} aria-label="Menu">
-            <IconMenu width={24} height={24} />
-          </button>
+          <div className={styles.menuWrapper}>
+            <button
+              className={styles.actionBtn}
+              aria-label="Menu"
+              onClick={() => setMenuOpen(v => !v)}
+            >
+              <IconMenu width={24} height={24} />
+            </button>
+            {menuOpen && (
+              <>
+                <div className={styles.menuOverlay} onClick={() => setMenuOpen(false)} />
+                <div className={styles.menuDropdown}>
+                  <button
+                    className={`${styles.menuItem} ${styles.menuItemDanger}`}
+                    onClick={() => {
+                      dispatch({ type: 'REMOVE_PLANT_INSTANCE', payload: id })
+                      navigate('/jardin', { replace: true })
+                    }}
+                  >
+                    Supprimer cette plante
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
 
@@ -687,8 +723,8 @@ export default function PlantePage() {
                         key={task.id}
                         title={task.title}
                         frequency={task.frequency}
-                        duration={task.duration}
-                        icon={<img src={task.picto} alt="" />}
+                        conseil={task.description}
+                        icon={task.icon}
                         checked={checkedTaskIds.includes(task.id)}
                         onChange={() => dispatch({ type: 'TOGGLE_TASK_CHECKED', payload: task.id })}
                         variant={section.variant}

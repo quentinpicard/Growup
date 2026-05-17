@@ -1,0 +1,451 @@
+// =============================================================================
+// PlantInfosAjoutPage.module.scss
+// =============================================================================
+
+.page {
+  display:        flex;
+  flex-direction: column;
+  min-height:     100dvh;
+  width:          393px;
+  max-width:      100%;
+  margin:         0 auto;
+  background:     var(--color-light);
+  overflow-x:     hidden;
+  padding-bottom: 150px;
+}
+
+// ─── Status bar ───────────────────────────────────────────────────────────────
+.statusBar {
+  position:        absolute;
+  top:             0;
+  left:            50%;
+  transform:       translateX(-50%);
+  width:           393px;
+  max-width:       100%;
+  z-index:         20;
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         14px 24px 0;
+  pointer-events:  none;
+}
+
+.statusTime {
+  font-family: var(--font-family-text);
+  font-size:   16px;
+  font-weight: 500;
+  color:       #343434;
+}
+
+.statusIcons {
+  display:     flex;
+  gap:         10px;
+  align-items: center;
+  font-size:   10px;
+  color:       #343434;
+}
+
+// ─── Hero ─────────────────────────────────────────────────────────────────────
+.hero {
+  position:      relative;
+  height:        230px;
+  border-radius: 0 0 20px 20px;
+  overflow:      hidden;
+  box-shadow:    0 4px 4px rgba(90, 76, 57, 0.2);
+  flex-shrink:   0;
+}
+
+.heroBg {
+  position:   absolute;
+  inset:      0;
+  background: linear-gradient(
+    160deg,
+    var(--primitive-primary-700) 0%,
+    var(--primitive-primary-500) 45%,
+    var(--primitive-primary-300) 100%
+  );
+}
+
+.heroPlantIcon {
+  position:       absolute;
+  bottom:         0;
+  left:           50%;
+  transform:      translateX(-50%);
+  width:          170px;
+  height:         170px;
+  object-fit:     contain;
+  opacity:        0.35;
+  pointer-events: none;
+}
+
+.heroActions {
+  position: absolute;
+  top:      54px;
+  left:     14px;
+}
+
+.actionBtn {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           40px;
+  height:          40px;
+  border-radius:   var(--radius-button-btn);
+  border:          2px solid var(--color-primary-main);
+  background:      var(--color-primary-main);
+  cursor:          pointer;
+  padding:         0;
+  box-shadow:      inset -2px -2px 4px rgba(37, 35, 35, 0.2),
+                   inset  2px  2px 4px rgba(248, 247, 247, 0.2);
+
+  svg path    { fill: white; }
+  svg rect    { fill: white; }
+  svg circle  { fill: white; stroke: white; }
+  svg polygon { fill: white; }
+
+  &:hover { background: var(--primitive-primary-700); }
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+}
+
+// ─── Contenu ──────────────────────────────────────────────────────────────────
+.content {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--spacing-5);
+  padding:        20px 20px 0;
+}
+
+// ─── En-tête plante ───────────────────────────────────────────────────────────
+.plantHeader {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--spacing-1);
+}
+
+.plantNameRow {
+  display:     flex;
+  align-items: center;
+  gap:         var(--spacing-2);
+}
+
+.plantName {
+  font-family: var(--font-family-title);
+  font-size:   28px;
+  font-weight: var(--font-weight-700);
+  color:       var(--color-text-dark);
+  margin:      0;
+  line-height: 1.1;
+}
+
+.plantNameIcon {
+  width:      36px;
+  height:     36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.periode {
+  font-family: var(--font-family-text);
+  font-size:   13px;
+  font-weight: var(--font-weight-400);
+  color:       var(--primitive-gray-500);
+  margin:      0;
+
+  span { font-weight: var(--font-weight-600); }
+}
+
+// ─── Bruno bulles ─────────────────────────────────────────────────────────────
+.brunoRow {
+  display:     flex;
+  align-items: flex-end;
+  gap:         var(--spacing-3);
+}
+
+.brunoAvatar {
+  width:       28px;
+  height:      28px;
+  object-fit:  contain;
+  flex-shrink: 0;
+}
+
+.bubble {
+  flex:          1;
+  border-radius: 6px 8px 8px 6px;
+  padding:       var(--spacing-3) var(--spacing-3);
+  position:      relative;
+
+  &::before {
+    content:      '';
+    position:     absolute;
+    bottom:       0;
+    left:         -8px;
+    width:        0;
+    height:       0;
+    border-right: 8px solid transparent;
+    border-top:   8px solid transparent;
+  }
+}
+
+.bubbleBeige {
+  background: var(--primitive-secondary-050);
+  border:     1px solid var(--primitive-secondary-300);
+
+  &::before { border-top-color: var(--primitive-secondary-050); }
+}
+
+.bubbleYellow {
+  background: var(--primitive-tertiary-050);
+  border:     1px solid var(--primitive-tertiary-300);
+
+  &::before { border-top-color: var(--primitive-tertiary-050); }
+}
+
+.bubbleText {
+  font-family: var(--font-family-subtitle);
+  font-size:   12px;
+  font-weight: var(--font-weight-400);
+  color:       var(--color-secondary-main);
+  margin:      0;
+  line-height: 1.5;
+}
+
+.bubbleTextBold {
+  font-weight: var(--font-weight-700);
+  margin-top:  var(--spacing-1);
+}
+
+// ─── Stade de croissance ──────────────────────────────────────────────────────
+.stadeCard {
+  background:    var(--primitive-secondary-050);
+  border:        1px solid var(--primitive-secondary-100);
+  border-radius: var(--radius-3);
+  padding:       var(--spacing-4);
+  display:       flex;
+  flex-direction: column;
+  gap:           var(--spacing-3);
+}
+
+.stadeBody {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             var(--spacing-3);
+  padding:         var(--spacing-2) 0;
+}
+
+.stadeIcon {
+  width:      48px;
+  height:     48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.stadeLabel {
+  font-family: var(--font-family-subtitle);
+  font-size:   20px;
+  font-weight: var(--font-weight-700);
+  color:       var(--color-primary-dark);
+  margin:      0;
+}
+
+// ─── Cards Compatibilité / Difficulté ─────────────────────────────────────────
+.statsRow {
+  display: flex;
+  gap:     var(--spacing-3);
+}
+
+.statCard {
+  flex:           1;
+  border-radius:  var(--radius-3);
+  padding:        var(--spacing-3);
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--spacing-2);
+}
+
+.cardGreen  { background: var(--primitive-primary-100); }
+.cardYellow { background: var(--primitive-tertiary-100); }
+.cardRed    { background: var(--primitive-error-100); }
+
+.statBody {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             var(--spacing-2);
+  flex-direction:  column;
+  padding:         var(--spacing-1) 0;
+
+  svg { flex-shrink: 0; }
+}
+
+.statValue {
+  font-family: var(--font-family-subtitle);
+  font-size:   16px;
+  font-weight: var(--font-weight-700);
+  margin:      0;
+  text-align:  center;
+  line-height: 1.3;
+}
+
+.textGreen  { color: var(--color-primary-state-outline); }
+.textYellow { color: var(--color-tertiary-main); }
+.textRed    { color: var(--color-error-main); }
+
+// ─── Card label ───────────────────────────────────────────────────────────────
+.cardLabel {
+  font-family: var(--font-family-title);
+  font-size:   13px;
+  font-weight: var(--font-weight-400);
+  color:       var(--primitive-gray-400);
+  margin:      0;
+  line-height: 1.4;
+}
+
+// ─── Sections ─────────────────────────────────────────────────────────────────
+.section {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--spacing-3);
+}
+
+.sectionTitle {
+  font-family: var(--font-family-title);
+  font-size:   16px;
+  font-weight: var(--font-weight-600);
+  color:       var(--color-primary-main);
+  margin:      0;
+}
+
+// ─── Voisins et Guilde ────────────────────────────────────────────────────────
+.guildeGroup {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--spacing-2);
+}
+
+.tagRow {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       var(--spacing-2);
+}
+
+// ─── CTA ──────────────────────────────────────────────────────────────────────
+.ctaWrap {
+  position:  fixed;
+  bottom:    90px;
+  left:      50%;
+  transform: translateX(-50%);
+  width:     calc(393px - 40px);
+  max-width: calc(100% - 40px);
+  z-index:   100;
+}
+
+// ─── Toast ────────────────────────────────────────────────────────────────────
+.toast {
+  position:      fixed;
+  bottom:        160px;
+  left:          50%;
+  transform:     translateX(-50%);
+  width:         calc(393px - 32px);
+  max-width:     calc(100% - 32px);
+  display:       flex;
+  align-items:   center;
+  gap:           10px;
+  padding:       12px 16px;
+  background:    var(--primitive-primary-800);
+  color:         white;
+  border-radius: var(--radius-3);
+  font-family:   var(--font-family-text);
+  font-size:     14px;
+  z-index:       300;
+  animation:     toastIn 0.2s ease;
+
+  strong { font-weight: var(--font-weight-700); }
+}
+
+.toast__icon {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:           24px;
+  height:          24px;
+  background:      white;
+  border-radius:   50%;
+  color:           var(--primitive-primary-800);
+  font-size:       13px;
+  font-weight:     var(--font-weight-700);
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+// ─── Navbar ───────────────────────────────────────────────────────────────────
+.navbar {
+  position:                fixed;
+  bottom:                  18px;
+  left:                    50%;
+  transform:               translateX(-50%);
+  width:                   358px;
+  max-width:               calc(100% - 36px);
+  display:                 flex;
+  align-items:             center;
+  justify-content:         space-between;
+  padding:                 12px 24px 12px 16px;
+  background:              rgba(55, 94, 61, 0.75);
+  backdrop-filter:         blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border:                  1.5px solid white;
+  border-radius:           1000px;
+  z-index:                 200;
+}
+
+.navItemActive {
+  display:       flex;
+  align-items:   center;
+  gap:           2px;
+  padding:       4px 12px 4px 8px;
+  background:    var(--color-primary-contrast-text);
+  border:        none;
+  border-radius: 63px;
+  cursor:        pointer;
+  color:         var(--color-primary-main);
+
+  svg { width: 32px; height: 32px; flex-shrink: 0; }
+}
+
+.navLabel {
+  font-family: var(--font-family-subtitle);
+  font-weight: var(--font-weight-700);
+  font-size:   14px;
+  line-height: 1.15;
+  color:       var(--color-primary-main);
+  white-space: nowrap;
+}
+
+.navItem {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           40px;
+  height:          40px;
+  background:      transparent;
+  border:          none;
+  border-radius:   var(--radius-button-btn);
+  cursor:          pointer;
+  transition:      background 0.15s ease;
+
+  &:hover { background: rgba(255, 255, 255, 0.15); }
+
+  &:focus-visible {
+    outline:        2px solid var(--Colors-Focus-Focus);
+    outline-offset: 2px;
+  }
+
+  svg path, svg rect, svg circle, svg polygon { fill: white; }
+}

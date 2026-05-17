@@ -10,7 +10,7 @@
   max-width:      100%;
   margin:         0 auto;
   background:     var(--color-light);
-  padding-bottom: 90px;
+  padding-bottom: 150px;
 }
 
 // ─── Header ───────────────────────────────────────────────────────────────────
@@ -155,6 +155,48 @@
 
 .plantCard {
   width: 100%;
+}
+
+// ─── Toast ────────────────────────────────────────────────────────────────────
+.toast {
+  position:    fixed;
+  bottom:      100px;
+  left:        50%;
+  transform:   translateX(-50%);
+  width:       calc(393px - 32px);
+  max-width:   calc(100% - 32px);
+  display:     flex;
+  align-items: center;
+  gap:         10px;
+  padding:     12px 16px;
+  background:  var(--primitive-primary-800);
+  color:       white;
+  border-radius: var(--radius-3);
+  font-family: var(--font-family-text);
+  font-size:   14px;
+  z-index:     300;
+  animation:   toastIn 0.2s ease;
+
+  strong { font-weight: var(--font-weight-700); }
+}
+
+.toast__icon {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:           24px;
+  height:          24px;
+  background:      white;
+  border-radius:   50%;
+  color:           var(--primitive-primary-800);
+  font-size:       13px;
+  font-weight:     var(--font-weight-700);
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
 // ─── Navbar ───────────────────────────────────────────────────────────────────

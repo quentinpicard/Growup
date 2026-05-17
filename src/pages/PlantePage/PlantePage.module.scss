@@ -937,3 +937,52 @@
   color: var(--color-primary-contrast-text);
   line-height: 1.5;
 }
+
+// =============================================================================
+// Menu 3 points
+// =============================================================================
+
+.menuWrapper {
+  position: relative;
+}
+
+.menuOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+}
+
+.menuDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 51;
+  min-width: 200px;
+  background: white;
+  border-radius: var(--radius-2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.menuItem {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  text-align: left;
+  font-family: var(--font-family-text);
+  font-size: 14px;
+  font-weight: var(--font-weight-500);
+  color: var(--color-text-dark);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: var(--primitive-gray-050);
+  }
+}
+
+.menuItemDanger {
+  color: var(--color-error-main);
+}

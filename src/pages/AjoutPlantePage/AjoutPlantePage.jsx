@@ -67,7 +67,8 @@ const PICTO_MAP = {
 export default function AjoutPlantePage() {
   const navigate = useNavigate()
   const { user, dispatch } = useApp()
-  const [search, setSearch] = useState('')
+  const [search, setSearch]   = useState('')
+  const [toast, setToast]     = useState(null)
 
   const contextKey = user.zone_id && user.exposition_id
     ? `${user.zone_id}_${user.exposition_id}`
@@ -87,9 +88,14 @@ export default function AjoutPlantePage() {
         plantId: plant.id,
         stade: plant.stade_par_defaut,
         dateAjout: new Date().toISOString(),
+        plantedAt: new Date().toISOString(),
       },
     })
-    navigate(`/plante/${plant.id}`)
+    setToast(plant.nom)
+    setTimeout(() => {
+      setToast(null)
+      navigate(`/plante/${plant.id}`)
+    }, 1500)
   }
 
   return (
@@ -154,7 +160,7 @@ export default function AjoutPlantePage() {
                   compatibilite={compat.label}
                   colorVariant={colorVariant}
                   onAdd={() => handleAdd(plant)}
-                  onClick={() => navigate(`/plante/${plant.id}`)}
+                  onClick={() => navigate(`/info-plante/${plant.id}`)}
                   className={styles.plantCard}
                 />
               )
@@ -162,6 +168,14 @@ export default function AjoutPlantePage() {
           </div>
         )}
       </main>
+
+      {/* ─── Toast ──────────────────────────────────────────────── */}
+      {toast && (
+        <div className={styles.toast} role="status" aria-live="polite">
+          <span className={styles.toast__icon}>✓</span>
+          <span><strong>{toast}</strong> ajoutée à ton jardin !</span>
+        </div>
+      )}
 
       {/* ─── Navbar ─────────────────────────────────────────────── */}
       <nav className={styles.navbar} aria-label="Navigation principale">

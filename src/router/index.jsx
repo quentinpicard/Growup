@@ -5,8 +5,9 @@ import OnboardingPage    from '../pages/OnboardingPage/OnboardingPage'
 import JardinPage        from '../pages/JardinPage/JardinPage'
 import PlantePage        from '../pages/PlantePage/PlantePage'
 import DiagnosticPage    from '../pages/DiagnosticPage/DiagnosticPage'
-import AjoutPlantePage   from '../pages/AjoutPlantePage/AjoutPlantePage'
-import TachesPage        from '../pages/TachesPage/TachesPage'
+import AjoutPlantePage      from '../pages/AjoutPlantePage/AjoutPlantePage'
+import PlantInfosAjoutPage  from '../pages/PlantInfosAjoutPage/PlantInfosAjoutPage'
+import TachesPage           from '../pages/TachesPage/TachesPage'
 import DesignSystemPage       from '../pages/DesignSystemPage/DesignSystemPage'
 import ResetOnboardingPage    from '../pages/ResetOnboardingPage/ResetOnboardingPage'
 
@@ -36,7 +37,8 @@ const router = createBrowserRouter([
   },
   { path: '/plante/:id',     element: <PlantePage /> },
   { path: '/diagnostic/:id', element: <DiagnosticPage /> },
-  { path: '/ajout-plante',   element: <AjoutPlantePage /> },
+  { path: '/ajout-plante',        element: <AjoutPlantePage /> },
+  { path: '/info-plante/:id',     element: <PlantInfosAjoutPage /> },
   {
     path: '/taches',
     element: (

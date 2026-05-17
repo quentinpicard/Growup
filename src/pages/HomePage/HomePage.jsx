@@ -6,7 +6,9 @@ import PlantCard from '../../components/PlantCard/PlantCard'
 import styles from './HomePage.module.scss'
 
 import plants from '../../mocks/plants.json'
-import zones  from '../../data/zones.json'
+import zones   from '../../data/zones.json'
+
+const PLANTS_BY_ID = Object.fromEntries(plants.map(p => [p.id, p]))
 
 import brunoImg from '../../assets/Mascotte 1.png'
 
@@ -46,6 +48,10 @@ export default function HomePage() {
     : "Dis-moi où tu jardines et je t'aide à choisir les bonnes plantes."
 
   const isEmptyState = plantInstances.length === 0
+
+  const myPlants = plantInstances
+    .map(inst => ({ inst, plant: PLANTS_BY_ID[inst.plantId] }))
+    .filter(({ plant }) => plant != null)
 
   const touchStartX = useRef(null)
 
@@ -159,20 +165,44 @@ export default function HomePage() {
         {/* Section Jardin */}
         <section className={styles.sectionJardin}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Jardin</h2>
-            <button className={styles.iconBtn} aria-label="Voir le jardin">
+            <div className={styles.sectionTitleRow}>
+              <h2 className={styles.sectionTitle}>Jardin</h2>
+              {!isEmptyState && (
+                <span className={styles.badge}>{myPlants.length}</span>
+              )}
+            </div>
+            <button className={styles.iconBtn} aria-label="Voir le jardin" onClick={() => navigate('/jardin')}>
               <IconJardin width={24} height={24} aria-hidden="true" />
             </button>
           </div>
 
-          <div className={styles.mascotteMsg}>
-            <img src={brunoImg} alt="" className={styles.mascotteMini} aria-hidden="true" />
-            <div className={styles.bubbleBeige}>
-              <p className={styles.bubbleText}>
-                C'est calme pour l'instant. Ajoute une plante et on s'occupe du reste.
-              </p>
+          {isEmptyState ? (
+            <div className={styles.mascotteMsg}>
+              <img src={brunoImg} alt="" className={styles.mascotteMini} aria-hidden="true" />
+              <div className={styles.bubbleBeige}>
+                <p className={styles.bubbleText}>
+                  C'est calme pour l'instant. Ajoute une plante et on s'occupe du reste.
+                </p>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className={styles.plantGrid}>
+              {myPlants.map(({ inst, plant }, index) => {
+                const contexte    = cleContexte ? plant.contextes?.[cleContexte] ?? null : null
+                const colorVariant = (index % 4 === 0 || index % 4 === 3) ? 'primary' : 'tertiary'
+                return (
+                  <PlantCard
+                    key={inst.id}
+                    plant={plant}
+                    contexte={contexte}
+                    colorVariant={colorVariant}
+                    variant="link"
+                    onAdd={() => navigate(`/plante/${plant.id}`)}
+                  />
+                )
+              })}
+            </div>
+          )}
         </section>
 
         {/* Section Recommandation */}

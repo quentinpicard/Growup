@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../../context/AppContext'
 import { TaskCard } from '../../components/index'
@@ -8,9 +8,21 @@ import styles from './TachesPage.module.scss'
 import IconFilterSvg  from '../../assets/icons/Filter.svg?react'
 import IconCloseSvg   from '../../assets/icons/Close_round.svg?react'
 import IconBackSvg    from '../../assets/icons/Arrow_alt_lright.svg?react'
-import IconPlanterSvg from '../../assets/pictos/Planter.svg?react'
+import IconPlanterSvg   from '../../assets/pictos/Planter.svg?react'
+import IconArroserSvg   from '../../assets/pictos/Arroser 1.svg?react'
+import IconGraineSvg    from '../../assets/pictos/Graine.svg?react'
+import IconRecolterSvg  from '../../assets/pictos/Récolter.svg?react'
+
+import { generateTasks } from '../../data/plantTasks'
 
 // ─── Données statiques ───────────────────────────────────────────────────────
+
+function getMonthName(offsetMonths) {
+  const d = new Date()
+  d.setMonth(d.getMonth() + offsetMonths)
+  const name = d.toLocaleString('fr-FR', { month: 'long' })
+  return name.charAt(0).toUpperCase() + name.slice(1)
+}
 
 const FILTERS = [
   { id: 'toutes',        label: 'Toutes les tâches' },
@@ -31,8 +43,10 @@ const SECTIONS = [
   { id: '2-3jours',   label: 'Dans 2-3 jours' },
   { id: '1semaine',   label: 'Dans 1 semaine' },
   { id: '2semaines',  label: 'Dans 2 semaines' },
-  { id: '1mois',      label: 'Dans 1 mois' },
-  { id: '2mois',      label: 'Dans 2 mois' },
+  ...Array.from({ length: 6 }, (_, i) => ({
+    id:    `month-${i + 1}`,
+    label: getMonthName(i + 1),
+  })),
 ]
 
 // Tâche d'onboarding (première connexion, aucune plante)
@@ -49,6 +63,63 @@ const ONBOARDING_TASKS = [
   },
 ]
 
+// ─── Helpers tâches plantes ──────────────────────────────────────────────────
+
+const MS_PER_DAY = 1000 * 60 * 60 * 24
+
+const AROMATIQUES = new Set([
+  'basilic', 'coriandre', 'menthe', 'origan', 'persil', 'romarin', 'thym', 'ciboulette',
+])
+
+const CATEGORY_LABELS = {
+  arrosage:    'Arrosage',
+  récolte:     'Récolte',
+  semis:       'Semis',
+  entretien:   'Entretien',
+  surveillance:'Surveillance',
+  fin_cycle:   'Fin de cycle',
+}
+
+function dateToSection(date, today) {
+  const diff = Math.floor((date - today) / MS_PER_DAY)
+  if (diff < 0)  return 'surveiller'
+  if (diff === 0) return 'today'
+  if (diff === 1) return 'tomorrow'
+  if (diff <= 3)  return '2-3jours'
+  if (diff <= 7)  return '1semaine'
+  if (diff <= 14) return '2semaines'
+  for (let m = 1; m <= 6; m++) {
+    const limit = new Date(today)
+    limit.setMonth(today.getMonth() + m)
+    if (date <= limit) return `month-${m}`
+  }
+  return null
+}
+
+function buildFilterTags(task, section) {
+  const tags = []
+  if (section === 'today')    tags.push('today')
+  if (section === 'tomorrow') tags.push('tomorrow')
+  if (section === '2-3jours') tags.push('2jours')
+  if (task.priority === 'high' && ['surveiller', 'today', 'tomorrow'].includes(section))
+    tags.push('urgent')
+  if (task.category === 'récolte') {
+    const near = ['surveiller', 'today', 'tomorrow', '2-3jours', '1semaine', '2semaines']
+    tags.push(near.includes(section) ? 'recolte-cours' : 'recolte-venir')
+  }
+  if (AROMATIQUES.has(task.plantId)) tags.push('aromatiques')
+  return tags
+}
+
+function getCategoryIcon(category) {
+  switch (category) {
+    case 'arrosage':  return <IconArroserSvg  width={40} height={40} aria-hidden="true" />
+    case 'récolte':   return <IconRecolterSvg width={40} height={40} aria-hidden="true" />
+    case 'semis':     return <IconGraineSvg   width={40} height={40} aria-hidden="true" />
+    default:          return <IconPlanterSvg  width={40} height={40} aria-hidden="true" />
+  }
+}
+
 // ─── Composant ───────────────────────────────────────────────────────────────
 
 export default function TachesPage() {
@@ -60,8 +131,26 @@ export default function TachesPage() {
 
   const isEmptyState = plantInstances.length === 0
 
-  // Filtre les tâches selon les filtres actifs
-  const allTasks = isEmptyState ? ONBOARDING_TASKS : []
+  const allTasks = useMemo(() => {
+    if (isEmptyState) return ONBOARDING_TASKS
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+    return plantInstances.flatMap(instance =>
+      generateTasks(instance).flatMap(task => {
+        const section = dateToSection(task.date, today)
+        if (!section) return []
+        if (task.intervalDays >= 1 && task.intervalDays <= 3 && !['today', 'tomorrow'].includes(section)) return []
+        return [{
+          ...task,
+          section,
+          filterTags: buildFilterTags(task, section),
+          frequency: CATEGORY_LABELS[task.category] ?? null,
+          conseil: task.description,
+          icon: getCategoryIcon(task.category),
+        }]
+      })
+    )
+  }, [plantInstances, isEmptyState])
 
   const visibleTasks = allTasks.filter(task => {
     if (activeFilters.includes('toutes')) return true
@@ -197,8 +286,6 @@ export default function TachesPage() {
             </section>
           )
         })}
-
-        {/* Les tâches des plantes s'ajouteront ici lors de leur mise en place */}
 
       </main>
 
