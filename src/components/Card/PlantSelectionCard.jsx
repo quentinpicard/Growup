@@ -29,8 +29,8 @@ export default function PlantSelectionCard({
   planteName = 'Aubergine',
   periode = 'avr. - juin',
   icon,
-  difficulte = 'Facile',
-  compatibilite = 'Idéale',
+  difficulte = null,
+  compatibilite = null,
   colorVariant = 'secondary',
   onAdd,
   onClick,
@@ -52,10 +52,12 @@ export default function PlantSelectionCard({
       onClick={onClick}
       style={{ cursor: onClick ? 'pointer' : undefined }}
     >
-      <div className={styles.card__tags}>
-        <Tag variant="outline" color={compatibiliteColor}>{compatibilite}</Tag>
-        <Tag variant="outline" color={difficulteColor}>{difficulte}</Tag>
-      </div>
+      {(compatibilite || difficulte) && (
+        <div className={styles.card__tags}>
+          {compatibilite && <Tag variant="outline" color={compatibiliteColor}>{compatibilite}</Tag>}
+          {difficulte && <Tag variant="outline" color={difficulteColor}>{difficulte}</Tag>}
+        </div>
+      )}
 
       <div className={styles.card__iconWrapper}>
         <span className={styles.card__icon} aria-hidden="true">{icon}</span>

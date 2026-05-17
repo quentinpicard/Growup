@@ -81,15 +81,6 @@ export default function JardinPage() {
 
       {/* ─── Header sticky ──────────────────────────────────── */}
       <header className={styles.header}>
-        <div className={styles.statusBar}>
-          <span className={styles.statusTime}>12:00</span>
-          <div className={styles.statusIcons}>
-            <span className={styles.statusIcon}>▲▲▲</span>
-            <span className={styles.statusIcon}>◈</span>
-            <span className={styles.statusBattery}>▊</span>
-          </div>
-        </div>
-
         <div className={styles.headerContent}>
           <h1 className={styles.pageTitle}>Mon jardin</h1>
           <button
@@ -176,7 +167,7 @@ export default function JardinPage() {
         ) : (
           <div className={styles.plantGrid}>
             {visiblePlants.map(({ instance, plant }, index) => {
-              const contexte     = contextKey ? getContexteFromCatalogue(plant.id, contextKey) ?? plant.contextes?.[contextKey] ?? null : null
+              const contexte     = contextKey ? getContexteFromCatalogue(plant.id, contextKey) : null
               const colorVariant = (index % 4 === 0 || index % 4 === 3) ? 'primary' : 'tertiary'
               return (
                 <PlantCard
