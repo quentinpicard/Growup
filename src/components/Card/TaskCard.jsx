@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styles from './TaskCard.module.scss'
+import Tag from '../Tag/Tag'
 import IconCheckedSvg   from '../../assets/icons/Check_round_fill.svg?react'
 import IconUncheckedSvg from '../../assets/icons/Uncheck.svg?react'
 
@@ -14,6 +15,8 @@ export default function TaskCard({
   tip,
   variant,
   className,
+  plantLabel,
+  plantIcon,
 }) {
   const [isChecked, setIsChecked] = useState(checkedProp)
 
@@ -48,6 +51,11 @@ export default function TaskCard({
         {/* Texte */}
         <div className={styles.card__body}>
           <div className={styles.card__meta}>
+            {plantLabel && (
+              <Tag color="primary" variant="outline" leftIcon={plantIcon}>
+                {plantLabel}
+              </Tag>
+            )}
             {frequency && (
               <span className={styles.freqTag}>{frequency}</span>
             )}

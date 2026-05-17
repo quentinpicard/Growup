@@ -13,7 +13,19 @@ import IconArroserSvg   from '../../assets/pictos/Arroser 1.svg?react'
 import IconGraineSvg    from '../../assets/pictos/Graine.svg?react'
 import IconRecolterSvg  from '../../assets/pictos/Récolter.svg?react'
 
-import { generateTasks } from '../../data/plantTasks'
+import PictoTomateCerise from '../../assets/pictos/fruits_legumes/Tomate cerise.svg?react'
+import PictoFraise       from '../../assets/pictos/fruits_legumes/Fraise.svg?react'
+import PictoCarotte      from '../../assets/pictos/fruits_legumes/Carotte.svg?react'
+import PictoCiboulette   from '../../assets/pictos/aromatiques/Ciboulette.svg?react'
+
+import { generateTasks, getPlantRules } from '../../data/plantTasks'
+
+const PLANT_PICTOS = {
+  'tomate-cerise': <PictoTomateCerise width={12} height={12} aria-hidden="true" />,
+  'fraise':        <PictoFraise       width={12} height={12} aria-hidden="true" />,
+  'carotte':       <PictoCarotte      width={12} height={12} aria-hidden="true" />,
+  'ciboulette':    <PictoCiboulette   width={12} height={12} aria-hidden="true" />,
+}
 
 // ─── Données statiques ───────────────────────────────────────────────────────
 
@@ -131,6 +143,26 @@ export default function TachesPage() {
 
   const isEmptyState = plantInstances.length === 0
 
+  const instanceLabels = useMemo(() => {
+    const counts = {}
+    for (const inst of plantInstances) {
+      const name = getPlantRules(inst.plantId)?.plantName ?? inst.plantId
+      counts[name] = (counts[name] ?? 0) + 1
+    }
+    const nums = {}
+    const labels = {}
+    for (const inst of plantInstances) {
+      const name = getPlantRules(inst.plantId)?.plantName ?? inst.plantId
+      if (counts[name] > 1) {
+        nums[name] = (nums[name] ?? 0) + 1
+        labels[inst.id] = `${name} #${nums[name]}`
+      } else {
+        labels[inst.id] = name
+      }
+    }
+    return labels
+  }, [plantInstances])
+
   const allTasks = useMemo(() => {
     if (isEmptyState) return ONBOARDING_TASKS
     const today = new Date()
@@ -147,10 +179,12 @@ export default function TachesPage() {
           frequency: CATEGORY_LABELS[task.category] ?? null,
           conseil: task.description,
           icon: getCategoryIcon(task.category),
+          plantLabel: instanceLabels[instance.id],
+          plantIcon: PLANT_PICTOS[instance.plantId] ?? null,
         }]
       })
     )
-  }, [plantInstances, isEmptyState])
+  }, [plantInstances, isEmptyState, instanceLabels])
 
   const visibleTasks = allTasks.filter(task => {
     if (activeFilters.includes('toutes')) return true
@@ -280,6 +314,8 @@ export default function TachesPage() {
                     conseil={task.conseil}
                     icon={task.icon}
                     variant={section.variant}
+                    plantLabel={task.plantLabel}
+                    plantIcon={task.plantIcon}
                   />
                 ))}
               </div>
