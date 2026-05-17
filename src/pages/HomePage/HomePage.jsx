@@ -1,29 +1,117 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useCallback, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../../context/AppContext'
 import useWeather from '../../hooks/useWeather'
 import PlantCard from '../../components/PlantCard/PlantCard'
+import TaskCard from '../../components/Card/TaskCard'
+import { generateTasks, getPlantRules } from '../../data/plantTasks'
 import styles from './HomePage.module.scss'
 
 import plants from '../../mocks/plants.json'
 import zones   from '../../data/zones.json'
+import { getContexteFromCatalogue } from '../../data/getCompatibilite'
 
 const PLANTS_BY_ID = Object.fromEntries(plants.map(p => [p.id, p]))
 
 import brunoImg from '../../assets/Mascotte 1.png'
 
-import IconHome    from '../../assets/icons/Home_fill.svg?react'
-import IconJardin  from '../../assets/icons/Jardin.svg?react'
+import IconHome     from '../../assets/icons/Home_fill.svg?react'
+import IconJardin   from '../../assets/icons/Jardin.svg?react'
 import IconCalendar from '../../assets/icons/Date_range_fill.svg?react'
-import IconUser    from '../../assets/icons/User_fill.svg?react'
-import IconCloud   from '../../assets/icons/Cloud_fill.svg?react'
-import IconDesk    from '../../assets/icons/Desk_alt_fill.svg?react'
-import IconAdd     from '../../assets/icons/Add_round.svg?react'
+import IconUser     from '../../assets/icons/User_fill.svg?react'
+import IconCloud    from '../../assets/icons/Cloud_fill.svg?react'
+import IconDesk     from '../../assets/icons/Desk_alt_fill.svg?react'
+import IconAdd      from '../../assets/icons/Add_round.svg?react'
+
+import IconPlanterSvg  from '../../assets/pictos/Planter.svg?react'
+import IconArroserSvg  from '../../assets/pictos/Arroser 1.svg?react'
+import IconGraineSvg   from '../../assets/pictos/Graine.svg?react'
+import IconRecolterSvg from '../../assets/pictos/Récolter.svg?react'
+
+import PictoTomateCerise from '../../assets/pictos/fruits_legumes/Tomate cerise.svg?react'
+import PictoFraise       from '../../assets/pictos/fruits_legumes/Fraise.svg?react'
+import PictoCarotte      from '../../assets/pictos/fruits_legumes/Carotte.svg?react'
+import PictoCiboulette   from '../../assets/pictos/aromatiques/Ciboulette.svg?react'
+
+// ─── Constantes tâches ────────────────────────────────────────────────────────
+
+const MS_PER_DAY = 1000 * 60 * 60 * 24
+const SECTION_ORDER = { surveiller: 0, today: 1, tomorrow: 2 }
+
+const CATEGORY_LABELS = {
+  arrosage:    'Arrosage',
+  récolte:     'Récolte',
+  semis:       'Semis',
+  entretien:   'Entretien',
+  surveillance:'Surveillance',
+  fin_cycle:   'Fin de cycle',
+}
+
+const PLANT_PICTOS = {
+  'tomate-cerise': <PictoTomateCerise width={12} height={12} aria-hidden="true" />,
+  'fraise':        <PictoFraise       width={12} height={12} aria-hidden="true" />,
+  'carotte':       <PictoCarotte      width={12} height={12} aria-hidden="true" />,
+  'ciboulette':    <PictoCiboulette   width={12} height={12} aria-hidden="true" />,
+}
+
+function dateToSection(date, today) {
+  const diff = Math.floor((date - today) / MS_PER_DAY)
+  if (diff < 0)   return 'surveiller'
+  if (diff === 0) return 'today'
+  if (diff === 1) return 'tomorrow'
+  return null
+}
+
+function getCategoryIcon(category) {
+  switch (category) {
+    case 'arrosage': return <IconArroserSvg  width={40} height={40} aria-hidden="true" />
+    case 'récolte':  return <IconRecolterSvg width={40} height={40} aria-hidden="true" />
+    case 'semis':    return <IconGraineSvg   width={40} height={40} aria-hidden="true" />
+    default:         return <IconPlanterSvg  width={40} height={40} aria-hidden="true" />
+  }
+}
+
+function urgencyComparator(a, b) {
+  if (a.priority === 'high' && b.priority !== 'high') return -1
+  if (b.priority === 'high' && a.priority !== 'high') return 1
+  const sa = SECTION_ORDER[a.section] ?? 99
+  const sb = SECTION_ORDER[b.section] ?? 99
+  if (sa !== sb) return sa - sb
+  return a.date - b.date
+}
+
+// Sélectionne les tâches pour la home :
+// — au moins 1 tâche par plante distincte (jusqu'à 5 plantes garanties)
+// — puis remplit les slots restants avec les suivantes les plus urgentes
+function buildHomeTaskPool(sortedTasks, plantInstances) {
+  const numPlants = new Set(plantInstances.map(i => i.plantId)).size
+  const guarantee = Math.min(numPlants, 5)
+
+  const guaranteedTasks = []
+  const coveredPlants   = new Set()
+  const remainingTasks  = []
+
+  for (const task of sortedTasks) {
+    if (guaranteedTasks.length < guarantee && !coveredPlants.has(task.plantId)) {
+      guaranteedTasks.push(task)
+      coveredPlants.add(task.plantId)
+    } else {
+      remainingTasks.push(task)
+    }
+  }
+
+  guaranteedTasks.sort(urgencyComparator)
+  return [...guaranteedTasks, ...remainingTasks]
+}
+
+// ─── Composant ────────────────────────────────────────────────────────────────
 
 export default function HomePage() {
-  const navigate      = useNavigate()
-  const { user, plantInstances } = useApp()
-  const [taskDone, setTaskDone] = useState(false)
+  const navigate = useNavigate()
+  const { user, plantInstances, dispatch } = useApp()
+  const [toast, setToast]               = useState(null)
+  const [checkedTaskIds, setCheckedTaskIds] = useState(new Set())
+
   const { temp, message: weatherMsg, loading: weatherLoading } = useWeather(user.city)
 
   // — Contexte plante
@@ -31,14 +119,79 @@ export default function HomePage() {
     ? `${user.zone_id}_${user.exposition_id}`
     : null
 
+  // — Labels d'instances (gère les doublons ex: "Tomate cerise #2")
+  const instanceLabels = useMemo(() => {
+    const counts = {}
+    for (const inst of plantInstances) {
+      const name = getPlantRules(inst.plantId)?.plantName ?? inst.plantId
+      counts[name] = (counts[name] ?? 0) + 1
+    }
+    const nums   = {}
+    const labels = {}
+    for (const inst of plantInstances) {
+      const name = getPlantRules(inst.plantId)?.plantName ?? inst.plantId
+      if (counts[name] > 1) {
+        nums[name]    = (nums[name] ?? 0) + 1
+        labels[inst.id] = `${name} #${nums[name]}`
+      } else {
+        labels[inst.id] = name
+      }
+    }
+    return labels
+  }, [plantInstances])
+
+  // — Pool de tâches pour la home (surveiller + today + tomorrow, triées + règle 1/plante)
+  const homeTaskPool = useMemo(() => {
+    if (plantInstances.length === 0) return []
+
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+
+    const rawTasks = plantInstances.flatMap(inst =>
+      generateTasks(inst).flatMap(task => {
+        const section = dateToSection(task.date, today)
+        if (!section) return []
+        return [{ ...task, section }]
+      })
+    )
+
+    rawTasks.sort(urgencyComparator)
+    return buildHomeTaskPool(rawTasks, plantInstances)
+  }, [plantInstances])
+
+  // — Les 5 premières tâches non cochées
+  const visibleHomeTasks = useMemo(
+    () => homeTaskPool.filter(t => !checkedTaskIds.has(t.id)).slice(0, 5),
+    [homeTaskPool, checkedTaskIds]
+  )
+
+  const handleCheckTask = useCallback((taskId) => {
+    setCheckedTaskIds(prev => new Set([...prev, taskId]))
+  }, [])
+
+  // — Ajouter une plante depuis la home
+  const handleAddPlant = useCallback((plant) => {
+    dispatch({
+      type: 'ADD_PLANT_INSTANCE',
+      payload: {
+        id: `${Date.now()}-${plant.id}`,
+        plantId: plant.id,
+        stade: plant.stade_par_defaut,
+        dateAjout: new Date().toISOString(),
+        plantedAt: new Date().toISOString(),
+      },
+    })
+    setToast(plant.nom)
+    setTimeout(() => setToast(null), 2000)
+  }, [dispatch])
+
   const plantesRecommandees = plants.filter(plant => {
     if (!cleContexte) return true
-    const ctx = plant.contextes?.[cleContexte]
-    if (!ctx) return plant.compatibilite.niveau !== 'deconseille'
-    return ctx.compatibilite.niveau !== 'deconseille'
+    const ctx = getContexteFromCatalogue(plant.id, cleContexte) ?? plant.contextes?.[cleContexte] ?? null
+    if (!ctx) return false
+    return ctx.compatibilite.niveau === 'ideale' && ctx.difficulte.niveau === 'facile'
   })
 
-  // — Nom de zone affiché
   const nomZone = cleContexte
     ? zones.find(z => z.id === user.zone_id)?.nom_zone?.[user.exposition_id] ?? null
     : null
@@ -95,7 +248,9 @@ export default function HomePage() {
               onClick={() => navigate('/taches')}
             >
               <IconDesk width={24} height={24} aria-hidden="true" />
-              <span className={styles.agendaBadge}>1</span>
+              {visibleHomeTasks.length > 0 && (
+                <span className={styles.agendaBadge}>{visibleHomeTasks.length}</span>
+              )}
             </button>
           </div>
 
@@ -134,31 +289,39 @@ export default function HomePage() {
           <div className={styles.sectionHeader}>
             <div className={styles.sectionTitleRow}>
               <h2 className={styles.sectionTitle}>Tâches</h2>
-              <span className={styles.badge}>1</span>
+              {visibleHomeTasks.length > 0 && (
+                <span className={styles.badge}>{visibleHomeTasks.length}</span>
+              )}
             </div>
             <button className={styles.iconBtn} aria-label="Voir les tâches" onClick={() => navigate('/taches')}>
               <IconDesk width={24} height={24} aria-hidden="true" />
             </button>
           </div>
 
-          {isEmptyState && (
-            <button
-              className={`${styles.taskCard} ${taskDone ? styles.taskCardDone : ''}`}
-              onClick={() => setTaskDone(v => !v)}
-            >
-              <div className={styles.taskCardLeft}>
-                <div className={styles.taskMeta}>
-                  <span className={styles.taskTag}>Premier jour</span>
-                  <span className={styles.taskDuration}>~5 min</span>
-                </div>
-                <p className={styles.taskTitle}>Ajoute ta première plante</p>
-                <p className={styles.taskSubtitle}>Appuie sur le + en bas pour commencer.</p>
-              </div>
-              <div
-                className={`${styles.taskCheckbox} ${taskDone ? styles.taskCheckboxDone : ''}`}
-                aria-hidden="true"
-              />
-            </button>
+          {isEmptyState ? (
+            <p className={styles.emptyTaskMsg}>
+              Ajoute des plantes pour voir tes tâches ici.
+            </p>
+          ) : visibleHomeTasks.length === 0 ? (
+            <p className={styles.emptyTaskMsg}>
+              Toutes les tâches du jour sont faites !
+            </p>
+          ) : (
+            <div className={styles.taskList}>
+              {visibleHomeTasks.map(task => (
+                <TaskCard
+                  key={task.id}
+                  title={task.title}
+                  frequency={CATEGORY_LABELS[task.category] ?? null}
+                  conseil={task.description}
+                  icon={getCategoryIcon(task.category)}
+                  plantLabel={instanceLabels[task.plantInstanceId]}
+                  plantIcon={PLANT_PICTOS[task.plantId] ?? null}
+                  variant={task.section === 'surveiller' ? 'surveiller' : undefined}
+                  onChange={(checked) => { if (checked) handleCheckTask(task.id) }}
+                />
+              ))}
+            </div>
           )}
         </section>
 
@@ -188,7 +351,7 @@ export default function HomePage() {
           ) : (
             <div className={styles.plantGrid}>
               {myPlants.map(({ inst, plant }, index) => {
-                const contexte    = cleContexte ? plant.contextes?.[cleContexte] ?? null : null
+                const contexte    = cleContexte ? getContexteFromCatalogue(plant.id, cleContexte) ?? plant.contextes?.[cleContexte] ?? null : null
                 const colorVariant = (index % 4 === 0 || index % 4 === 3) ? 'primary' : 'tertiary'
                 return (
                   <PlantCard
@@ -226,7 +389,7 @@ export default function HomePage() {
 
           <div className={styles.plantGrid}>
             {plantesRecommandees.map((plant, index) => {
-              const contexte     = cleContexte ? plant.contextes?.[cleContexte] ?? null : null
+              const contexte     = cleContexte ? getContexteFromCatalogue(plant.id, cleContexte) ?? plant.contextes?.[cleContexte] ?? null : null
               const colorVariant = (index % 4 === 0 || index % 4 === 3) ? 'primary' : 'tertiary'
               return (
                 <PlantCard
@@ -235,13 +398,22 @@ export default function HomePage() {
                   contexte={contexte}
                   colorVariant={colorVariant}
                   variant="add"
-                  onAdd={() => navigate('/ajout-plante')}
+                  onAdd={() => handleAddPlant(plant)}
+                  onClick={() => navigate(`/info-plante/${plant.id}`)}
                 />
               )
             })}
           </div>
         </section>
       </main>
+
+      {/* ─── Toast ──────────────────────────────────────────── */}
+      {toast && (
+        <div className={styles.toast} role="status" aria-live="polite">
+          <span className={styles.toastIcon}>✓</span>
+          <span><strong>{toast}</strong> ajoutée à ton jardin !</span>
+        </div>
+      )}
 
       {/* ─── Bouton + flottant ──────────────────────────────── */}
       <button

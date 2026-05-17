@@ -281,7 +281,21 @@
   padding: 24px 18px;
 }
 
-// TaskCard
+// ─── Section Tâches ───────────────────────────────────────────────────────────
+.emptyTaskMsg {
+  font-family: var(--font-family-text);
+  font-size:   14px;
+  color:       var(--Colors-Neutral-500, #6b7280);
+  padding:     8px 0 4px;
+}
+
+.taskList {
+  display:        flex;
+  flex-direction: column;
+  gap:            10px;
+}
+
+// TaskCard (legacy, conservé pour compat)
 .taskCard {
   display: flex;
   gap: 6px;
@@ -607,4 +621,46 @@
   svg polygon {
     fill: white;
   }
+}
+
+// ─── Toast ────────────────────────────────────────────────────────────────────
+.toast {
+  position:    fixed;
+  bottom:      100px;
+  left:        50%;
+  transform:   translateX(-50%);
+  width:       calc(393px - 32px);
+  max-width:   calc(100% - 32px);
+  display:     flex;
+  align-items: center;
+  gap:         10px;
+  padding:     12px 16px;
+  background:  var(--primitive-primary-800);
+  color:       white;
+  border-radius: var(--radius-3);
+  font-family: var(--font-family-text);
+  font-size:   14px;
+  z-index:     300;
+  animation:   toastIn 0.2s ease;
+
+  strong { font-weight: var(--font-weight-700); }
+}
+
+.toastIcon {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:           24px;
+  height:          24px;
+  background:      white;
+  border-radius:   50%;
+  color:           var(--primitive-primary-800);
+  font-size:       13px;
+  font-weight:     var(--font-weight-700);
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }

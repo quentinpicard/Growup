@@ -1,0 +1,274 @@
+{
+  "id": "carotte",
+  "nom": "Carotte",
+  "nom_latin": "Daucus carota",
+  "emoji": "🥕",
+  "famille": "Apiacées",
+  "type": "Légume racine",
+  "cycle_jours": 90,
+  "stades": ["semis", "germination", "croissance", "recolte"],
+  "particularites_generales": {
+    "racine_pivotante": true,
+    "profondeur_minimum_cm": 25,
+    "transplantation": false,
+    "semis_direct_uniquement": true,
+    "ensoleillement_min_h": 4,
+    "ensoleillement_ideal_h": 6,
+    "substrat": "Meuble, sablonneux, sans cailloux, pH 6-7"
+  },
+  "matrice_contextes": {
+
+    "balcon_terrasse_sud": {
+      "compatibilite": "ideale",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
+      "mois_semis_ideal": ["mars", "avril", "mai", "juin", "juillet"],
+      "pot_recommande": {
+        "profondeur_min_cm": 30,
+        "volume_min_litres": 20,
+        "type": "Bac rectangulaire profond ou pot grand format",
+        "materiau_conseille": "Terre cuite ou bois (limite la surchauffe)"
+      },
+      "conseil_bruno": "Là on est dans la zone parfaite pour la carotte. Le seul truc qui va te jouer des tours en plein été, c'est la chaleur — un bac de 30 cm de profondeur minimum, sinon les racines vont buter et faire des trucs bizarres. Pense à pailler dès qu'il commence à faire chaud, sinon tu vas arroser toutes les 5 minutes.",
+      "besoins_specifiques": [
+        "Pailler obligatoirement dès mai pour limiter l'évaporation",
+        "Arrosage régulier au goulot, jamais en pluie sur le feuillage",
+        "Éclaircir à 4-5 cm entre chaque plant après 3 semaines",
+        "Protéger du soleil direct entre 12h et 16h en pleine canicule"
+      ]
+    },
+
+    "balcon_terrasse_ouest": {
+      "compatibilite": "ideale",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
+      "mois_semis_ideal": ["mars", "avril", "mai", "juin", "juillet", "aout"],
+      "pot_recommande": {
+        "profondeur_min_cm": 30,
+        "volume_min_litres": 20,
+        "type": "Bac rectangulaire profond",
+        "materiau_conseille": "Terre cuite, bois ou plastique épais"
+      },
+      "conseil_bruno": "Honnêtement, balcon ouest c'est presque mieux que plein sud pour la carotte. Le soleil de l'après-midi suffit largement, et tes plants ne vont pas cuire au moment le plus chaud. Tu peux y aller tranquille.",
+      "besoins_specifiques": [
+        "Profondeur de pot minimum 30 cm",
+        "Arroser le matin pour profiter du soleil de l'après-midi",
+        "Pailler en été pour garder la fraîcheur",
+        "Éclaircir 3 semaines après le semis"
+      ]
+    },
+
+    "balcon_terrasse_est": {
+      "compatibilite": "possible",
+      "difficulte": "moyen",
+      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
+      "mois_semis_ideal": ["avril", "mai", "juin"],
+      "pot_recommande": {
+        "profondeur_min_cm": 30,
+        "volume_min_litres": 20,
+        "type": "Bac rectangulaire profond",
+        "materiau_conseille": "Plastique foncé (capte la chaleur du matin)"
+      },
+      "conseil_bruno": "Soleil du matin uniquement, ça veut dire que la carotte va pousser un peu plus lentement, mais ça marche. Vise les variétés courtes type 'Marché de Paris' ou 'Carotte ronde', elles s'accommodent bien d'un ensoleillement modéré. Sois patient, on est sur 100-110 jours plutôt que 90.",
+      "besoins_specifiques": [
+        "Privilégier les variétés courtes (Marché de Paris, Parmex, Ronde)",
+        "Compter 2-3 semaines de plus avant récolte",
+        "Pot de couleur foncée pour capter la chaleur",
+        "Arrosage modéré, l'évaporation est plus faible"
+      ]
+    },
+
+    "balcon_terrasse_nord": {
+      "compatibilite": "deconseillee",
+      "difficulte": "difficile",
+      "stades_recommandes": [],
+      "mois_semis_ideal": [],
+      "pot_recommande": null,
+      "conseil_bruno": "Je vais être honnête avec toi : un balcon nord, c'est pas l'endroit où la carotte va s'épanouir. Elle a besoin d'au moins 4-5h de soleil direct par jour, et là on n'y est pas. Si t'y tiens vraiment, tente le coup en plein été uniquement, mais je te conseille plutôt d'aller voir du côté des aromatiques (persil, ciboulette) ou des salades — ça marchera mieux dans ce coin.",
+      "besoins_specifiques": [
+        "Alternative recommandée : persil, ciboulette, salades",
+        "Si tentative quand même : uniquement de mai à juillet",
+        "Variétés courtes obligatoires",
+        "Récolte tardive et calibres réduits attendus"
+      ]
+    },
+
+    "rebord_ext_fenetre_sud": {
+      "compatibilite": "possible",
+      "difficulte": "moyen",
+      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
+      "mois_semis_ideal": ["avril", "mai", "juin"],
+      "pot_recommande": {
+        "profondeur_min_cm": 25,
+        "volume_min_litres": 10,
+        "type": "Jardinière profonde format XL",
+        "materiau_conseille": "Terre cuite (régule la chaleur)"
+      },
+      "conseil_bruno": "Le rebord de fenêtre c'est faisable pour la carotte, mais à une condition : prends une jardinière vraiment profonde, au moins 25 cm. Et choisis une variété ronde ou courte — la 'Carotte Parmex' ou la 'Marché de Paris' sont taillées pour ça. Avec une exposition sud, attention au coup de chaud sur ce petit volume de terre, ça sèche vite.",
+      "besoins_specifiques": [
+        "Variétés courtes ou rondes obligatoires (Parmex, Marché de Paris)",
+        "Arrosage quotidien en été (petit volume = séchage rapide)",
+        "Vérifier la fixation de la jardinière (sécurité)",
+        "Pailler dès que les températures dépassent 25°C"
+      ]
+    },
+
+    "rebord_ext_fenetre_ouest": {
+      "compatibilite": "possible",
+      "difficulte": "moyen",
+      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
+      "mois_semis_ideal": ["avril", "mai", "juin", "juillet"],
+      "pot_recommande": {
+        "profondeur_min_cm": 25,
+        "volume_min_litres": 10,
+        "type": "Jardinière profonde format XL",
+        "materiau_conseille": "Terre cuite ou bois"
+      },
+      "conseil_bruno": "Rebord ouest, c'est jouable avec des variétés courtes. Le soleil de l'après-midi te donne ce qu'il faut, et l'évaporation est moins violente qu'en plein sud. Vise une jardinière de 25 cm minimum en profondeur — sinon les racines vont butter et tu vas récolter des carottes en forme de virgule.",
+      "besoins_specifiques": [
+        "Variétés courtes uniquement (Parmex, Marché de Paris, Ronde)",
+        "Jardinière de 25 cm de profondeur minimum",
+        "Arrosage matinal régulier",
+        "Sécuriser la fixation"
+      ]
+    },
+
+    "rebord_ext_fenetre_est": {
+      "compatibilite": "possible",
+      "difficulte": "moyen",
+      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
+      "mois_semis_ideal": ["mai", "juin"],
+      "pot_recommande": {
+        "profondeur_min_cm": 25,
+        "volume_min_litres": 10,
+        "type": "Jardinière profonde format XL",
+        "materiau_conseille": "Plastique foncé ou terre cuite"
+      },
+      "conseil_bruno": "Avec un rebord est, on est à la limite. Le soleil du matin va aider, mais avec un petit volume de terre, la pousse va être lente. Si tu te lances, prends des variétés rondes type 'Parmex' — elles n'ont besoin que de 15 cm de profondeur utile et tolèrent mieux la mi-ombre. Compte large sur le calendrier, on est sur 110-120 jours.",
+      "besoins_specifiques": [
+        "Variétés rondes recommandées (Parmex en priorité)",
+        "Récolte tardive (110-120 jours)",
+        "Pot foncé pour capter la chaleur",
+        "Calibres réduits attendus"
+      ]
+    },
+
+    "rebord_ext_fenetre_nord": {
+      "compatibilite": "deconseillee",
+      "difficulte": "difficile",
+      "stades_recommandes": [],
+      "mois_semis_ideal": [],
+      "pot_recommande": null,
+      "conseil_bruno": "Là, je vais pas te mentir : rebord nord + petit volume de terre, la carotte va galérer. Pas assez de soleil, pas assez de profondeur, c'est le combo qui décourage. Sur un rebord nord, tu serais mieux servi avec du persil, de la ciboulette ou de la menthe — elles s'accommodent très bien de cette expo.",
+      "besoins_specifiques": [
+        "Alternative recommandée : persil, ciboulette, menthe, mâche",
+        "Carotte non viable dans cette zone"
+      ]
+    },
+
+    "interieur_fenetre_sud": {
+      "compatibilite": "deconseillee",
+      "difficulte": "difficile",
+      "stades_recommandes": [],
+      "mois_semis_ideal": [],
+      "pot_recommande": null,
+      "conseil_bruno": "Je vais être franc : la carotte en intérieur, même près d'une fenêtre sud, c'est compliqué. La vitre filtre le soleil, le racinaire a besoin de profondeur, et tu vas te battre contre des conditions que la plante n'aime pas. Si t'as envie de cultiver à l'intérieur, pars plutôt sur des aromatiques (basilic, ciboulette) ou des micro-pousses — c'est fait pour ça.",
+      "besoins_specifiques": [
+        "Alternative recommandée : micro-pousses, aromatiques, salades à couper",
+        "Carotte non adaptée à la culture intérieure"
+      ]
+    },
+
+    "interieur_fenetre_ouest": {
+      "compatibilite": "deconseillee",
+      "difficulte": "difficile",
+      "stades_recommandes": [],
+      "mois_semis_ideal": [],
+      "pot_recommande": null,
+      "conseil_bruno": "En intérieur fenêtre ouest, la carotte n'a vraiment aucune chance de bien se développer. Trop peu de lumière directe, besoin de profondeur, et le manque d'air n'aide pas. Pour ce coin, tente plutôt des micro-pousses ou de la ciboulette, ça va te donner beaucoup plus de satisfaction.",
+      "besoins_specifiques": [
+        "Alternative recommandée : micro-pousses, ciboulette, basilic",
+        "Carotte non adaptée à la culture intérieure"
+      ]
+    },
+
+    "interieur_fenetre_est": {
+      "compatibilite": "deconseillee",
+      "difficulte": "difficile",
+      "stades_recommandes": [],
+      "mois_semis_ideal": [],
+      "pot_recommande": null,
+      "conseil_bruno": "Intérieur fenêtre est, c'est non pour la carotte — même moi j'irais pas me battre contre la physique. Pas assez de lumière, pas assez d'aération. Garde ce coin pour des aromatiques ou des micro-pousses, tu seras beaucoup plus content du résultat.",
+      "besoins_specifiques": [
+        "Alternative recommandée : micro-pousses, aromatiques",
+        "Carotte non adaptée à la culture intérieure"
+      ]
+    },
+
+    "interieur_fenetre_nord": {
+      "compatibilite": "deconseillee",
+      "difficulte": "difficile",
+      "stades_recommandes": [],
+      "mois_semis_ideal": [],
+      "pot_recommande": null,
+      "conseil_bruno": "Intérieur fenêtre nord pour une carotte… on va dire que c'est le pire combo possible. Pas de soleil direct, peu de lumière, peu d'air. Si tu veux quand même cultiver quelque chose dans ce coin, regarde plutôt du côté des micro-pousses qui poussent en quelques jours, ou de la menthe qui tolère bien la mi-ombre.",
+      "besoins_specifiques": [
+        "Alternative recommandée : micro-pousses, menthe",
+        "Carotte non adaptée à cette zone"
+      ]
+    },
+
+    "jardin_plein_soleil": {
+      "compatibilite": "ideale",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
+      "mois_semis_ideal": ["mars", "avril", "mai", "juin", "juillet"],
+      "pot_recommande": {
+        "profondeur_min_cm": 30,
+        "volume_min_litres": null,
+        "type": "Pleine terre (idéal)",
+        "materiau_conseille": "Sol travaillé en profondeur, sans cailloux"
+      },
+      "conseil_bruno": "Voilà, on est dans le cas parfait. Pleine terre, plein soleil, la carotte adore. Le seul truc à surveiller, c'est la nature de ton sol : si c'est argileux ou caillouteux, tu vas récolter des carottes biscornues. Travaille bien la terre sur 30 cm de profondeur, ajoute du sable si besoin, et tu vas avoir de belles racines bien droites.",
+      "besoins_specifiques": [
+        "Travailler la terre en profondeur (30 cm minimum, sans cailloux)",
+        "Ajouter du sable si sol argileux",
+        "Semer en ligne avec 25 cm entre les rangs",
+        "Pailler entre les rangs dès mai"
+      ]
+    },
+
+    "jardin_mi_ombre": {
+      "compatibilite": "possible",
+      "difficulte": "moyen",
+      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
+      "mois_semis_ideal": ["avril", "mai", "juin"],
+      "pot_recommande": {
+        "profondeur_min_cm": 30,
+        "volume_min_litres": null,
+        "type": "Pleine terre",
+        "materiau_conseille": "Sol travaillé en profondeur"
+      },
+      "conseil_bruno": "Mi-ombre, c'est jouable mais ne t'attends pas à des records. La carotte va pousser plus lentement et tes racines seront un peu plus petites. C'est pas grave, c'est juste un autre rythme. Compte 100-120 jours au lieu de 90.",
+      "besoins_specifiques": [
+        "Cycle allongé (100-120 jours)",
+        "Calibres légèrement réduits",
+        "Arrosage modéré (évaporation plus faible)",
+        "Préférer les semis du printemps à ceux d'été"
+      ]
+    },
+
+    "jardin_ombre": {
+      "compatibilite": "deconseillee",
+      "difficulte": "difficile",
+      "stades_recommandes": [],
+      "mois_semis_ideal": [],
+      "pot_recommande": null,
+      "conseil_bruno": "Un coin ombragé en pleine terre, c'est pas le terrain de jeu de la carotte. Elle a vraiment besoin de soleil pour développer ses sucres et son calibre. Ce coin sera bien plus productif avec des plantes qui aiment la fraîcheur : épinards, mâche, persil, oseille.",
+      "besoins_specifiques": [
+        "Alternative recommandée : épinards, mâche, persil, oseille",
+        "Carotte non viable en zone ombragée"
+      ]
+    }
+  }
+}

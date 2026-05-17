@@ -1,0 +1,994 @@
+{
+  "meta": {
+    "contextes": [
+      "balcon_terrasse_sud",
+      "balcon_terrasse_ouest",
+      "balcon_terrasse_est",
+      "balcon_terrasse_nord",
+      "rebord_ext_fenetre_sud",
+      "rebord_ext_fenetre_ouest",
+      "rebord_ext_fenetre_est",
+      "rebord_ext_fenetre_nord",
+      "interieur_fenetre_sud",
+      "interieur_fenetre_ouest",
+      "interieur_fenetre_est",
+      "interieur_fenetre_nord",
+      "jardin_plein_soleil",
+      "jardin_mi_ombre",
+      "jardin_ombre"
+    ],
+    "valeurs_compatibilite": [
+      "ideale",
+      "possible",
+      "deconseille"
+    ],
+    "valeurs_difficulte": [
+      "facile",
+      "moyen",
+      "difficile"
+    ],
+    "notes": "15 contextes = 4 balcon × 4 expo + 4 rebord × 4 expo + 4 intérieur × 4 expo + jardin × 3 niveaux luminosité"
+  },
+  "plantes": {
+    "courgette": {
+      "nom": "Courgette",
+      "emoji": "🥒",
+      "balcon_terrasse_sud": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "jardin_ombre": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      }
+    },
+    "concombre": {
+      "nom": "Concombre",
+      "emoji": "🥒",
+      "balcon_terrasse_sud": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "difficile"
+      },
+      "jardin_ombre": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      }
+    },
+    "salade": {
+      "nom": "Salade (laitue)",
+      "emoji": "🥬",
+      "balcon_terrasse_sud": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "jardin_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      }
+    },
+    "tomate": {
+      "nom": "Tomate",
+      "emoji": "🍅",
+      "balcon_terrasse_sud": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "possible",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "difficile"
+      },
+      "jardin_ombre": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      }
+    },
+    "aubergine": {
+      "nom": "Aubergine",
+      "emoji": "🍆",
+      "balcon_terrasse_sud": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "difficile"
+      },
+      "jardin_ombre": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      }
+    },
+    "oignon": {
+      "nom": "Oignon",
+      "emoji": "🧅",
+      "balcon_terrasse_sud": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "jardin_ombre": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      }
+    },
+    "pomme_de_terre": {
+      "nom": "Pomme de terre",
+      "emoji": "🥔",
+      "balcon_terrasse_sud": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "jardin_ombre": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      }
+    },
+    "chou": {
+      "nom": "Chou",
+      "emoji": "🥦",
+      "balcon_terrasse_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "jardin_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "difficile"
+      }
+    },
+    "courge": {
+      "nom": "Courge",
+      "emoji": "🎃",
+      "balcon_terrasse_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "jardin_ombre": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      }
+    },
+    "brocoli": {
+      "nom": "Brocoli",
+      "emoji": "🥦",
+      "balcon_terrasse_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "jardin_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "difficile"
+      }
+    },
+    "poireau": {
+      "nom": "Poireau",
+      "emoji": "🧅",
+      "balcon_terrasse_sud": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "jardin_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "difficile"
+      }
+    },
+    "pomme": {
+      "nom": "Pomme (pommier nain)",
+      "emoji": "🍎",
+      "balcon_terrasse_sud": {
+        "compatibilite": "possible",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "possible",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "ideale",
+        "difficulte": "difficile"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "difficile"
+      },
+      "jardin_ombre": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      }
+    },
+    "fraise": {
+      "nom": "Fraise",
+      "emoji": "🍓",
+      "balcon_terrasse_sud": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "jardin_ombre": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      }
+    },
+    "carotte": {
+      "nom": "Carotte",
+      "emoji": "🥕",
+      "balcon_terrasse_sud": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "ideale",
+        "difficulte": "facile"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "jardin_ombre": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      }
+    },
+    "tomate_cerise": {
+      "nom": "Tomate cerise",
+      "emoji": "🍅",
+      "balcon_terrasse_sud": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_ouest": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "balcon_terrasse_est": {
+        "compatibilite": "possible",
+        "difficulte": "difficile"
+      },
+      "balcon_terrasse_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_sud": {
+        "compatibilite": "possible",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_ouest": {
+        "compatibilite": "possible",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "rebord_ext_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_sud": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_ouest": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_est": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "interieur_fenetre_nord": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      },
+      "jardin_plein_soleil": {
+        "compatibilite": "ideale",
+        "difficulte": "moyen"
+      },
+      "jardin_mi_ombre": {
+        "compatibilite": "possible",
+        "difficulte": "moyen"
+      },
+      "jardin_ombre": {
+        "compatibilite": "deconseille",
+        "difficulte": "difficile"
+      }
+    }
+  }
+}

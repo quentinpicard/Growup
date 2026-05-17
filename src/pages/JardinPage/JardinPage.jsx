@@ -6,6 +6,7 @@ import { SpeechBubble } from '../../components/index'
 import styles from './JardinPage.module.scss'
 
 import plants from '../../mocks/plants.json'
+import { getContexteFromCatalogue } from '../../data/getCompatibilite'
 
 import brunoImg     from '../../assets/Mascotte 1.png'
 import IconSearch   from '../../assets/icons/Search_alt_fill.svg?react'
@@ -175,7 +176,7 @@ export default function JardinPage() {
         ) : (
           <div className={styles.plantGrid}>
             {visiblePlants.map(({ instance, plant }, index) => {
-              const contexte     = contextKey ? plant.contextes?.[contextKey] ?? null : null
+              const contexte     = contextKey ? getContexteFromCatalogue(plant.id, contextKey) ?? plant.contextes?.[contextKey] ?? null : null
               const colorVariant = (index % 4 === 0 || index % 4 === 3) ? 'primary' : 'tertiary'
               return (
                 <PlantCard

@@ -64,9 +64,9 @@ const DIFF_NIVEAU_CLASS = {
  * variant="add"  (défaut) — card statique + bouton "+" en bas à droite
  * variant="link"          — toute la card est cliquable, pas de bouton "+"
  */
-export default function PlantCard({ plant, contexte, onAdd, colorVariant = 'primary', variant = 'add' }) {
-  const compat     = contexte?.compatibilite ?? plant.compatibilite
-  const difficulte = contexte?.difficulte    ?? plant.difficulte
+export default function PlantCard({ plant, contexte, onAdd, onClick, colorVariant = 'primary', variant = 'add' }) {
+  const compat     = contexte?.compatibilite ?? null
+  const difficulte = contexte?.difficulte    ?? null
 
   const bgClass = colorVariant === 'tertiary' ? styles['card--tertiary'] : styles['card--primary']
 
@@ -75,14 +75,20 @@ export default function PlantCard({ plant, contexte, onAdd, colorVariant = 'prim
 
   const inner = (
     <>
-      <div className={styles.tags}>
-        <span className={`${styles.tag} ${COMPAT_NIVEAU_CLASS[compat.niveau] ?? ''}`}>
-          {compat.label}
-        </span>
-        <span className={`${styles.tag} ${DIFF_NIVEAU_CLASS[difficulte.niveau] ?? ''}`}>
-          {difficulte.label}
-        </span>
-      </div>
+      {(compat || difficulte) && (
+        <div className={styles.tags}>
+          {compat && (
+            <span className={`${styles.tag} ${COMPAT_NIVEAU_CLASS[compat.niveau] ?? ''}`}>
+              {compat.label}
+            </span>
+          )}
+          {difficulte && (
+            <span className={`${styles.tag} ${DIFF_NIVEAU_CLASS[difficulte.niveau] ?? ''}`}>
+              {difficulte.label}
+            </span>
+          )}
+        </div>
+      )}
 
       <div className={styles.iconWrap}>
         {picto
@@ -101,7 +107,7 @@ export default function PlantCard({ plant, contexte, onAdd, colorVariant = 'prim
         {variant === 'add' && (
           <button
             className={styles.addBtn}
-            onClick={onAdd}
+            onClick={(e) => { e.stopPropagation(); onAdd?.() }}
             aria-label={`Ajouter ${plant.nom}`}
           >
             +
@@ -124,7 +130,11 @@ export default function PlantCard({ plant, contexte, onAdd, colorVariant = 'prim
   }
 
   return (
-    <div className={`${styles.card} ${bgClass}`}>
+    <div
+      className={`${styles.card} ${bgClass}${onClick ? ` ${styles['card--clickable']}` : ''}`}
+      onClick={onClick}
+      style={{ cursor: onClick ? 'pointer' : undefined }}
+    >
       {inner}
     </div>
   )
