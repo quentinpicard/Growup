@@ -149,6 +149,7 @@ export default function PlantInfosAjoutPage() {
   const { user, dispatch } = useApp()
   const [toast, setToast]         = useState(false)
   const [activeTab, setActiveTab] = useState('infos')
+  const [openSections, setOpenSections] = useState(['contenant'])
 
   const plant = PLANTS_BY_ID[id]
   if (!plant) return <Navigate to="/ajout-plante" replace />
@@ -162,6 +163,7 @@ export default function PlantInfosAjoutPage() {
   const extras        = PLANT_EXTRAS[plant.id] ?? null
   const contexteData  = extras && contextKey ? extras.matrice_contextes?.[contextKey] ?? null : null
   const particulars   = extras?.particularites_generales ?? null
+  const bienCommencer = contexteData?.bien_commencer ?? null
 
   const stade       = plant.stade_par_defaut
   const stadePicto  = STADE_PICTO[stade]
@@ -173,6 +175,12 @@ export default function PlantInfosAjoutPage() {
   const diffCfg   = DIFF_CONFIG[difficulte.niveau] ?? DIFF_CONFIG.facile
   const CompatIcon = compatCfg.Icon
   const DiffIcon   = diffCfg.Icon
+
+  function toggleSection(key) {
+    setOpenSections(prev =>
+      prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key]
+    )
+  }
 
   function handleAdd() {
     dispatch({
@@ -469,9 +477,166 @@ export default function PlantInfosAjoutPage() {
         )}
 
         {activeTab === 'bien_commencer' && (
-          <div className={styles.comingSoon}>
-            <p>Bientôt disponible</p>
-          </div>
+          <>
+            {!bienCommencer ? (
+              <div className={styles.comingSoon}>
+                <p>Bientôt disponible</p>
+              </div>
+            ) : (
+              <div className={styles.bienCommencer}>
+
+                {/* Accroche */}
+                <div className={styles.accrocheCard}>
+                  <p className={styles.accrocheText}>{bienCommencer.accroche}</p>
+                </div>
+
+                {bienCommencer.alternative ? (
+                  /* ─── Contexte déconseillé ──────────────────────── */
+                  <div className={styles.section}>
+                    <div className={styles.brunoRow}>
+                      <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
+                      <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
+                        <p className={styles.bubbleText}>{bienCommencer.alternative.message}</p>
+                      </div>
+                    </div>
+                    {bienCommencer.alternative.plantes_conseillees?.length > 0 && (
+                      <div className={styles.alternativeGrid}>
+                        {bienCommencer.alternative.plantes_conseillees.map(plante => (
+                          <div key={plante} className={styles.alternativePlante}>
+                            {PICTO_MAP[plante] && (
+                              <img src={PICTO_MAP[plante]} alt="" className={styles.alternativeIcon} />
+                            )}
+                            <span className={styles.alternativeLabel}>{plante}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  /* ─── Contexte favorable : accordion ────────────── */
+                  <>
+                    {/* Contenant */}
+                    {bienCommencer.priorite_contenant && (
+                      <div className={styles.accordionSection}>
+                        <button
+                          className={`${styles.accordionHeader} ${openSections.includes('contenant') ? styles.accordionHeaderOpen : ''}`}
+                          onClick={() => toggleSection('contenant')}
+                          aria-expanded={openSections.includes('contenant')}
+                        >
+                          <span>{bienCommencer.priorite_contenant.titre}</span>
+                          <span className={`${styles.chevron} ${openSections.includes('contenant') ? styles.chevronOpen : ''}`} aria-hidden="true" />
+                        </button>
+                        {openSections.includes('contenant') && (
+                          <div className={styles.accordionBody}>
+                            <p className={styles.accordionDesc}>{bienCommencer.priorite_contenant.description}</p>
+                            <div className={styles.specsGrid}>
+                              {bienCommencer.priorite_contenant.profondeur_min && (
+                                <div className={styles.specRow}>
+                                  <span className={styles.specLabel}>Profondeur min.</span>
+                                  <span className={styles.specValue}>{bienCommencer.priorite_contenant.profondeur_min}</span>
+                                </div>
+                              )}
+                              {bienCommencer.priorite_contenant.volume_min && (
+                                <div className={styles.specRow}>
+                                  <span className={styles.specLabel}>Volume min.</span>
+                                  <span className={styles.specValue}>{bienCommencer.priorite_contenant.volume_min}</span>
+                                </div>
+                              )}
+                              {bienCommencer.priorite_contenant.type_recommande && (
+                                <div className={styles.specRow}>
+                                  <span className={styles.specLabel}>Type</span>
+                                  <span className={styles.specValue}>{bienCommencer.priorite_contenant.type_recommande}</span>
+                                </div>
+                              )}
+                              {bienCommencer.priorite_contenant.materiau && (
+                                <div className={styles.specRow}>
+                                  <span className={styles.specLabel}>Matériau</span>
+                                  <span className={styles.specValue}>{bienCommencer.priorite_contenant.materiau}</span>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Substrat */}
+                    {bienCommencer.substrat && (
+                      <div className={styles.accordionSection}>
+                        <button
+                          className={`${styles.accordionHeader} ${openSections.includes('substrat') ? styles.accordionHeaderOpen : ''}`}
+                          onClick={() => toggleSection('substrat')}
+                          aria-expanded={openSections.includes('substrat')}
+                        >
+                          <span>{bienCommencer.substrat.titre}</span>
+                          <span className={`${styles.chevron} ${openSections.includes('substrat') ? styles.chevronOpen : ''}`} aria-hidden="true" />
+                        </button>
+                        {openSections.includes('substrat') && (
+                          <div className={styles.accordionBody}>
+                            <p className={styles.accordionDesc}>{bienCommencer.substrat.description}</p>
+                            {bienCommencer.substrat.melange_conseille && (
+                              <div className={styles.melangeTag}>
+                                <span className={styles.melangeLabel}>Mélange conseillé</span>
+                                <span className={styles.melangeValue}>{bienCommencer.substrat.melange_conseille}</span>
+                              </div>
+                            )}
+                            {bienCommencer.substrat.a_eviter?.length > 0 && (
+                              <div className={styles.aEviterGroup}>
+                                <p className={styles.aEviterTitle}>À éviter</p>
+                                <ul className={styles.aEviterList}>
+                                  {bienCommencer.substrat.a_eviter.map((item, i) => (
+                                    <li key={i} className={styles.aEviterItem}>{item}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Semer */}
+                    {bienCommencer.semer && (
+                      <div className={styles.accordionSection}>
+                        <button
+                          className={`${styles.accordionHeader} ${openSections.includes('semer') ? styles.accordionHeaderOpen : ''}`}
+                          onClick={() => toggleSection('semer')}
+                          aria-expanded={openSections.includes('semer')}
+                        >
+                          <span>{bienCommencer.semer.titre}</span>
+                          <span className={`${styles.chevron} ${openSections.includes('semer') ? styles.chevronOpen : ''}`} aria-hidden="true" />
+                        </button>
+                        {openSections.includes('semer') && (
+                          <div className={styles.accordionBody}>
+                            <p className={styles.accordionDesc}>{bienCommencer.semer.description}</p>
+                            {bienCommencer.semer.conseils?.length > 0 && (
+                              <ul className={styles.conseilsList}>
+                                {bienCommencer.semer.conseils.map((conseil, i) => (
+                                  <li key={i} className={styles.conseilItem}>{conseil}</li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Erreurs à éviter */}
+                    {bienCommencer.erreurs_a_eviter?.length > 0 && (
+                      <div className={styles.erreursSection}>
+                        <h2 className={styles.erreursSectionTitle}>Erreurs à éviter</h2>
+                        <ul className={styles.erreursList}>
+                          {bienCommencer.erreurs_a_eviter.map((err, i) => (
+                            <li key={i} className={styles.erreurItem}>{err}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+            )}
+          </>
         )}
 
       </div>

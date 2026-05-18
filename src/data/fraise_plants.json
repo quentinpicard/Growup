@@ -30,11 +30,44 @@
         "type": "Pot rond ou jardinière, idéalement fraisier suspendu",
         "materiau_conseille": "Terre cuite ou bois (évite la surchauffe des racines)"
       },
-      "conseil_bruno": "Plein sud, c'est le jackpot pour la fraise. Le truc à surveiller c'est la chaleur en juillet-août — avec un petit pot en plein cagnard, les racines chauffent et la plante souffre. Paille bien la surface, arrose le matin, et si ça dépasse 35°C plusieurs jours, mets une ombrage l'après-midi. Pour les stolons, laisse-en 2-3 pousser dans des petits pots à côté pour te faire de nouveaux plants gratuitement.",
+      "bien_commencer": {
+        "accroche": "La fraise adore le plein sud. Ses racines sont courtes, elle n'a pas besoin d'un pot énorme, mais la chaleur estivale reste son principal ennemi.",
+        "priorite_contenant": {
+          "titre": "Un pot isolant pour protéger les racines",
+          "description": "Les racines de la fraise sont superficielles, elles chauffent vite dans un petit pot en plein soleil. Un matériau isolant fait toute la différence en juillet et août.",
+          "profondeur_min": "20 cm suffisent, les racines ne descendent pas profond",
+          "volume_min": "10 L pour 2 à 3 plants",
+          "type_recommande": "Pot rond, jardinière ou fraisier suspendu",
+          "materiau": "Terre cuite ou bois de préférence, ces matériaux régulent mieux la température qu'un pot plastique noir en plein cagnard"
+        },
+        "substrat": {
+          "titre": "Un substrat légèrement acide et bien drainé",
+          "description": "La fraise aime un sol légèrement acide. Un substrat trop calcaire donne des plants qui jaunissent et produisent moins.",
+          "melange_conseille": "Terreau pour fraisiers ou terreau potager légèrement acidifié, pH cible 5.5 à 6.5",
+          "a_eviter": ["Terreau universel trop calcaire", "Terre de jardin compactée", "Substrat sans drainage"]
+        },
+        "semer": {
+          "titre": "Planter au printemps ou en fin d'été",
+          "description": "La fraise se plante en godets, pas en graines. Le printemps et la fin d'été sont les deux meilleures fenêtres. En plein sud, la plantation d'automne donne souvent de meilleurs résultats la première année.",
+          "conseils": [
+            "Plante en mars et avril pour une première récolte dès juin",
+            "Ou plante en août et septembre pour des plants bien installés qui produiront dès le printemps suivant",
+            "Paille la surface dès la plantation pour protéger les fruits et limiter l'évaporation",
+            "Arrose au pied, jamais sur les fleurs ni les fruits"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Pot en plastique foncé en plein soleil, les racines cuisent rapidement",
+          "Arroser sur les fleurs, ça favorise les maladies et empêche la pollinisation",
+          "Laisser trop de stolons, ils épuisent la plante au détriment des fruits",
+          "Oublier le paillage, les fruits qui touchent la terre pourrissent"
+        ]
+      },
+      "conseil_bruno": "Plein sud, c'est le jackpot pour la fraise. Le truc à surveiller c'est la chaleur en juillet et août, avec un petit pot en plein cagnard, les racines chauffent et la plante souffre. Paille bien la surface, arrose le matin, et si ça dépasse 35°C plusieurs jours, mets une ombrage l'après-midi. Pour les stolons, laisse-en 2 à 3 pousser dans des petits pots à côté pour te faire de nouveaux plants gratuitement.",
       "besoins_specifiques": [
         "Pailler la surface (paillage = 'paille' à la base, empêche les fruits de toucher la terre)",
         "Arroser au pied, jamais sur les fleurs",
-        "Laisser 2-3 stolons pour renouveler les plants",
+        "Laisser 2 à 3 stolons pour renouveler les plants",
         "Ombrager si canicule >35°C plusieurs jours consécutifs",
         "Supprimer les stolons excédentaires pour concentrer l'énergie sur les fruits"
       ]
@@ -51,12 +84,44 @@
         "type": "Pot rond ou jardinière",
         "materiau_conseille": "Plastique, terre cuite ou bois"
       },
-      "conseil_bruno": "Balcon ouest, la fraise s'y sent très bien. Le soleil de l'après-midi suffit pour mûrir les fruits, et l'ombre du matin lui évite les excès de chaleur. Résultat : des fraises souvent plus parfumées qu'en plein sud — la maturation est plus lente, mais c'est souvent ce qui fait la différence côté goût.",
+      "bien_commencer": {
+        "accroche": "Balcon ouest, c'est souvent le meilleur endroit pour la fraise. Moins de stress thermique qu'en plein sud, le soleil de l'après-midi suffit pour mûrir des fruits parfumés.",
+        "priorite_contenant": {
+          "titre": "Un pot de 10 L pour 2 à 3 plants",
+          "description": "En expo ouest, la chaleur est moins intense qu'en plein sud. Tous les matériaux conviennent. L'important reste d'avoir assez de volume pour stabiliser l'humidité.",
+          "profondeur_min": "20 cm suffisent",
+          "volume_min": "10 L pour 2 à 3 plants",
+          "type_recommande": "Pot rond ou jardinière",
+          "materiau": "Plastique, terre cuite ou bois, tous fonctionnent bien en expo ouest"
+        },
+        "substrat": {
+          "titre": "Substrat légèrement acide, même recette qu'en plein sud",
+          "description": "La fraise reste sensible au pH quelle que soit l'exposition. Un terreau adapté dès le départ évite les carences.",
+          "melange_conseille": "Terreau pour fraisiers ou terreau potager légèrement acidifié, pH 5.5 à 6.5",
+          "a_eviter": ["Terreau universel trop calcaire", "Terre de jardin", "Substrat sans drainage"]
+        },
+        "semer": {
+          "titre": "Planter au printemps ou en fin d'été",
+          "description": "Même calendrier qu'en plein sud. L'arrosage du matin est idéal ici pour que le substrat soit bien humide quand le soleil arrive l'après-midi.",
+          "conseils": [
+            "Plante en mars et avril, ou en août et septembre",
+            "Arrose le matin de préférence",
+            "Paille la surface pour protéger les fruits et limiter l'évaporation",
+            "Retire les feuilles jaunies régulièrement pour aérer la plante"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Arroser sur les fleurs et les fruits",
+          "Laisser trop de stolons se développer",
+          "Négliger les limaces, elles adorent les fraises et sont plus actives en exposition fraîche"
+        ]
+      },
+      "conseil_bruno": "Balcon ouest, la fraise s'y sent très bien. Le soleil de l'après-midi suffit pour mûrir les fruits, et l'ombre du matin lui évite les excès de chaleur. Résultat : des fraises souvent plus parfumées qu'en plein sud, la maturation est plus lente, mais c'est souvent ce qui fait la différence côté goût.",
       "besoins_specifiques": [
         "Arroser le matin",
         "Pailler la surface autour des plants",
         "Retirer les feuilles jaunies régulièrement",
-        "Surveiller les limaces — elles adorent les fraises"
+        "Surveiller les limaces, elles adorent les fraises"
       ]
     },
 
@@ -71,7 +136,39 @@
         "type": "Pot rond ou jardinière",
         "materiau_conseille": "Plastique foncé pour capter la chaleur du matin"
       },
-      "conseil_bruno": "Avec le soleil du matin uniquement, la fraise va pousser et fleurir, mais les récoltes seront plus modestes. Vise les variétés remontantes — elles étalent leur production sur plus longtemps, ce qui compense. Et pour aider la pollinisation sur un balcon, quelques fleurs à proximité (lavande, souci) attirent les insectes.",
+      "bien_commencer": {
+        "accroche": "Balcon est, le soleil du matin suffit pour faire pousser la fraise, mais il faut choisir les bonnes variétés et penser à la pollinisation.",
+        "priorite_contenant": {
+          "titre": "Un pot foncé pour capter la chaleur du matin",
+          "description": "Avec seulement le soleil du matin, chaque degré compte. Un pot foncé absorbe et stocke mieux la chaleur matinale pour les racines.",
+          "profondeur_min": "20 cm",
+          "volume_min": "10 L",
+          "type_recommande": "Pot rond ou jardinière",
+          "materiau": "Plastique foncé, capte mieux la chaleur du matin que la terre cuite claire"
+        },
+        "substrat": {
+          "titre": "Substrat légèrement acide, enrichi",
+          "description": "Un substrat fertile compense partiellement le manque de chaleur accumulée.",
+          "melange_conseille": "Terreau pour fraisiers enrichi avec 15% de compost mûr",
+          "a_eviter": ["Terreau calcaire", "Sol trop drainant qui se refroidit vite la nuit"]
+        },
+        "semer": {
+          "titre": "Variétés remontantes, plantation à partir d'avril",
+          "description": "Les variétés remontantes étalent leur production sur toute la saison, ce qui compense le volume plus faible de chaque vague de fruits.",
+          "conseils": [
+            "Choisis des variétés remontantes : Mara des Bois, Charlotte",
+            "Plante à partir d'avril quand les matinées sont plus chaudes",
+            "Installe quelques fleurs à proximité (lavande, souci) pour attirer les pollinisateurs",
+            "Paille la surface dès la plantation"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Variétés non remontantes, leur production unique est trop courte pour rentabiliser ce contexte",
+          "Planter en mars, les matinées froides ralentissent la reprise",
+          "Négliger la pollinisation, sur un balcon peu fréquenté par les insectes ça peut faire la différence"
+        ]
+      },
+      "conseil_bruno": "Avec le soleil du matin uniquement, la fraise va pousser et fleurir, mais les récoltes seront plus modestes. Vise les variétés remontantes, elles étalent leur production sur plus longtemps, ce qui compense. Et pour aider la pollinisation sur un balcon, quelques fleurs à proximité (lavande, souci) attirent les insectes.",
       "besoins_specifiques": [
         "Variétés remontantes recommandées (Mara des Bois, Charlotte)",
         "Quelques fleurs à proximité pour attirer les pollinisateurs",
@@ -86,7 +183,14 @@
       "stades_recommandes": [],
       "mois_semis_ideal": [],
       "pot_recommande": null,
-      "conseil_bruno": "La fraise a besoin de soleil pour sucrifier ses fruits — sans ça, elle va fleurir un peu mais les fraises seront petites, acides, et tu vas vite te décourager. Sur un balcon nord, je te conseille plutôt des aromatiques ou des salades qui s'en sortent très bien sans plein soleil.",
+      "bien_commencer": {
+        "accroche": "La fraise a besoin de soleil pour sucrifier ses fruits. Sans au moins 6h par jour, les récoltes seront décevantes et les fruits acides.",
+        "alternative": {
+          "message": "Ce balcon sera beaucoup plus productif avec des plantes qui s'accommodent de l'ombre et de la fraîcheur.",
+          "plantes_conseillees": ["Salades", "Ciboulette", "Persil", "Menthe"]
+        }
+      },
+      "conseil_bruno": "La fraise a besoin de soleil pour sucrifier ses fruits, sans ça, elle va fleurir un peu mais les fraises seront petites, acides, et tu vas vite te décourager. Sur un balcon nord, je te conseille plutôt des aromatiques ou des salades qui s'en sortent très bien sans plein soleil.",
       "besoins_specifiques": [
         "Alternative recommandée : salades, ciboulette, persil, menthe",
         "Fraise non viable sans au moins 6h de soleil"
@@ -104,7 +208,40 @@
         "type": "Pot individuel ou petite jardinière",
         "materiau_conseille": "Terre cuite (régule la température)"
       },
-      "conseil_bruno": "Rebord de fenêtre sud, la fraise adore — racines peu profondes, exposition top. Un pot par plant suffit, et ça fait même un joli effet avec les fruits qui débordent. Surveille juste l'arrosage, un petit pot sèche vite au soleil. Un arrosage quotidien en été, c'est pas négligeable.",
+      "bien_commencer": {
+        "accroche": "Rebord de fenêtre sud, c'est le contexte idéal pour la fraise. Ses racines courtes s'accommodent parfaitement d'un petit volume de terre, et l'exposition est top.",
+        "priorite_contenant": {
+          "titre": "Un pot par plant suffit",
+          "description": "La fraise a des racines superficielles. Un pot de 5 L par plant est suffisant, et ça fait même un joli effet avec les fruits qui débordent.",
+          "profondeur_min": "15 cm suffisent",
+          "volume_min": "5 L par plant",
+          "type_recommande": "Pot individuel ou petite jardinière",
+          "materiau": "Terre cuite de préférence, elle régule bien la température et évite la surchauffe des racines en plein soleil"
+        },
+        "substrat": {
+          "titre": "Substrat acide et bien drainé",
+          "description": "Petit volume signifie séchage rapide. Un substrat bien drainé mais qui retient assez l'eau limite le stress hydrique.",
+          "melange_conseille": "Terreau pour fraisiers ou terreau potager légèrement acidifié",
+          "a_eviter": ["Terreau universel calcaire", "Terre de jardin trop lourde", "Substrat qui se compacte rapidement"]
+        },
+        "semer": {
+          "titre": "Planter en mars et avril ou en août et septembre",
+          "description": "Le rebord plein sud permet deux fenêtres de plantation. La plantation d'été en août donne souvent de très bons résultats l'année suivante.",
+          "conseils": [
+            "1 plant par pot de 5 L minimum",
+            "Arrose quotidiennement en plein été, le petit volume sèche très vite",
+            "Paille la surface pour limiter l'évaporation et empêcher les fruits de toucher la terre",
+            "Vérifie la fixation et la charge du rebord avant d'installer les pots"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Mettre plusieurs plants dans un pot trop petit, ils se concurrencent",
+          "Arroser sur les fleurs et les fruits",
+          "Oublier l'arrosage quotidien en été dans ce petit volume",
+          "Ne pas vérifier la fixation du rebord avant installation"
+        ]
+      },
+      "conseil_bruno": "Rebord de fenêtre sud, la fraise adore, racines peu profondes, exposition top. Un pot par plant suffit, et ça fait même un joli effet avec les fruits qui débordent. Surveille juste l'arrosage, un petit pot sèche vite au soleil. Un arrosage quotidien en été, c'est pas négligeable.",
       "besoins_specifiques": [
         "1 plant par pot de 5L minimum",
         "Arrosage quotidien en plein été",
@@ -124,10 +261,42 @@
         "type": "Pot individuel ou petite jardinière",
         "materiau_conseille": "Terre cuite ou plastique"
       },
+      "bien_commencer": {
+        "accroche": "Rebord ouest, c'est très bien pour la fraise. Les fruits mûrissent tranquillement sans risquer de cuire l'après-midi, et le petit volume de terre lui convient parfaitement.",
+        "priorite_contenant": {
+          "titre": "Un pot de 5 L par plant",
+          "description": "Même logique qu'en plein sud : la fraise a des racines courtes, elle n'a pas besoin de grand volume. En expo ouest, le risque de surchauffe est moindre, tous les matériaux conviennent.",
+          "profondeur_min": "15 cm suffisent",
+          "volume_min": "5 L par plant",
+          "type_recommande": "Pot individuel ou petite jardinière",
+          "materiau": "Terre cuite ou plastique, les deux fonctionnent bien en expo ouest"
+        },
+        "substrat": {
+          "titre": "Substrat légèrement acide, bien drainé",
+          "description": "Même recette qu'en plein sud. Le pH est la variable la plus importante pour la fraise.",
+          "melange_conseille": "Terreau pour fraisiers ou terreau potager légèrement acidifié, pH 5.5 à 6.5",
+          "a_eviter": ["Terreau calcaire", "Terre de jardin compactée"]
+        },
+        "semer": {
+          "titre": "Planter au printemps ou en fin d'été",
+          "description": "Le soleil de l'après-midi suffit pour mûrir des fruits bien parfumés. Arrose le matin pour que le substrat soit hydraté avant la chaleur.",
+          "conseils": [
+            "Plante en mars et avril, ou en août et septembre",
+            "Arrose le matin de préférence",
+            "Paille la surface autour des plants",
+            "Vérifie la fixation régulièrement, la charge peut être importante par temps humide"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Arroser le soir, favorise les maladies fongiques",
+          "Ignorer les oiseaux, ils repèrent les fraises rouges de loin et peuvent vider un rebord rapidement",
+          "Oublier de vérifier la fixation du rebord"
+        ]
+      },
       "conseil_bruno": "Rebord ouest, c'est très bien pour la fraise. Elle a ce qu'il faut, les fruits mûrissent tranquillement sans risquer de cuire en pleine après-midi. Et comme les racines sont courtes, ce petit volume de terre lui convient parfaitement.",
       "besoins_specifiques": [
         "Arrosage matinal",
-        "Surveiller les oiseaux — ils repèrent les fraises rouges de loin",
+        "Surveiller les oiseaux, ils repèrent les fraises rouges de loin",
         "Vérifier la fixation régulièrement"
       ]
     },
@@ -143,6 +312,38 @@
         "type": "Pot individuel",
         "materiau_conseille": "Plastique foncé"
       },
+      "bien_commencer": {
+        "accroche": "Rebord est, le soleil du matin suffit pour la fraise si on choisit les bonnes variétés. Les récoltes seront plus modestes, mais elles seront là.",
+        "priorite_contenant": {
+          "titre": "Un pot foncé pour maximiser la chaleur du matin",
+          "description": "Le soleil du matin est le seul apport de chaleur ici. Un pot foncé capte et retient mieux cette chaleur pour les racines.",
+          "profondeur_min": "15 cm",
+          "volume_min": "5 L par plant",
+          "type_recommande": "Pot individuel",
+          "materiau": "Plastique foncé, capte mieux la chaleur matinale"
+        },
+        "substrat": {
+          "titre": "Substrat légèrement acide et fertile",
+          "description": "Un substrat plus riche compense partiellement le manque de chaleur accumulée.",
+          "melange_conseille": "Terreau pour fraisiers enrichi avec un peu de compost mûr",
+          "a_eviter": ["Terreau calcaire", "Substrat trop drainant qui se refroidit vite"]
+        },
+        "semer": {
+          "titre": "Variétés tolérantes, plantation à partir d'avril",
+          "description": "Certaines variétés s'adaptent mieux à un ensoleillement réduit. Le choix de la variété est aussi important que le contenant ici.",
+          "conseils": [
+            "Choisis des variétés tolérantes à la mi-ombre : Mara des Bois, Gariguette",
+            "Plante à partir d'avril, quand les matinées sont suffisamment chaudes",
+            "Installe quelques fleurs à proximité pour attirer les pollinisateurs",
+            "Attends-toi à environ 40% de production en moins qu'en plein sud"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Variétés standard des grandes surfaces, elles ont besoin de plus de chaleur",
+          "Planter en mars, les matinées sont encore trop froides",
+          "S'attendre à une production comparable au plein sud"
+        ]
+      },
       "conseil_bruno": "Le rebord est donne le soleil du matin, c'est un peu juste pour la fraise mais ça peut marcher avec les bonnes variétés. Mara des Bois ou Gariguette tolèrent mieux la mi-ombre que les variétés grandes surfaces. Attends-toi à moins de fruits, mais ils seront là.",
       "besoins_specifiques": [
         "Variétés tolérantes recommandées (Mara des Bois, Gariguette)",
@@ -157,7 +358,14 @@
       "stades_recommandes": [],
       "mois_semis_ideal": [],
       "pot_recommande": null,
-      "conseil_bruno": "Rebord nord pour des fraises, ça va être une longue déception. Pas assez de lumière pour que les fruits sucrient correctement. Ce rebord sera bien plus productif avec des aromatiques — persil, ciboulette, menthe marchent très bien sans soleil direct.",
+      "bien_commencer": {
+        "accroche": "Un rebord nord ne donne pas assez de lumière pour que la fraise sucricie ses fruits. Les récoltes seraient décevantes et les fruits acides.",
+        "alternative": {
+          "message": "Ce rebord sera beaucoup plus productif avec des aromatiques qui s'accommodent très bien de la mi-ombre.",
+          "plantes_conseillees": ["Persil", "Ciboulette", "Menthe", "Mâche"]
+        }
+      },
+      "conseil_bruno": "Rebord nord pour des fraises, ça va être une longue déception. Pas assez de lumière pour que les fruits sucrient correctement. Ce rebord sera bien plus productif avec des aromatiques, persil, ciboulette, menthe marchent très bien sans soleil direct.",
       "besoins_specifiques": [
         "Alternative recommandée : persil, ciboulette, menthe, mâche",
         "Fraise non viable en exposition nord"
@@ -175,7 +383,41 @@
         "type": "Pot individuel",
         "materiau_conseille": "Terre cuite ou plastique"
       },
-      "conseil_bruno": "Intérieur fenêtre sud, la fraise peut s'en sortir — c'est une des rares plantes fruitières qui accepte cette situation. La limite c'est la pollinisation : en intérieur, les insectes ne viennent pas. Quand tu vois les fleurs ouvertes, passe un petit pinceau doux de fleur en fleur pour jouer les abeilles. C'est 2 minutes et ça change tout.",
+      "bien_commencer": {
+        "accroche": "La fraise est une des rares plantes fruitières à pouvoir fonctionner en intérieur. Fenêtre sud, c'est le meilleur contexte. L'enjeu principal : la pollinisation, que tu devras faire toi-même.",
+        "priorite_contenant": {
+          "titre": "Un pot léger et facile à déplacer",
+          "description": "En intérieur, tu devras tourner le pot régulièrement pour que toutes les faces reçoivent de la lumière. Un pot léger facilite cette manipulation.",
+          "profondeur_min": "15 cm",
+          "volume_min": "5 L par plant",
+          "type_recommande": "Pot individuel",
+          "materiau": "Terre cuite ou plastique, la légèreté est un critère important en intérieur"
+        },
+        "substrat": {
+          "titre": "Substrat légèrement acide, avec bonne rétention d'eau",
+          "description": "En intérieur avec le chauffage, l'air est souvent sec. Un substrat qui retient un peu plus l'eau limite les arrosages trop fréquents.",
+          "melange_conseille": "Terreau pour fraisiers ou terreau potager légèrement acidifié, éventuellement avec un peu de vermiculite pour la rétention",
+          "a_eviter": ["Terreau calcaire", "Substrat trop drainant (sèche trop vite avec le chauffage)"]
+        },
+        "semer": {
+          "titre": "Planter au printemps, polliniser à la main",
+          "description": "En intérieur, les insectes pollinisateurs n'entrent pas. Quand les fleurs sont ouvertes, il faut les polliniser manuellement. C'est simple et ça change tout.",
+          "conseils": [
+            "Plante en mars et avril",
+            "Choisis une variété remontante : Mara des Bois",
+            "Quand les fleurs sont ouvertes, passe un pinceau fin doux de fleur en fleur, c'est 2 minutes par semaine",
+            "Tourne le pot d'un quart de tour chaque semaine pour une exposition uniforme",
+            "Humidifie légèrement l'air si le chauffage est fort en hiver"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Oublier la pollinisation manuelle, sans ça pas de fruits",
+          "Ne jamais tourner le pot, le côté sans lumière dépérit",
+          "Variétés non remontantes, leur production unique est trop courte pour ce contexte",
+          "Arroser trop souvent ou pas assez, trouver un rythme régulier est important"
+        ]
+      },
+      "conseil_bruno": "Intérieur fenêtre sud, la fraise peut s'en sortir, c'est une des rares plantes fruitières qui accepte cette situation. La limite c'est la pollinisation : en intérieur, les insectes ne viennent pas. Quand tu vois les fleurs ouvertes, passe un petit pinceau doux de fleur en fleur pour jouer les abeilles. C'est 2 minutes et ça change tout.",
       "besoins_specifiques": [
         "Pollinisation manuelle obligatoire (pinceau fin sur les fleurs ouvertes)",
         "Variétés remontantes recommandées (Mara des Bois)",
@@ -196,7 +438,39 @@
         "type": "Pot individuel",
         "materiau_conseille": "Plastique (léger)"
       },
-      "conseil_bruno": "Fenêtre ouest en intérieur, c'est limite mais jouable pour la fraise — à condition de prendre une variété remontante et d'aider la pollinisation à la main. Ne t'attends pas à remplir un saladier, mais quelques fraises par semaine en été, c'est tout à fait possible.",
+      "bien_commencer": {
+        "accroche": "Fenêtre ouest en intérieur, c'est la limite pour la fraise, mais c'est jouable. Ne t'attends pas à remplir un saladier, mais quelques fraises par semaine en été, c'est tout à fait possible.",
+        "priorite_contenant": {
+          "titre": "Le pot le plus léger possible",
+          "description": "En fenêtre ouest en intérieur, la lumière n'arrive que l'après-midi. Pour maximiser l'exposition, il faut pouvoir déplacer facilement le pot selon la saison.",
+          "profondeur_min": "15 cm",
+          "volume_min": "5 L par plant",
+          "type_recommande": "Pot individuel",
+          "materiau": "Plastique léger de préférence, plus facile à manipuler et déplacer"
+        },
+        "substrat": {
+          "titre": "Substrat légèrement acide avec bonne rétention",
+          "description": "Même préconisation qu'en fenêtre sud. Le substrat doit retenir assez l'eau sans se gorger.",
+          "melange_conseille": "Terreau pour fraisiers avec un peu de vermiculite",
+          "a_eviter": ["Terreau calcaire", "Terre de jardin trop dense"]
+        },
+        "semer": {
+          "titre": "Variétés remontantes uniquement, polliniser à la main",
+          "description": "Moins de lumière qu'en fenêtre sud, mais ça reste faisable avec les bons gestes.",
+          "conseils": [
+            "Variétés remontantes uniquement : Mara des Bois",
+            "Plante à partir d'avril",
+            "Pollinise manuellement avec un pinceau ou un coton-tige sur les fleurs ouvertes",
+            "Tourne le pot régulièrement vers la lumière"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Variétés non remontantes, leur saison unique est trop courte",
+          "Oublier la pollinisation manuelle",
+          "S'attendre à une vraie récolte, quelques fraises par semaine est un bon résultat ici"
+        ]
+      },
+      "conseil_bruno": "Fenêtre ouest en intérieur, c'est limite mais jouable pour la fraise, à condition de prendre une variété remontante et d'aider la pollinisation à la main. Ne t'attends pas à remplir un saladier, mais quelques fraises par semaine en été, c'est tout à fait possible.",
       "besoins_specifiques": [
         "Pollinisation manuelle (pinceau ou coton-tige sur les fleurs ouvertes)",
         "Variétés remontantes uniquement",
@@ -211,6 +485,13 @@
       "stades_recommandes": [],
       "mois_semis_ideal": [],
       "pot_recommande": null,
+      "bien_commencer": {
+        "accroche": "Fenêtre est en intérieur, la lumière du matin filtrée par la vitre est trop faible pour que la fraise fructifie correctement.",
+        "alternative": {
+          "message": "Ce coin est bien mieux adapté aux aromatiques et aux cultures rapides.",
+          "plantes_conseillees": ["Ciboulette", "Persil", "Micro-pousses"]
+        }
+      },
       "conseil_bruno": "Fenêtre est en intérieur, la lumière du matin passe à travers la vitre et c'est vraiment trop juste pour que la fraise fructifie correctement. Elle va probablement fleurir un peu, mais les fruits ne mûriront pas bien. Garde ce coin pour des aromatiques ou des micro-pousses.",
       "besoins_specifiques": [
         "Alternative recommandée : ciboulette, persil, micro-pousses",
@@ -224,7 +505,14 @@
       "stades_recommandes": [],
       "mois_semis_ideal": [],
       "pot_recommande": null,
-      "conseil_bruno": "Fenêtre nord en intérieur, c'est vraiment pas le bon endroit pour la fraise. Même moi je me battrais pas contre ça. Ce coin a sa valeur — il est parfait pour la menthe, le persil, la mâche. Mais pour des fruits, il faut de la lumière, et là on n'y est pas.",
+      "bien_commencer": {
+        "accroche": "Fenêtre nord en intérieur, ce coin n'a pas ce qu'il faut pour la fraise. Pas de lumière directe, pas de chaleur, pas de pollinisateurs.",
+        "alternative": {
+          "message": "Ce coin a sa valeur : il est parfait pour les aromatiques qui aiment la fraîcheur.",
+          "plantes_conseillees": ["Menthe", "Persil", "Mâche", "Micro-pousses"]
+        }
+      },
+      "conseil_bruno": "Fenêtre nord en intérieur, c'est vraiment pas le bon endroit pour la fraise. Même moi je me battrais pas contre ça. Ce coin a sa valeur, il est parfait pour la menthe, le persil, la mâche. Mais pour des fruits, il faut de la lumière, et là on n'y est pas.",
       "besoins_specifiques": [
         "Alternative recommandée : menthe, persil, mâche, micro-pousses",
         "Fraise non adaptée à cette zone"
@@ -242,9 +530,42 @@
         "type": "Pleine terre ou grand bac",
         "materiau_conseille": "Sol bien drainé, légèrement acide"
       },
-      "conseil_bruno": "Pleine terre en plein soleil, c'est le terrain de jeu naturel de la fraise. Tu peux planter en ligne avec 30-40 cm entre chaque plant et laisser les stolons s'installer à côté pour créer une vraie butte de fraisiers l'année suivante. Paille bien entre les rangs — ça garde l'humidité, évite les maladies et empêche les fraises de toucher la terre.",
+      "bien_commencer": {
+        "accroche": "Pleine terre en plein soleil, c'est le terrain de jeu naturel de la fraise. Elle peut s'y installer durablement et créer une vraie butte productive d'une année sur l'autre.",
+        "priorite_contenant": {
+          "titre": "Prépare le sol : drainé, légèrement acide",
+          "description": "En pleine terre, la fraise peut s'étendre grâce à ses stolons. Un sol bien préparé dès le départ conditionne la production sur plusieurs années.",
+          "profondeur_min": "15 à 20 cm de sol travaillé suffisent, les racines sont superficielles",
+          "volume_min": null,
+          "type_recommande": "Pleine terre",
+          "materiau": "Sol bien drainé et légèrement acide. Si ton sol est calcaire, ajoute de la tourbe ou du compost de feuilles pour l'acidifier légèrement"
+        },
+        "substrat": {
+          "titre": "Sol légèrement acide, bien drainé",
+          "description": "La fraise est sensible au calcaire. Sur un sol trop alcalin, les feuilles jaunissent et la production chute. Un pH entre 5.5 et 6.5 est l'idéal.",
+          "melange_conseille": "Sol natif drainé, corrigé si nécessaire avec de la tourbe ou du compost de feuilles pour abaisser le pH",
+          "a_eviter": ["Sol argileux non drainé (pourriture des racines)", "Sol trop calcaire sans correction", "Fumier frais"]
+        },
+        "semer": {
+          "titre": "Planter en ligne au printemps ou en fin d'été",
+          "description": "La plantation de fin d'été donne souvent de très bons résultats : les plants s'installent avant l'hiver et produisent abondamment dès le printemps suivant.",
+          "conseils": [
+            "Espace les plants de 30 à 40 cm en tous sens",
+            "Paille bien entre les rangs dès la plantation",
+            "Laisse les stolons s'enraciner à côté pour créer de nouveaux plants l'année suivante",
+            "Renouvelle les plants tous les 3 ans pour maintenir la production"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Planter trop serré, les plants se font concurrence et sont plus sensibles aux maladies",
+          "Laisser les fruits toucher la terre sans paillage, ils pourrissent",
+          "Négliger le renouvellement, après 3 ans la production décline fortement",
+          "Sol trop humide en hiver, la couronne pourrit dans les sols mal drainés"
+        ]
+      },
+      "conseil_bruno": "Pleine terre en plein soleil, c'est le terrain de jeu naturel de la fraise. Tu peux planter en ligne avec 30 à 40 cm entre chaque plant et laisser les stolons s'installer à côté pour créer une vraie butte de fraisiers l'année suivante. Paille bien entre les rangs, ça garde l'humidité, évite les maladies et empêche les fraises de toucher la terre.",
       "besoins_specifiques": [
-        "30-40 cm entre chaque plant en pleine terre",
+        "30 à 40 cm entre chaque plant en pleine terre",
         "Paillage entre les rangs (paille, feuilles sèches)",
         "Laisser les stolons pour créer de nouveaux plants",
         "Renouveler les plants tous les 3 ans"
@@ -262,11 +583,43 @@
         "type": "Pleine terre",
         "materiau_conseille": "Sol bien drainé"
       },
-      "conseil_bruno": "Mi-ombre en jardin, la fraise s'en sort — elle va produire moins et les fruits seront un peu plus acides, mais elle est là. C'est une bonne solution si tu n'as pas beaucoup d'endroits ensoleillés. Vise les variétés remontantes comme la Mara des Bois, elles tolerent mieux ce type d'exposition.",
+      "bien_commencer": {
+        "accroche": "Jardin mi-ombre, la fraise s'en sort bien. Elle produit moins et les fruits sont légèrement plus acides, mais elle est là et elle est contente. Bonne solution si le plein soleil est rare dans ton jardin.",
+        "priorite_contenant": {
+          "titre": "Sol drainé, même préparation qu'en plein soleil",
+          "description": "L'ensoleillement réduit ne dispense pas d'un bon sol. Les racines superficielles de la fraise restent sensibles aux excès d'eau.",
+          "profondeur_min": "15 à 20 cm",
+          "volume_min": null,
+          "type_recommande": "Pleine terre",
+          "materiau": "Sol bien drainé, légèrement acide"
+        },
+        "substrat": {
+          "titre": "Sol légèrement acide, enrichi",
+          "description": "Un sol plus fertile compense partiellement le manque de soleil.",
+          "melange_conseille": "Sol natif enrichi avec du compost mûr, pH 5.5 à 6.5",
+          "a_eviter": ["Sol calcaire non corrigé", "Sol trop humide (risque fongique plus élevé en mi-ombre)"]
+        },
+        "semer": {
+          "titre": "Variétés remontantes, plantation à partir d'avril",
+          "description": "Les variétés remontantes étalent leur production sur plus longtemps, ce qui compense les volumes plus faibles de chaque vague.",
+          "conseils": [
+            "Choisis des variétés remontantes : Mara des Bois en priorité",
+            "Plante à partir d'avril dans la partie la plus ensoleillée de ta zone mi-ombre",
+            "Surveille régulièrement les maladies fongiques, l'humidité et l'ombre les favorisent",
+            "Paille entre les rangs pour limiter les éclaboussures de terre sur les fruits"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Variétés non remontantes, leur production unique et courte n'est pas optimale dans ce contexte",
+          "Arroser trop souvent, l'évaporation est plus faible à l'ombre",
+          "Négliger la surveillance des maladies fongiques"
+        ]
+      },
+      "conseil_bruno": "Mi-ombre en jardin, la fraise s'en sort, elle va produire moins et les fruits seront un peu plus acides, mais elle est là. C'est une bonne solution si tu n'as pas beaucoup d'endroits ensoleillés. Vise les variétés remontantes comme la Mara des Bois, elles tolèrent mieux ce type d'exposition.",
       "besoins_specifiques": [
         "Variétés remontantes recommandées",
-        "Production réduite de 30-40%",
-        "Moins de maladies fongiques (moins de chaleur) — avantage inattendu"
+        "Production réduite de 30 à 40%",
+        "Moins de maladies fongiques (moins de chaleur), avantage inattendu"
       ]
     },
 
@@ -276,7 +629,14 @@
       "stades_recommandes": [],
       "mois_semis_ideal": [],
       "pot_recommande": null,
-      "conseil_bruno": "Un coin vraiment ombragé en jardin, la fraise ne va pas aimer. Les feuilles vont pousser, mais les fleurs seront rares et les fruits encore plus. Ce coin serait parfait pour de la mâche, des épinards ou du cerfeuil — des plantes qui apprécient l'ombre fraîche.",
+      "bien_commencer": {
+        "accroche": "Un coin vraiment ombragé en jardin, la fraise ne va pas s'y épanouir. Les feuilles vont pousser, mais les fleurs seront rares et les fruits encore plus.",
+        "alternative": {
+          "message": "Ce coin sera beaucoup plus productif avec des plantes qui aiment l'ombre fraîche.",
+          "plantes_conseillees": ["Mâche", "Épinards", "Cerfeuil", "Oseille"]
+        }
+      },
+      "conseil_bruno": "Un coin vraiment ombragé en jardin, la fraise ne va pas aimer. Les feuilles vont pousser, mais les fleurs seront rares et les fruits encore plus. Ce coin serait parfait pour de la mâche, des épinards ou du cerfeuil, des plantes qui apprécient l'ombre fraîche.",
       "besoins_specifiques": [
         "Alternative recommandée : mâche, épinards, cerfeuil, oseille",
         "Fraise non productive en zone ombragée"
