@@ -6,6 +6,7 @@ import Button from '../../components/Button/Button'
 import styles from './PlantInfosAjoutPage.module.scss'
 
 import plants from '../../mocks/plants.json'
+import { getContexteFromCatalogue } from '../../data/getCompatibilite'
 import brunoImg from '../../assets/Mascotte 1.png'
 
 import IconArrowLeft  from '../../assets/icons/Arrow_alt_left.svg?react'
@@ -137,10 +138,11 @@ export default function PlantInfosAjoutPage() {
   const plant = PLANTS_BY_ID[id]
   if (!plant) return <Navigate to="/ajout-plante" replace />
 
-  const contextKey  = user.zone_id && user.exposition_id ? `${user.zone_id}_${user.exposition_id}` : null
-  const plantCtx    = contextKey ? plant.contextes?.[contextKey] ?? null : null
-  const compat      = plantCtx?.compatibilite ?? plant.compatibilite
-  const difficulte  = plantCtx?.difficulte    ?? plant.difficulte
+  const contextKey   = user.zone_id && user.exposition_id ? `${user.zone_id}_${user.exposition_id}` : null
+  const catalogueCtx = contextKey ? getContexteFromCatalogue(plant.id, contextKey) : null
+  const plantCtx     = contextKey ? plant.contextes?.[contextKey] ?? null : null
+  const compat       = catalogueCtx?.compatibilite ?? plantCtx?.compatibilite ?? plant.compatibilite
+  const difficulte   = catalogueCtx?.difficulte    ?? plantCtx?.difficulte    ?? plant.difficulte
 
   const stade       = plant.stade_par_defaut
   const stadePicto  = STADE_PICTO[stade]

@@ -55,6 +55,7 @@ import IconRecolterSvg from '../../assets/pictos/Récolter.svg?react'
 import IconPlanterSvg  from '../../assets/pictos/Planter.svg?react'
 
 import { generateTasks } from '../../data/plantTasks'
+import { getContexteFromCatalogue } from '../../data/getCompatibilite'
 
 const PLANTS_BY_ID = Object.fromEntries(plants.map(p => [p.id, p]))
 
@@ -240,8 +241,9 @@ export default function PlantePage() {
   if (!plant) return <Navigate to="/jardin" replace />
 
   const instance   = plantInstances.find(i => i.plantId === id)
-  const contextKey = getContextKey(user)
-  const plantCtx   = contextKey ? plant.contextes?.[contextKey] ?? null : null
+  const contextKey   = getContextKey(user)
+  const catalogueCtx = contextKey ? getContexteFromCatalogue(plant.id, contextKey) : null
+  const plantCtx     = contextKey ? plant.contextes?.[contextKey] ?? null : null
 
   const stade      = instance?.stade_actuel ?? plant.stade_par_defaut
   const etat       = instance?.etat ?? 'bien'
@@ -252,8 +254,8 @@ export default function PlantePage() {
   const stadeIdx   = stades.indexOf(stade)
   const progress   = stades.length > 1 ? (stadeIdx / (stades.length - 1)) * 100 : 0
 
-  const compat     = plantCtx?.compatibilite ?? plant.compatibilite
-  const difficulte = plantCtx?.difficulte ?? plant.difficulte
+  const compat     = catalogueCtx?.compatibilite ?? plantCtx?.compatibilite ?? plant.compatibilite
+  const difficulte = catalogueCtx?.difficulte    ?? plantCtx?.difficulte    ?? plant.difficulte
 
   const tasks = STAGE_TASKS[stade] ?? []
 

@@ -6,6 +6,7 @@ import InputSearch from '../../components/Input/InputSearch'
 import styles from './AjoutPlantePage.module.scss'
 
 import plants from '../../mocks/plants.json'
+import { getContexteFromCatalogue } from '../../data/getCompatibilite'
 
 import IconArrowRight from '../../assets/icons/Arrow_alt_lright.svg?react'
 import IconFilter     from '../../assets/icons/Filter.svg?react'
@@ -136,9 +137,10 @@ export default function AjoutPlantePage() {
         ) : (
           <div className={styles.grid}>
             {filteredPlants.map((plant, index) => {
-              const contexte    = contextKey ? plant.contextes?.[contextKey] ?? null : null
-              const compat      = contexte?.compatibilite ?? plant.compatibilite
-              const diff        = contexte?.difficulte    ?? plant.difficulte
+              const catalogueCtx = contextKey ? getContexteFromCatalogue(plant.id, contextKey) : null
+              const contexte     = contextKey ? plant.contextes?.[contextKey] ?? null : null
+              const compat       = catalogueCtx?.compatibilite ?? contexte?.compatibilite ?? plant.compatibilite
+              const diff         = catalogueCtx?.difficulte    ?? contexte?.difficulte    ?? plant.difficulte
               const picto       = PICTO_MAP[plant.icone]
               const colorVariant = (index % 4 === 0 || index % 4 === 3) ? 'primary' : 'tertiary'
 
