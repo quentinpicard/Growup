@@ -299,9 +299,15 @@ export default function HomePage() {
           </div>
 
           {isEmptyState ? (
-            <p className={styles.emptyTaskMsg}>
-              Ajoute des plantes pour voir tes tâches ici.
-            </p>
+            <div className={styles.taskList}>
+              <TaskCard
+                title="Ajouter une première plante"
+                frequency="Démarrer"
+                conseil="Commence à personnaliser ton jardin"
+                icon={<IconAdd width={40} height={40} aria-hidden="true" />}
+                onChange={(checked) => { if (checked) navigate('/ajout-plante') }}
+              />
+            </div>
           ) : visibleHomeTasks.length === 0 ? (
             <p className={styles.emptyTaskMsg}>
               Toutes les tâches du jour sont faites !

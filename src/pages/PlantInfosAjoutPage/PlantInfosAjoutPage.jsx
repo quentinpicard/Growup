@@ -161,6 +161,7 @@ export default function PlantInfosAjoutPage() {
         plantId: plant.id,
         stade: plant.stade_par_defaut,
         dateAjout: new Date().toISOString(),
+        plantedAt: new Date().toISOString(),
       },
     })
     setToast(true)

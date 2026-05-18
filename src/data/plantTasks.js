@@ -1265,7 +1265,11 @@ export function generateTasks(plantInstance, options = {}) {
     return [];
   }
 
-  const plantedAt = new Date(plantInstance.plantedAt);
+  const plantedAt = new Date(plantInstance.plantedAt ?? plantInstance.dateAjout);
+  if (isNaN(plantedAt.getTime())) {
+    console.warn(`[plantTasks] plantedAt invalide pour l'instance : ${plantInstance.id}`);
+    return [];
+  }
   plantedAt.setHours(0, 0, 0, 0);
 
   const until = options.until
