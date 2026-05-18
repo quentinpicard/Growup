@@ -350,9 +350,11 @@ export default function PlantePage() {
           <Tag color={DIFF_COLOR[difficulte.niveau] ?? 'neutral'} variant="filled">
             {difficulte.label}
           </Tag>
-          <Tag color={COMPAT_COLOR[compat.niveau] ?? 'primary'} variant="outline">
-            {compat.label}
-          </Tag>
+          {compat.niveau !== 'deconseille' && (
+            <Tag color={COMPAT_COLOR[compat.niveau] ?? 'primary'} variant="outline">
+              {compat.label}
+            </Tag>
+          )}
           <span className={styles.harvestTag}>
             <img src={IconRecolte} alt="" aria-hidden="true" width={16} height={16} />
             Dans ~1 mois

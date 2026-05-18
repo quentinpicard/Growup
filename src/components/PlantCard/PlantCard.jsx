@@ -77,7 +77,7 @@ export default function PlantCard({ plant, contexte, onAdd, onClick, colorVarian
     <>
       {(compat || difficulte) && (
         <div className={styles.tags}>
-          {compat && (
+          {compat && compat.niveau !== 'deconseille' && (
             <span className={`${styles.tag} ${COMPAT_NIVEAU_CLASS[compat.niveau] ?? ''}`}>
               {compat.label}
             </span>

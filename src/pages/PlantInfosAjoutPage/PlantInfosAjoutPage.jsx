@@ -234,13 +234,15 @@ export default function PlantInfosAjoutPage() {
 
         {/* Compatibilité + Difficulté */}
         <div className={styles.statsRow}>
-          <div className={`${styles.statCard} ${compatCfg.cardClass}`}>
-            <p className={styles.cardLabel}>Compatibilité</p>
-            <div className={styles.statBody}>
-              <CompatIcon width={28} height={28} aria-hidden="true" />
-              <p className={`${styles.statValue} ${compatCfg.textClass}`}>{compat.label}</p>
+          {compat.niveau !== 'deconseille' && (
+            <div className={`${styles.statCard} ${compatCfg.cardClass}`}>
+              <p className={styles.cardLabel}>Compatibilité</p>
+              <div className={styles.statBody}>
+                <CompatIcon width={28} height={28} aria-hidden="true" />
+                <p className={`${styles.statValue} ${compatCfg.textClass}`}>{compat.label}</p>
+              </div>
             </div>
-          </div>
+          )}
           <div className={`${styles.statCard} ${diffCfg.cardClass}`}>
             <p className={styles.cardLabel}>Difficulté</p>
             <div className={styles.statBody}>

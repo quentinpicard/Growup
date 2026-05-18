@@ -53,7 +53,9 @@ export default function PlantSelectionCard({
       style={{ cursor: onClick ? 'pointer' : undefined }}
     >
       <div className={styles.card__tags}>
-        <Tag variant="outline" color={compatibiliteColor}>{compatibilite}</Tag>
+        {compatibilite !== 'Déconseillée' && (
+          <Tag variant="outline" color={compatibiliteColor}>{compatibilite}</Tag>
+        )}
         <Tag variant="outline" color={difficulteColor}>{difficulte}</Tag>
       </div>
 
