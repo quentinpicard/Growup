@@ -7,6 +7,9 @@ import styles from './PlantInfosAjoutPage.module.scss'
 
 import plants from '../../mocks/plants.json'
 import { getContexteFromCatalogue } from '../../data/getCompatibilite'
+import carotteData      from '../../data/carotte_plants.json'
+import tomateCeriseData from '../../data/tomate_cerise_plants.json'
+import fraiseData       from '../../data/fraise_plants.json'
 import brunoImg from '../../assets/Mascotte 1.png'
 
 import IconArrowLeft  from '../../assets/icons/Arrow_alt_left.svg?react'
@@ -51,6 +54,12 @@ import bac1Svg      from '../../assets/pictos/Bac 1.svg'
 import rempoterSvg  from '../../assets/pictos/Rempoter.svg'
 
 const PLANTS_BY_ID = Object.fromEntries(plants.map(p => [p.id, p]))
+
+const PLANT_EXTRAS = {
+  'carotte':       carotteData,
+  'tomate-cerise': tomateCeriseData,
+  'fraise':        fraiseData,
+}
 
 const PICTO_MAP = {
   'Tomate':         tomateSvg,
@@ -129,11 +138,17 @@ const DIFF_CONFIG = {
   difficile: { cardClass: styles.cardRed,    Icon: IconSad,    textClass: styles.textRed },
 }
 
+const TABS = [
+  { key: 'infos',          label: 'Infos' },
+  { key: 'bien_commencer', label: 'Bien commencer' },
+]
+
 export default function PlantInfosAjoutPage() {
   const { id }   = useParams()
   const navigate = useNavigate()
   const { user, dispatch } = useApp()
-  const [toast, setToast] = useState(false)
+  const [toast, setToast]         = useState(false)
+  const [activeTab, setActiveTab] = useState('infos')
 
   const plant = PLANTS_BY_ID[id]
   if (!plant) return <Navigate to="/ajout-plante" replace />
@@ -143,6 +158,10 @@ export default function PlantInfosAjoutPage() {
   const plantCtx     = contextKey ? plant.contextes?.[contextKey] ?? null : null
   const compat       = catalogueCtx?.compatibilite ?? plantCtx?.compatibilite ?? plant.compatibilite
   const difficulte   = catalogueCtx?.difficulte    ?? plantCtx?.difficulte    ?? plant.difficulte
+
+  const extras        = PLANT_EXTRAS[plant.id] ?? null
+  const contexteData  = extras && contextKey ? extras.matrice_contextes?.[contextKey] ?? null : null
+  const particulars   = extras?.particularites_generales ?? null
 
   const stade       = plant.stade_par_defaut
   const stadePicto  = STADE_PICTO[stade]
@@ -187,8 +206,8 @@ export default function PlantInfosAjoutPage() {
         </div>
       </div>
 
-      {/* ─── Contenu ─────────────────────────────────────────────── */}
-      <div className={styles.content}>
+      {/* ─── Sticky header ───────────────────────────────────────── */}
+      <div className={styles.stickyHeader}>
 
         {/* Nom + période */}
         <div className={styles.plantHeader}>
@@ -203,117 +222,257 @@ export default function PlantInfosAjoutPage() {
           )}
         </div>
 
-        {/* Bruno intro */}
-        {plant.bruno_intro && (
-          <div className={styles.brunoRow}>
-            <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
-            <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
-              <p className={styles.bubbleText}>{plant.bruno_intro}</p>
-            </div>
-          </div>
-        )}
-
-        {/* Stade de croissance */}
-        <div className={styles.stadeCard}>
-          <p className={styles.cardLabel}>Stade de croissance</p>
-          <div className={styles.stadeBody}>
-            {stadePicto && <img src={stadePicto} alt="" aria-hidden="true" className={styles.stadeIcon} />}
-            <p className={styles.stadeLabel}>{stadeLabel}</p>
-          </div>
+        {/* Tab bar */}
+        <div className={styles.tabBar}>
+          {TABS.map(tab => (
+            <button
+              key={tab.key}
+              className={`${styles.tab} ${activeTab === tab.key ? styles.tabActive : ''}`}
+              onClick={() => setActiveTab(tab.key)}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
+      </div>
 
-        {/* Bruno conseil stade */}
-        {brunoStade && (
-          <div className={styles.brunoRow}>
-            <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
-            <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
-              <p className={styles.bubbleText}>{brunoStade}</p>
-            </div>
-          </div>
-        )}
+      {/* ─── Contenu ─────────────────────────────────────────────── */}
+      <div className={styles.content}>
 
-        {/* Compatibilité + Difficulté */}
-        <div className={styles.statsRow}>
-          {compat.niveau !== 'deconseille' && (
-            <div className={`${styles.statCard} ${compatCfg.cardClass}`}>
-              <p className={styles.cardLabel}>Compatibilité</p>
-              <div className={styles.statBody}>
-                <CompatIcon width={28} height={28} aria-hidden="true" />
-                <p className={`${styles.statValue} ${compatCfg.textClass}`}>{compat.label}</p>
-              </div>
-            </div>
-          )}
-          <div className={`${styles.statCard} ${diffCfg.cardClass}`}>
-            <p className={styles.cardLabel}>Difficulté</p>
-            <div className={styles.statBody}>
-              <DiffIcon width={28} height={28} aria-hidden="true" />
-              <p className={`${styles.statValue} ${diffCfg.textClass}`}>{difficulte.label}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Pot et Substrat */}
-        {plant.pot_substrat?.recommandation && (
-          <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Pot et Substrat</h2>
-            <div className={styles.brunoRow}>
-              <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
-              <div className={`${styles.bubble} ${styles.bubbleYellow}`}>
-                <p className={styles.bubbleText}>Selon moi, pour bien démarrer :</p>
-                <p className={`${styles.bubbleText} ${styles.bubbleTextBold}`}>
-                  {plant.pot_substrat.recommandation}
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Voisins et Guilde */}
-        {plant.voisins_guilde && (
-          <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Voisins et Guilde</h2>
-
-            {plant.voisins_guilde.meilleurs_voisins?.length > 0 && (
-              <div className={styles.guildeGroup}>
-                <p className={styles.cardLabel}>Meilleurs voisins</p>
-                <div className={styles.tagRow}>
-                  {plant.voisins_guilde.meilleurs_voisins.map(nom => (
-                    <Tag key={nom} color="primary" variant="filled"
-                      leftIcon={
-                        NEIGHBOR_PICTO_MAP[nom]
-                          ? <img src={NEIGHBOR_PICTO_MAP[nom]} alt="" width={12} height={12} />
-                          : null
-                      }
-                    >
-                      {nom.charAt(0).toUpperCase() + nom.slice(1)}
-                    </Tag>
-                  ))}
+        {activeTab === 'infos' && (
+          <>
+            {/* Bruno intro */}
+            {plant.bruno_intro && (
+              <div className={styles.brunoRow}>
+                <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
+                <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
+                  <p className={styles.bubbleText}>{plant.bruno_intro}</p>
                 </div>
               </div>
             )}
 
-            {plant.voisins_guilde.a_eviter?.length > 0 && (
-              <div className={styles.guildeGroup}>
-                <p className={styles.cardLabel}>À éviter</p>
-                <div className={styles.tagRow}>
-                  {plant.voisins_guilde.a_eviter.map(nom => (
-                    <Tag key={nom} color="error" variant="filled"
-                      leftIcon={
-                        NEIGHBOR_PICTO_MAP[nom]
-                          ? <img src={NEIGHBOR_PICTO_MAP[nom]} alt="" width={12} height={12} />
-                          : null
-                      }
-                    >
-                      {nom.charAt(0).toUpperCase() + nom.slice(1)}
-                    </Tag>
-                  ))}
+            {/* Stade de croissance */}
+            <div className={styles.stadeCard}>
+              <p className={styles.cardLabel}>Stade de croissance</p>
+              <div className={styles.stadeBody}>
+                {stadePicto && <img src={stadePicto} alt="" aria-hidden="true" className={styles.stadeIcon} />}
+                <p className={styles.stadeLabel}>{stadeLabel}</p>
+              </div>
+            </div>
+
+            {/* Bruno conseil stade */}
+            {brunoStade && (
+              <div className={styles.brunoRow}>
+                <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
+                <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
+                  <p className={styles.bubbleText}>{brunoStade}</p>
                 </div>
               </div>
             )}
-          </div>
+
+            {/* Compatibilité + Difficulté */}
+            <div className={styles.statsRow}>
+              {compat.niveau !== 'deconseille' && (
+                <div className={`${styles.statCard} ${compatCfg.cardClass}`}>
+                  <p className={styles.cardLabel}>Compatibilité</p>
+                  <div className={styles.statBody}>
+                    <CompatIcon width={28} height={28} aria-hidden="true" />
+                    <p className={`${styles.statValue} ${compatCfg.textClass}`}>{compat.label}</p>
+                  </div>
+                </div>
+              )}
+              <div className={`${styles.statCard} ${diffCfg.cardClass}`}>
+                <p className={styles.cardLabel}>Difficulté</p>
+                <div className={styles.statBody}>
+                  <DiffIcon width={28} height={28} aria-hidden="true" />
+                  <p className={`${styles.statValue} ${diffCfg.textClass}`}>{difficulte.label}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Conseil Bruno contextualisé */}
+            {contexteData?.conseil_bruno && (
+              <div className={styles.section}>
+                <h2 className={styles.sectionTitle}>Conseil de Bruno</h2>
+                <div className={styles.brunoRow}>
+                  <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
+                  <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
+                    <p className={styles.bubbleText}>{contexteData.conseil_bruno}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Particularités générales */}
+            {particulars && (
+              <div className={styles.section}>
+                <h2 className={styles.sectionTitle}>Particularités</h2>
+                <div className={styles.particularsCard}>
+                  <div className={styles.particularRow}>
+                    <span className={styles.particularLabel}>Profondeur min.</span>
+                    <span className={styles.particularValue}>{particulars.profondeur_minimum_cm} cm</span>
+                  </div>
+                  <div className={styles.particularRow}>
+                    <span className={styles.particularLabel}>Ensoleillement</span>
+                    <span className={styles.particularValue}>{particulars.ensoleillement_min_h}h – {particulars.ensoleillement_ideal_h}h / jour</span>
+                  </div>
+                  <div className={styles.particularRow}>
+                    <span className={styles.particularLabel}>Substrat</span>
+                    <span className={styles.particularValue}>{particulars.substrat}</span>
+                  </div>
+                  {'semis_direct_uniquement' in particulars && (
+                    <div className={styles.particularRow}>
+                      <span className={styles.particularLabel}>Semis direct</span>
+                      <span className={styles.particularValue}>{particulars.semis_direct_uniquement ? 'Oui — pas de transplantation' : 'Non'}</span>
+                    </div>
+                  )}
+                  {'transplantation' in particulars && (
+                    <div className={styles.particularRow}>
+                      <span className={styles.particularLabel}>Transplantation</span>
+                      <span className={styles.particularValue}>{particulars.transplantation ? 'Oui' : 'Non'}</span>
+                    </div>
+                  )}
+                  {particulars.tuteurage_necessaire && (
+                    <div className={styles.particularRow}>
+                      <span className={styles.particularLabel}>Tuteurage</span>
+                      <span className={styles.particularValue}>Nécessaire</span>
+                    </div>
+                  )}
+                  {particulars.gourmands_a_pincer && (
+                    <div className={styles.particularRow}>
+                      <span className={styles.particularLabel}>Gourmands</span>
+                      <span className={styles.particularValue}>À pincer régulièrement</span>
+                    </div>
+                  )}
+                  {particulars.racine_superficielle && (
+                    <div className={styles.particularRow}>
+                      <span className={styles.particularLabel}>Racine</span>
+                      <span className={styles.particularValue}>Superficielle — petit pot suffisant</span>
+                    </div>
+                  )}
+                  {particulars.stolons && (
+                    <div className={styles.particularRow}>
+                      <span className={styles.particularLabel}>Stolons</span>
+                      <span className={styles.particularValue}>Se reproduit naturellement</span>
+                    </div>
+                  )}
+                  {particulars.pollinisation_necessaire && (
+                    <div className={styles.particularRow}>
+                      <span className={styles.particularLabel}>Pollinisation</span>
+                      <span className={styles.particularValue}>Nécessaire (abeilles ou manuelle)</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Pot recommandé (contextualisé) */}
+            {contexteData?.pot_recommande && (
+              <div className={styles.section}>
+                <h2 className={styles.sectionTitle}>Pot recommandé</h2>
+                <div className={styles.particularsCard}>
+                  <div className={styles.particularRow}>
+                    <span className={styles.particularLabel}>Type</span>
+                    <span className={styles.particularValue}>{contexteData.pot_recommande.type}</span>
+                  </div>
+                  <div className={styles.particularRow}>
+                    <span className={styles.particularLabel}>Profondeur min.</span>
+                    <span className={styles.particularValue}>{contexteData.pot_recommande.profondeur_min_cm} cm</span>
+                  </div>
+                  {contexteData.pot_recommande.volume_min_litres && (
+                    <div className={styles.particularRow}>
+                      <span className={styles.particularLabel}>Volume min.</span>
+                      <span className={styles.particularValue}>{contexteData.pot_recommande.volume_min_litres} L</span>
+                    </div>
+                  )}
+                  <div className={styles.particularRow}>
+                    <span className={styles.particularLabel}>Matériau</span>
+                    <span className={styles.particularValue}>{contexteData.pot_recommande.materiau_conseille}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Besoins spécifiques (contextualisés) */}
+            {contexteData?.besoins_specifiques?.length > 0 && (
+              <div className={styles.section}>
+                <h2 className={styles.sectionTitle}>Besoins spécifiques</h2>
+                <ul className={styles.besoinsList}>
+                  {contexteData.besoins_specifiques.map((besoin, i) => (
+                    <li key={i} className={styles.besoinsItem}>{besoin}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Pot et Substrat */}
+            {plant.pot_substrat?.recommandation && !contexteData?.pot_recommande && (
+              <div className={styles.section}>
+                <h2 className={styles.sectionTitle}>Pot et Substrat</h2>
+                <div className={styles.brunoRow}>
+                  <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
+                  <div className={`${styles.bubble} ${styles.bubbleYellow}`}>
+                    <p className={styles.bubbleText}>Selon moi, pour bien démarrer :</p>
+                    <p className={`${styles.bubbleText} ${styles.bubbleTextBold}`}>
+                      {plant.pot_substrat.recommandation}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Voisins et Guilde */}
+            {plant.voisins_guilde && (
+              <div className={styles.section}>
+                <h2 className={styles.sectionTitle}>Voisins et Guilde</h2>
+
+                {plant.voisins_guilde.meilleurs_voisins?.length > 0 && (
+                  <div className={styles.guildeGroup}>
+                    <p className={styles.cardLabel}>Meilleurs voisins</p>
+                    <div className={styles.tagRow}>
+                      {plant.voisins_guilde.meilleurs_voisins.map(nom => (
+                        <Tag key={nom} color="primary" variant="filled"
+                          leftIcon={
+                            NEIGHBOR_PICTO_MAP[nom]
+                              ? <img src={NEIGHBOR_PICTO_MAP[nom]} alt="" width={12} height={12} />
+                              : null
+                          }
+                        >
+                          {nom.charAt(0).toUpperCase() + nom.slice(1)}
+                        </Tag>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {plant.voisins_guilde.a_eviter?.length > 0 && (
+                  <div className={styles.guildeGroup}>
+                    <p className={styles.cardLabel}>À éviter</p>
+                    <div className={styles.tagRow}>
+                      {plant.voisins_guilde.a_eviter.map(nom => (
+                        <Tag key={nom} color="error" variant="filled"
+                          leftIcon={
+                            NEIGHBOR_PICTO_MAP[nom]
+                              ? <img src={NEIGHBOR_PICTO_MAP[nom]} alt="" width={12} height={12} />
+                              : null
+                          }
+                        >
+                          {nom.charAt(0).toUpperCase() + nom.slice(1)}
+                        </Tag>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </>
         )}
 
-        {/* CTA */}
+        {activeTab === 'bien_commencer' && (
+          <div className={styles.comingSoon}>
+            <p>Bientôt disponible</p>
+          </div>
+        )}
 
       </div>
 
