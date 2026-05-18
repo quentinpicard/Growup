@@ -49,9 +49,10 @@ export default function OnboardingPage() {
       dispatch({
         type: 'SET_ONBOARDING_COMPLETE',
         payload: {
-          prenom:   answers.prenom ?? null,
-          location: answers.location,
-          light:    answers.light,
+          prenom:     answers.prenom ?? null,
+          location:   answers.location,
+          light:      answers.light,
+          experience: answers.experience ?? null,
         },
       })
       const profile = { ...answers, onboardingDone: true }

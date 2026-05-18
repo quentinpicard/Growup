@@ -185,11 +185,24 @@ export default function HomePage() {
     setTimeout(() => setToast(null), 2000)
   }, [dispatch])
 
+  const ALLOWED_DIFF = {
+    jamais:   ['facile', 'moyen'],
+    un_peu:   ['facile', 'moyen'],
+    oui_deja: ['facile', 'moyen', 'difficile'],
+    avant:    ['facile', 'moyen', 'difficile'],
+  }
+
   const plantesRecommandees = plants.filter(plant => {
-    if (!cleContexte) return true
+    if (!cleContexte) return false
     const ctx = getContexteFromCatalogue(plant.id, cleContexte) ?? plant.contextes?.[cleContexte] ?? null
     if (!ctx) return false
-    return ctx.compatibilite.niveau === 'ideale' && ctx.difficulte.niveau === 'facile'
+    const exp         = user.experience ?? 'jamais'
+    const allowedDiff = ALLOWED_DIFF[exp] ?? ['facile']
+    const diffOk      = allowedDiff.includes(ctx.difficulte.niveau)
+    const compatOk    = exp === 'jamais'
+      ? ctx.compatibilite.niveau !== 'deconseille'
+      : true
+    return diffOk && compatOk
   })
 
   const nomZone = cleContexte
