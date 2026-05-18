@@ -285,16 +285,6 @@ export default function PlantePage() {
   return (
     <div className={styles.page}>
 
-      {/* ─── Barre de statut ─────────────────────────────────── */}
-      <div className={styles.statusBar}>
-        <span className={styles.statusTime}>12:00</span>
-        <div className={styles.statusIcons}>
-          <span>▲▲▲</span>
-          <span>◈</span>
-          <span>▊</span>
-        </div>
-      </div>
-
       {/* ─── Hero ────────────────────────────────────────────── */}
       <div className={styles.hero}>
         <div className={styles.heroBg} />

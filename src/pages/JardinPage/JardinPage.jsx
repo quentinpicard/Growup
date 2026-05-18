@@ -81,15 +81,6 @@ export default function JardinPage() {
 
       {/* ─── Header sticky ──────────────────────────────────── */}
       <header className={styles.header}>
-        <div className={styles.statusBar}>
-          <span className={styles.statusTime}>12:00</span>
-          <div className={styles.statusIcons}>
-            <span className={styles.statusIcon}>▲▲▲</span>
-            <span className={styles.statusIcon}>◈</span>
-            <span className={styles.statusBattery}>▊</span>
-          </div>
-        </div>
-
         <div className={styles.headerContent}>
           <h1 className={styles.pageTitle}>Mon jardin</h1>
           <button

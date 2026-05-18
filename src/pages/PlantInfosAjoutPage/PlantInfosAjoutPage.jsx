@@ -174,14 +174,6 @@ export default function PlantInfosAjoutPage() {
   return (
     <div className={styles.page}>
 
-      {/* ─── Status bar ─────────────────────────────────────────── */}
-      <div className={styles.statusBar}>
-        <span className={styles.statusTime}>12:00</span>
-        <div className={styles.statusIcons}>
-          <span>▲▲▲</span><span>◈</span><span>▊</span>
-        </div>
-      </div>
-
       {/* ─── Hero ────────────────────────────────────────────────── */}
       <div className={styles.hero}>
         <div className={styles.heroBg} />
