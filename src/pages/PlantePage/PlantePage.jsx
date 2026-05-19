@@ -58,7 +58,27 @@ import { generateTasks, getCurrentStage, getPlantRules } from '../../data/plantT
 import { getContexteFromCatalogue } from '../../data/getCompatibilite'
 import { parseGlossaryText } from '../../utils/parseGlossaryText'
 
+import tomateCeriseData from '../../data/tomate_cerise_plants.json'
+import fraiseData from '../../data/fraise_plants.json'
+import carotteData from '../../data/carotte_plants.json'
+
 const PLANTS_BY_ID = Object.fromEntries(plants.map(p => [p.id, p]))
+
+const PLANT_CYCLE_JOURS = {
+  'tomate-cerise': tomateCeriseData.cycle_jours,
+  'fraise':        fraiseData.cycle_jours,
+  'carotte':       carotteData.cycle_jours,
+}
+
+const MOIS_LONG = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+
+function formatHarvestTag(date) {
+  const day  = date.getDate()
+  const mois = MOIS_LONG[date.getMonth()]
+  if (day <= 10) return `Récolte début ${mois}`
+  if (day <= 20) return `Récolte mi-${mois}`
+  return `Récolte fin ${mois}`
+}
 
 const PICTO_MAP = {
   'Tomate':        tomateSvg,
@@ -298,6 +318,11 @@ export default function PlantePage() {
   const cycleDateRecolte = (plantedAtDate && firstRecolteRule)
     ? formatCycleDate(addDaysToDate(plantedAtDate, firstRecolteRule.offsetDays))
     : plant.cycle?.date_recolte
+
+  const cycleDays = PLANT_CYCLE_JOURS[plant.id] ?? plant.cycle?.duree_jours
+  const harvestTagLabel = (plantedAtDate && cycleDays)
+    ? formatHarvestTag(addDaysToDate(plantedAtDate, cycleDays))
+    : null
   const etat       = instance?.etat ?? 'bien'
   const zoneLabel  = getZoneLabel(user)
   const picto      = PICTO_MAP[plant.icone]
@@ -409,10 +434,12 @@ export default function PlantePage() {
               {compat.label}
             </Tag>
           )}
-          <span className={styles.harvestTag}>
-            <img src={IconRecolte} alt="" aria-hidden="true" width={16} height={16} />
-            Dans ~1 mois
-          </span>
+          {harvestTagLabel && (
+            <span className={styles.harvestTag}>
+              <img src={IconRecolte} alt="" aria-hidden="true" width={16} height={16} />
+              {harvestTagLabel}
+            </span>
+          )}
         </div>
 
         {/* Tabs */}
