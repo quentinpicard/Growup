@@ -7,6 +7,7 @@ import styles from './PlantInfosAjoutPage.module.scss'
 
 import plants from '../../mocks/plants.json'
 import { getContexteFromCatalogue } from '../../data/getCompatibilite'
+import { parseGlossaryText } from '../../utils/parseGlossaryText'
 import carotteData      from '../../data/carotte_plants.json'
 import tomateCeriseData from '../../data/tomate_cerise_plants.json'
 import fraiseData       from '../../data/fraise_plants.json'
@@ -254,7 +255,7 @@ export default function PlantInfosAjoutPage() {
               <div className={styles.brunoRow}>
                 <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
                 <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
-                  <p className={styles.bubbleText}>{plant.bruno_intro}</p>
+                  <p className={styles.bubbleText}>{parseGlossaryText(plant.bruno_intro)}</p>
                 </div>
               </div>
             )}
@@ -273,7 +274,7 @@ export default function PlantInfosAjoutPage() {
               <div className={styles.brunoRow}>
                 <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
                 <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
-                  <p className={styles.bubbleText}>{brunoStade}</p>
+                  <p className={styles.bubbleText}>{parseGlossaryText(brunoStade)}</p>
                 </div>
               </div>
             )}
@@ -305,7 +306,7 @@ export default function PlantInfosAjoutPage() {
                 <div className={styles.brunoRow}>
                   <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
                   <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
-                    <p className={styles.bubbleText}>{contexteData.conseil_bruno}</p>
+                    <p className={styles.bubbleText}>{parseGlossaryText(contexteData.conseil_bruno)}</p>
                   </div>
                 </div>
               </div>
@@ -326,7 +327,7 @@ export default function PlantInfosAjoutPage() {
                   </div>
                   <div className={styles.particularRow}>
                     <span className={styles.particularLabel}>Substrat</span>
-                    <span className={styles.particularValue}>{particulars.substrat}</span>
+                    <span className={styles.particularValue}>{parseGlossaryText(particulars.substrat)}</span>
                   </div>
                   {'semis_direct_uniquement' in particulars && (
                     <div className={styles.particularRow}>
@@ -422,7 +423,7 @@ export default function PlantInfosAjoutPage() {
                   <div className={`${styles.bubble} ${styles.bubbleYellow}`}>
                     <p className={styles.bubbleText}>Selon moi, pour bien démarrer :</p>
                     <p className={`${styles.bubbleText} ${styles.bubbleTextBold}`}>
-                      {plant.pot_substrat.recommandation}
+                      {parseGlossaryText(plant.pot_substrat.recommandation)}
                     </p>
                   </div>
                 </div>
@@ -487,7 +488,7 @@ export default function PlantInfosAjoutPage() {
 
                 {/* Accroche */}
                 <div className={styles.accrocheCard}>
-                  <p className={styles.accrocheText}>{bienCommencer.accroche}</p>
+                  <p className={styles.accrocheText}>{parseGlossaryText(bienCommencer.accroche)}</p>
                 </div>
 
                 {bienCommencer.alternative ? (
@@ -496,7 +497,7 @@ export default function PlantInfosAjoutPage() {
                     <div className={styles.brunoRow}>
                       <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
                       <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
-                        <p className={styles.bubbleText}>{bienCommencer.alternative.message}</p>
+                        <p className={styles.bubbleText}>{parseGlossaryText(bienCommencer.alternative.message)}</p>
                       </div>
                     </div>
                     {bienCommencer.alternative.plantes_conseillees?.length > 0 && (
@@ -528,7 +529,7 @@ export default function PlantInfosAjoutPage() {
                         </button>
                         {openSections.includes('contenant') && (
                           <div className={styles.accordionBody}>
-                            <p className={styles.accordionDesc}>{bienCommencer.priorite_contenant.description}</p>
+                            <p className={styles.accordionDesc}>{parseGlossaryText(bienCommencer.priorite_contenant.description)}</p>
                             <div className={styles.specsGrid}>
                               {bienCommencer.priorite_contenant.profondeur_min && (
                                 <div className={styles.specRow}>
@@ -551,7 +552,7 @@ export default function PlantInfosAjoutPage() {
                               {bienCommencer.priorite_contenant.materiau && (
                                 <div className={styles.specRow}>
                                   <span className={styles.specLabel}>Matériau</span>
-                                  <span className={styles.specValue}>{bienCommencer.priorite_contenant.materiau}</span>
+                                  <span className={styles.specValue}>{parseGlossaryText(bienCommencer.priorite_contenant.materiau)}</span>
                                 </div>
                               )}
                             </div>
@@ -573,11 +574,11 @@ export default function PlantInfosAjoutPage() {
                         </button>
                         {openSections.includes('substrat') && (
                           <div className={styles.accordionBody}>
-                            <p className={styles.accordionDesc}>{bienCommencer.substrat.description}</p>
+                            <p className={styles.accordionDesc}>{parseGlossaryText(bienCommencer.substrat.description)}</p>
                             {bienCommencer.substrat.melange_conseille && (
                               <div className={styles.melangeTag}>
                                 <span className={styles.melangeLabel}>Mélange conseillé</span>
-                                <span className={styles.melangeValue}>{bienCommencer.substrat.melange_conseille}</span>
+                                <span className={styles.melangeValue}>{parseGlossaryText(bienCommencer.substrat.melange_conseille)}</span>
                               </div>
                             )}
                             {bienCommencer.substrat.a_eviter?.length > 0 && (
@@ -585,7 +586,7 @@ export default function PlantInfosAjoutPage() {
                                 <p className={styles.aEviterTitle}>À éviter</p>
                                 <ul className={styles.aEviterList}>
                                   {bienCommencer.substrat.a_eviter.map((item, i) => (
-                                    <li key={i} className={styles.aEviterItem}>{item}</li>
+                                    <li key={i} className={styles.aEviterItem}>{parseGlossaryText(item)}</li>
                                   ))}
                                 </ul>
                               </div>
@@ -608,11 +609,11 @@ export default function PlantInfosAjoutPage() {
                         </button>
                         {openSections.includes('semer') && (
                           <div className={styles.accordionBody}>
-                            <p className={styles.accordionDesc}>{bienCommencer.semer.description}</p>
+                            <p className={styles.accordionDesc}>{parseGlossaryText(bienCommencer.semer.description)}</p>
                             {bienCommencer.semer.conseils?.length > 0 && (
                               <ul className={styles.conseilsList}>
                                 {bienCommencer.semer.conseils.map((conseil, i) => (
-                                  <li key={i} className={styles.conseilItem}>{conseil}</li>
+                                  <li key={i} className={styles.conseilItem}>{parseGlossaryText(conseil)}</li>
                                 ))}
                               </ul>
                             )}
@@ -627,7 +628,7 @@ export default function PlantInfosAjoutPage() {
                         <h2 className={styles.erreursSectionTitle}>Erreurs à éviter</h2>
                         <ul className={styles.erreursList}>
                           {bienCommencer.erreurs_a_eviter.map((err, i) => (
-                            <li key={i} className={styles.erreurItem}>{err}</li>
+                            <li key={i} className={styles.erreurItem}>{parseGlossaryText(err)}</li>
                           ))}
                         </ul>
                       </div>

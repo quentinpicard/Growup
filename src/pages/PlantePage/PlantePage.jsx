@@ -56,6 +56,7 @@ import IconPlanterSvg  from '../../assets/pictos/Planter.svg?react'
 
 import { generateTasks } from '../../data/plantTasks'
 import { getContexteFromCatalogue } from '../../data/getCompatibilite'
+import { parseGlossaryText } from '../../utils/parseGlossaryText'
 
 const PLANTS_BY_ID = Object.fromEntries(plants.map(p => [p.id, p]))
 
@@ -464,7 +465,7 @@ export default function PlantePage() {
                 <div className={styles.bubbleWrap}>
                   <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
                     <p className={styles.bubbleText}>
-                      {plantCtx?.conseil_bruno ?? plant.bruno_intro}
+                      {parseGlossaryText(plantCtx?.conseil_bruno ?? plant.bruno_intro)}
                     </p>
                   </div>
                 </div>
@@ -478,7 +479,7 @@ export default function PlantePage() {
                 {tasks.map(task => (
                   <TaskCard
                     key={task.id}
-                    title={task.label}
+                    title={parseGlossaryText(task.label)}
                     frequency="Quotidien"
                     duration={task.duration}
                     icon={<img src={task.picto} alt="" />}
@@ -520,7 +521,7 @@ export default function PlantePage() {
                     <div className={`${styles.bubble} ${styles.bubbleYellow}`}>
                       <p className={styles.bubbleText}>Selon moi le mieux pour cette plante serait</p>
                       <p className={`${styles.bubbleText} ${styles.bubbleTextBold}`}>
-                        {plant.pot_substrat.recommandation}
+                        {parseGlossaryText(plant.pot_substrat.recommandation)}
                       </p>
                     </div>
                   </div>

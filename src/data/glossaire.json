@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "Glossaire des termes techniques de jardinage pour GrowUp. Utilisé pour les tooltips (fiche info-plante) et les reformulations Bruno (conseils in-app). Un terme expliqué une fois en session ne se ré-affiche pas.",
+    "niveaux_friction": {
+      "tres_eleve": "Terme totalement opaque pour un débutant. Reformulation Bruno obligatoire à la première occurrence.",
+      "eleve": "Terme connu à l'oral mais mal compris techniquement. Tooltip inline.",
+      "moyen": "Terme compréhensible en contexte mais à clarifier. Tooltip inline discret."
+    },
+    "regles_affichage": {
+      "fiche_info_plante": "Tooltip inline au premier usage en session. Underline pointillé sur le terme. Popover 2 lignes max.",
+      "conseils_bruno_inapp": "Reformulation directe dans le texte. Pas de tooltip — contexte actionnel.",
+      "session_memory": "Chaque terme expliqué une fois est marqué 'vu'. Ne plus afficher de tooltip pour ce terme dans la session."
+    }
+  },
+
+  "termes": {
+
+    "semis": {
+      "niveau_friction": "tres_eleve",
+      "label_affiche": "semis",
+      "tooltip_fiche": {
+        "titre": "C'est quoi un semis ?",
+        "definition": "Une graine qu'on fait germer soi-même, chez toi, dans un petit pot intérieur. Différent d'un plant acheté en jardinerie, qui est déjà prêt à repiquer."
+      },
+      "reformulation_bruno": {
+        "original": "Sème en intérieur en février ou mars",
+        "reformule": "Si tu pars d'une graine (pas d'un plant acheté en jardinerie), démarre à l'intérieur en février ou mars."
+      },
+      "termes_lies": ["plant", "repiquage"]
+    },
+
+    "plant": {
+      "niveau_friction": "tres_eleve",
+      "label_affiche": "plant",
+      "tooltip_fiche": {
+        "titre": "Semis ou plant ?",
+        "definition": "Un plant, c'est une jeune plante déjà prête, achetée en jardinerie. Un semis, c'est une graine que tu fais germer toi-même à la maison."
+      },
+      "reformulation_bruno": {
+        "original": "Repique un plant en pot extérieur",
+        "reformule": "Installe ta jeune plante (achetée en jardinerie ou démarrée chez toi) dans son pot extérieur."
+      },
+      "termes_lies": ["semis", "repiquage"]
+    },
+
+    "repiquage": {
+      "niveau_friction": "tres_eleve",
+      "label_affiche": "repiquer",
+      "tooltip_fiche": {
+        "titre": "Repiquer, c'est quoi ?",
+        "definition": "Déplacer une jeune plante de son petit pot de démarrage vers son pot définitif, ou en pleine terre. On repique quand elle est assez forte pour l'extérieur."
+      },
+      "reformulation_bruno": {
+        "original": "Repique en pot extérieur à partir d'avril",
+        "reformule": "Installe ta plante dans son pot extérieur définitif à partir d'avril, quand les nuits sont douces."
+      },
+      "termes_lies": ["semis", "transplantation"]
+    },
+
+    "transplantation": {
+      "niveau_friction": "eleve",
+      "label_affiche": "transplantation",
+      "tooltip_fiche": {
+        "titre": "Transplantation",
+        "definition": "Même chose que repiquer : déplacer la plante vers un plus grand pot ou en pleine terre. On dit aussi 'rempoter' quand c'est d'un pot à un autre."
+      },
+      "reformulation_bruno": {
+        "original": "Transplantation possible",
+        "reformule": "Cette plante supporte bien d'être déplacée dans un pot plus grand."
+      },
+      "termes_lies": ["repiquage"]
+    },
+
+    "gourmand": {
+      "niveau_friction": "tres_eleve",
+      "label_affiche": "gourmands",
+      "tooltip_fiche": {
+        "titre": "C'est quoi un gourmand ?",
+        "definition": "Une petite tige qui pousse dans l'angle entre la tige principale et une feuille. Elle pompe l'énergie de la plante sans donner de fruits — on la retire à la main."
+      },
+      "reformulation_bruno": {
+        "original": "Pincer les gourmands régulièrement",
+        "reformule": "Retire à la main les petites tiges qui poussent dans les angles de la plante (entre tige et feuille). Ça concentre l'énergie sur les fruits."
+      },
+      "termes_lies": ["pincer"]
+    },
+
+    "pincer": {
+      "niveau_friction": "moyen",
+      "label_affiche": "pincer",
+      "tooltip_fiche": {
+        "titre": "Pincer une tige",
+        "definition": "Casser une petite tige à la main, entre le pouce et l'index, pour stopper sa croissance. Pas besoin d'outil."
+      },
+      "reformulation_bruno": {
+        "original": "Pince les gourmands",
+        "reformule": "Casse à la main les petites tiges parasites dans les angles de la plante."
+      },
+      "termes_lies": ["gourmand"]
+    },
+
+    "substrat": {
+      "niveau_friction": "eleve",
+      "label_affiche": "substrat",
+      "tooltip_fiche": {
+        "titre": "Substrat = la terre du pot",
+        "definition": "Le mélange dans lequel pousse ta plante. Pas la même chose que la terre de jardin — c'est un mélange pensé pour les plantes en pot, plus léger et plus drainant."
+      },
+      "reformulation_bruno": {
+        "original": "Un substrat riche et bien drainé",
+        "reformule": "La terre dans ton pot doit être riche (terreau potager, pas terreau universel) et laisser passer l'eau facilement."
+      },
+      "termes_lies": ["drainage", "terreau"]
+    },
+
+    "drainage": {
+      "niveau_friction": "moyen",
+      "label_affiche": "drainé",
+      "tooltip_fiche": {
+        "titre": "Bien drainé ?",
+        "definition": "La capacité de la terre à laisser s'écouler l'eau en trop. Si l'eau stagne au fond du pot, les racines pourrissent. Un bon drainage évite ça."
+      },
+      "reformulation_bruno": {
+        "original": "Substrat sans drainage (risque de pourriture des racines)",
+        "reformule": "Évite une terre qui retient trop l'eau — si l'eau ne s'écoule pas, les racines pourrissent."
+      },
+      "termes_lies": ["substrat"]
+    },
+
+    "tuteurage": {
+      "niveau_friction": "moyen",
+      "label_affiche": "tuteurage",
+      "tooltip_fiche": {
+        "titre": "Tuteurage",
+        "definition": "Attacher la plante à un bâton planté dans le pot pour qu'elle tienne debout en grandissant. La tomate cerise peut dépasser 1m20 — sans tuteur, elle s'effondre."
+      },
+      "reformulation_bruno": {
+        "original": "Tuteurer dès le repiquage",
+        "reformule": "Plante un bâton dans le pot dès le départ et attaches-y la tige. Elle va monter vite."
+      },
+      "termes_lies": ["tuteur"]
+    },
+
+    "fongique": {
+      "niveau_friction": "eleve",
+      "label_affiche": "maladies fongiques",
+      "tooltip_fiche": {
+        "titre": "Maladies fongiques",
+        "definition": "Maladies causées par des champignons microscopiques. Elles apparaissent surtout quand il fait humide et peu aéré — taches sur les feuilles, moisissures, pourriture."
+      },
+      "reformulation_bruno": {
+        "original": "Surveille les maladies fongiques",
+        "reformule": "Par temps humide, surveille l'apparition de taches ou de moisissures sur les feuilles."
+      },
+      "termes_lies": []
+    },
+
+    "motte": {
+      "niveau_friction": "moyen",
+      "label_affiche": "motte",
+      "tooltip_fiche": {
+        "titre": "La motte",
+        "definition": "La boule de terre compacte qui entoure les racines d'une plante. Quand on dit 'la motte est sèche', ça veut dire que la terre autour des racines a besoin d'eau."
+      },
+      "reformulation_bruno": {
+        "original": "On laisse bien sécher la motte",
+        "reformule": "On laisse bien sécher la terre autour des racines avant d'arroser à nouveau."
+      },
+      "termes_lies": ["substrat"]
+    },
+
+    "stress_hydrique": {
+      "niveau_friction": "eleve",
+      "label_affiche": "stress hydrique",
+      "tooltip_fiche": {
+        "titre": "Stress hydrique",
+        "definition": "Quand une plante manque d'eau ou en reçoit de façon trop irrégulière. Résultat : feuilles qui tombent, fruits qui éclatent, fleurs qui avortent."
+      },
+      "reformulation_bruno": {
+        "original": "Fruits qui éclatent par stress hydrique",
+        "reformule": "Les fruits qui éclatent, c'est souvent parce que la plante a reçu de l'eau de façon irrégulière — un coup trop sec, un coup trop humide."
+      },
+      "termes_lies": ["drainage"]
+    }
+  }
+}

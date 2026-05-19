@@ -19,6 +19,7 @@ import PictoCarotte      from '../../assets/pictos/fruits_legumes/Carotte.svg?re
 import PictoCiboulette   from '../../assets/pictos/aromatiques/Ciboulette.svg?react'
 
 import { generateTasks, getPlantRules } from '../../data/plantTasks'
+import { parseGlossaryText } from '../../utils/parseGlossaryText'
 
 const PLANT_PICTOS = {
   'tomate-cerise': <PictoTomateCerise width={12} height={12} aria-hidden="true" />,
@@ -299,10 +300,10 @@ export default function TachesPage() {
                 {tasks.map(task => (
                   <TaskCard
                     key={task.id}
-                    title={task.title}
+                    title={parseGlossaryText(task.title)}
                     frequency={task.frequency}
                     duration={task.duration}
-                    conseil={task.conseil}
+                    conseil={parseGlossaryText(task.conseil)}
                     icon={task.icon}
                     variant={section.variant}
                     plantLabel={task.plantLabel}

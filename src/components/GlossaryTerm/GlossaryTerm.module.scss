@@ -1,0 +1,66 @@
+.term {
+  border-bottom: 1.5px dotted var(--primitive-primary-500);
+  cursor: pointer;
+  display: inline;
+  padding-bottom: 1px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(37, 35, 35, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+}
+
+.sheet {
+  width: 100%;
+  background: var(--color-light);
+  border-radius: 20px 20px 0 0;
+  padding: 12px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: slideUp 0.22s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+.handle {
+  width: 40px;
+  height: 4px;
+  background: var(--primitive-gray-200);
+  border-radius: 2px;
+  margin: 0 auto 8px;
+}
+
+.titre {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary-main);
+  margin: 0;
+}
+
+.definition {
+  font-size: 14px;
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.closeBtn {
+  align-self: flex-end;
+  margin-top: 4px;
+  padding: 10px 24px;
+  background: var(--color-primary-main);
+  color: var(--color-primary-contrast-text);
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
