@@ -1280,7 +1280,19 @@ export function generateTasks(plantInstance, options = {}) {
 
   const tasks = [];
 
+  // Si l'instance a un startStage (plant acheté hors fenêtre de semis),
+  // on saute les règles des stades antérieurs
+  const stageOrder = Object.keys(rules.stages);
+  const startStageIdx = plantInstance.startStage
+    ? Math.max(0, stageOrder.indexOf(plantInstance.startStage))
+    : 0;
+
   for (const rule of rules.rules) {
+    if (startStageIdx > 0 && rule.stage) {
+      const ruleStageIdx = stageOrder.indexOf(rule.stage);
+      if (ruleStageIdx !== -1 && ruleStageIdx < startStageIdx) continue;
+    }
+
     switch (rule.type) {
       case 'once':
         tasks.push(...generateOnce(rule, plantInstance, plantedAt, until));

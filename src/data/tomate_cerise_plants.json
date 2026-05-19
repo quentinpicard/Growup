@@ -6,7 +6,14 @@
   "famille": "Solanacées",
   "type": "Fruit",
   "cycle_jours": 100,
-  "stades": ["semis", "repiquage", "croissance", "floraison", "fructification", "recolte"],
+  "stades": [
+    "semis",
+    "repiquage",
+    "croissance",
+    "floraison",
+    "fructification",
+    "recolte"
+  ],
   "particularites_generales": {
     "racine_pivotante": false,
     "profondeur_minimum_cm": 30,
@@ -18,12 +25,22 @@
     "substrat": "Terreau potager enrichi, bien drainé, pH 6-6.8"
   },
   "matrice_contextes": {
-
     "balcon_terrasse_sud": {
       "compatibilite": "ideale",
       "difficulte": "moyen",
-      "stades_recommandes": ["semis", "repiquage", "croissance", "floraison", "fructification", "recolte"],
-      "mois_semis_ideal": ["fevrier", "mars", "avril"],
+      "stades_recommandes": [
+        "semis",
+        "repiquage",
+        "croissance",
+        "floraison",
+        "fructification",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "fevrier",
+        "mars",
+        "avril"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 35,
         "volume_min_litres": 15,
@@ -44,14 +61,18 @@
           "titre": "Un substrat riche et bien drainé",
           "description": "La tomate cerise est gourmande. Elle a besoin d'un substrat fertile pour alimenter ses fruits tout au long de la saison.",
           "melange_conseille": "Terreau potager enrichi, éventuellement mélangé avec 10 à 20% de compost mûr",
-          "a_eviter": ["Terreau universel seul (pas assez riche)", "Terre de jardin (trop dense, se compacte)", "Substrat sans drainage (risque de pourriture des racines)"]
+          "a_eviter": [
+            "Terreau universel seul (pas assez riche)",
+            "Terre de jardin (trop dense, se compacte)",
+            "Substrat sans drainage (risque de pourriture des racines)"
+          ]
         },
         "semer": {
-          "titre": "Semer en intérieur, repiquer après les gelées",
-          "description": "La tomate cerise ne se sème pas directement dehors. On démarre en intérieur en février à mars, et on repique en pot extérieur quand les nuits dépassent 10°C.",
+          "titre": "Achète un jeune plant, repiquer maintenant",
+          "description": "La fenêtre de semis est passée pour cette saison. En mai, on achète directement un jeune plant en jardinerie et on repique sans attendre.",
           "conseils": [
-            "Sème en intérieur en février ou mars, dans un endroit lumineux et chaud",
-            "Repique en pot extérieur à partir d'avril, quand les nuits sont douces",
+            "Achète un jeune plant en jardinerie, la fenêtre de semis est passée pour cette saison",
+            "Repique dès maintenant, les nuits sont assez douces en mai",
             "Pose le tuteur dès le repiquage, avant que la plante grandisse",
             "Ombrer légèrement l'après-midi en juillet et août si les températures dépassent 35°C"
           ]
@@ -72,12 +93,22 @@
         "Fertiliser toutes les 2 semaines dès la floraison"
       ]
     },
-
     "balcon_terrasse_ouest": {
       "compatibilite": "ideale",
       "difficulte": "moyen",
-      "stades_recommandes": ["semis", "repiquage", "croissance", "floraison", "fructification", "recolte"],
-      "mois_semis_ideal": ["fevrier", "mars", "avril"],
+      "stades_recommandes": [
+        "semis",
+        "repiquage",
+        "croissance",
+        "floraison",
+        "fructification",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "fevrier",
+        "mars",
+        "avril"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 35,
         "volume_min_litres": 15,
@@ -98,14 +129,18 @@
           "titre": "Substrat riche, même recette qu'en plein sud",
           "description": "La tomate cerise reste gourmande quelle que soit l'exposition. Un bon substrat dès le départ limite le besoin de fertilisation en cours de saison.",
           "melange_conseille": "Terreau potager enrichi, 10 à 20% de compost mûr si disponible",
-          "a_eviter": ["Terreau universel seul", "Terre de jardin compactée", "Substrat sans drainage"]
+          "a_eviter": [
+            "Terreau universel seul",
+            "Terre de jardin compactée",
+            "Substrat sans drainage"
+          ]
         },
         "semer": {
-          "titre": "Démarrer en intérieur, repiquer à partir d'avril",
-          "description": "Même démarche qu'en plein sud. Le léger retard de chaleur le matin ne change pas le calendrier de départ.",
+          "titre": "Achète un jeune plant, repiquer maintenant",
+          "description": "La fenêtre de semis est passée. En mai, on passe directement à l'achat d'un jeune plant en jardinerie.",
           "conseils": [
-            "Sème en intérieur en février ou mars",
-            "Repique à partir d'avril, quand les nuits dépassent 10°C",
+            "Achète un jeune plant en jardinerie, plus besoin de semer à cette période",
+            "Repique dès maintenant, les nuits sont suffisamment douces",
             "Arrose le matin pour que le substrat soit bien humide quand le soleil arrive l'après-midi",
             "Pose le tuteur dès le repiquage"
           ]
@@ -125,12 +160,21 @@
         "Fertilisation toutes les 2 semaines en production"
       ]
     },
-
     "balcon_terrasse_est": {
       "compatibilite": "possible",
       "difficulte": "difficile",
-      "stades_recommandes": ["semis", "repiquage", "croissance", "floraison", "fructification", "recolte"],
-      "mois_semis_ideal": ["mars", "avril"],
+      "stades_recommandes": [
+        "semis",
+        "repiquage",
+        "croissance",
+        "floraison",
+        "fructification",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 35,
         "volume_min_litres": 20,
@@ -151,14 +195,18 @@
           "titre": "Substrat très riche pour compenser le manque de soleil",
           "description": "Moins de soleil signifie moins d'énergie disponible pour la plante. Un substrat très fertile compense partiellement.",
           "melange_conseille": "Terreau potager enrichi avec 20 à 25% de compost mûr",
-          "a_eviter": ["Terreau universel seul", "Sol peu fertile", "Substrat déjà utilisé plusieurs saisons"]
+          "a_eviter": [
+            "Terreau universel seul",
+            "Sol peu fertile",
+            "Substrat déjà utilisé plusieurs saisons"
+          ]
         },
         "semer": {
-          "titre": "Variétés précoces uniquement, repiquer à partir d'avril",
-          "description": "Le choix de la variété est critique ici. Les variétés précoces ont besoin de moins de chaleur accumulée pour mûrir leurs fruits.",
+          "titre": "Variétés précoces uniquement, repiquer maintenant",
+          "description": "Le choix de la variété est critique ici. Achète un jeune plant de variété précoce en jardinerie, la fenêtre de semis est passée.",
           "conseils": [
             "Choisis exclusivement des variétés précoces : Sweet 100, Gardener's Delight, Juliet",
-            "Repique à partir d'avril, pas avant, les matinées froides ralentissent la reprise",
+            "Achète un jeune plant et repique dès maintenant, les conditions sont bonnes en mai",
             "Pince tous les gourmands sans exception pour concentrer l'énergie sur les fruits",
             "Fertilise toutes les semaines dès la floraison, pas toutes les deux"
           ]
@@ -179,7 +227,6 @@
         "Pincer tous les gourmands pour concentrer l'énergie sur les fruits"
       ]
     },
-
     "balcon_terrasse_nord": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -190,7 +237,13 @@
         "accroche": "La tomate cerise a besoin d'au moins 6h de soleil direct par jour pour fructifier. Sur un balcon nord, on est loin du compte.",
         "alternative": {
           "message": "Ce balcon sera beaucoup plus productif avec des plantes qui s'accommodent de l'ombre et de la fraîcheur.",
-          "plantes_conseillees": ["Ciboulette", "Persil", "Salade", "Mâche", "Épinards"]
+          "plantes_conseillees": [
+            "Ciboulette",
+            "Persil",
+            "Salade",
+            "Mâche",
+            "Épinards"
+          ]
         }
       },
       "conseil_bruno": "Balcon nord pour des tomates cerises, ça va pas aller. Elle a besoin d'au moins 6h de soleil direct, et là on est loin du compte. Les plants vont s'étioler, les fleurs tomberont, et si des fruits arrivent, ils seront acides et petits. Sur un balcon nord, la ciboulette, le persil et les salades seront tes meilleures options.",
@@ -199,12 +252,21 @@
         "Tomate cerise non viable en exposition nord"
       ]
     },
-
     "rebord_ext_fenetre_sud": {
       "compatibilite": "possible",
       "difficulte": "difficile",
-      "stades_recommandes": ["semis", "repiquage", "croissance", "floraison", "fructification", "recolte"],
-      "mois_semis_ideal": ["mars", "avril"],
+      "stades_recommandes": [
+        "semis",
+        "repiquage",
+        "croissance",
+        "floraison",
+        "fructification",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 30,
         "volume_min_litres": 15,
@@ -225,7 +287,11 @@
           "titre": "Substrat riche avec rétention d'eau",
           "description": "Petit volume de terre signifie séchage rapide. Un substrat qui retient mieux l'eau réduit la fréquence d'arrosage et le stress de la plante.",
           "melange_conseille": "Terreau potager enrichi avec 15 à 20% de compost mûr ou de vermiculite",
-          "a_eviter": ["Terreau universel seul (sèche trop vite)", "Substrat sableux (drainage trop rapide)", "Terre de jardin"]
+          "a_eviter": [
+            "Terreau universel seul (sèche trop vite)",
+            "Substrat sableux (drainage trop rapide)",
+            "Terre de jardin"
+          ]
         },
         "semer": {
           "titre": "Variétés naines uniquement, repiquer en avril",
@@ -252,12 +318,20 @@
         "Tuteurer même pour les variétés compactes"
       ]
     },
-
     "rebord_ext_fenetre_ouest": {
       "compatibilite": "possible",
       "difficulte": "difficile",
-      "stades_recommandes": ["semis", "repiquage", "croissance", "floraison", "fructification", "recolte"],
-      "mois_semis_ideal": ["avril"],
+      "stades_recommandes": [
+        "semis",
+        "repiquage",
+        "croissance",
+        "floraison",
+        "fructification",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "avril"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 30,
         "volume_min_litres": 15,
@@ -278,7 +352,11 @@
           "titre": "Substrat riche avec bonne rétention d'eau",
           "description": "Le soleil de l'après-midi peut être intense en été. Un substrat qui retient l'eau protège la plante des pics de chaleur.",
           "melange_conseille": "Terreau potager enrichi avec compost mûr ou vermiculite",
-          "a_eviter": ["Substrat trop drainant", "Terreau universel seul", "Terre de jardin"]
+          "a_eviter": [
+            "Substrat trop drainant",
+            "Terreau universel seul",
+            "Terre de jardin"
+          ]
         },
         "semer": {
           "titre": "Variétés compactes, repiquer à partir d'avril",
@@ -305,7 +383,6 @@
         "Récoltes modestes mais régulières"
       ]
     },
-
     "rebord_ext_fenetre_est": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -316,7 +393,12 @@
         "accroche": "Petit volume de terre et peu de soleil, c'est le cumul de deux contraintes que la tomate cerise supporte mal. Même les variétés naines vont peiner ici.",
         "alternative": {
           "message": "Ce rebord sera beaucoup plus productif avec des plantes moins exigeantes en soleil.",
-          "plantes_conseillees": ["Fraise", "Ciboulette", "Persil", "Salade à couper"]
+          "plantes_conseillees": [
+            "Fraise",
+            "Ciboulette",
+            "Persil",
+            "Salade à couper"
+          ]
         }
       },
       "conseil_bruno": "Rebord est en extérieur, la combinaison petit volume de terre + peu de soleil, c'est vraiment trop juste pour la tomate cerise. Même les variétés naines vont galérer. Ce rebord sera bien plus productif avec des fraises, des aromatiques ou des salades.",
@@ -325,7 +407,6 @@
         "Tomate cerise non viable dans cette combinaison"
       ]
     },
-
     "rebord_ext_fenetre_nord": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -336,7 +417,11 @@
         "accroche": "Rebord nord, c'est le cumul de tout ce que la tomate cerise n'aime pas : pas de soleil direct, peu d'espace, peu de volume de terre.",
         "alternative": {
           "message": "Ce rebord fonctionne bien pour des aromatiques qui apprécient la fraîcheur et la mi-ombre.",
-          "plantes_conseillees": ["Persil", "Ciboulette", "Menthe"]
+          "plantes_conseillees": [
+            "Persil",
+            "Ciboulette",
+            "Menthe"
+          ]
         }
       },
       "conseil_bruno": "Rebord nord pour des tomates cerises, non. C'est le cumul de tout ce qu'elle n'aime pas : pas de soleil, peu d'espace, peu de volume. Garde ce rebord pour des aromatiques qui s'en accommodent, persil, ciboulette, menthe.",
@@ -345,7 +430,6 @@
         "Tomate cerise non viable en exposition nord"
       ]
     },
-
     "interieur_fenetre_sud": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -356,7 +440,11 @@
         "accroche": "La tomate cerise a besoin de soleil direct, de pollinisateurs et d'air circulant. Une fenêtre intérieure, même plein sud, ne réunit pas ces conditions.",
         "alternative": {
           "message": "Pour cultiver à l'intérieur avec de vrais résultats, ces plantes sont bien mieux adaptées.",
-          "plantes_conseillees": ["Fraise (fenêtre sud)", "Basilic", "Ciboulette"]
+          "plantes_conseillees": [
+            "Fraise (fenêtre sud)",
+            "Basilic",
+            "Ciboulette"
+          ]
         }
       },
       "conseil_bruno": "Je sais que ça fait envie d'avoir des tomates cerises sur son rebord de fenêtre intérieur, mais en pratique, ça ne donne pas grand chose. La vitre filtre les UV dont la plante a besoin pour fructifier, l'air intérieur manque de circulation, et les insectes pollinisateurs ne rentrent pas. Elle va pousser, fleurir un peu, et c'est à peu près tout. Pour de vrais résultats en intérieur, la fraise ou les aromatiques seront bien plus satisfaisantes.",
@@ -365,7 +453,6 @@
         "Tomate cerise non adaptée à la culture intérieure sans lampe horticole"
       ]
     },
-
     "interieur_fenetre_ouest": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -376,7 +463,11 @@
         "accroche": "En intérieur fenêtre ouest, la tomate cerise n'a pas les conditions minimales pour fructifier. Pas assez de lumière directe, pas de pollinisateurs, pas d'air.",
         "alternative": {
           "message": "Ce coin est bien mieux adapté aux aromatiques et aux cultures rapides.",
-          "plantes_conseillees": ["Ciboulette", "Basilic", "Fraise remontante"]
+          "plantes_conseillees": [
+            "Ciboulette",
+            "Basilic",
+            "Fraise remontante"
+          ]
         }
       },
       "conseil_bruno": "Fenêtre ouest en intérieur, la tomate cerise n'a pas ce qu'il lui faut. Pas assez de lumière directe, pas de pollinisateurs, pas d'air. Si tu veux cultiver quelque chose dans ce coin, pense à la ciboulette, au basilic ou à la fraise remontante, ce sont eux les vrais champions de l'intérieur.",
@@ -385,7 +476,6 @@
         "Tomate cerise non adaptée à la culture intérieure"
       ]
     },
-
     "interieur_fenetre_est": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -396,7 +486,11 @@
         "accroche": "Fenêtre est en intérieur, la tomate cerise n'a pas ce qu'il lui faut. Le peu de soleil filtré par la vitre ne suffit pas pour fructifier.",
         "alternative": {
           "message": "Ce coin est bien mieux adapté aux aromatiques et aux salades à couper.",
-          "plantes_conseillees": ["Ciboulette", "Persil", "Salade à couper"]
+          "plantes_conseillees": [
+            "Ciboulette",
+            "Persil",
+            "Salade à couper"
+          ]
         }
       },
       "conseil_bruno": "Fenêtre est en intérieur, non pour la tomate cerise. Le peu de soleil du matin filtré par la vitre ne suffit pas pour fructifier. Ce coin est bien plus adapté aux aromatiques et aux salades.",
@@ -405,7 +499,6 @@
         "Tomate cerise non viable dans cette configuration"
       ]
     },
-
     "interieur_fenetre_nord": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -416,7 +509,9 @@
         "accroche": "Intérieur fenêtre nord, c'est le contexte le plus difficile qui soit pour la tomate cerise. Aucune chance de fructification dans ces conditions.",
         "alternative": {
           "message": "La ciboulette est une des seules plantes à vraiment s'épanouir dans ce coin. C'est le bon choix ici.",
-          "plantes_conseillees": ["Ciboulette"]
+          "plantes_conseillees": [
+            "Ciboulette"
+          ]
         }
       },
       "conseil_bruno": "Fenêtre nord en intérieur pour une tomate cerise, même pas la peine d'essayer, honnêtement. Ce serait une grosse déception. La ciboulette est la plante parfaite pour ce coin, elle est une des seules à vraiment s'y plaire.",
@@ -425,12 +520,22 @@
         "Tomate cerise non adaptée à cette zone"
       ]
     },
-
     "jardin_plein_soleil": {
       "compatibilite": "ideale",
       "difficulte": "moyen",
-      "stades_recommandes": ["semis", "repiquage", "croissance", "floraison", "fructification", "recolte"],
-      "mois_semis_ideal": ["fevrier", "mars", "avril"],
+      "stades_recommandes": [
+        "semis",
+        "repiquage",
+        "croissance",
+        "floraison",
+        "fructification",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "fevrier",
+        "mars",
+        "avril"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 35,
         "volume_min_litres": null,
@@ -451,14 +556,18 @@
           "titre": "Sol enrichi, bien drainé, légèrement acide",
           "description": "La tomate cerise est gourmande en nutriments. Un apport de compost avant plantation et une fertilisation régulière en cours de saison font toute la différence.",
           "melange_conseille": "Sol natif enrichi avec 20 à 30% de compost mûr, pH cible 6 à 6.8",
-          "a_eviter": ["Fumier frais (trop azoté, favorise les feuilles au détriment des fruits)", "Sol argileux non travaillé", "Sol déjà utilisé pour des tomates l'année précédente sans repos"]
+          "a_eviter": [
+            "Fumier frais (trop azoté, favorise les feuilles au détriment des fruits)",
+            "Sol argileux non travaillé",
+            "Sol déjà utilisé pour des tomates l'année précédente sans repos"
+          ]
         },
         "semer": {
-          "titre": "Semer en intérieur, repiquer après les gelées",
-          "description": "Même en pleine terre, la tomate cerise démarre en intérieur. On repique quand le sol est bien réchauffé et les nuits sans gel.",
+          "titre": "Achète un jeune plant, repiquer maintenant",
+          "description": "La fenêtre de semis en intérieur est passée. En mai, on achète directement un jeune plant en jardinerie et on repique en pleine terre.",
           "conseils": [
-            "Sème en intérieur en février ou mars",
-            "Repique en pleine terre à partir de mi-avril, quand les nuits dépassent 10°C",
+            "Achète un jeune plant en jardinerie, la fenêtre de semis est passée pour cette saison",
+            "Repique en pleine terre dès maintenant, le sol est bien réchauffé en mai",
             "Pose un tuteur haut dès la plantation, elle peut monter à 1m50 voire 2m en pleine terre",
             "Espace les plants de 60 cm minimum pour la circulation d'air"
           ]
@@ -479,12 +588,21 @@
         "Fertiliser au compost en début de saison"
       ]
     },
-
     "jardin_mi_ombre": {
       "compatibilite": "possible",
       "difficulte": "moyen",
-      "stades_recommandes": ["semis", "repiquage", "croissance", "floraison", "fructification", "recolte"],
-      "mois_semis_ideal": ["mars", "avril"],
+      "stades_recommandes": [
+        "semis",
+        "repiquage",
+        "croissance",
+        "floraison",
+        "fructification",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 35,
         "volume_min_litres": null,
@@ -505,7 +623,11 @@
           "titre": "Sol très riche pour compenser le manque de soleil",
           "description": "Moins de soleil signifie moins d'énergie pour la photosynthèse. Un sol fertile permet à la plante de développer quand même des fruits.",
           "melange_conseille": "Sol natif enrichi avec 25 à 30% de compost mûr",
-          "a_eviter": ["Fumier frais", "Sol appauvri ou déjà utilisé plusieurs saisons", "Compost non mûr"]
+          "a_eviter": [
+            "Fumier frais",
+            "Sol appauvri ou déjà utilisé plusieurs saisons",
+            "Compost non mûr"
+          ]
         },
         "semer": {
           "titre": "Variétés précoces, repiquer à partir d'avril",
@@ -532,7 +654,6 @@
         "Surveiller les maladies fongiques, l'humidité en mi-ombre les favorise"
       ]
     },
-
     "jardin_ombre": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -543,7 +664,12 @@
         "accroche": "Une zone ombragée en pleine terre, c'est pas le terrain de jeu de la tomate cerise. Elle a besoin de soleil direct pour développer les sucres qui font le goût des fruits.",
         "alternative": {
           "message": "Ce coin sera beaucoup plus productif avec des légumes feuilles qui aiment la fraîcheur et l'ombre.",
-          "plantes_conseillees": ["Épinards", "Mâche", "Laitue", "Oseille"]
+          "plantes_conseillees": [
+            "Épinards",
+            "Mâche",
+            "Laitue",
+            "Oseille"
+          ]
         }
       },
       "conseil_bruno": "Zone ombragée en pleine terre, la tomate cerise va végéter et décevoir. Elle a besoin de soleil direct pour accumuler les sucres qui font le goût des fruits. Ce coin sera bien plus productif avec des légumes feuilles qui apprécient la fraîcheur : épinards, mâche, laitue, oseille.",

@@ -6,7 +6,12 @@
   "famille": "Apiacées",
   "type": "Légume racine",
   "cycle_jours": 90,
-  "stades": ["semis", "germination", "croissance", "recolte"],
+  "stades": [
+    "semis",
+    "germination",
+    "croissance",
+    "recolte"
+  ],
   "particularites_generales": {
     "racine_pivotante": true,
     "profondeur_minimum_cm": 25,
@@ -17,12 +22,22 @@
     "substrat": "Meuble, sablonneux, sans cailloux, pH 6-7"
   },
   "matrice_contextes": {
-
     "balcon_terrasse_sud": {
       "compatibilite": "ideale",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
-      "mois_semis_ideal": ["mars", "avril", "mai", "juin", "juillet"],
+      "stades_recommandes": [
+        "semis",
+        "germination",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril",
+        "mai",
+        "juin",
+        "juillet"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 30,
         "volume_min_litres": 20,
@@ -43,11 +58,15 @@
           "titre": "Un substrat meuble, jusqu'au fond",
           "description": "La carotte bifurque dès qu'elle rencontre un obstacle. Mottes, cailloux, couche compacte : tout ça donne des carottes tordues.",
           "melange_conseille": "⅔ terreau potager + ⅓ sable fin",
-          "a_eviter": ["Compost non mûr", "Terre de jardin trop dense", "Terreau universel seul (trop lourd)"]
+          "a_eviter": [
+            "Compost non mûr",
+            "Terre de jardin trop dense",
+            "Terreau universel seul (trop lourd)"
+          ]
         },
         "semer": {
-          "titre": "Semer en avril sur balcon sud",
-          "description": "Avril est idéal. Mais plein sud = substrat qui chauffe vite, quelques précautions à prendre.",
+          "titre": "Semer maintenant, tu es dans la bonne fenêtre",
+          "description": "Mai est une bonne période pour semer la carotte sur un balcon sud. La chaleur aide à la germination, il faut juste surveiller l'humidité.",
           "conseils": [
             "Sème en fin de journée, jamais en plein soleil de midi",
             "Recouvre les graines d'une fine couche de substrat (5 mm max), elles ont besoin de lumière pour lever",
@@ -70,12 +89,23 @@
         "Protéger du soleil direct entre 12h et 16h en pleine canicule"
       ]
     },
-
     "balcon_terrasse_ouest": {
       "compatibilite": "ideale",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
-      "mois_semis_ideal": ["mars", "avril", "mai", "juin", "juillet", "aout"],
+      "stades_recommandes": [
+        "semis",
+        "germination",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril",
+        "mai",
+        "juin",
+        "juillet",
+        "aout"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 30,
         "volume_min_litres": 20,
@@ -96,7 +126,11 @@
           "titre": "Un substrat meuble, jusqu'au fond",
           "description": "La carotte bifurque dès qu'elle rencontre un obstacle. Le substrat doit rester meuble sur toute la profondeur du pot.",
           "melange_conseille": "⅔ terreau potager + ⅓ sable fin",
-          "a_eviter": ["Compost non mûr", "Terre de jardin trop dense", "Terreau universel seul"]
+          "a_eviter": [
+            "Compost non mûr",
+            "Terre de jardin trop dense",
+            "Terreau universel seul"
+          ]
         },
         "semer": {
           "titre": "Semer au printemps sur balcon ouest",
@@ -123,12 +157,20 @@
         "Éclaircir 3 semaines après le semis"
       ]
     },
-
     "balcon_terrasse_est": {
       "compatibilite": "possible",
       "difficulte": "moyen",
-      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
-      "mois_semis_ideal": ["avril", "mai", "juin"],
+      "stades_recommandes": [
+        "semis",
+        "germination",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "avril",
+        "mai",
+        "juin"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 30,
         "volume_min_litres": 20,
@@ -149,14 +191,18 @@
           "titre": "Substrat meuble, comme toujours",
           "description": "Même règle que partout : meuble, sans obstacle, sur toute la profondeur.",
           "melange_conseille": "⅔ terreau potager + ⅓ sable fin",
-          "a_eviter": ["Terre de jardin", "Compost non mûr", "Terreau universel seul"]
+          "a_eviter": [
+            "Terre de jardin",
+            "Compost non mûr",
+            "Terreau universel seul"
+          ]
         },
         "semer": {
           "titre": "Semer en avril–juin, variétés courtes uniquement",
           "description": "Le soleil du matin suffit, mais la pousse sera plus lente. Compte 100 à 110 jours plutôt que 90. Le choix de la variété est essentiel ici.",
           "conseils": [
             "Choisis des variétés courtes : Marché de Paris, Carotte ronde type Parmex",
-            "Sème dès que les nuits sont douces (à partir d'avril)",
+            "Sème maintenant, les nuits sont suffisamment douces en mai",
             "Garde la surface humide jusqu'à la levée, l'évaporation est plus faible qu'en plein sud",
             "Pas besoin de voile de forçage sauf si le vent est fort"
           ]
@@ -175,7 +221,6 @@
         "Arrosage modéré, l'évaporation est plus faible"
       ]
     },
-
     "balcon_terrasse_nord": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -186,7 +231,13 @@
         "accroche": "La carotte a besoin de 4 à 5h de soleil direct par jour. Sur un balcon nord, on n'y est pas, et ça se verra dès la germination.",
         "alternative": {
           "message": "Ce coin sera beaucoup plus productif avec des plantes qui s'accommodent de l'ombre.",
-          "plantes_conseillees": ["Persil", "Ciboulette", "Mâche", "Épinards", "Laitue"]
+          "plantes_conseillees": [
+            "Persil",
+            "Ciboulette",
+            "Mâche",
+            "Épinards",
+            "Laitue"
+          ]
         }
       },
       "conseil_bruno": "Je vais être honnête avec toi : un balcon nord, c'est pas l'endroit où la carotte va s'épanouir. Elle a besoin d'au moins 4-5h de soleil direct par jour, et là on n'y est pas. Si t'y tiens vraiment, tente le coup en plein été uniquement, mais je te conseille plutôt d'aller voir du côté des aromatiques (persil, ciboulette) ou des salades, ça marchera mieux dans ce coin.",
@@ -197,12 +248,20 @@
         "Récolte tardive et calibres réduits attendus"
       ]
     },
-
     "rebord_ext_fenetre_sud": {
       "compatibilite": "possible",
       "difficulte": "moyen",
-      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
-      "mois_semis_ideal": ["avril", "mai", "juin"],
+      "stades_recommandes": [
+        "semis",
+        "germination",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "avril",
+        "mai",
+        "juin"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 25,
         "volume_min_litres": 10,
@@ -223,7 +282,11 @@
           "titre": "Substrat léger et meuble",
           "description": "Petit volume = le substrat sèche très vite. Un mélange léger retient mieux l'eau sans s'engorgement.",
           "melange_conseille": "⅔ terreau potager + ⅓ sable fin ou vermiculite",
-          "a_eviter": ["Terre de jardin (trop lourde)", "Compost seul (se tasse)", "Terreau universel pur"]
+          "a_eviter": [
+            "Terre de jardin (trop lourde)",
+            "Compost seul (se tasse)",
+            "Terreau universel pur"
+          ]
         },
         "semer": {
           "titre": "Variétés courtes obligatoires en expo sud",
@@ -250,12 +313,21 @@
         "Pailler dès que les températures dépassent 25°C"
       ]
     },
-
     "rebord_ext_fenetre_ouest": {
       "compatibilite": "possible",
       "difficulte": "moyen",
-      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
-      "mois_semis_ideal": ["avril", "mai", "juin", "juillet"],
+      "stades_recommandes": [
+        "semis",
+        "germination",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "avril",
+        "mai",
+        "juin",
+        "juillet"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 25,
         "volume_min_litres": 10,
@@ -276,7 +348,10 @@
           "titre": "Substrat léger et meuble",
           "description": "Même en expo ouest, le petit volume sèche vite. Un substrat léger aide à garder l'humidité sans gorger les racines.",
           "melange_conseille": "⅔ terreau potager + ⅓ sable fin",
-          "a_eviter": ["Terre de jardin", "Terreau universel seul"]
+          "a_eviter": [
+            "Terre de jardin",
+            "Terreau universel seul"
+          ]
         },
         "semer": {
           "titre": "Variétés courtes, semis à partir d'avril",
@@ -302,12 +377,19 @@
         "Sécuriser la fixation"
       ]
     },
-
     "rebord_ext_fenetre_est": {
       "compatibilite": "possible",
       "difficulte": "moyen",
-      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
-      "mois_semis_ideal": ["mai", "juin"],
+      "stades_recommandes": [
+        "semis",
+        "germination",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mai",
+        "juin"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 25,
         "volume_min_litres": 10,
@@ -328,7 +410,10 @@
           "titre": "Substrat léger, légèrement foncé si possible",
           "description": "Un substrat légèrement plus sombre absorbe mieux la chaleur. L'ajout de terreau riche compense l'ensoleillement limité.",
           "melange_conseille": "⅔ terreau potager enrichi + ⅓ sable fin",
-          "a_eviter": ["Substrat très clair ou sableux pur", "Terre de jardin"]
+          "a_eviter": [
+            "Substrat très clair ou sableux pur",
+            "Terre de jardin"
+          ]
         },
         "semer": {
           "titre": "Variétés rondes uniquement, à partir de mai",
@@ -354,7 +439,6 @@
         "Calibres réduits attendus"
       ]
     },
-
     "rebord_ext_fenetre_nord": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -365,7 +449,12 @@
         "accroche": "Rebord nord + petit volume de terre, c'est le combo le plus difficile pour la carotte. Pas assez de soleil, pas assez de profondeur.",
         "alternative": {
           "message": "Ce rebord sera beaucoup plus productif avec des plantes qui aiment la fraîcheur et la mi-ombre.",
-          "plantes_conseillees": ["Persil", "Ciboulette", "Menthe", "Mâche"]
+          "plantes_conseillees": [
+            "Persil",
+            "Ciboulette",
+            "Menthe",
+            "Mâche"
+          ]
         }
       },
       "conseil_bruno": "Là, je vais pas te mentir : rebord nord + petit volume de terre, la carotte va galérer. Pas assez de soleil, pas assez de profondeur, c'est le combo qui décourage. Sur un rebord nord, tu serais mieux servi avec du persil, de la ciboulette ou de la menthe, elles s'accommodent très bien de cette expo.",
@@ -374,7 +463,6 @@
         "Carotte non viable dans cette zone"
       ]
     },
-
     "interieur_fenetre_sud": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -385,7 +473,12 @@
         "accroche": "La carotte a besoin de soleil direct, de profondeur et d'air. Une fenêtre intérieure, même plein sud, filtre trop la lumière pour qu'elle se développe correctement.",
         "alternative": {
           "message": "Pour cultiver à l'intérieur, il y a des options beaucoup mieux adaptées qui donnent des résultats rapides et satisfaisants.",
-          "plantes_conseillees": ["Basilic", "Ciboulette", "Micro-pousses", "Salades à couper"]
+          "plantes_conseillees": [
+            "Basilic",
+            "Ciboulette",
+            "Micro-pousses",
+            "Salades à couper"
+          ]
         }
       },
       "conseil_bruno": "Je vais être franc : la carotte en intérieur, même près d'une fenêtre sud, c'est compliqué. La vitre filtre le soleil, le racinaire a besoin de profondeur, et tu vas te battre contre des conditions que la plante n'aime pas. Si t'as envie de cultiver à l'intérieur, pars plutôt sur des aromatiques (basilic, ciboulette) ou des micro-pousses, c'est fait pour ça.",
@@ -394,7 +487,6 @@
         "Carotte non adaptée à la culture intérieure"
       ]
     },
-
     "interieur_fenetre_ouest": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -405,7 +497,11 @@
         "accroche": "En intérieur fenêtre ouest, la carotte n'a pas les conditions minimales pour bien pousser. Trop peu de lumière directe, pas assez d'air.",
         "alternative": {
           "message": "Ce coin est bien mieux adapté aux aromatiques et aux cultures rapides.",
-          "plantes_conseillees": ["Micro-pousses", "Ciboulette", "Basilic"]
+          "plantes_conseillees": [
+            "Micro-pousses",
+            "Ciboulette",
+            "Basilic"
+          ]
         }
       },
       "conseil_bruno": "En intérieur fenêtre ouest, la carotte n'a vraiment aucune chance de bien se développer. Trop peu de lumière directe, besoin de profondeur, et le manque d'air n'aide pas. Pour ce coin, tente plutôt des micro-pousses ou de la ciboulette, ça va te donner beaucoup plus de satisfaction.",
@@ -414,7 +510,6 @@
         "Carotte non adaptée à la culture intérieure"
       ]
     },
-
     "interieur_fenetre_est": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -425,7 +520,11 @@
         "accroche": "Intérieur fenêtre est, la carotte n'a pas ce qu'il lui faut. Pas assez de lumière directe, pas assez d'aération.",
         "alternative": {
           "message": "Garde ce coin pour des cultures adaptées à l'intérieur.",
-          "plantes_conseillees": ["Micro-pousses", "Aromatiques", "Ciboulette"]
+          "plantes_conseillees": [
+            "Micro-pousses",
+            "Aromatiques",
+            "Ciboulette"
+          ]
         }
       },
       "conseil_bruno": "Intérieur fenêtre est, c'est non pour la carotte, même moi j'irais pas me battre contre la physique. Pas assez de lumière, pas assez d'aération. Garde ce coin pour des aromatiques ou des micro-pousses, tu seras beaucoup plus content du résultat.",
@@ -434,7 +533,6 @@
         "Carotte non adaptée à la culture intérieure"
       ]
     },
-
     "interieur_fenetre_nord": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -445,7 +543,11 @@
         "accroche": "Intérieur fenêtre nord, c'est le contexte le plus éloigné de ce que la carotte demande. Pas de lumière directe, peu d'air, substrat qui reste froid.",
         "alternative": {
           "message": "Ce coin fonctionne bien pour des cultures qui poussent en quelques jours ou qui aiment la fraîcheur.",
-          "plantes_conseillees": ["Micro-pousses", "Menthe", "Mâche"]
+          "plantes_conseillees": [
+            "Micro-pousses",
+            "Menthe",
+            "Mâche"
+          ]
         }
       },
       "conseil_bruno": "Intérieur fenêtre nord pour une carotte… on va dire que c'est le pire combo possible. Pas de soleil direct, peu de lumière, peu d'air. Si tu veux quand même cultiver quelque chose dans ce coin, regarde plutôt du côté des micro-pousses qui poussent en quelques jours, ou de la menthe qui tolère bien la mi-ombre.",
@@ -454,12 +556,22 @@
         "Carotte non adaptée à cette zone"
       ]
     },
-
     "jardin_plein_soleil": {
       "compatibilite": "ideale",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
-      "mois_semis_ideal": ["mars", "avril", "mai", "juin", "juillet"],
+      "stades_recommandes": [
+        "semis",
+        "germination",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril",
+        "mai",
+        "juin",
+        "juillet"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 30,
         "volume_min_litres": null,
@@ -480,7 +592,11 @@
           "titre": "Un sol meuble et sans obstacles",
           "description": "La carotte bifurque sur tout ce qu'elle rencontre : caillou, motte, couche compacte. Travailler la terre est l'étape la plus importante avant de semer.",
           "melange_conseille": "Sol natif + sable grossier si argileux + éventuellement un peu de compost mûr",
-          "a_eviter": ["Sol argileux non travaillé", "Compost frais (trop riche en azote, favorise les fourches)", "Fumier récent"]
+          "a_eviter": [
+            "Sol argileux non travaillé",
+            "Compost frais (trop riche en azote, favorise les fourches)",
+            "Fumier récent"
+          ]
         },
         "semer": {
           "titre": "Semer en ligne dès mars",
@@ -507,12 +623,20 @@
         "Pailler entre les rangs dès mai"
       ]
     },
-
     "jardin_mi_ombre": {
       "compatibilite": "possible",
       "difficulte": "moyen",
-      "stades_recommandes": ["semis", "germination", "croissance", "recolte"],
-      "mois_semis_ideal": ["avril", "mai", "juin"],
+      "stades_recommandes": [
+        "semis",
+        "germination",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "avril",
+        "mai",
+        "juin"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 30,
         "volume_min_litres": null,
@@ -533,7 +657,11 @@
           "titre": "Sol enrichi pour compenser le manque de soleil",
           "description": "Un peu de compost mûr améliore la rétention d'eau et apporte des nutriments supplémentaires, utile quand l'énergie solaire est limitée.",
           "melange_conseille": "Sol natif + sable si argileux + compost mûr (max 20% du volume)",
-          "a_eviter": ["Compost frais", "Fumier récent", "Sol non travaillé"]
+          "a_eviter": [
+            "Compost frais",
+            "Fumier récent",
+            "Sol non travaillé"
+          ]
         },
         "semer": {
           "titre": "Semer à partir d'avril, attendre mai pour les zones les plus fraîches",
@@ -559,7 +687,6 @@
         "Préférer les semis du printemps à ceux d'été"
       ]
     },
-
     "jardin_ombre": {
       "compatibilite": "deconseillee",
       "difficulte": "difficile",
@@ -570,7 +697,12 @@
         "accroche": "Un coin ombragé en pleine terre, c'est pas le terrain de jeu de la carotte. Elle a besoin de soleil pour développer ses sucres et atteindre un bon calibre.",
         "alternative": {
           "message": "Ce coin sera beaucoup plus productif avec des plantes qui aiment la fraîcheur et l'ombre.",
-          "plantes_conseillees": ["Épinards", "Mâche", "Persil", "Oseille"]
+          "plantes_conseillees": [
+            "Épinards",
+            "Mâche",
+            "Persil",
+            "Oseille"
+          ]
         }
       },
       "conseil_bruno": "Un coin ombragé en pleine terre, c'est pas le terrain de jeu de la carotte. Elle a vraiment besoin de soleil pour développer ses sucres et son calibre. Ce coin sera bien plus productif avec des plantes qui aiment la fraîcheur : épinards, mâche, persil, oseille.",

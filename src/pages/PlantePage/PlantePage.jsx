@@ -54,7 +54,7 @@ import IconGraineSvg   from '../../assets/pictos/Graine.svg?react'
 import IconRecolterSvg from '../../assets/pictos/Récolter.svg?react'
 import IconPlanterSvg  from '../../assets/pictos/Planter.svg?react'
 
-import { generateTasks } from '../../data/plantTasks'
+import { generateTasks, getCurrentStage, getPlantRules } from '../../data/plantTasks'
 import { getContexteFromCatalogue } from '../../data/getCompatibilite'
 import { parseGlossaryText } from '../../utils/parseGlossaryText'
 
@@ -145,6 +145,36 @@ const TACHES_SECTIONS = [
 ]
 
 const MS_PER_DAY = 1000 * 60 * 60 * 24
+
+const MOIS_FR = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.']
+
+function formatCycleDate(date) {
+  return `${date.getDate()} ${MOIS_FR[date.getMonth()]}`
+}
+
+function addDaysToDate(date, days) {
+  const r = new Date(date)
+  r.setDate(r.getDate() + days)
+  return r
+}
+
+// Mapping plantTasks rule-stage → stade affiché dans plants.json
+const RULE_STAGE_TO_DISPLAY = {
+  semis:            'semis',
+  jeune_plant:      'jeune_plant',
+  plantation:       'jeune_plant',
+  production:       'floraison',
+  fin_cycle:        'recolte',
+  fin_cycle_annuel: 'recolte',
+}
+
+// Offsets en jours depuis plantedAt pour chaque stade affiché dans la timeline
+const PLANT_DISPLAY_STAGE_OFFSETS = {
+  'tomate-cerise': { semis: 0, jeune_plant: 42, floraison: 70, fructification: 90, recolte: 120 },
+  'fraise':        { jeune_plant: 0, floraison: 56, recolte: 60 },
+  'carotte':       { semis: 0, jeune_plant: 21, production: 49, recolte: 90 },
+  'ciboulette':    { semis: 0, jeune_plant: 28, production: 56, recolte: 60 },
+}
 
 const CATEGORY_LABELS = {
   arrosage:     'Arrosage',
@@ -246,7 +276,28 @@ export default function PlantePage() {
   const catalogueCtx = contextKey ? getContexteFromCatalogue(plant.id, contextKey) : null
   const plantCtx     = contextKey ? plant.contextes?.[contextKey] ?? null : null
 
-  const stade      = instance?.stade_actuel ?? plant.stade_par_defaut
+  const plantRuleData     = instance?.plantId ? getPlantRules(instance.plantId) : null
+  const computedRuleStage = instance?.plantedAt ? getCurrentStage(instance) : null
+  const stade = (computedRuleStage && RULE_STAGE_TO_DISPLAY[computedRuleStage])
+    ?? instance?.stade_actuel
+    ?? plant.stade_par_defaut
+
+  const plantedAtDate = instance?.plantedAt
+    ? (() => { const d = new Date(instance.plantedAt); d.setHours(0, 0, 0, 0); return d })()
+    : null
+
+  const cycleDateDebut = plantedAtDate ? formatCycleDate(plantedAtDate) : plant.cycle?.date_debut
+
+  const repiquageStartOffset = plantRuleData?.stages?.jeune_plant?.startOffsetDays
+    ?? plantRuleData?.stages?.plantation?.startOffsetDays
+  const cycleDateRepiquage = (plantedAtDate && repiquageStartOffset != null)
+    ? formatCycleDate(addDaysToDate(plantedAtDate, repiquageStartOffset))
+    : plant.cycle?.date_repiquage
+
+  const firstRecolteRule = plantRuleData?.rules.find(r => r.type === 'once' && r.category === 'récolte')
+  const cycleDateRecolte = (plantedAtDate && firstRecolteRule)
+    ? formatCycleDate(addDaysToDate(plantedAtDate, firstRecolteRule.offsetDays))
+    : plant.cycle?.date_recolte
   const etat       = instance?.etat ?? 'bien'
   const zoneLabel  = getZoneLabel(user)
   const picto      = PICTO_MAP[plant.icone]
@@ -593,8 +644,12 @@ export default function PlantePage() {
                       {plant.stades_disponibles.map((s, i) => {
                         const isActive = s === stade
                         const isDone   = i < stadeIdx
+                        const stageOffset = PLANT_DISPLAY_STAGE_OFFSETS[instance?.plantId]?.[s]
+                        const computedDate = (plantedAtDate && stageOffset != null)
+                          ? formatCycleDate(addDaysToDate(plantedAtDate, stageOffset))
+                          : null
                         const dateInfo = plant.cycle.stades_dates?.[s]
-                        const dateLabel = isActive ? "Aujourd'hui" : (dateInfo?.date ?? '')
+                        const dateLabel = isActive ? "Aujourd'hui" : (computedDate ?? dateInfo?.date ?? '')
                         return (
                           <div key={s} className={styles.cycleStageItem}>
                             <p className={`${styles.cycleDateLabel} ${isActive ? styles.cycleDateLabelToday : ''}`}>
@@ -615,19 +670,21 @@ export default function PlantePage() {
 
               {plant.cycle && (
                 <div className={styles.cycleInfoGrid}>
-                  {/* Date de début */}
-                  <div className={`${styles.cycleInfoCard} ${styles.cycleInfoCardGreen}`}>
-                    <p className={styles.cardLabel}>
-                      {plant.stades_disponibles[0] === 'plantation' ? 'Date de plantation' : 'Date de semis'}
-                    </p>
-                    <p className={styles.cycleInfoValue}>{plant.cycle.date_debut}</p>
-                  </div>
+                  {/* Date de début — masquée si l'utilisateur a acheté un jeune plant (startStage) */}
+                  {!instance?.startStage && (
+                    <div className={`${styles.cycleInfoCard} ${styles.cycleInfoCardGreen}`}>
+                      <p className={styles.cardLabel}>
+                        {plant.stades_disponibles[0] === 'plantation' ? 'Date de plantation' : 'Date de semis'}
+                      </p>
+                      <p className={styles.cycleInfoValue}>{cycleDateDebut ?? plant.cycle.date_debut}</p>
+                    </div>
+                  )}
 
                   {/* Repiquage ou stade actuel */}
-                  {plant.cycle.date_repiquage ? (
+                  {(cycleDateRepiquage ?? plant.cycle.date_repiquage) ? (
                     <div className={`${styles.cycleInfoCard} ${styles.cycleInfoCardBeige}`}>
                       <p className={styles.cardLabel}>Repiquage</p>
-                      <p className={styles.cycleInfoValue}>{plant.cycle.date_repiquage}</p>
+                      <p className={styles.cycleInfoValue}>{cycleDateRepiquage ?? plant.cycle.date_repiquage}</p>
                     </div>
                   ) : (
                     <div className={`${styles.cycleInfoCard} ${styles.cycleInfoCardBeige}`}>
@@ -647,7 +704,7 @@ export default function PlantePage() {
                   {/* Récolte estimée */}
                   <div className={`${styles.cycleInfoCard} ${styles.cycleInfoCardYellow}`}>
                     <p className={styles.cardLabel}>Récolte estimée</p>
-                    <p className={styles.cycleInfoValue}>{plant.cycle.date_recolte}</p>
+                    <p className={styles.cycleInfoValue}>{cycleDateRecolte ?? plant.cycle.date_recolte}</p>
                   </div>
                 </div>
               )}

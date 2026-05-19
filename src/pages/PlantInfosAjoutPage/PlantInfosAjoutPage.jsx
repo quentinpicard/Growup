@@ -7,6 +7,7 @@ import styles from './PlantInfosAjoutPage.module.scss'
 
 import plants from '../../mocks/plants.json'
 import { getContexteFromCatalogue } from '../../data/getCompatibilite'
+import { getPlantRules } from '../../data/plantTasks'
 import { parseGlossaryText } from '../../utils/parseGlossaryText'
 import carotteData      from '../../data/carotte_plants.json'
 import tomateCeriseData from '../../data/tomate_cerise_plants.json'
@@ -127,6 +128,11 @@ const STADE_DISPLAY = {
   bouturage:      'Bouturage',
 }
 
+const MONTH_TO_FR = [
+  'janvier','fevrier','mars','avril','mai','juin',
+  'juillet','aout','septembre','octobre','novembre','decembre',
+]
+
 const COMPAT_CONFIG = {
   ideale:      { cardClass: styles.cardGreen,  Icon: IconCheck,  textClass: styles.textGreen },
   possible:    { cardClass: styles.cardYellow, Icon: IconMedium, textClass: styles.textYellow },
@@ -166,7 +172,23 @@ export default function PlantInfosAjoutPage() {
   const particulars   = extras?.particularites_generales ?? null
   const bienCommencer = contexteData?.bien_commencer ?? null
 
-  const stade       = plant.stade_par_defaut
+  // Détecte si le mois actuel est dans la fenêtre de semis idéale
+  const currentMonthFr      = MONTH_TO_FR[new Date().getMonth()]
+  const moisSemisIdeal      = contexteData?.mois_semis_ideal ?? []
+  const isInSowingWindow    = moisSemisIdeal.length === 0 || moisSemisIdeal.includes(currentMonthFr)
+
+  // Pour les plantes à transplanter dont la fenêtre de semis est passée (ex: tomate cerise en mai),
+  // l'utilisateur achète un jeune plant → on part du stade suivant (jeune_plant)
+  // Fraise (stade_par_defaut='plantation') et carotte (semis direct) ne sont pas concernées
+  const plantRuleData         = getPlantRules(plant.id)
+  const needsSowingAdjustment = !isInSowingWindow
+    && particulars?.transplantation === true
+    && plant.stade_par_defaut === 'semis'
+  const beyondSowingStage     = needsSowingAdjustment
+    ? (Object.keys(plantRuleData?.stages ?? {})[1] ?? null)
+    : null
+
+  const stade       = beyondSowingStage ?? plant.stade_par_defaut
   const stadePicto  = STADE_PICTO[stade]
   const stadeLabel  = STADE_DISPLAY[stade] ?? stade
   const brunoStade  = plant[`bruno_stade_${stade}`] ?? null
@@ -184,14 +206,23 @@ export default function PlantInfosAjoutPage() {
   }
 
   function handleAdd() {
+    // Si hors fenêtre de semis, on recule plantedAt pour que getCurrentStage()
+    // renvoie directement le bon stade (jeune_plant) et que les tâches semis n'apparaissent pas
+    const repiquageOffset = beyondSowingStage
+      ? (plantRuleData?.stages?.[beyondSowingStage]?.startOffsetDays ?? 0)
+      : 0
+    const plantedAt = new Date()
+    if (repiquageOffset > 0) plantedAt.setDate(plantedAt.getDate() - repiquageOffset)
+
     dispatch({
       type: 'ADD_PLANT_INSTANCE',
       payload: {
         id: `${Date.now()}-${plant.id}`,
         plantId: plant.id,
-        stade: plant.stade_par_defaut,
+        stade,
         dateAjout: new Date().toISOString(),
-        plantedAt: new Date().toISOString(),
+        plantedAt: plantedAt.toISOString(),
+        ...(beyondSowingStage ? { startStage: beyondSowingStage } : {}),
       },
     })
     setToast(true)
