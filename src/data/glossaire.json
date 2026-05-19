@@ -9,7 +9,7 @@
     },
     "regles_affichage": {
       "fiche_info_plante": "Tooltip inline au premier usage en session. Underline pointillé sur le terme. Popover 2 lignes max.",
-      "conseils_bruno_inapp": "Reformulation directe dans le texte. Pas de tooltip — contexte actionnel.",
+      "conseils_bruno_inapp": "Reformulation directe dans le texte. Pas de tooltip , contexte actionnel.",
       "session_memory": "Chaque terme expliqué une fois est marqué 'vu'. Ne plus afficher de tooltip pour ce terme dans la session."
     }
   },
@@ -77,7 +77,7 @@
       "label_affiche": "gourmands",
       "tooltip_fiche": {
         "titre": "C'est quoi un gourmand ?",
-        "definition": "Une petite tige qui pousse dans l'angle entre la tige principale et une feuille. Elle pompe l'énergie de la plante sans donner de fruits — on la retire à la main."
+        "definition": "Une petite tige qui pousse dans l'angle entre la tige principale et une feuille. Elle pompe l'énergie de la plante sans donner de fruits , on la retire à la main."
       },
       "reformulation_bruno": {
         "original": "Pincer les gourmands régulièrement",
@@ -105,7 +105,7 @@
       "label_affiche": "substrat",
       "tooltip_fiche": {
         "titre": "Substrat = la terre du pot",
-        "definition": "Le mélange dans lequel pousse ta plante. Pas la même chose que la terre de jardin — c'est un mélange pensé pour les plantes en pot, plus léger et plus drainant."
+        "definition": "Le mélange dans lequel pousse ta plante. Pas la même chose que la terre de jardin , c'est un mélange pensé pour les plantes en pot, plus léger et plus drainant."
       },
       "reformulation_bruno": {
         "original": "Un substrat riche et bien drainé",
@@ -123,7 +123,7 @@
       },
       "reformulation_bruno": {
         "original": "Substrat sans drainage (risque de pourriture des racines)",
-        "reformule": "Évite une terre qui retient trop l'eau — si l'eau ne s'écoule pas, les racines pourrissent."
+        "reformule": "Évite une terre qui retient trop l'eau , si l'eau ne s'écoule pas, les racines pourrissent."
       },
       "termes_lies": ["substrat"]
     },
@@ -133,7 +133,7 @@
       "label_affiche": "tuteurage",
       "tooltip_fiche": {
         "titre": "Tuteurage",
-        "definition": "Attacher la plante à un bâton planté dans le pot pour qu'elle tienne debout en grandissant. La tomate cerise peut dépasser 1m20 — sans tuteur, elle s'effondre."
+        "definition": "Attacher la plante à un bâton planté dans le pot pour qu'elle tienne debout en grandissant. La tomate cerise peut dépasser 1m20 , sans tuteur, elle s'effondre."
       },
       "reformulation_bruno": {
         "original": "Tuteurer dès le repiquage",
@@ -147,7 +147,7 @@
       "label_affiche": "maladies fongiques",
       "tooltip_fiche": {
         "titre": "Maladies fongiques",
-        "definition": "Maladies causées par des champignons microscopiques. Elles apparaissent surtout quand il fait humide et peu aéré — taches sur les feuilles, moisissures, pourriture."
+        "definition": "Maladies causées par des champignons microscopiques. Elles apparaissent surtout quand il fait humide et peu aéré , taches sur les feuilles, moisissures, pourriture."
       },
       "reformulation_bruno": {
         "original": "Surveille les maladies fongiques",
@@ -179,7 +179,7 @@
       },
       "reformulation_bruno": {
         "original": "Fruits qui éclatent par stress hydrique",
-        "reformule": "Les fruits qui éclatent, c'est souvent parce que la plante a reçu de l'eau de façon irrégulière — un coup trop sec, un coup trop humide."
+        "reformule": "Les fruits qui éclatent, c'est souvent parce que la plante a reçu de l'eau de façon irrégulière , un coup trop sec, un coup trop humide."
       },
       "termes_lies": ["drainage"]
     }
