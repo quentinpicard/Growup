@@ -222,6 +222,8 @@ export default function TachesPage() {
 
   const activeFilterLabels = FILTERS.filter(f => activeFilters.includes(f.id))
 
+  const seenTerms = new Set()
+
   return (
     <div className={styles.page}>
 
@@ -300,10 +302,10 @@ export default function TachesPage() {
                 {tasks.map(task => (
                   <TaskCard
                     key={task.id}
-                    title={parseGlossaryText(task.title)}
+                    title={parseGlossaryText(task.title, seenTerms)}
                     frequency={task.frequency}
                     duration={task.duration}
-                    conseil={parseGlossaryText(task.conseil)}
+                    conseil={parseGlossaryText(task.conseil, seenTerms)}
                     icon={task.icon}
                     variant={section.variant}
                     plantLabel={task.plantLabel}

@@ -336,6 +336,8 @@ export default function PlantePage() {
   const etatCfg = ETAT_CONFIG[etat] ?? ETAT_CONFIG.bien
   const { Icon: EtatIcon } = etatCfg
 
+  const seenTerms = new Set()
+
   return (
     <div className={styles.page}>
 
@@ -516,7 +518,7 @@ export default function PlantePage() {
                 <div className={styles.bubbleWrap}>
                   <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
                     <p className={styles.bubbleText}>
-                      {parseGlossaryText(plantCtx?.conseil_bruno ?? plant.bruno_intro)}
+                      {parseGlossaryText(plantCtx?.conseil_bruno ?? plant.bruno_intro, seenTerms)}
                     </p>
                   </div>
                 </div>
@@ -530,7 +532,7 @@ export default function PlantePage() {
                 {tasks.map(task => (
                   <TaskCard
                     key={task.id}
-                    title={parseGlossaryText(task.label)}
+                    title={parseGlossaryText(task.label, seenTerms)}
                     frequency="Quotidien"
                     duration={task.duration}
                     icon={<img src={task.picto} alt="" />}
@@ -572,7 +574,7 @@ export default function PlantePage() {
                     <div className={`${styles.bubble} ${styles.bubbleYellow}`}>
                       <p className={styles.bubbleText}>Selon moi le mieux pour cette plante serait</p>
                       <p className={`${styles.bubbleText} ${styles.bubbleTextBold}`}>
-                        {parseGlossaryText(plant.pot_substrat.recommandation)}
+                        {parseGlossaryText(plant.pot_substrat.recommandation, seenTerms)}
                       </p>
                     </div>
                   </div>
@@ -727,7 +729,7 @@ export default function PlantePage() {
                 <img src={brunoImg} alt="Bruno" className={styles.brunoAvatar} />
                 <div className={styles.bubbleWrap}>
                   <div className={`${styles.bubble} ${styles.bubbleBeige}`}>
-                    <p className={styles.bubbleText}>{plant.cycle.conseil}</p>
+                    <p className={styles.bubbleText}>{parseGlossaryText(plant.cycle.conseil, seenTerms)}</p>
                   </div>
                 </div>
               </div>
@@ -740,15 +742,15 @@ export default function PlantePage() {
                 <div className={styles.cycleConditionsList}>
                   <div className={styles.cycleConditionRow}>
                     <p className={styles.cardLabel}>Température</p>
-                    <p className={styles.cycleConditionValue}>{plant.cycle.conditions.temperature}</p>
+                    <p className={styles.cycleConditionValue}>{parseGlossaryText(plant.cycle.conditions.temperature, seenTerms)}</p>
                   </div>
                   <div className={styles.cycleConditionRow}>
                     <p className={styles.cardLabel}>Ensoleillement</p>
-                    <p className={styles.cycleConditionValue}>{plant.cycle.conditions.ensoleillement}</p>
+                    <p className={styles.cycleConditionValue}>{parseGlossaryText(plant.cycle.conditions.ensoleillement, seenTerms)}</p>
                   </div>
                   <div className={styles.cycleConditionRow}>
                     <p className={styles.cardLabel}>Arrosage</p>
-                    <p className={styles.cycleConditionValue}>{plant.cycle.conditions.arrosage}</p>
+                    <p className={styles.cycleConditionValue}>{parseGlossaryText(plant.cycle.conditions.arrosage, seenTerms)}</p>
                   </div>
                 </div>
               </div>

@@ -182,6 +182,34 @@
         "reformule": "Les fruits qui éclatent, c'est souvent parce que la plante a reçu de l'eau de façon irrégulière , un coup trop sec, un coup trop humide."
       },
       "termes_lies": ["drainage"]
+    },
+
+    "stolon": {
+      "niveau_friction": "eleve",
+      "label_affiche": "stolons",
+      "tooltip_fiche": {
+        "titre": "C'est quoi un stolon ?",
+        "definition": "Une tige rampante que la plante envoie au sol pour créer de nouveaux pieds. Tu peux les laisser s'enraciner dans un petit pot à côté pour avoir de nouveaux plants gratuits — ou les couper pour concentrer l'énergie sur les fruits."
+      },
+      "reformulation_bruno": {
+        "original": "Retire les stolons",
+        "reformule": "Coupe les tiges rampantes que la plante envoie au sol, sauf celles que tu veux garder pour faire de nouveaux pieds."
+      },
+      "termes_lies": ["repiquage"]
+    },
+
+    "paillage": {
+      "niveau_friction": "moyen",
+      "label_affiche": "pailler",
+      "tooltip_fiche": {
+        "titre": "Pailler, c'est quoi ?",
+        "definition": "Couvrir la surface de la terre avec de la paille, des copeaux de bois ou du carton. Ça garde l'humidité, régule la température du sol et empêche les mauvaises herbes de pousser."
+      },
+      "reformulation_bruno": {
+        "original": "Paille bien la surface",
+        "reformule": "Couvre la terre autour de la plante avec de la paille ou des copeaux. Ça garde l'humidité et protège les racines de la chaleur."
+      },
+      "termes_lies": ["substrat", "motte"]
     }
   }
 }
