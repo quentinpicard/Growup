@@ -11,7 +11,7 @@ export const STEP_TEXTS = {
   },
   brunoMission: {
     bubble:
-      "Je vais t'aider à faire pousser des légumes, fruit ou même des fleures chez toi. Simple, concret, sans te prendre la tête.",
+      "Je vais t'aider à faire pousser des légumes, fruit ou même des fleurs chez toi. Simple, concret, sans te prendre la tête.",
     cta: 'OK, on y va',
   },
   experience: {
@@ -57,7 +57,7 @@ export const EXPERIENCE_OPTIONS = [
 ]
 
 export const LOCATION_QUESTION = {
-  debutant: "OK, on va faire avec ce qu'on a. Ou est-ce que tu veux jardines où chez toi ?",
+  debutant: "OK, on va faire avec ce qu'on a. Où est-ce que tu veux jardiner chez toi ?",
   avance:   "Ah, déjà des plantes. Bien, elles sont où ?",
 }
 

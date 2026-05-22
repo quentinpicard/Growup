@@ -129,8 +129,8 @@ const STADE_DISPLAY = {
 }
 
 const MONTH_TO_FR = [
-  'janvier','fevrier','mars','avril','mai','juin',
-  'juillet','aout','septembre','octobre','novembre','decembre',
+  'janvier','février','mars','avril','mai','juin',
+  'juillet','août','septembre','octobre','novembre','décembre',
 ]
 
 const COMPAT_CONFIG = {
