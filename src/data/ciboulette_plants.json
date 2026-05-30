@@ -6,7 +6,12 @@
   "famille": "Amaryllidacées",
   "type": "Aromatique",
   "cycle_jours": 60,
-  "stades": ["semis", "levee", "croissance", "recolte"],
+  "stades": [
+    "semis",
+    "levee",
+    "croissance",
+    "recolte"
+  ],
   "particularites_generales": {
     "racine_bulbeuse_fine": true,
     "profondeur_minimum_cm": 10,
@@ -18,12 +23,21 @@
     "substrat": "Tout terreau ordinaire, bien drainé, pH 6-7"
   },
   "matrice_contextes": {
-
     "balcon_terrasse_sud": {
       "compatibilite": "ideale",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["mars", "avril", "mai", "septembre"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril",
+        "mai",
+        "septembre"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 15,
         "volume_min_litres": 3,
@@ -36,14 +50,60 @@
         "Arrosage régulier — elle déteste la sécheresse prolongée",
         "Couper les fleurs (pompons violets) si tu veux garder la production de feuilles",
         "Elle est vivace : protéger légèrement en hiver pour la retrouver au printemps"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "La ciboulette adore le plein sud. L'enjeu principal ici c'est l'été : elle ne supporte pas la sécheresse prolongée, surveille l'arrosage et tout se passe bien.",
+        "priorite_contenant": {
+          "titre": "Un pot de 15 cm de profondeur suffit",
+          "description": "La ciboulette a des racines fines et peu profondes. Un pot ordinaire lui convient, mais sur un balcon sud, la terre cuite régule mieux la chaleur qu'un plastique noir en plein soleil.",
+          "profondeur_min": "15 cm minimum",
+          "volume_min": "3 L",
+          "type_recommande": "Pot rond ou jardinière",
+          "materiau": "Terre cuite de préférence : elle absorbe la chaleur progressivement et limite les coups de chaud au niveau des racines"
+        },
+        "substrat": {
+          "titre": "Un terreau ordinaire bien drainé",
+          "description": "La ciboulette n'est pas exigeante sur le substrat. L'essentiel c'est le drainage : ses racines bulbeuses fines pourrissent si l'eau stagne.",
+          "melange_conseille": "Terreau potager ou universel standard, pH 6-7",
+          "a_eviter": [
+            "Terreau trop riche en azote (pousse trop vite, feuilles fragiles)",
+            "Substrat sans drainage (eau stagnante = racines pourries)",
+            "Terre de jardin seule (trop lourde en pot)"
+          ]
+        },
+        "semer": {
+          "titre": "Semer ou planter en mars-mai, ou dès septembre",
+          "description": "La ciboulette se sème directement en pot ou se transplante depuis un pied existant. Les deux marchent bien. En plein sud, vise un semis printanier ou de fin d'été pour éviter la germination en pleine canicule.",
+          "conseils": [
+            "Sème en surface et recouvre d'une fine couche de substrat (3 mm max), les graines ont besoin de lumière pour germer",
+            "Arrose légèrement et maintiens la surface humide jusqu'à la levée (8 à 14 jours)",
+            "Tu peux aussi diviser un pied existant et replanter directement",
+            "Évite de semer en juillet-août, les graines germent mal sous forte chaleur"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Laisser le substrat sécher complètement plus de 2-3 jours en été",
+          "Oublier de couper les fleurs (pompons violets) si tu veux garder la production de feuilles",
+          "Couper trop ras (laisser toujours 3-4 cm de tige)",
+          "Pot sans trous de drainage"
+        ]
+      }
     },
-
     "balcon_terrasse_ouest": {
       "compatibilite": "ideale",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["mars", "avril", "mai", "septembre"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril",
+        "mai",
+        "septembre"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 15,
         "volume_min_litres": 3,
@@ -55,14 +115,59 @@
         "Couper régulièrement pour stimuler la repousse",
         "Peut cohabiter avec le persil dans la même jardinière",
         "Arrosage modéré — laisser légèrement sécher entre deux arrosages"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "Balcon ouest, c'est probablement le meilleur endroit pour la ciboulette. Ni trop chaud, ni trop sombre : elle pousse régulièrement sans surveillance constante.",
+        "priorite_contenant": {
+          "titre": "Un pot simple, sans contrainte particulière",
+          "description": "En exposition ouest, la chaleur est modérée. Tous les matériaux fonctionnent bien, pas besoin de se soucier de la régulation thermique.",
+          "profondeur_min": "15 cm",
+          "volume_min": "3 L",
+          "type_recommande": "Pot rond ou jardinière",
+          "materiau": "Plastique, terre cuite ou bois, tous conviennent en expo ouest"
+        },
+        "substrat": {
+          "titre": "Un terreau ordinaire suffit",
+          "description": "La ciboulette n'est pas capricieuse sur le substrat. Un terreau universel standard fait très bien l'affaire.",
+          "melange_conseille": "Terreau universel ou potager standard",
+          "a_eviter": [
+            "Substrat sans drainage",
+            "Terre de jardin seule"
+          ]
+        },
+        "semer": {
+          "titre": "Semer de mars à mai ou en septembre",
+          "description": "La fenêtre de semis est large en expo ouest. Tu peux semer au printemps jusqu'en mai sans problème, ou repartir en septembre.",
+          "conseils": [
+            "Sème en surface, recouvre d'une fine couche de substrat (3 mm)",
+            "Maintiens la surface humide jusqu'à la levée (8 à 14 jours)",
+            "Une jardinière suffit pour 3 à 4 pieds côte à côte",
+            "Tu peux aussi acheter un pied en godet et le replanter directement"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Couper trop ras après la récolte (laisser 3-4 cm de tige)",
+          "Négliger la coupe régulière : sans coupe elle monte en fleurs et arrête de produire des feuilles",
+          "Pot sans trous de drainage"
+        ]
+      }
     },
-
     "balcon_terrasse_est": {
       "compatibilite": "ideale",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["mars", "avril", "mai", "septembre", "octobre"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril",
+        "mai",
+        "septembre",
+        "octobre"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 15,
         "volume_min_litres": 3,
@@ -75,14 +180,56 @@
         "Feuilles plus tendres — avantage gustatif",
         "Arrosage modéré",
         "Couper régulièrement pour éviter qu'elle monte en fleurs"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "Soleil du matin uniquement, la ciboulette s'en accommode très bien. La repousse sera un peu plus lente, mais les feuilles seront plus tendres. Aucune raison de s'en priver.",
+        "priorite_contenant": {
+          "titre": "Un pot standard, matériau peu important",
+          "description": "En expo est, la chaleur reste modérée. Plastique ou terre cuite, les deux conviennent.",
+          "profondeur_min": "15 cm",
+          "volume_min": "3 L",
+          "type_recommande": "Pot rond ou jardinière",
+          "materiau": "Plastique ou terre cuite, peu importe ici"
+        },
+        "substrat": {
+          "titre": "Terreau ordinaire bien drainé",
+          "description": "Même règle qu'ailleurs : le drainage est l'essentiel, pas la richesse du substrat.",
+          "melange_conseille": "Terreau universel ou potager standard",
+          "a_eviter": [
+            "Substrat sans drainage",
+            "Terre de jardin seule"
+          ]
+        },
+        "semer": {
+          "titre": "Semer de mars à mai, voire septembre-octobre",
+          "description": "La ciboulette tolère bien la mi-ombre. Elle germe sans problème avec le soleil du matin, compte simplement une à deux semaines de plus que sur une expo plein sud.",
+          "conseils": [
+            "Sème en surface, 3 mm de substrat par-dessus",
+            "Maintiens la surface humide jusqu'à la levée",
+            "Les feuilles seront plus tendres qu'en plein soleil, c'est un avantage gustatif",
+            "Compte 3 semaines entre deux coupes au lieu de 2"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Couper trop ras en faible lumière (laisser 4-5 cm de tige pour faciliter la repousse)",
+          "S'attendre au même rythme de repousse qu'en plein sud",
+          "Arroser trop souvent (l'évaporation est plus faible qu'en expo sud ou ouest)"
+        ]
+      }
     },
-
     "balcon_terrasse_nord": {
       "compatibilite": "possible",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["avril", "mai"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "avril",
+        "mai"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 15,
         "volume_min_litres": 3,
@@ -95,14 +242,60 @@
         "Pot foncé pour capter le maximum de chaleur disponible",
         "Éviter les coupes trop rases — laisser 5 cm pour faciliter la repousse",
         "Arrosage léger — l'évaporation est faible en exposition nord"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "Beaucoup de plantes te feraient faux bond ici. La ciboulette, non. Elle est une des rares aromatiques à vraiment fonctionner en exposition nord.",
+        "priorite_contenant": {
+          "titre": "Un pot foncé pour capter la chaleur",
+          "description": "Sur un balcon nord, la chaleur est le facteur limitant. Un pot de couleur foncée absorbe mieux la chaleur ambiante et aide les racines à rester actives.",
+          "profondeur_min": "15 cm",
+          "volume_min": "3 L",
+          "type_recommande": "Pot rond",
+          "materiau": "Plastique foncé de préférence pour capter le maximum de chaleur disponible"
+        },
+        "substrat": {
+          "titre": "Terreau léger avec bon drainage",
+          "description": "En exposition nord, l'évaporation est faible et le substrat sèche lentement. Un drainage efficace est encore plus important pour éviter les racines gorgées d'eau.",
+          "melange_conseille": "Terreau universel avec ajout de 20% de perlite ou de sable fin pour améliorer le drainage",
+          "a_eviter": [
+            "Substrat compact ou trop retenteur d'eau",
+            "Arrosages trop fréquents",
+            "Terre de jardin seule"
+          ]
+        },
+        "semer": {
+          "titre": "Semer en avril-mai uniquement",
+          "description": "Attends qu'il fasse assez doux pour semer. En expo nord, le substrat se réchauffe lentement et les graines germent mal si les températures sont encore fraîches.",
+          "conseils": [
+            "Sème à partir d'avril quand les températures nocturnes dépassent 8-10°C",
+            "Maintiens la surface humide mais sans excès jusqu'à la levée",
+            "Compte 3 à 4 semaines entre deux coupes",
+            "Laisse au moins 5 cm de tige après chaque coupe pour faciliter la repousse"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Semer avant avril (germination très difficile en conditions encore froides)",
+          "Couper trop ras (les repousses peinent à repartir en faible lumière)",
+          "Arroser trop souvent (le substrat sèche lentement en expo nord)",
+          "Utiliser un pot clair qui réfléchit la chaleur"
+        ]
+      }
     },
-
     "rebord_ext_fenetre_sud": {
       "compatibilite": "ideale",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["mars", "avril", "mai", "septembre"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril",
+        "mai",
+        "septembre"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 12,
         "volume_min_litres": 2,
@@ -114,14 +307,60 @@
         "Arrosage quotidien en plein été (petit volume = séchage rapide)",
         "2-3 plants dans une même jardinière possible",
         "Vérifier la fixation de la jardinière"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "Rebord sud, la ciboulette est parfaitement à l'aise. Petit pot, peu de substrat, arrosage à surveiller en été : c'est tout.",
+        "priorite_contenant": {
+          "titre": "Un petit pot bien drainé",
+          "description": "La ciboulette n'a besoin que de 12 cm de profondeur. Sur un rebord sud, l'enjeu c'est le volume réduit : ça sèche vite en plein soleil.",
+          "profondeur_min": "12 cm",
+          "volume_min": "2 L",
+          "type_recommande": "Petit pot individuel ou jardinière",
+          "materiau": "Terre cuite : régule mieux la chaleur qu'un plastique en plein soleil"
+        },
+        "substrat": {
+          "titre": "Terreau léger avec bon drainage",
+          "description": "Petit volume oblige : un substrat léger retient mieux l'humidité sans saturer les racines.",
+          "melange_conseille": "Terreau universel standard, bien drainé",
+          "a_eviter": [
+            "Substrat compact",
+            "Terre de jardin",
+            "Pot sans trous de drainage"
+          ]
+        },
+        "semer": {
+          "titre": "Semer ou planter en mars-mai ou en septembre",
+          "description": "La ciboulette peut se semer directement ou se planter depuis un godet. Sur un rebord sud, le semis printanier ou de fin d'été est préférable pour éviter la canicule.",
+          "conseils": [
+            "Sème en surface, 3 mm de substrat par-dessus",
+            "Arrose quotidiennement en été, les petits volumes sèchent très vite",
+            "Tu peux aligner 2 à 3 plants dans une même jardinière",
+            "Vérifie que la jardinière est bien fixée au rebord"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Laisser sécher le substrat plus d'un jour en plein été",
+          "Oublier de vérifier la fixation de la jardinière",
+          "Couper trop ras (laisser 3-4 cm de tige)",
+          "Ne pas couper les fleurs si tu veux maintenir la production de feuilles"
+        ]
+      }
     },
-
     "rebord_ext_fenetre_ouest": {
       "compatibilite": "ideale",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["mars", "avril", "mai", "septembre"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril",
+        "mai",
+        "septembre"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 12,
         "volume_min_litres": 2,
@@ -133,14 +372,58 @@
         "Arrosage modéré",
         "Coupe régulière pour stimuler la repousse",
         "Compatible avec persil et cerfeuil dans la même jardinière"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "Rebord ouest, quelques centimètres de jardinière et tu as des aromatiques fraîches toute la saison. La ciboulette est parfaitement à sa place ici.",
+        "priorite_contenant": {
+          "titre": "Un petit pot simple",
+          "description": "En expo ouest, la chaleur est modérée et le substrat sèche moins vite. Pas de contrainte particulière sur le matériau.",
+          "profondeur_min": "12 cm",
+          "volume_min": "2 L",
+          "type_recommande": "Petit pot ou jardinière",
+          "materiau": "Plastique ou terre cuite, les deux conviennent"
+        },
+        "substrat": {
+          "titre": "Terreau standard",
+          "description": "Aucune contrainte particulière ici. Un terreau universel ordinaire convient parfaitement.",
+          "melange_conseille": "Terreau universel standard",
+          "a_eviter": [
+            "Terre de jardin seule",
+            "Pot sans drainage"
+          ]
+        },
+        "semer": {
+          "titre": "Semer de mars à mai ou en septembre",
+          "description": "La fenêtre de semis est large. Sème dans cette période et la ciboulette s'installera facilement.",
+          "conseils": [
+            "Sème en surface, 3 mm de substrat par-dessus",
+            "Maintiens humide jusqu'à la levée (8 à 14 jours)",
+            "Tu peux faire cohabiter ciboulette et persil dans la même jardinière",
+            "Coupe régulièrement pour stimuler la repousse"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Négliger la coupe régulière (sans coupe elle monte en fleurs et produit moins de feuilles)",
+          "Couper trop ras (laisser 3-4 cm de tige)",
+          "Oublier de vérifier la fixation de la jardinière"
+        ]
+      }
     },
-
     "rebord_ext_fenetre_est": {
       "compatibilite": "ideale",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["mars", "avril", "mai", "septembre"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril",
+        "mai",
+        "septembre"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 12,
         "volume_min_litres": 2,
@@ -152,14 +435,56 @@
         "Repousse régulière mais légèrement plus lente",
         "Arrosage léger",
         "Peut cohabiter avec persil et aneth"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "Rebord est, soleil du matin seulement. La ciboulette s'en contente sans problème. Repousse régulière, feuilles tendres, c'est une des plantes les plus adaptées à cette exposition.",
+        "priorite_contenant": {
+          "titre": "Un petit pot ordinaire",
+          "description": "Avec le soleil du matin seulement, la chaleur reste modérée. Tous les matériaux conviennent.",
+          "profondeur_min": "12 cm",
+          "volume_min": "2 L",
+          "type_recommande": "Petit pot ou jardinière",
+          "materiau": "Plastique ou terre cuite"
+        },
+        "substrat": {
+          "titre": "Terreau standard bien drainé",
+          "description": "Même règle : drainage avant tout. Un terreau universel ordinaire convient parfaitement.",
+          "melange_conseille": "Terreau universel standard",
+          "a_eviter": [
+            "Substrat compact",
+            "Terre de jardin seule"
+          ]
+        },
+        "semer": {
+          "titre": "Semer de mars à mai ou en septembre",
+          "description": "La ciboulette tolère bien le soleil partiel. Le semis s'installe sans problème, compte simplement un peu plus de temps entre deux coupes.",
+          "conseils": [
+            "Sème en surface, 3 mm de substrat par-dessus",
+            "Maintiens humide jusqu'à la levée",
+            "Arrosage modéré, l'évaporation est plus faible qu'en expo sud",
+            "Compte 3 semaines entre deux coupes"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Couper trop ras (laisser 4-5 cm de tige en expo est)",
+          "S'attendre au même rythme de repousse qu'en plein soleil",
+          "Trop arroser (l'évaporation est faible en exposition est)"
+        ]
+      }
     },
-
     "rebord_ext_fenetre_nord": {
       "compatibilite": "possible",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["avril", "mai"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "avril",
+        "mai"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 12,
         "volume_min_litres": 2,
@@ -172,14 +497,61 @@
         "Ne pas couper trop ras (laisser 6-7 cm)",
         "Arrosage très léger",
         "Le persil sera encore plus adapté dans cette expo"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "Rebord nord, la plupart des aromatiques abandonnent. Pas la ciboulette. Elle va pousser lentement, mais elle va pousser.",
+        "priorite_contenant": {
+          "titre": "Un pot foncé pour capter la chaleur",
+          "description": "Sur un rebord nord, la chaleur est rare. Un pot foncé absorbe mieux la chaleur diffuse disponible et aide les racines à rester actives.",
+          "profondeur_min": "12 cm",
+          "volume_min": "2 L",
+          "type_recommande": "Petit pot",
+          "materiau": "Plastique foncé de préférence"
+        },
+        "substrat": {
+          "titre": "Terreau léger avec bon drainage",
+          "description": "En faible lumière, le substrat sèche très lentement. Un drainage efficace est indispensable pour éviter les racines en permanence dans l'humidité.",
+          "melange_conseille": "Terreau universel avec 20% de perlite ou de sable fin",
+          "a_eviter": [
+            "Substrat compact ou trop retenteur d'eau",
+            "Arrosages fréquents",
+            "Terre de jardin"
+          ]
+        },
+        "semer": {
+          "titre": "Semer en avril-mai uniquement",
+          "description": "Attends que les températures soient douces. En rebord nord, la germination sera lente et la croissance aussi : c'est normal, pas un échec.",
+          "conseils": [
+            "Sème à partir d'avril quand les nuits sont douces",
+            "Maintiens humide jusqu'à la levée, mais sans excès",
+            "Laisse 5 à 6 cm de tige après chaque coupe",
+            "Compte 4 à 5 semaines entre deux coupes"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Semer avant avril (germination très difficile en conditions froides)",
+          "Couper trop ras (les repousses repartent difficilement en faible lumière)",
+          "Arroser trop souvent (le substrat sèche lentement en expo nord)",
+          "S'attendre à la même productivité qu'en expo sud ou ouest"
+        ]
+      }
     },
-
     "interieur_fenetre_sud": {
       "compatibilite": "ideale",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["janvier", "fevrier", "mars", "septembre", "octobre"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "janvier",
+        "fevrier",
+        "mars",
+        "septembre",
+        "octobre"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 12,
         "volume_min_litres": 2,
@@ -192,14 +564,60 @@
         "Humidifier l'air sec en hiver (chauffage central assèche)",
         "Arrosage modéré — laisser sécher légèrement entre deux arrosages",
         "Elle repousse toute l'année en intérieur chauffé"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "Fenêtre sud en intérieur, la ciboulette est parfaitement à sa place. C'est une des aromatiques les plus faciles à cultiver en appartement, et elle produit toute l'année.",
+        "priorite_contenant": {
+          "titre": "Un petit pot individuel bien drainé",
+          "description": "12 cm de profondeur suffisent. L'essentiel est que le pot soit bien drainé et pas posé dans une soucoupe remplie d'eau en permanence.",
+          "profondeur_min": "12 cm",
+          "volume_min": "2 L",
+          "type_recommande": "Pot individuel",
+          "materiau": "Plastique ou terre cuite, les deux fonctionnent bien"
+        },
+        "substrat": {
+          "titre": "Terreau universel standard",
+          "description": "Pas besoin de chercher un substrat spécial. Un terreau universel ordinaire convient parfaitement, l'essentiel est le drainage.",
+          "melange_conseille": "Terreau universel standard",
+          "a_eviter": [
+            "Substrat sans drainage",
+            "Pot sans trous"
+          ]
+        },
+        "semer": {
+          "titre": "Semer ou planter toute l'année en intérieur chauffé",
+          "description": "En intérieur chauffé, il n'y a plus de saison à respecter. Tu peux semer ou planter à n'importe quelle période de l'année.",
+          "conseils": [
+            "Sème en surface, 3 mm de substrat par-dessus",
+            "Arrosage modéré : laisse légèrement sécher entre deux arrosages",
+            "Tourne le pot d'un quart de tour chaque semaine pour une croissance uniforme",
+            "En hiver, l'air chauffé est sec : vaporise un peu d'eau sur les feuilles de temps en temps"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Poser le pot directement contre un radiateur (l'air trop sec grille les feuilles)",
+          "Arroser trop souvent (en intérieur l'évaporation est faible)",
+          "Négliger de tourner le pot (elle pousse vers la lumière et déséquilibre la touffe)",
+          "Couper trop ras"
+        ]
+      }
     },
-
     "interieur_fenetre_ouest": {
       "compatibilite": "ideale",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["fevrier", "mars", "avril", "septembre", "octobre"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "fevrier",
+        "mars",
+        "avril",
+        "septembre",
+        "octobre"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 12,
         "volume_min_litres": 2,
@@ -212,14 +630,57 @@
         "Arrosage léger",
         "Tourner le pot vers la lumière chaque semaine",
         "Éviter de la placer près d'un radiateur"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "Fenêtre ouest en intérieur, la ciboulette pousse bien. La lumière de l'après-midi lui suffit pour une repousse régulière.",
+        "priorite_contenant": {
+          "titre": "Un petit pot individuel bien drainé",
+          "description": "12 cm de profondeur suffisent. Assure-toi simplement que le pot a des trous de drainage.",
+          "profondeur_min": "12 cm",
+          "volume_min": "2 L",
+          "type_recommande": "Pot individuel",
+          "materiau": "Plastique, peu importe"
+        },
+        "substrat": {
+          "titre": "Terreau universel standard",
+          "description": "Aucune contrainte particulière. Le terreau universel ordinaire convient parfaitement.",
+          "melange_conseille": "Terreau universel standard",
+          "a_eviter": [
+            "Substrat sans drainage",
+            "Pot sans trous"
+          ]
+        },
+        "semer": {
+          "titre": "Semer ou planter toute l'année",
+          "description": "En intérieur, pas de contrainte saisonnière. Sème ou plante quand tu en as envie.",
+          "conseils": [
+            "Sème en surface, 3 mm de substrat par-dessus",
+            "Arrosage léger et régulier",
+            "Tourne le pot vers la lumière chaque semaine",
+            "Évite de placer le pot directement contre un radiateur"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Placer le pot trop loin de la fenêtre (la repousse sera très lente)",
+          "Arroser trop fréquemment (l'évaporation est faible en intérieur)",
+          "Ne pas tourner le pot (croissance déséquilibrée vers la lumière)"
+        ]
+      }
     },
-
     "interieur_fenetre_est": {
       "compatibilite": "possible",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["mars", "avril", "septembre"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril",
+        "septembre"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 12,
         "volume_min_litres": 2,
@@ -232,14 +693,57 @@
         "Ne pas couper trop ras (laisser 6-7 cm)",
         "Arrosage très léger, laisser bien sécher entre deux arrosages",
         "Éviter l'excès d'eau — en faible lumière, le terreau sèche lentement"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "Fenêtre est en intérieur, la lumière du matin filtrée par la vitre c'est pas l'idéal, mais la ciboulette est assez tolérante pour s'en sortir.",
+        "priorite_contenant": {
+          "titre": "Un pot bien drainé, c'est la priorité",
+          "description": "En faible lumière, le substrat sèche lentement. Un drainage efficace est essentiel pour éviter les racines en permanence dans l'humidité.",
+          "profondeur_min": "12 cm",
+          "volume_min": "2 L",
+          "type_recommande": "Pot individuel",
+          "materiau": "Plastique"
+        },
+        "substrat": {
+          "titre": "Terreau léger avec drainage amélioré",
+          "description": "En faible lumière, l'évaporation est très lente. Un substrat allégé limite le risque de surhumidité.",
+          "melange_conseille": "Terreau universel avec 20% de perlite pour améliorer le drainage",
+          "a_eviter": [
+            "Substrat compact",
+            "Arrosages fréquents",
+            "Pot sans drainage"
+          ]
+        },
+        "semer": {
+          "titre": "Semer de mars à septembre, croissance lente",
+          "description": "La germination est possible, mais compte plus de temps sur tout le cycle. Les feuilles seront fines et la repousse lente : c'est normal dans ces conditions.",
+          "conseils": [
+            "Laisse bien sécher le substrat entre deux arrosages",
+            "Ne coupe pas trop ras : laisse 6-7 cm de tige",
+            "Compte 4 semaines entre deux coupes",
+            "Une petite lampe horticole quelques heures par jour peut tout changer si la croissance te semble insuffisante"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Arroser trop souvent (en faible lumière le substrat sèche très lentement)",
+          "Couper trop ras (les repousses peinent à repartir avec peu de lumière)",
+          "S'attendre à la même productivité qu'en fenêtre sud"
+        ]
+      }
     },
-
     "interieur_fenetre_nord": {
       "compatibilite": "possible",
       "difficulte": "moyen",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["avril", "mai"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "avril",
+        "mai"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 12,
         "volume_min_litres": 2,
@@ -252,14 +756,61 @@
         "Repousse très lente (5-6 semaines entre coupes)",
         "Ne jamais couper trop ras",
         "Si tu as la possibilité, une lampe horticole quelques heures par jour changerait tout"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "Fenêtre nord en intérieur, c'est la limite pour la ciboulette. Elle peut s'en sortir, mais il faut être patient et gérer l'arrosage avec soin.",
+        "priorite_contenant": {
+          "titre": "Un pot bien drainé, c'est la priorité absolue",
+          "description": "En très faible lumière, le substrat sèche extrêmement lentement. La moindre accumulation d'eau suffit à pourrir les racines.",
+          "profondeur_min": "12 cm",
+          "volume_min": "2 L",
+          "type_recommande": "Pot individuel",
+          "materiau": "Plastique"
+        },
+        "substrat": {
+          "titre": "Substrat avec drainage renforcé",
+          "description": "L'excès d'eau est le principal risque en fenêtre nord. Un substrat allégé limite ce risque au maximum.",
+          "melange_conseille": "Terreau universel avec 25 à 30% de perlite ou de sable fin",
+          "a_eviter": [
+            "Substrat compact",
+            "Arrosages fréquents",
+            "Soucoupe remplie d'eau"
+          ]
+        },
+        "semer": {
+          "titre": "Acheter un pied plutôt que semer",
+          "description": "En fenêtre nord, la germination depuis les graines est difficile. Acheter un pied en godet en jardinerie et le transplanter est beaucoup plus fiable dans ces conditions.",
+          "conseils": [
+            "Privilégie l'achat d'un pied en godet plutôt que le semis depuis les graines",
+            "Arrose très peu : vérifie que le substrat est bien sec avant d'arroser",
+            "Ne coupe jamais trop ras : laisse 6-7 cm de tige minimum",
+            "Une petite lampe horticole quelques heures par jour changerait complètement la donne"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Arroser trop souvent (le substrat peut rester humide une semaine ou plus)",
+          "Couper trop ras (les repousses ne repartent pas facilement avec si peu de lumière)",
+          "Semer depuis des graines (achète un pied en godet, c'est beaucoup plus fiable)",
+          "S'attendre à des résultats comparables à une fenêtre sud"
+        ]
+      }
     },
-
     "jardin_plein_soleil": {
       "compatibilite": "ideale",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["mars", "avril", "mai", "aout", "septembre"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril",
+        "mai",
+        "aout",
+        "septembre"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 15,
         "volume_min_litres": null,
@@ -272,14 +823,59 @@
         "Se ressème naturellement après quelques saisons",
         "Couper les fleurs pour prolonger la production de feuilles, ou les laisser pour les pollinisateurs",
         "Diviser les touffes tous les 2-3 ans pour la garder vigoureuse"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "En pleine terre plein soleil, la ciboulette est increvable. Elle pousse, repousse, se ressème et revient d'année en année. Pas besoin de s'inquiéter.",
+        "priorite_contenant": {
+          "titre": "Pleine terre ou grand pot, les deux marchent",
+          "description": "En pleine terre, aucune contrainte de volume. La ciboulette va se développer librement et former des touffes de plus en plus volumineuses au fil des saisons.",
+          "profondeur_min": "15 cm (pleine terre naturellement)",
+          "volume_min": null,
+          "type_recommande": "Pleine terre ou grand pot",
+          "materiau": "Sol ordinaire bien drainé"
+        },
+        "substrat": {
+          "titre": "Sol ordinaire, pas besoin de faire compliqué",
+          "description": "La ciboulette s'adapte à presque tous les sols. L'essentiel c'est le drainage : elle n'aime pas les zones qui retiennent l'eau en permanence.",
+          "melange_conseille": "Sol natif ordinaire, pH 6-7. Ajouter un peu de compost mûr au premier semis si le sol est pauvre",
+          "a_eviter": [
+            "Zone très argileuse et mal drainée",
+            "Sol constamment humide"
+          ]
+        },
+        "semer": {
+          "titre": "Semer de mars à mai ou en août-septembre",
+          "description": "La fenêtre de semis est large en plein soleil. Tu peux aussi diviser les touffes existantes tous les 2 à 3 ans et replanter les éclats directement.",
+          "conseils": [
+            "Sème en ligne ou en touffes, recouvre de 3 mm de terre fine",
+            "Arrose jusqu'à l'installation, ensuite la plante se gère presque seule",
+            "Elle peut servir de bordure répulsive : elle éloigne les pucerons des légumes voisins",
+            "Divise les touffes tous les 2-3 ans pour garder la plante vigoureuse"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Ne jamais couper (sans coupe régulière elle monte en graines et perd en saveur)",
+          "Laisser les fleurs trop longtemps si tu veux prolonger la production de feuilles",
+          "Oublier de diviser les touffes vieillissantes (elles s'épuisent avec le temps)"
+        ]
+      }
     },
-
     "jardin_mi_ombre": {
       "compatibilite": "ideale",
       "difficulte": "facile",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["mars", "avril", "mai", "aout", "septembre"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "mars",
+        "avril",
+        "mai",
+        "aout",
+        "septembre"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 15,
         "volume_min_litres": null,
@@ -292,14 +888,56 @@
         "Monte moins vite en fleurs — avantage",
         "Arrosage modéré",
         "Bon compagnon pour d'autres légumes en mi-ombre"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "Mi-ombre en jardin, la ciboulette y est souvent encore meilleure qu'en plein soleil. Les feuilles restent tendres plus longtemps et elle monte moins vite en graines.",
+        "priorite_contenant": {
+          "titre": "Pleine terre sans contrainte",
+          "description": "En pleine terre mi-ombre, la ciboulette se développe librement. Aucune contrainte de volume.",
+          "profondeur_min": "15 cm (pleine terre)",
+          "volume_min": null,
+          "type_recommande": "Pleine terre",
+          "materiau": "Sol ordinaire"
+        },
+        "substrat": {
+          "titre": "Sol ordinaire bien drainé",
+          "description": "En mi-ombre, l'évaporation est plus faible qu'en plein soleil. Un sol bien drainé évite les excès d'humidité.",
+          "melange_conseille": "Sol natif standard. Un peu de compost mûr peut améliorer la structure si le sol est pauvre",
+          "a_eviter": [
+            "Zone constamment humide",
+            "Sol très compact non travaillé"
+          ]
+        },
+        "semer": {
+          "titre": "Semer de mars à mai ou en fin d'été",
+          "description": "En mi-ombre, la fenêtre de semis est un peu plus restreinte qu'en plein soleil. Le printemps reste la meilleure période.",
+          "conseils": [
+            "Sème en surface, 3 mm de terre fine par-dessus",
+            "Arrosage modéré après installation",
+            "Elle monte moins vite en fleurs qu'en plein soleil, avantage pour la production de feuilles",
+            "Bon compagnon pour d'autres légumes de mi-ombre"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Planter dans une zone constamment détrempée (les racines pourrissent)",
+          "Couper trop ras (laisser 4 cm de tige)",
+          "Négliger la division des touffes tous les 2-3 ans"
+        ]
+      }
     },
-
     "jardin_ombre": {
       "compatibilite": "possible",
       "difficulte": "moyen",
-      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
-      "mois_semis_ideal": ["avril", "mai"],
+      "stades_recommandes": [
+        "semis",
+        "levee",
+        "croissance",
+        "recolte"
+      ],
+      "mois_semis_ideal": [
+        "avril",
+        "mai"
+      ],
       "pot_recommande": {
         "profondeur_min_cm": 15,
         "volume_min_litres": null,
@@ -312,7 +950,42 @@
         "Repousse lente",
         "Le persil sera encore plus adapté à cette exposition",
         "Arrosage modéré"
-      ]
+      ],
+      "bien_commencer": {
+        "accroche": "Zone ombragée, la ciboulette peut s'en sortir. C'est une des rares aromatiques à tenter le coup dans ce type de coin.",
+        "priorite_contenant": {
+          "titre": "Pleine terre enrichie",
+          "description": "En zone ombragée, compenser le manque de lumière par un sol riche en compost aide la plante à rester productive.",
+          "profondeur_min": "15 cm (pleine terre)",
+          "volume_min": null,
+          "type_recommande": "Pleine terre",
+          "materiau": "Sol enrichi en compost"
+        },
+        "substrat": {
+          "titre": "Sol enrichi pour compenser le manque de lumière",
+          "description": "Un sol plus riche en matière organique apporte des nutriments supplémentaires qui compensent partiellement l'énergie solaire limitée.",
+          "melange_conseille": "Sol natif avec 20 à 30% de compost mûr",
+          "a_eviter": [
+            "Zone constamment humide",
+            "Sol très pauvre non amendé"
+          ]
+        },
+        "semer": {
+          "titre": "Semer en avril-mai uniquement",
+          "description": "En zone ombragée, attends que les températures soient bien établies. La ciboulette germe et pousse lentement dans ces conditions.",
+          "conseils": [
+            "Enrichis le sol en compost avant de semer",
+            "Sème à partir d'avril-mai",
+            "Compte 3 à 4 semaines entre deux coupes",
+            "Le persil sera encore plus adapté à ce type d'emplacement"
+          ]
+        },
+        "erreurs_a_eviter": [
+          "Planter dans une zone constamment détrempée",
+          "Couper trop ras (laisser 5 cm de tige en ombre)",
+          "Arroser trop souvent (l'évaporation est faible à l'ombre)"
+        ]
+      }
     }
   }
 }

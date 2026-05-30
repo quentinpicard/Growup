@@ -12,6 +12,7 @@ import { parseGlossaryText } from '../../utils/parseGlossaryText'
 import carotteData      from '../../data/carotte_plants.json'
 import tomateCeriseData from '../../data/tomate_cerise_plants.json'
 import fraiseData       from '../../data/fraise_plants.json'
+import cibouletteData   from '../../data/ciboulette_plants.json'
 import brunoImg from '../../assets/Mascotte 1.png'
 
 import IconArrowLeft  from '../../assets/icons/Arrow_alt_left.svg?react'
@@ -61,6 +62,7 @@ const PLANT_EXTRAS = {
   'carotte':       carotteData,
   'tomate-cerise': tomateCeriseData,
   'fraise':        fraiseData,
+  'ciboulette':    cibouletteData,
 }
 
 const PICTO_MAP = {

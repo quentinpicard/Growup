@@ -1,0 +1,318 @@
+{
+  "id": "ciboulette",
+  "nom": "Ciboulette",
+  "nom_latin": "Allium schoenoprasum",
+  "emoji": "🌿",
+  "famille": "Amaryllidacées",
+  "type": "Aromatique",
+  "cycle_jours": 60,
+  "stades": ["semis", "levee", "croissance", "recolte"],
+  "particularites_generales": {
+    "racine_bulbeuse_fine": true,
+    "profondeur_minimum_cm": 10,
+    "transplantation": true,
+    "vivace": true,
+    "recoupe_possible": true,
+    "ensoleillement_min_h": 2,
+    "ensoleillement_ideal_h": 4,
+    "substrat": "Tout terreau ordinaire, bien drainé, pH 6-7"
+  },
+  "matrice_contextes": {
+
+    "balcon_terrasse_sud": {
+      "compatibilite": "ideale",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["mars", "avril", "mai", "septembre"],
+      "pot_recommande": {
+        "profondeur_min_cm": 15,
+        "volume_min_litres": 3,
+        "type": "Pot rond ou jardinière",
+        "materiau_conseille": "Terre cuite (évite la surchauffe en plein été)"
+      },
+      "conseil_bruno": "La ciboulette en plein sud, ça marche très bien — mais surveille l'été. Trop de chaleur et de sécheresse, et les feuilles jaunissent et se couchent. Arrose régulièrement, coupe régulièrement (ça stimule la repousse), et elle va tenir toute la saison. Elle est vivace, donc si tu la protèges un peu en hiver, elle revient l'année d'après.",
+      "besoins_specifiques": [
+        "Couper à 3-4 cm du sol pour stimuler la repousse",
+        "Arrosage régulier — elle déteste la sécheresse prolongée",
+        "Couper les fleurs (pompons violets) si tu veux garder la production de feuilles",
+        "Elle est vivace : protéger légèrement en hiver pour la retrouver au printemps"
+      ]
+    },
+
+    "balcon_terrasse_ouest": {
+      "compatibilite": "ideale",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["mars", "avril", "mai", "septembre"],
+      "pot_recommande": {
+        "profondeur_min_cm": 15,
+        "volume_min_litres": 3,
+        "type": "Pot rond ou jardinière",
+        "materiau_conseille": "Plastique, terre cuite ou bois"
+      },
+      "conseil_bruno": "Balcon ouest, c'est peut-être l'emplacement idéal pour la ciboulette. Pas trop chaud, assez lumineux, elle pousse tranquillement et reprouce bien. Tu peux en planter plusieurs en ligne dans une jardinière et couper à la demande — comme un petit stock d'aromatiques à portée de main.",
+      "besoins_specifiques": [
+        "Couper régulièrement pour stimuler la repousse",
+        "Peut cohabiter avec le persil dans la même jardinière",
+        "Arrosage modéré — laisser légèrement sécher entre deux arrosages"
+      ]
+    },
+
+    "balcon_terrasse_est": {
+      "compatibilite": "ideale",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["mars", "avril", "mai", "septembre", "octobre"],
+      "pot_recommande": {
+        "profondeur_min_cm": 15,
+        "volume_min_litres": 3,
+        "type": "Pot rond ou jardinière",
+        "materiau_conseille": "Plastique ou terre cuite"
+      },
+      "conseil_bruno": "La ciboulette tolère très bien le soleil du matin seulement. Elle pousse un peu plus lentement qu'en plein sud, mais la repousse est régulière et les feuilles sont souvent plus tendres et moins âcres. Si t'as un balcon est, c'est une des meilleures plantes à y mettre.",
+      "besoins_specifiques": [
+        "Croissance légèrement plus lente qu'en plein soleil",
+        "Feuilles plus tendres — avantage gustatif",
+        "Arrosage modéré",
+        "Couper régulièrement pour éviter qu'elle monte en fleurs"
+      ]
+    },
+
+    "balcon_terrasse_nord": {
+      "compatibilite": "possible",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["avril", "mai"],
+      "pot_recommande": {
+        "profondeur_min_cm": 15,
+        "volume_min_litres": 3,
+        "type": "Pot rond",
+        "materiau_conseille": "Plastique foncé pour capter la chaleur"
+      },
+      "conseil_bruno": "Sur un balcon nord, beaucoup de plantes te feraient faux bond — pas la ciboulette. Elle est robuste, tolère bien la mi-ombre, et continue à pousser même quand la lumière est faible. La repousse sera plus lente, mais elle sera là. C'est une des rares aromatiques qui s'adapte vraiment à des conditions difficiles.",
+      "besoins_specifiques": [
+        "Repousse plus lente (compter 3-4 semaines entre coupes au lieu de 2)",
+        "Pot foncé pour capter le maximum de chaleur disponible",
+        "Éviter les coupes trop rases — laisser 5 cm pour faciliter la repousse",
+        "Arrosage léger — l'évaporation est faible en exposition nord"
+      ]
+    },
+
+    "rebord_ext_fenetre_sud": {
+      "compatibilite": "ideale",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["mars", "avril", "mai", "septembre"],
+      "pot_recommande": {
+        "profondeur_min_cm": 12,
+        "volume_min_litres": 2,
+        "type": "Petit pot individuel ou jardinière",
+        "materiau_conseille": "Terre cuite"
+      },
+      "conseil_bruno": "Rebord sud, la ciboulette est parfaitement à son aise. Petit pot de 10-12 cm suffit, et tu peux en mettre 2-3 à la suite dans ta jardinière. Coupe régulièrement et elle va tenir toute la saison. Surveille juste l'arrosage — les petits pots sèchent vite en plein soleil.",
+      "besoins_specifiques": [
+        "Arrosage quotidien en plein été (petit volume = séchage rapide)",
+        "2-3 plants dans une même jardinière possible",
+        "Vérifier la fixation de la jardinière"
+      ]
+    },
+
+    "rebord_ext_fenetre_ouest": {
+      "compatibilite": "ideale",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["mars", "avril", "mai", "septembre"],
+      "pot_recommande": {
+        "profondeur_min_cm": 12,
+        "volume_min_litres": 2,
+        "type": "Petit pot ou jardinière",
+        "materiau_conseille": "Plastique ou terre cuite"
+      },
+      "conseil_bruno": "Rebord ouest, aucun problème pour la ciboulette. Elle a ce qu'il lui faut, elle pousse bien, et c'est franchement une des plantes les plus rentables par rapport à l'espace qu'elle occupe. Quelques centimètres de jardinière pour des aromatiques fraîches toute la saison.",
+      "besoins_specifiques": [
+        "Arrosage modéré",
+        "Coupe régulière pour stimuler la repousse",
+        "Compatible avec persil et cerfeuil dans la même jardinière"
+      ]
+    },
+
+    "rebord_ext_fenetre_est": {
+      "compatibilite": "ideale",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["mars", "avril", "mai", "septembre"],
+      "pot_recommande": {
+        "profondeur_min_cm": 12,
+        "volume_min_litres": 2,
+        "type": "Petit pot ou jardinière",
+        "materiau_conseille": "Plastique"
+      },
+      "conseil_bruno": "Rebord est, soleil du matin — la ciboulette s'en contente très bien. Repousse un peu plus lente, mais elle est là, régulière, fiable. C'est exactement le type de plante pour ce genre d'exposition : pas capricieuse, pas besoin de plein soleil.",
+      "besoins_specifiques": [
+        "Repousse régulière mais légèrement plus lente",
+        "Arrosage léger",
+        "Peut cohabiter avec persil et aneth"
+      ]
+    },
+
+    "rebord_ext_fenetre_nord": {
+      "compatibilite": "possible",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["avril", "mai"],
+      "pot_recommande": {
+        "profondeur_min_cm": 12,
+        "volume_min_litres": 2,
+        "type": "Petit pot",
+        "materiau_conseille": "Plastique foncé"
+      },
+      "conseil_bruno": "Rebord nord, la ciboulette fait partie des rares plantes aromatiques qui peuvent s'en sortir. Ce sera lent, les feuilles seront plus fines, mais ça pousse. Si tu n'as que ça, n'hésite pas — c'est déjà ça. Et le persil sera ton meilleur allié là aussi.",
+      "besoins_specifiques": [
+        "Repousse lente — attendre 4-5 semaines entre coupes",
+        "Ne pas couper trop ras (laisser 6-7 cm)",
+        "Arrosage très léger",
+        "Le persil sera encore plus adapté dans cette expo"
+      ]
+    },
+
+    "interieur_fenetre_sud": {
+      "compatibilite": "ideale",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["janvier", "fevrier", "mars", "septembre", "octobre"],
+      "pot_recommande": {
+        "profondeur_min_cm": 12,
+        "volume_min_litres": 2,
+        "type": "Pot individuel",
+        "materiau_conseille": "Plastique ou terre cuite"
+      },
+      "conseil_bruno": "Fenêtre sud en intérieur, la ciboulette est parfaitement à sa place. C'est une des plantes aromatiques les plus faciles à faire en appartement. Elle pousse, tu coupes, elle repousse. En hiver, avec le chauffage, l'air est sec — pense à vaporiser un peu d'eau sur les feuilles ou à mettre une coupelle d'eau à côté.",
+      "besoins_specifiques": [
+        "Tourner le pot d'un quart de tour chaque semaine pour une croissance uniforme",
+        "Humidifier l'air sec en hiver (chauffage central assèche)",
+        "Arrosage modéré — laisser sécher légèrement entre deux arrosages",
+        "Elle repousse toute l'année en intérieur chauffé"
+      ]
+    },
+
+    "interieur_fenetre_ouest": {
+      "compatibilite": "ideale",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["fevrier", "mars", "avril", "septembre", "octobre"],
+      "pot_recommande": {
+        "profondeur_min_cm": 12,
+        "volume_min_litres": 2,
+        "type": "Pot individuel",
+        "materiau_conseille": "Plastique"
+      },
+      "conseil_bruno": "Fenêtre ouest en intérieur, la ciboulette pousse bien. La lumière de l'après-midi lui suffit. Repousse un peu plus lente qu'en fenêtre sud, mais très régulière — c'est une plante fiable pour démarrer en aromatiques d'intérieur.",
+      "besoins_specifiques": [
+        "Repousse régulière, légèrement plus lente qu'en fenêtre sud",
+        "Arrosage léger",
+        "Tourner le pot vers la lumière chaque semaine",
+        "Éviter de la placer près d'un radiateur"
+      ]
+    },
+
+    "interieur_fenetre_est": {
+      "compatibilite": "possible",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["mars", "avril", "septembre"],
+      "pot_recommande": {
+        "profondeur_min_cm": 12,
+        "volume_min_litres": 2,
+        "type": "Pot individuel",
+        "materiau_conseille": "Plastique"
+      },
+      "conseil_bruno": "Fenêtre est en intérieur — la ciboulette s'en sort. La lumière du matin filtrée par la vitre, c'est pas l'idéal, mais elle est assez tolérante pour tenir. Les feuilles seront plus fines et la repousse plus lente. Laisse-la bien sécher entre deux arrosages pour éviter les problèmes de racines.",
+      "besoins_specifiques": [
+        "Repousse lente — compter 4 semaines entre coupes",
+        "Ne pas couper trop ras (laisser 6-7 cm)",
+        "Arrosage très léger, laisser bien sécher entre deux arrosages",
+        "Éviter l'excès d'eau — en faible lumière, le terreau sèche lentement"
+      ]
+    },
+
+    "interieur_fenetre_nord": {
+      "compatibilite": "possible",
+      "difficulte": "moyen",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["avril", "mai"],
+      "pot_recommande": {
+        "profondeur_min_cm": 12,
+        "volume_min_litres": 2,
+        "type": "Pot individuel",
+        "materiau_conseille": "Plastique"
+      },
+      "conseil_bruno": "Fenêtre nord en intérieur, c'est la limite pour la ciboulette — mais c'est une des seules plantes comestibles qui peut quand même s'en sortir. La repousse sera vraiment lente, les feuilles fines et pâles. C'est possible, mais sois patient. Et surtout, n'arrose presque pas — en si faible lumière, la terre met longtemps à sécher et les racines risquent de pourrir.",
+      "besoins_specifiques": [
+        "Arrosage très limité — vérifier que la terre est bien sèche avant d'arroser",
+        "Repousse très lente (5-6 semaines entre coupes)",
+        "Ne jamais couper trop ras",
+        "Si tu as la possibilité, une lampe horticole quelques heures par jour changerait tout"
+      ]
+    },
+
+    "jardin_plein_soleil": {
+      "compatibilite": "ideale",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["mars", "avril", "mai", "aout", "septembre"],
+      "pot_recommande": {
+        "profondeur_min_cm": 15,
+        "volume_min_litres": null,
+        "type": "Pleine terre ou grand pot",
+        "materiau_conseille": "Sol ordinaire bien drainé"
+      },
+      "conseil_bruno": "En pleine terre plein soleil, la ciboulette est franchement increvable. Elle pousse vite, elle repousse vite, elle se ressème seule au bout de quelques années. Tu peux en faire une bordure de jardin — ça repousse les pucerons et ça attire les pollinisateurs quand elle fleurit. Une plante qui sert à table et au jardin.",
+      "besoins_specifiques": [
+        "Peut servir de bordure répulsive (repousse les pucerons)",
+        "Se ressème naturellement après quelques saisons",
+        "Couper les fleurs pour prolonger la production de feuilles, ou les laisser pour les pollinisateurs",
+        "Diviser les touffes tous les 2-3 ans pour la garder vigoureuse"
+      ]
+    },
+
+    "jardin_mi_ombre": {
+      "compatibilite": "ideale",
+      "difficulte": "facile",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["mars", "avril", "mai", "aout", "septembre"],
+      "pot_recommande": {
+        "profondeur_min_cm": 15,
+        "volume_min_litres": null,
+        "type": "Pleine terre",
+        "materiau_conseille": "Sol ordinaire"
+      },
+      "conseil_bruno": "Mi-ombre en jardin, la ciboulette adore. Elle s'y développe souvent encore mieux qu'en plein soleil en été — les feuilles restent tendres plus longtemps et elle ne monte pas en graines aussi vite. Un bon coin sous un arbre ou le long d'un mur à l'ouest.",
+      "besoins_specifiques": [
+        "Feuilles plus tendres qu'en plein soleil",
+        "Monte moins vite en fleurs — avantage",
+        "Arrosage modéré",
+        "Bon compagnon pour d'autres légumes en mi-ombre"
+      ]
+    },
+
+    "jardin_ombre": {
+      "compatibilite": "possible",
+      "difficulte": "moyen",
+      "stades_recommandes": ["semis", "levee", "croissance", "recolte"],
+      "mois_semis_ideal": ["avril", "mai"],
+      "pot_recommande": {
+        "profondeur_min_cm": 15,
+        "volume_min_litres": null,
+        "type": "Pleine terre",
+        "materiau_conseille": "Sol enrichi en compost"
+      },
+      "conseil_bruno": "Zone ombragée en jardin, la ciboulette peut s'en sortir — c'est une des rares aromatiques à accepter ça. Repousse plus lente et feuilles plus fines, mais elle tient. Si le coin est vraiment sombre, enrichis bien le sol en compost pour compenser. Et le persil sera encore plus à l'aise que la ciboulette dans ce genre d'endroit.",
+      "besoins_specifiques": [
+        "Enrichir le sol en compost pour compenser le manque de lumière",
+        "Repousse lente",
+        "Le persil sera encore plus adapté à cette exposition",
+        "Arrosage modéré"
+      ]
+    }
+  }
+}

@@ -39,6 +39,7 @@
   height: auto;
   flex-shrink: 0;
   object-fit: contain;
+  z-index: 0;
 }
 
 // ─── Steps 3-7 : section bulle seule (mascotte en absolute) ──────────────────
@@ -96,6 +97,7 @@
   position: absolute;
   pointer-events: none;
   object-fit: contain;
+  z-index: 0;
 }
 
 // ─── Steps 3-7 : bulle en haut, choix centrés ───────────────────────────────
@@ -142,6 +144,7 @@
   height: auto;
   object-fit: contain;
   transform: rotate(180deg);
+  z-index: 0;
 }
 
 .mascotteObjectives {
@@ -149,7 +152,7 @@
   left: -7%;
   top: 10px;
   transform: rotate(220deg);
-  z-index: 1;
+  z-index: 0;
 }
 
 .bubbleSectionObjectives {
@@ -238,6 +241,7 @@
   width: 177px;
   height: 226px;
   object-fit: contain;
+  z-index: 0;
 }
 
 .splashTitle {
@@ -364,6 +368,7 @@
   width: 140px;
   height: auto;
   object-fit: contain;
+  z-index: 0;
 }
 
 .doneTitle {
