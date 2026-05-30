@@ -75,11 +75,44 @@ export default function AjoutPlantePage() {
     ? `${user.zone_id}_${user.exposition_id}`
     : null
 
+  const COMPAT_SCORE = { ideale: 0, possible: 1, deconseille: 2 }
+  const DIFF_SCORE   = { facile: 0, moyen: 1, difficile: 2 }
+
+  function getPlantScores(plant) {
+    const catalogueCtx = contextKey ? getContexteFromCatalogue(plant.id, contextKey) : null
+    const contexte     = contextKey ? plant.contextes?.[contextKey] ?? null : null
+    const compat = catalogueCtx?.compatibilite ?? contexte?.compatibilite ?? plant.compatibilite
+    const diff   = catalogueCtx?.difficulte    ?? contexte?.difficulte    ?? plant.difficulte
+    return {
+      compatNiveau: compat?.niveau ?? 'possible',
+      diffNiveau:   diff?.niveau   ?? 'moyen',
+    }
+  }
+
   const filteredPlants = useMemo(() => {
-    if (!search.trim()) return plants
     const q = search.trim().toLowerCase()
-    return plants.filter(p => p.nom.toLowerCase().includes(q))
-  }, [search])
+    let list = q ? plants.filter(p => p.nom.toLowerCase().includes(q)) : [...plants]
+
+    if (contextKey) {
+      list = list.filter(p => {
+        const { compatNiveau } = getPlantScores(p)
+        return compatNiveau !== 'deconseille'
+      })
+    }
+
+    list.sort((a, b) => {
+      const sa = getPlantScores(a)
+      const sb = getPlantScores(b)
+      if (contextKey) {
+        const scoreA = COMPAT_SCORE[sa.compatNiveau] * 3 + DIFF_SCORE[sa.diffNiveau]
+        const scoreB = COMPAT_SCORE[sb.compatNiveau] * 3 + DIFF_SCORE[sb.diffNiveau]
+        return scoreA - scoreB
+      }
+      return DIFF_SCORE[sa.diffNiveau] - DIFF_SCORE[sb.diffNiveau]
+    })
+
+    return list
+  }, [search, contextKey])
 
   function handleAdd(plant) {
     dispatch({
